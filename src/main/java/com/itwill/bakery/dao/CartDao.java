@@ -69,10 +69,10 @@ public class CartDao {
 	}
 	
 	//cart delete 1
-	public int deleteCartByCNo(Cart cart)throws Exception{
+	public int deleteCartByCNo(int cart_no)throws Exception{
 		Connection con=dataSource.getConnection();
 		PreparedStatement pstmt=con.prepareStatement(CartSQL.DELETE_CART_BY_CART_NO);
-		pstmt.setInt(1, cart.getCart_no());
+		pstmt.setInt(1, cart_no);
 		int deleteRowCount=pstmt.executeUpdate();
 		pstmt.close();
 		con.close();
@@ -80,10 +80,10 @@ public class CartDao {
 	}
 	
 	//cart delete all
-	 public int deleteCart(Cart cart)throws Exception{
+	 public int deleteCart(String userid)throws Exception{
 		  Connection con=dataSource.getConnection();
 		  PreparedStatement pstmt=con.prepareStatement(CartSQL.DELETE_CART_BY_USERID);
-		  pstmt.setString(1, cart.getUser_id());
+		  pstmt.setString(1, userid);
 		  int rowCount=pstmt.executeUpdate();
 		  pstmt.close();
 		  con.close();
@@ -91,8 +91,8 @@ public class CartDao {
 	  }
 	 
 	
-	//cart list
-	public List<Cart> selectCart(String user_id)throws Exception{
+	//select cart list by user_id
+	public List<Cart> selectCartByUserid(String user_id)throws Exception{
 		List<Cart> cartList=new ArrayList<Cart>();
 		Connection con=dataSource.getConnection();
 		PreparedStatement pstmt=con.prepareStatement(CartSQL.SELECT_CART_BY_USERID);
@@ -116,6 +116,29 @@ public class CartDao {
 		return cartList;
 	}
 	
-	
+	//select cart list by cart_no
+	public List<Cart> selectCartByCartno(int cart_no)throws Exception{
+		List<Cart> cartList=new ArrayList<Cart>();
+		Connection con=dataSource.getConnection();
+		PreparedStatement pstmt=con.prepareStatement(CartSQL.SELECT_CART_BY_USERID);
+		pstmt.setInt(1, cart_no);
+		ResultSet rs=pstmt.executeQuery();
+		while(rs.next()) {
+			Cart cart=
+					new Cart(rs.getInt("cart_no"),
+							rs.getInt("cart_qty"),
+							new Product(rs.getInt("p_no"),
+										rs.getString("p_name"),
+										rs.getInt("p_price"),
+										rs.getString("p_image"),
+										rs.getString("p_desc"),
+										rs.getInt("p_click_count"),
+										rs.getInt("category_no")),
+							null);
+			cartList.add(cart);
+		}
+		con.close();
+		return cartList;
+	}
 	
 }
