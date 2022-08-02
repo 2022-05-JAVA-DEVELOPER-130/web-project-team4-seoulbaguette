@@ -15,7 +15,7 @@ public class CartService {
 		if(product_count==0) {
 			cartDao.insertCart(cart);
 		}else if(product_count==1) {
-			cartDao.updateCartByUserIdAndProductNo(cart);
+			cartDao.cartProductCount(cart);
 		}
 		return 0;
 	}
@@ -30,12 +30,12 @@ public class CartService {
 	
 	//cart update
 	public int updateCart(Cart cart)throws Exception{
-		return cartDao.updateCartByUserIdAndProductNo(cart);
+		return cartDao.updateQtyByPNo(cart);
 	}
 	
 	//cart delete
 	public int deleteCart(Cart cart)throws Exception{
-		return cartDao.deleteCartByUserIdAndProductNo(cart);
+		return cartDao.deleteCartByCNo(cart);
 	}
 	
 }
