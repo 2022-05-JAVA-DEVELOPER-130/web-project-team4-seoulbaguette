@@ -1,20 +1,25 @@
 package com.itwill.bakery.vo;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Orders {
 	private int o_no;
 	private String o_desc;
 	private Date o_date;
 	private int o_price;
-	private String user_id;
-	private int add_no;
+	private String user_id;  //FK
+	private int add_no;  //FK
+	private List<OrderItem> orderItemList = new ArrayList<OrderItem>();
 	
 	public Orders() {
-		// TODO Auto-generated constructor stub
+		
 	}
-
-	public Orders(int o_no, String o_desc, Date o_date, int o_price, String user_id, int add_no) {
+	
+	public Orders(int o_no, String o_desc, Date o_date, int o_price, String user_id, int add_no,
+			List<OrderItem> orderItemList) {
 		super();
 		this.o_no = o_no;
 		this.o_desc = o_desc;
@@ -22,6 +27,7 @@ public class Orders {
 		this.o_price = o_price;
 		this.user_id = user_id;
 		this.add_no = add_no;
+		this.orderItemList = orderItemList;
 	}
 
 	public int getO_no() {
@@ -72,10 +78,24 @@ public class Orders {
 		this.add_no = add_no;
 	}
 
+
+
+	public List<OrderItem> getOrderItemList() {
+		return orderItemList;
+	}
+
+	public void setOrderItemList(List<OrderItem> orderItemList) {
+		this.orderItemList = orderItemList;
+	}
+
 	@Override
 	public String toString() {
-		return "orders [o_no=" + o_no + ", o_desc=" + o_desc + ", o_date=" + o_date + ", o_price=" + o_price
-				+ ", user_id=" + user_id + ", add_no=" + add_no + "]";
+		return "Orders [o_no=" + o_no + ", o_desc=" + o_desc + ", o_date=" + o_date + ", o_price=" + o_price
+				+ ", user_id=" + user_id + ", add_no=" + add_no + ", order_Item=" + orderItemList + "]";
 	}
 	
+	
+	
+	
+
 }

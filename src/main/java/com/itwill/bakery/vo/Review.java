@@ -1,29 +1,42 @@
 package com.itwill.bakery.vo;
 
-import java.sql.Date;
+
+
+/*
+이름          널?       유형            
+----------- -------- ------------- 
+R_NO        NOT NULL NUMBER(10)    
+R_TITLE              VARCHAR2(100) 
+R_DATE               DATE          
+R_STARGRADE          NUMBER(10)    
+R_CONTENT            VARCHAR2(300) 
+USER_ID              VARCHAR2(100) 
+P_NO                 NUMBER(10)    
+*/
 
 public class Review {
 	private int r_no;
 	private String r_title;
-	private Date r_date;
-	private int r_starGrade;
+	private String r_date;
+	private int r_stargrade;
 	private String r_content;
 	private String user_id;
-	private int p_no;
+	private Product product;
 	
 	public Review() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Review(int r_no, String r_title, Date r_date, int r_starGrade, String r_content, String user_id, int p_no) {
+	public Review(int r_no, String r_title, String r_date, int r_stargrade, String r_content, String user_id,
+			Product product) {
 		super();
 		this.r_no = r_no;
 		this.r_title = r_title;
 		this.r_date = r_date;
-		this.r_starGrade = r_starGrade;
+		this.r_stargrade = r_stargrade;
 		this.r_content = r_content;
 		this.user_id = user_id;
-		this.p_no = p_no;
+		this.product = product;
 	}
 
 	public int getR_no() {
@@ -42,20 +55,20 @@ public class Review {
 		this.r_title = r_title;
 	}
 
-	public Date getR_date() {
+	public String getR_date() {
 		return r_date;
 	}
 
-	public void setR_date(Date r_date) {
+	public void setR_date(String r_date) {
 		this.r_date = r_date;
 	}
 
-	public int getR_starGrade() {
-		return r_starGrade;
+	public int getR_stargrade() {
+		return r_stargrade;
 	}
 
-	public void setR_starGrade(int r_starGrade) {
-		this.r_starGrade = r_starGrade;
+	public void setR_stargrade(int r_stargrade) {
+		this.r_stargrade = r_stargrade;
 	}
 
 	public String getR_content() {
@@ -74,18 +87,24 @@ public class Review {
 		this.user_id = user_id;
 	}
 
-	public int getP_no() {
-		return p_no;
+	public Product getProduct() {
+		return product;
 	}
 
-	public void setP_no(int p_no) {
-		this.p_no = p_no;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 	@Override
 	public String toString() {
-		return "review [r_no=" + r_no + ", r_title=" + r_title + ", r_date=" + r_date + ", r_starGrade=" + r_starGrade
-				+ ", r_content=" + r_content + ", user_id=" + user_id + ", p_no=" + p_no + "]";
+		return "Review [r_no=" + r_no + ", r_title=" + r_title + ", r_date=" + r_date + ", r_stargrade=" + r_stargrade
+				+ ", r_content=" + r_content + ", user_id=" + user_id + ", product=" + product + "]";
 	}
 	
+	
+	
+	
+
+	
+
 }
