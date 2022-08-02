@@ -7,6 +7,7 @@ import com.itwill.bakery.dao.CartDao;
 import com.itwill.bakery.dao.OrdersDao;
 import com.itwill.bakery.dao.ProductDao;
 import com.itwill.bakery.vo.OrderItem;
+import com.itwill.bakery.vo.Orders;
 import com.itwill.bakery.vo.Product;
 
 
@@ -25,7 +26,7 @@ public class OrdersDaoTest {
 		
 		//확인
 		//System.out.println("주문 전체");
-		System.out.println(ordersDao.list("guntae123"));
+		//System.out.println(ordersDao.list("guntae123"));
 		
 		//확인
 		//System.out.println("주문 상세보기");
@@ -36,7 +37,7 @@ public class OrdersDaoTest {
 		
 		//1. 상품에서 직접 주문 
 
-		/*
+		
 		List<OrderItem> orderItemList = new ArrayList<OrderItem>();
 		Product product = productDao.selectByNo(1);
 		orderItemList.add(new OrderItem(0,1,0,product));
@@ -44,7 +45,7 @@ public class OrdersDaoTest {
 		
 		Orders newOrder = new Orders(0,"",null,product.getP_price()*1,"three",4,orderItemList);
 		ordersDao.create(newOrder);
-		*/
+		
 		
 		
 		

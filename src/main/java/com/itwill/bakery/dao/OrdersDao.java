@@ -23,7 +23,7 @@ public class OrdersDao {
 	private DataSource dataSource;
 	public OrdersDao() throws Exception {
 		Properties properties = new Properties();
-		properties.load(this.getClass().getResourceAsStream("/com/itwill/shop/jdbc.properties"));
+		properties.load(this.getClass().getResourceAsStream("/com/itwill/bakery/common/jdbc.properties"));
 		/*** Apache DataSource ***/
 		BasicDataSource basicDataSource = new BasicDataSource();
 		basicDataSource.setDriverClassName(properties.getProperty("driverClass"));

@@ -25,7 +25,7 @@ public class NoticeDao {
 		properties.load(this.getClass().getResourceAsStream("/com/itwill/bakery/common/jdbc.properties"));
 		basicDataSource.setDriverClassName(properties.getProperty("driverClassName"));
 		basicDataSource.setUrl(properties.getProperty("url"));
-		basicDataSource.setUsername(properties.getProperty("username"));
+		basicDataSource.setUsername(properties.getProperty("user"));
 		basicDataSource.setPassword(properties.getProperty("password"));
 		this.dataSource = basicDataSource;
 	}
