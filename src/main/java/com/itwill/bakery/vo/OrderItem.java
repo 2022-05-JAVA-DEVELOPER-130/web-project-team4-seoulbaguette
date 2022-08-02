@@ -1,58 +1,80 @@
 package com.itwill.bakery.vo;
 
+
 public class OrderItem {
 	private int oi_no;
 	private int oi_qty;
-	private int p_no;
-	private int o_no;
+	private int o_no; //FK
 	
-	 public OrderItem() {
-		// TODO Auto-generated constructor stub
-	}
+	private Product product; //p_no FK
 
-	public OrderItem(int oi_no, int oi_qty, int p_no, int o_no) {
+	public OrderItem() {
+		
+	}
+	
+	public OrderItem(int oi_no, int oi_qty, int o_no, Product product) {
 		super();
 		this.oi_no = oi_no;
 		this.oi_qty = oi_qty;
-		this.p_no = p_no;
 		this.o_no = o_no;
+		this.product = product;
 	}
+	
+
+
 
 	public int getOi_no() {
 		return oi_no;
 	}
 
+
+
 	public void setOi_no(int oi_no) {
 		this.oi_no = oi_no;
 	}
+
+
 
 	public int getOi_qty() {
 		return oi_qty;
 	}
 
+
+
 	public void setOi_qty(int oi_qty) {
 		this.oi_qty = oi_qty;
 	}
 
-	public int getP_no() {
-		return p_no;
-	}
 
-	public void setP_no(int p_no) {
-		this.p_no = p_no;
-	}
 
 	public int getO_no() {
 		return o_no;
 	}
 
+
+
 	public void setO_no(int o_no) {
 		this.o_no = o_no;
 	}
 
+	
+
+	public Product getProduct() {
+		return product;
+	}
+
+
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+
 	@Override
 	public String toString() {
-		return "order_item [oi_no=" + oi_no + ", oi_qty=" + oi_qty + ", p_no=" + p_no + ", o_no=" + o_no + "]";
+		return "OrderItem [oi_no=" + oi_no + ", oi_qty=" + oi_qty + ", o_no=" + o_no + ", product=" + product + "]";
 	}
-	
+
+
+
 }
