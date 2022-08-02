@@ -6,6 +6,7 @@ import java.util.List;
 import com.itwill.bakery.dao.CartDao;
 import com.itwill.bakery.dao.OrdersDao;
 import com.itwill.bakery.dao.ProductDao;
+import com.itwill.bakery.vo.Cart;
 import com.itwill.bakery.vo.OrderItem;
 import com.itwill.bakery.vo.Orders;
 import com.itwill.bakery.vo.Product;
@@ -37,7 +38,7 @@ public class OrdersDaoTest {
 		
 		//1. 상품에서 직접 주문 
 
-		
+		/*
 		List<OrderItem> orderItemList = new ArrayList<OrderItem>();
 		Product product = productDao.selectByNo(1);
 		orderItemList.add(new OrderItem(0,1,0,product));
@@ -45,6 +46,7 @@ public class OrdersDaoTest {
 		
 		Orders newOrder = new Orders(0,"",null,product.getP_price()*1,"three",4,orderItemList);
 		ordersDao.create(newOrder);
+		*/
 		
 		
 		
@@ -54,21 +56,14 @@ public class OrdersDaoTest {
 		
 		
 		
-		
-		// 2. cart에서 주문        ->>>>>>>>>>>>>>>>>>>안돼요...
-		//	로그인한 guard1님이 주문
-		
-		
-		
-		
-	/*	List<CartItem> cartItemList = cartDao.getCartList("three");
-		System.out.println(cartItemList);
+		// 2. cart에서 주문   
+	/*
+		List<Cart> cartItemList = cartDao.selectCart("three");
 		List<OrderItem> orderItemList = new ArrayList<OrderItem>();
-	*/
+	
 		//CartItem -> OrderItem
-		 /*
 		int orders_price = 0;
-		for(CartItem cartItem : cartItemList) {
+		for(Cart cartItem : cartItemList) {
 			orderItemList.add(new OrderItem(0,cartItem.getCart_qty(),0,cartItem.getProduct()));
 			System.out.println(cartItem.getCart_qty());
 			orders_price += cartItem.getCart_qty()*cartItem.getProduct().getP_price();
@@ -77,7 +72,7 @@ public class OrdersDaoTest {
 		Orders newOrder = new Orders(0,"",null,orders_price,"three",5,orderItemList);
 		ordersDao.create(newOrder);
 			
-		*/
 		
+	*/
 	}
 }

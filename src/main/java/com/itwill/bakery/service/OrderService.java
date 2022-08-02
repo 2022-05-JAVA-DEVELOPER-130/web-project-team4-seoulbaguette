@@ -37,22 +37,23 @@ public class OrderService {
 	/*
 	 * 상품에서 직접주문
 	 */
-	public int create(String sUserId,int p_no,int oi_qty) throws Exception{
+	public int create(String sUserId,int p_no,int oi_qty,int add_no) throws Exception{
 		Product product=productDao.selectByNo(p_no);
+		System.out.println(product);
 		OrderItem orderItem=new OrderItem(0, oi_qty, p_no, product);
 		ArrayList<OrderItem> orderItemList=new ArrayList<OrderItem>();
 		orderItemList.add(orderItem);
 		int o_price = oi_qty*product.getP_price();
 		Orders newOrder=
-				new Orders(0,"",null,o_price,sUserId,1,orderItemList);
+				new Orders(0,"",null,o_price,sUserId,add_no,orderItemList);
 		return ordersDao.create(newOrder);
 	}
-	/*
+	
 	
 	//  cart에서 주문
 	 
 	public int create(String sUserId) throws Exception{
-		List<Cart> cartList=cartDao.getCartList(sUserId);
+		List<Cart> cartList=cartDao.selectCart(sUserId);
 		ArrayList<OrderItem> orderItemList=new ArrayList<OrderItem>();
 		int o_tot_price=0;
 		int oi_tot_count=0;
@@ -64,10 +65,10 @@ public class OrderService {
 		}
 		Orders newOrder=new Orders(0,"", null, o_tot_price, sUserId,1,orderItemList);
 		ordersDao.create(newOrder);
-		cartDao.deleteCart(sUserId);
+		//cartDao.deleteCart(sUserId);
 		return 0;
 	}
-	
+	/*
 	 // cart에서 선택주문
 	 
 	public int create(String sUserId,String[] cart_item_noStr_array) throws Exception{
@@ -89,8 +90,8 @@ public class OrderService {
 		}
 		return 0;
 	}
-	
 	*/
+	
 	
 	
 	
