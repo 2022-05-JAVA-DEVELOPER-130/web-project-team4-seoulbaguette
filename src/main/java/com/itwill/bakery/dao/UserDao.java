@@ -41,6 +41,7 @@ public class UserDao {
 		pstmt.setString(5, user.getUser_phone());
 		pstmt.setInt(6, user.getUser_point());
 		
+		
 		int rowCount=pstmt.executeUpdate();
 		
 		pstmt.close();
@@ -110,23 +111,41 @@ public class UserDao {
 	}
 	
 	
-	public int checkId(String userId) throws Exception{
-		Connection con=dataSource.getConnection();
-		PreparedStatement pstmt=con.prepareStatement(UserSQL.USER_SELECT_ID_COUNT);
-		int check=0;
-		pstmt.setString(1, userId);
-		ResultSet rs=pstmt.executeQuery();
-		rs.next();
-		check=rs.getInt(1);
-		return check;
+	public User checkId(String userId) throws Exception{
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		User checkId = null;
+		try {
+			con = dataSource.getConnection();
+			pstmt = con.prepareStatement(UserSQL.USER_SELECT_BY_ID);
+			pstmt.setString(1, userId);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				checkId =new User(rs.getString("user_id"), 
+						rs.getString("user_password"), 
+						rs.getString("user_name"), 
+						rs.getString("user_email"), 
+						rs.getString("user_phone"), 
+						rs.getInt("user_point"), null);
+			}
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (con != null)
+				con.close();
+		}
+		return checkId;
 	}
 	
 	
-	public User selectUser(User user) throws Exception{
+	public User selectUser(String userId) throws Exception{
 		Connection con=dataSource.getConnection();
 		PreparedStatement pstmt=con.prepareStatement(UserSQL.USER_SELECT_BY_ID);
 		User findUser=null;
-		pstmt.setString(1, user.getUser_id());
+		pstmt.setString(1, userId);
 		ResultSet rs=pstmt.executeQuery();
 		if(rs.next()) {
 			//String user_id, String user_password, String user_name, String user_email, String user_phone,
@@ -163,7 +182,7 @@ public class UserDao {
 		return addressList;
 	}
 	
-	public List<User> selectAllUser(User user) throws Exception{
+	public List<User> selectAllUser() throws Exception{
 		Connection con=dataSource.getConnection();
 		PreparedStatement pstmt=con.prepareStatement(UserSQL.USER_SELECT_ALL);
 		List<User> userList=new ArrayList<User>();
@@ -207,4 +226,33 @@ public class UserDao {
 		
 		return rowCount;
 	}
+	
+	public boolean existedUser(String userId) throws Exception {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		boolean isExist = false;
+		try {
+			con = dataSource.getConnection();
+			pstmt = con.prepareStatement(UserSQL.USER_SELECT_ID_COUNT);
+			pstmt.setString(1, userId);
+			rs = pstmt.executeQuery();
+			rs.next();
+			int count = rs.getInt("cnt");
+			if (count == 1) {
+				isExist = true;
+			}
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (con != null)
+				con.close();
+		}
+		return isExist;
+	}
+
+	
+
 }
