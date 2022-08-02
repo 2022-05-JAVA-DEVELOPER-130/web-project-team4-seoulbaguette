@@ -17,11 +17,11 @@ import com.itwill.bakery.vo.Review;
 
 
 
-public class ReviewDAO {
+public class ReviewDao {
 
 	private DataSource dataSource;
 
-	public ReviewDAO() throws Exception {
+	public ReviewDao() throws Exception {
 		Properties properties = new Properties();
 		properties.load(this.getClass().getResourceAsStream("/jdbc.properties"));
 		/*** Apache DataSource ***/

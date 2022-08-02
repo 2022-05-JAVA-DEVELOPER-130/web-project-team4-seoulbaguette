@@ -1,12 +1,12 @@
 package com.itwill.bakery.dao.test;
 
-import com.itwill.bakery.dao.ReviewDAO;
+import com.itwill.bakery.dao.ReviewDao;
 import com.itwill.bakery.vo.Product;
 import com.itwill.bakery.vo.Review;
 
 public class ReviewDaoTestMain {
 	public static void main(String[] args) throws Exception {
-		ReviewDAO reviewDao=new ReviewDAO();
+		ReviewDao reviewDao=new ReviewDao();
 		String id="one";
 		System.out.println("리뷰작성");
 		//System.out.println(reviewDao.createReview(new Review(0, "테스트리뷰", null, 5, "테스트내용", id, new Product(14, null, 0, null, null, 0, 0))));

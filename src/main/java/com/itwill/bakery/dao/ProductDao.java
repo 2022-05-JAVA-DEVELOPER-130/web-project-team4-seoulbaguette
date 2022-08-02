@@ -44,6 +44,10 @@ public class ProductDao {
 								  rs.getString("p_image"), rs.getString("p_desc"), 
 								  rs.getInt("p_click_count"), rs.getInt("category_no"));
 		}
+		rs.close();
+		pstmt.close();
+		con.close();
+		
 		return product;
 	}
 	
@@ -61,6 +65,9 @@ public class ProductDao {
 					  			  rs.getInt("p_click_count"), rs.getInt("category_no"));
 			productList.add(product);
 		}
+		rs.close();
+		pstmt.close();
+		con.close();
 		return productList;
 	}
 
