@@ -51,6 +51,13 @@ public class Cart {
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Cart [cart_no=" + cart_no + ", cart_qty=" + cart_qty + ", product=" + product + ", user_id=" + user_id
+				+ "]";
+	}
 	
 	
 }
