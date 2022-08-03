@@ -18,9 +18,27 @@ insert into QnA(qna_no,user_id,qna_title,qna_content,groupno,step,depth)
 --답변쓰기   
 --update
 update QnA set step=step+1 where step > 1 and groupno=2;
+
 --insert
 insert into QnA(qna_no,user_id,qna_title,qna_content,groupno,step,depth) 
         values(QnA_qna_no_SEQ.nextval,'jungwook1234','게시판타이틀','내용',2,2,1);
         
---select
-select 
+--select 1개게시물
+select * from QnA where user_id='jungwook1234'; 
+
+--select 게시물 총건수 확인
+select count(*) from QnA;
+
+--select 리스트전체
+select qna_no,qna_title,user_id,qna_date,qna_readcount,groupno,step,depth 
+from QnA order by groupno desc,step asc; 
+
+
+--update 게시물수정
+update QnA set qna_title='변경제목',qna_content='변경내용' where qna_no=6;
+
+--update 게시물조회수 증가
+update QnA set qna_readcount=qna_readcount+1 where qna_no=2;
+
+--delete
+delete from QnA where groupno=1;

@@ -1,10 +1,15 @@
 package com.itwill.bakery.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.Properties;
 
 import javax.sql.DataSource;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
+
+import com.itwill.bakery.sql.QnASQL;
+import com.itwill.bakery.vo.QnA;
 
 public class QnADao {
 
@@ -22,6 +27,18 @@ public class QnADao {
 		this.dataSource = basicDataSource;
 	}
 	
+	//게시물insert
 	
+	public int create(QnA qna) throws Exception {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		try {
+			con=dataSource.getConnection();
+			pstmt=con.prepareStatement(QnASQL.QNA_INSERT);
+			
+		}finally {
+			
+		}
+	}
 	
 }
