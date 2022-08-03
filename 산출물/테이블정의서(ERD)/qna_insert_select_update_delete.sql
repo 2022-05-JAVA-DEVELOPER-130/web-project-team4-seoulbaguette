@@ -33,6 +33,9 @@ select count(*) from QnA;
 select qna_no,qna_title,user_id,qna_date,qna_readcount,groupno,step,depth 
 from QnA order by groupno desc,step asc; 
 
+--select 게시물번호로
+select * from QnA where qna_no=2;
+
 
 --update 게시물수정
 update QnA set qna_title='변경제목',qna_content='변경내용' where qna_no=6;

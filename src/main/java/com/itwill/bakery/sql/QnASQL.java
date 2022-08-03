@@ -6,7 +6,7 @@ public static final String QNA_INSERT
 = "insert into QnA(qna_no,user_id,qna_title,qna_content,groupno,step) values(QnA_qna_no_SEQ.nextval,?,?,?,QnA_qna_no_SEQ.currval,1)";
 
 public static final String QNA_REPLY_UPDATE
-= "update QnA set step=step+1 where step > 1 and groupno=?";
+= "update QnA set step=step+1 where step > ? and groupno=?";
 
 public static final String QNA_REPLY_INSERT
 ="insert into QnA(qna_no,user_id,qna_title,qna_content,groupno,step,depth)"
@@ -14,6 +14,9 @@ public static final String QNA_REPLY_INSERT
 
 public static final String QNA_SELECT_BY_USERID
 ="select * from QnA where user_id=?";
+
+public static final String QNA_SELECT_BY_QNA_NO
+="select * from QnA where qna_no=?";
 
 public static final String QNA_TOTAL_COUNT
 ="select count(*) from QnA";
