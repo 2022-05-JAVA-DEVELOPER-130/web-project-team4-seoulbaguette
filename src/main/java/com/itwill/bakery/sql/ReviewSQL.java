@@ -11,10 +11,10 @@ public class ReviewSQL {
 	="delete from review where r_no=?";
 	
 	public final static String REVIEW_SELECT_BY_ID
-	="select * from review r join product p on r.p_no=p.p_no where user_id=?";
+	="select * from review r join product p on r.p_no=p.p_no where user_id=? order by r.r_no desc";
 			
 	public final static String REVIEW_SELECT_BY_P
-	="SELECT * FROM review r join product p on r.p_no=p.p_no where p.p_no=?";
+	="SELECT * FROM review r join product p on r.p_no=p.p_no where p.p_no=? order by r.r_no desc";
 	
 	public final static String REVIEW_SELECT
 	="select * from review r join product p on r.p_no=p.p_no where r.r_no=?";

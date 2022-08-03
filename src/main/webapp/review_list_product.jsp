@@ -27,13 +27,15 @@ Product product=productService.selectByNo(p_no);
 
 
 	<h1>리뷰</h1>
-	
-	<div>
 	상품 이름 : <%=product.getP_name() %>
+	<div>
+	<form name="f" method="post">
 			<ul>
 			<%for(Review review:reviewList){ %>
-			<li><a href='review_view.jsp?r_no=<%= review.getR_no()%>'>
-			[별점 :<%=review.getR_stargrade()  %>]<%=review.getR_date() %> 작성자 : <%=review.getUser_id() %></a>
+						<li><a href='review_view.jsp?r_no=<%= review.getR_no()%>'>
+			[별점 :<%for(int s=0;s<review.getR_stargrade();s++){%>
+				<%out.print("★");}%> ]
+			<%=review.getR_date() %> 작성자 : <%=review.getUser_id() %></a>
 			<br>
 			<%=review.getR_title() %>
 			<br>
@@ -41,6 +43,7 @@ Product product=productService.selectByNo(p_no);
 			</li>
 	        <% }%>
 	</ul>
+	</form>
 			
 			</div>
 
