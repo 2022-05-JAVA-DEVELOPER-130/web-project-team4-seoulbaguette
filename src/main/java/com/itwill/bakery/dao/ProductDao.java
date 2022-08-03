@@ -29,15 +29,15 @@ public class ProductDao {
 		basicDataSource.setPassword(properties.getProperty("password"));
 		this.dataSource = basicDataSource;
 	}
-	
 	/*
-	 * 카테고리별 상품 검색
+	 * 상품 검색
 	 */
-	public Product selectByNo(int category_no) throws Exception {
+	
+	public Product selectByNo(int p_no) throws Exception {
 		Product product = null;
 		Connection con=dataSource.getConnection();
 		PreparedStatement pstmt=con.prepareStatement(ProductSQL.PRODUCT_SELECT_BY_NO);
-		pstmt.setInt(1, category_no);
+		pstmt.setInt(1, p_no);
 		ResultSet rs=pstmt.executeQuery();
 		if(rs.next()) {
 			product = new Product(rs.getInt("p_no"), rs.getString("p_name"), rs.getInt("p_price"), 
@@ -50,6 +50,27 @@ public class ProductDao {
 		
 		return product;
 	}
+	/*
+	 * 카테고리별 상품 검색
+	 */
+	public List<Product> selectByCategory(int category_no) throws Exception {
+		List<Product> productList=new ArrayList<Product>();
+		Connection con=dataSource.getConnection();
+		PreparedStatement pstmt=con.prepareStatement(ProductSQL.PRODUCT_SELECT_BY_CATEGORY);
+		pstmt.setInt(1, category_no);
+		ResultSet rs=pstmt.executeQuery();
+		while(rs.next()) {
+			Product product = new Product(rs.getInt("p_no"), rs.getString("p_name"), rs.getInt("p_price"), 
+					  			  rs.getString("p_image"), rs.getString("p_desc"), 
+					  			  rs.getInt("p_click_count"), rs.getInt("category_no"));
+			productList.add(product);
+		}
+		rs.close();
+		pstmt.close();
+		con.close();
+		return productList;
+	}
+
 	
 	/*
 	 * 전체 상품검색
