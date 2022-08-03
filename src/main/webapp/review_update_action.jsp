@@ -2,8 +2,6 @@
 <%@page import="com.itwill.bakery.vo.Review"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
-=======
 <%-- <%@ include file="user_login_check.jspf" %>  --%>
 
 <%
@@ -11,8 +9,6 @@ if(request.getMethod().equalsIgnoreCase("GET")){
 	response.sendRedirect("review_write_form.jsp");
 	return;
 }
-
-
 
 
 String r_title=request.getParameter("r_title");
@@ -30,7 +26,6 @@ catch(Exception e){
 	e.printStackTrace();
 }
 %>
->>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/web-project-team4-seoulbaguette.git
 
 <!DOCTYPE html>
 <html>
