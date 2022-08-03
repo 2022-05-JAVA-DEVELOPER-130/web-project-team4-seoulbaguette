@@ -1,3 +1,6 @@
+<%@page import="com.itwill.bakery.service.ProductService"%>
+<%@page import="com.itwill.bakery.vo.Product"%>
+<%@page import="com.itwill.bakery.vo.OrderItem"%>
 <%@page import="com.itwill.bakery.vo.Orders"%>
 <%@page import="java.util.List"%>
 <%@page import="com.itwill.bakery.service.OrderService"%>
@@ -7,8 +10,8 @@
 
 <%
 OrderService orderService = new OrderService();
-List<Orders> orderList = orderService.list("three");
-
+List<Orders> orderList = orderService.list_detail("two");
+ProductService productService = new ProductService();
 %>
 
 <!DOCTYPE html>
@@ -19,7 +22,22 @@ List<Orders> orderList = orderService.list("three");
 </head>
 <body>
 	<% for(Orders order : orderList) { %>
-	
+		주문번호: <%=order.getO_no() %><br>
+		배송상태: <%=order.getO_desc() %><br>
+		주문일자: <%=order.getO_date() %><br>
+		총 가격: <%=order.getO_price() %><br>
+		<br>
+		<br>
+		<% for ( OrderItem orderItemList:order.getOrderItemList()){ %>
+			<% Product product = productService.selectByNo(orderItemList.getProduct().getP_no());%>
+			상품명: <%=orderItemList.getProduct().getP_name() %><br>
+			상품수량: <%=orderItemList.getOi_qty() %><br>
+			가격: <%=orderItemList.getOi_qty() * product.getP_price() %><br>
+			<br>
+			<br>
+			
+		
+		<%} %>
 	<% }%>
 	
 
