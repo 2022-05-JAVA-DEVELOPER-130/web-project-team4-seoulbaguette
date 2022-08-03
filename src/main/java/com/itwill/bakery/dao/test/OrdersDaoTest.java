@@ -33,20 +33,9 @@ public class OrdersDaoTest {
 		//System.out.println("주문 상세보기");
 		//System.out.println(ordersDao.detail("three",3));
 		
-		
-		
-		
-		//1. 상품에서 직접 주문 
-
-		/*
-		List<OrderItem> orderItemList = new ArrayList<OrderItem>();
-		Product product = productDao.selectByNo(1);
-		orderItemList.add(new OrderItem(0,1,0,product));
-		 
-		
-		Orders newOrder = new Orders(0,"",null,product.getP_price()*1,"three",4,orderItemList);
-		ordersDao.create(newOrder);
-		*/
+		// 08.03 한번에 촤라락..
+		//List<Orders> orderList = ordersDao.list_detail("three");
+		//System.out.println(orderList);
 		
 		
 		
@@ -56,23 +45,5 @@ public class OrdersDaoTest {
 		
 		
 		
-		// 2. cart에서 주문   
-	/*
-		List<Cart> cartItemList = cartDao.selectCart("three");
-		List<OrderItem> orderItemList = new ArrayList<OrderItem>();
-	
-		//CartItem -> OrderItem
-		int orders_price = 0;
-		for(Cart cartItem : cartItemList) {
-			orderItemList.add(new OrderItem(0,cartItem.getCart_qty(),0,cartItem.getProduct()));
-			System.out.println(cartItem.getCart_qty());
-			orders_price += cartItem.getCart_qty()*cartItem.getProduct().getP_price();
-		}
-		
-		Orders newOrder = new Orders(0,"",null,orders_price,"three",5,orderItemList);
-		ordersDao.create(newOrder);
-			
-		
-	*/
 	}
 }

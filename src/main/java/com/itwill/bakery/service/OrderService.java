@@ -53,7 +53,7 @@ public class OrderService {
 	//  cart에서 주문
 	 
 	public int create(String sUserId) throws Exception{
-		List<Cart> cartList=cartDao.selectCart(sUserId);
+		List<Cart> cartList=cartDao.selectCartByUserid(sUserId);
 		ArrayList<OrderItem> orderItemList=new ArrayList<OrderItem>();
 		int o_tot_price=0;
 		int oi_tot_count=0;
@@ -65,12 +65,12 @@ public class OrderService {
 		}
 		Orders newOrder=new Orders(0,"", null, o_tot_price, sUserId,1,orderItemList);
 		ordersDao.create(newOrder);
-		//cartDao.deleteCart(sUserId);
+		cartDao.deleteCart(sUserId);
 		return 0;
 	}
-	/*
+	
 	 // cart에서 선택주문
-	 
+	/*
 	public int create(String sUserId,String[] cart_item_noStr_array) throws Exception{
 		
 		ArrayList<OrderItem> orderItemList=new ArrayList<OrderItem>();
@@ -86,7 +86,7 @@ public class OrderService {
 		Orders newOrder=new Orders(0,"", null, o_tot_price, sUserId,1,orderItemList);
 		ordersDao.create(newOrder);
 		for(int i =0;i<cart_item_noStr_array.length;i++) {
-			cartDao.deleteCartByNo(Integer.parseInt(cart_item_noStr_array[i]));
+			cartDao.deleteCartByCNo(Integer.parseInt(cart_item_noStr_array[i]));
 		}
 		return 0;
 	}

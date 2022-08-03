@@ -143,5 +143,54 @@ public class OrdersDao {
 		return orders;
 	}
 	
+	public List<Orders> list_detail(String userId) throws Exception{
+		List<Orders> orderList = new ArrayList<Orders>();
+		
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt1 = con.prepareStatement(OrdersSQL.SELECT_ORDER_NO_BY_ID);
+		PreparedStatement pstmt2 = con.prepareStatement(OrdersSQL.SELECT_ALL);
+		
+		pstmt1.setString(1, userId);
+		ResultSet rs1 = pstmt1.executeQuery();
+		while(rs1.next()) {
+			int temp_o_no = rs1.getInt("o_no");
+
+			pstmt2.setString(1, userId);
+			pstmt2.setInt(2, temp_o_no);
+			ResultSet rs2 = pstmt2.executeQuery();
+			Orders order = null;
+			if(rs2.next()) {
+					   order = new Orders(rs2.getInt("o_no"),
+										  rs2.getString("o_desc"),
+										  rs2.getDate("o_date"),
+										  rs2.getInt("o_price"),
+										  rs2.getString("user_id"),
+										  rs2.getInt("add_no"),
+										  null);
+				List<OrderItem> orderItemList = new ArrayList<OrderItem>();
+				do{
+					orderItemList.add(new OrderItem(rs2.getInt("oi_no"),
+													rs2.getInt("oi_qty"),
+													rs2.getInt("o_no"),
+													new Product(rs2.getInt("p_no"),
+															    rs2.getString("p_name"),
+															    rs2.getInt("p_price"),
+															    rs2.getString("p_image"),
+															    rs2.getString("p_desc"),
+															    rs2.getInt("p_click_count"),
+															    rs2.getInt("category_no")
+															)));
+				}while(rs2.next());
+				order.setOrderItemList(orderItemList);
+			}
+			orderList.add(order);
+			
+		}
+			return orderList;
+
+	}
 	
+
+
+
 }

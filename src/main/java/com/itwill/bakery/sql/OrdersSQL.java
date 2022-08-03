@@ -13,5 +13,8 @@ public class OrdersSQL {
 	public static final String SELECT_ALL=
 		"select * from orders o join order_item d on o.o_no=d.o_no join product p on d.p_no=p.p_no where o.user_id=? and o.o_no=?";
 	
+	//로그인한 멤버의 주문번호 목록 
 
+	public static final String SELECT_ORDER_NO_BY_ID = 
+		"select o_no from orders where user_id=?";
 }

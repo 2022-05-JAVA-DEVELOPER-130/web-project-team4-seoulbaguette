@@ -90,7 +90,7 @@ public class Orders {
 
 	@Override
 	public String toString() {
-		return "Orders [o_no=" + o_no + ", o_desc=" + o_desc + ", o_date=" + o_date + ", o_price=" + o_price
+		return "\nOrders [o_no=" + o_no + ", o_desc=" + o_desc + ", o_date=" + o_date + ", o_price=" + o_price
 				+ ", user_id=" + user_id + ", add_no=" + add_no + ", order_Item=" + orderItemList + "]";
 	}
 	
