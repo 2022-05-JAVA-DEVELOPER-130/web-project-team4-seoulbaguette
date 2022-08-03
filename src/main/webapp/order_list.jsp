@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.itwill.bakery.vo.Address"%>
+<%@page import="com.itwill.bakery.service.UserService"%>
 <%@page import="com.itwill.bakery.service.ProductService"%>
 <%@page import="com.itwill.bakery.vo.Product"%>
 <%@page import="com.itwill.bakery.vo.OrderItem"%>
@@ -22,6 +25,8 @@ ProductService productService = new ProductService();
 </head>
 <body>
 	<% for(Orders order : orderList) { %>
+		
+		
 		주문번호: <%=order.getO_no() %><br>
 		배송상태: <%=order.getO_desc() %><br>
 		주문일자: <%=order.getO_date() %><br>
