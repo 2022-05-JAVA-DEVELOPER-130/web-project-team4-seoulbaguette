@@ -35,6 +35,13 @@ public class OrderService {
 		return ordersDao.detail(sUserId,o_no);
 	}
 	/*
+	 * 주문목록 + 상품상세
+	 */
+	public List<Orders> list_detail(String sUserId) throws Exception{
+		
+		return ordersDao.list_detail(sUserId);
+	}
+	/*
 	 * 상품에서 직접주문
 	 */
 	public int create(String sUserId,int p_no,int oi_qty,int add_no) throws Exception{
