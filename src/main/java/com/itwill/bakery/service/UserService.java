@@ -74,7 +74,7 @@ public class UserService {
 		return userDao.selectAddress(user);
 	}
 	//주소번호 주소검색
-	public List<Address> selectAddressno(int add_no) throws Exception{
+	public Address selectAddressno(int add_no) throws Exception{
 		return userDao.selectAddressno(add_no);
 	}
 	

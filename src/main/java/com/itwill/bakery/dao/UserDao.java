@@ -182,22 +182,21 @@ public class UserDao {
 		return addressList;
 	}
 	
-	public List<Address> selectAddressno(int add_no) throws Exception{
+	public Address selectAddressno(int add_no) throws Exception{
+		Address findAddress = null;
 		Connection con=dataSource.getConnection();
 		PreparedStatement pstmt=con.prepareStatement(UserSQL.ADDRESS_SELECT_BY_NO);
-		List<Address> addressList=new ArrayList<Address>();
-		pstmt.setInt(1,add_no);
+		pstmt.setInt(1, add_no);
 		ResultSet rs=pstmt.executeQuery();
-		while(rs.next()) {
-			//int add_no, String address, String user_id
-			addressList.add(new Address(rs.getInt("add_no"),rs.getString("address"), null ));
+		if(rs.next()) {
+			findAddress=new Address(rs.getInt("add_no"), 
+					rs.getString("address")
+					,null);
 		}
-		
 		rs.close();
 		pstmt.close();
 		con.close();
-		
-		return addressList;
+		return findAddress;
 	}
 	
 	
