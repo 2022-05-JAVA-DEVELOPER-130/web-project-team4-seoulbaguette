@@ -1,36 +1,31 @@
 <%@page import="com.itwill.bakery.service.ReviewService"%>
-<%@page import="com.itwill.bakery.vo.Review"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
-=======
 <%-- <%@ include file="user_login_check.jspf" %>  --%>
 
 <%
+
 if(request.getMethod().equalsIgnoreCase("GET")){
 	response.sendRedirect("review_write_form.jsp");
 	return;
 }
 
-
-
-
-String r_title=request.getParameter("r_title");
-String r_stargrade=request.getParameter("r_stargrade");
-String r_content=request.getParameter("r_content");
+String user_id=request.getParameter("user_id");
 String r_no=request.getParameter("r_no");
 
 ReviewService reviewService=new ReviewService();
-Review review=new Review(Integer.parseInt(r_no),r_title,null,Integer.parseInt(r_stargrade),r_content,null ,null );
 try{
-reviewService.updateReview(review);
-response.sendRedirect("review_view.jsp?r_no="+r_no);
-}
-catch(Exception e){
+	reviewService.deleteReivew(Integer.parseInt(r_no));
+	response.sendRedirect("review_list_product.jsp");
+	
+}catch(Exception e){
 	e.printStackTrace();
 }
+
+
+
+
 %>
->>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/web-project-team4-seoulbaguette.git
 
 <!DOCTYPE html>
 <html>
