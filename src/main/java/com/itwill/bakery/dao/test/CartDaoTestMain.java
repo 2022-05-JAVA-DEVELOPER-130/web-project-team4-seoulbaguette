@@ -10,7 +10,7 @@ public class CartDaoTestMain {
 
 		CartDao cartDao=new CartDao();
 		
-		System.out.println(cartDao.cartProductCount(new Cart(0, 0, 
+		System.out.println(cartDao.cartProductExist(new Cart(0, 0, 
 														new Product(1, null, 0, null, null, 0, 0), 
 													"yeji2345")));
 		System.out.println(cartDao.insertCart(new Cart(0, 2, 

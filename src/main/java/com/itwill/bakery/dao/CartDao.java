@@ -28,18 +28,33 @@ public class CartDao {
 		dataSource = basicDataSource;
 	}
 	
-	//cart에있는 제품수
-	public int cartProductCount(Cart cart)throws Exception{
-		Connection con=dataSource.getConnection();
-		PreparedStatement pstmt=con.prepareStatement(CartSQL.SELECT_CART_PRODUCT_COUNT_BY_USERID_P_NO);
-		pstmt.setString(1, cart.getUser_id());
-		pstmt.setInt(2, cart.getProduct().getP_no());
-		ResultSet rs = pstmt.executeQuery();
-		rs.next();
-		int product_count=rs.getInt("product_count");
-		pstmt.close();
-		con.close();
-		return product_count;
+	//cart에있는 제품존재여부
+	public boolean cartProductExist(Cart cart)throws Exception{
+		boolean isExist=false;
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try {
+			con=dataSource.getConnection();
+			pstmt=con.prepareStatement(CartSQL.SELECT_CART_PRODUCT_COUNT_BY_USERID_P_NO);
+			pstmt.setString(1, cart.getUser_id());
+			pstmt.setInt(2, cart.getProduct().getP_no());
+			rs = pstmt.executeQuery();
+			int count=0;
+			if(rs.next()) {
+				count=rs.getInt(1);
+			}
+			if(count==0) {
+				isExist=false;
+			}else {
+				isExist=true;
+			}
+		}finally {
+			if(con!=null) {
+				con.close();
+			}
+		}
+		return isExist;
 	}
 	
 	//cart insert

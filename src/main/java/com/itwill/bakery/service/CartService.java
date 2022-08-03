@@ -1,5 +1,7 @@
 package com.itwill.bakery.service;
 
+import java.util.List;
+
 import com.itwill.bakery.dao.CartDao;
 import com.itwill.bakery.vo.Cart;
 
@@ -9,33 +11,37 @@ public class CartService {
 		cartDao=new CartDao();
 	}
 	
-	//cart insert or update
-	public int insertCart(Cart cart)throws Exception{
-		int product_count=cartDao.cartProductCount(cart);
-		if(product_count==0) {
-			cartDao.insertCart(cart);
-		}else if(product_count==1) {
-			cartDao.cartProductCount(cart);
+	//cart create
+	public int CreateCart(Cart cart)throws Exception{
+		if(cartDao.cartProductExist(cart)){
+			return cartDao.updateQtyByPNo(cart);
+		}else {
+			return cartDao.insertCart(cart);
 		}
-		return 0;
 	}
 	
 	//cart update
-	/*
-	 * public int update(Cart cart) throws Exception { int product_count =
-	 * cartDao.cartProductCount(cart); if (product_count == 1) { return
-	 * cartDao.updateCartByUserIdAndProductNo(cart); } else { return
-	 * cartDao.insertCart(cart); } }
-	 */
-	
-	//cart update
-	public int updateCart(Cart cart)throws Exception{
+	public int updateQtyByPNo(Cart cart)throws Exception{
 		return cartDao.updateQtyByPNo(cart);
 	}
 	
-	//cart delete
-	public int deleteCart(String userid)throws Exception{
+	//cart deleteAll
+	public int deleteCartByUserId(String userid)throws Exception{
 		return cartDao.deleteCart(userid);
 	}
 	
+	//cart deleteByCNo
+	public int deleteCartByCNo(int cart_no)throws Exception{
+		return cartDao.deleteCartByCNo(cart_no);
+	}
+	
+	//select cartlist
+	public List<Cart> selectCartList(String user_id)throws Exception{
+		return cartDao.selectCartByUserid(user_id);
+	}
+	
+	//select cart
+	public Cart selectCart(int cart_no)throws Exception{
+		return cartDao.selectCartByCartNo(cart_no);
+	}
 }
