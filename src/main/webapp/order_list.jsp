@@ -19,7 +19,7 @@ List<Orders> orderList = orderService.list("three");
 </head>
 <body>
 	<% for(Orders order : orderList) { %>
-	<li>주문번호:<%=order.getO_no() %></li>
+	
 	<% }%>
 	
 
