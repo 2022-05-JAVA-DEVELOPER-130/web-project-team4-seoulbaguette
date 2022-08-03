@@ -54,6 +54,7 @@ DROP SEQUENCE cart_cart_no_SEQ;
 
 CREATE SEQUENCE cart_cart_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
+
 CREATE TABLE address(
 		add_no                        		NUMBER(10)		 NULL ,
 		address                       		VARCHAR2(50)		 NULL ,
@@ -78,6 +79,7 @@ DROP SEQUENCE orders_o_no_SEQ;
 
 CREATE SEQUENCE orders_o_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
+
 CREATE TABLE order_item(
 		oi_no                         		NUMBER(10)		 NULL ,
 		oi_qty                        		NUMBER(10)		 NULL ,
@@ -88,7 +90,6 @@ CREATE TABLE order_item(
 DROP SEQUENCE order_item_oi_no_SEQ;
 
 CREATE SEQUENCE order_item_oi_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
-
 
 CREATE TABLE review(
 		r_no                          		NUMBER(10)		 NULL ,
@@ -104,6 +105,7 @@ DROP SEQUENCE review_r_no_SEQ;
 
 CREATE SEQUENCE review_r_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
+
 CREATE TABLE notice(
 		notice_no                     		NUMBER(10)		 NULL ,
 		notice_title                  		VARCHAR2(100)		 NULL ,
@@ -116,17 +118,17 @@ DROP SEQUENCE notice_notice_no_SEQ;
 CREATE SEQUENCE notice_notice_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
 CREATE TABLE QnA(
-		q_no                          		NUMBER(10)		 NULL ,
+		qna_no                        		NUMBER(10)		 NULL ,
 		user_id                       		VARCHAR2(100)		 NULL ,
-		q_title                       		VARCHAR2(100)		 NULL ,
-		q_date                        		DATE		 NULL ,
-		q_content                     		VARCHAR2(200)		 NULL ,
-		q_count                       		NUMBER(10)		 NULL 
+		qna_title                     		VARCHAR2(100)		 NULL ,
+		qna_date                      		DATE		 DEFAULT sysdate		 NULL ,
+		qna_content                   		VARCHAR2(200)		 NULL ,
+		qna_readcount                 		NUMBER(10)		 DEFAULT 0		 NULL 
 );
 
-DROP SEQUENCE QnA_q_no_SEQ;
+DROP SEQUENCE QnA_qna_no_SEQ;
 
-CREATE SEQUENCE QnA_q_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+CREATE SEQUENCE QnA_qna_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
 CREATE TABLE coupon(
 		c_no                          		NUMBER(10)		 NULL ,
@@ -164,12 +166,12 @@ ALTER TABLE order_item ADD CONSTRAINT IDX_order_item_FK0 FOREIGN KEY (p_no) REFE
 ALTER TABLE order_item ADD CONSTRAINT IDX_order_item_FK1 FOREIGN KEY (o_no) REFERENCES orders (o_no);
 
 ALTER TABLE review ADD CONSTRAINT IDX_review_PK PRIMARY KEY (r_no);
-ALTER TABLE review ADD CONSTRAINT IDX_review_FK0 FOREIGN KEY (user_id) REFERENCES user_info (user_id);
-ALTER TABLE review ADD CONSTRAINT IDX_review_FK1 FOREIGN KEY (p_no) REFERENCES product (p_no);
+ALTER TABLE review ADD CONSTRAINT IDX_review_FK0 FOREIGN KEY (user_id) REFERENCES user_info (user_id) on delete set null;
+ALTER TABLE review ADD CONSTRAINT IDX_review_FK1 FOREIGN KEY (p_no) REFERENCES product (p_no) on delete cascade;
 
 ALTER TABLE notice ADD CONSTRAINT IDX_notice_PK PRIMARY KEY (notice_no);
 
-ALTER TABLE QnA ADD CONSTRAINT IDX_QnA_PK PRIMARY KEY (q_no);
+ALTER TABLE QnA ADD CONSTRAINT IDX_QnA_PK PRIMARY KEY (qna_no);
 ALTER TABLE QnA ADD CONSTRAINT IDX_QnA_FK0 FOREIGN KEY (user_id) REFERENCES user_info (user_id);
 
 ALTER TABLE coupon ADD CONSTRAINT IDX_coupon_PK PRIMARY KEY (c_no);

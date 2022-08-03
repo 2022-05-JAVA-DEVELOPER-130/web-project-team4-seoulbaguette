@@ -77,14 +77,14 @@ public class OrderService {
 	}
 	
 	 // cart에서 선택주문
-	/*
+	
 	public int create(String sUserId,String[] cart_item_noStr_array) throws Exception{
 		
 		ArrayList<OrderItem> orderItemList=new ArrayList<OrderItem>();
 		int o_tot_price=0;
 		int oi_tot_count=0;
 		for(int i =0;i<cart_item_noStr_array.length;i++) {
-			Cart  cartItem = cartDao.getCartItemByCartNo(Integer.parseInt(cart_item_noStr_array[i]));
+			Cart  cartItem = cartDao.selectCartByCartNo(Integer.parseInt(cart_item_noStr_array[i]));
 			OrderItem orderItem=new OrderItem(0, cartItem.getCart_qty(),0,cartItem.getProduct());
 			orderItemList.add(orderItem);
 			o_tot_price+=orderItem.getOi_qty()*orderItem.getProduct().getP_price();
@@ -97,7 +97,7 @@ public class OrderService {
 		}
 		return 0;
 	}
-	*/
+	
 	
 	
 	
