@@ -34,8 +34,8 @@ public class CartService {
 	}
 	
 	//cart delete
-	public int deleteCart(Cart cart)throws Exception{
-		return cartDao.deleteCartByCNo(cart);
+	public int deleteCart(String userid)throws Exception{
+		return cartDao.deleteCart(userid);
 	}
 	
 }
