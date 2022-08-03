@@ -1,5 +1,6 @@
 package com.itwill.bakery.dao.test;
 
+import com.itwill.bakery.dao.UserDao;
 import com.itwill.bakery.service.UserService;
 import com.itwill.bakery.vo.Address;
 import com.itwill.bakery.vo.User;
@@ -22,12 +23,14 @@ public class UserServiceTestMain {
 		// System.out.println(userService.selectAllUser());
 		// 주소추가
 		// System.out.println(userService.createAddress(new Address(0, "서비스테스트", "two")));
+		//번호 주소명검색
+		 // System.out.println(userService.selectAddressno(13));
 		// 회원정보
-		 System.out.println(userService.selectUser(id));
+		// System.out.println(userService.selectUser(id));
 		// 주소삭제
 		// System.out.println(userService.deleteAddress(new Address(10, null, id)));
 		// 회원탈퇴
 		 //System.out.println(userService.deleteUser(new User_info(id, null, null, null, null, 0, null)));
-
+		 
 	}
 }

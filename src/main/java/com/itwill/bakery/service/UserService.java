@@ -73,6 +73,10 @@ public class UserService {
 	public List<Address> selectAddress(User user) throws Exception{
 		return userDao.selectAddress(user);
 	}
+	//주소번호 주소검색
+	public List<Address> selectAddressno(int add_no) throws Exception{
+		return userDao.selectAddressno(add_no);
+	}
 	
 	//모든회원전체정보
 	public List<User> selectAllUser() throws Exception{

@@ -31,6 +31,9 @@ public class UserSQL {
 
 	public final static String USER_ADDRESS_BY_ID 
 			= "select * from user_info u join address a on u.user_id= a.user_id where u.user_id=?";
+	
+	public final static String ADDRESS_SELECT_BY_NO
+		= "select address from address where add_no=?";
 
 	public final static String USER_SELECT_ALL 
 			= "select * from user_info";
