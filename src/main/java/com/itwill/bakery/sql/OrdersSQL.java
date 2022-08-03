@@ -3,7 +3,7 @@ package com.itwill.bakery.sql;
 public class OrdersSQL {
 
 	public static final String ORDERS_INSERT = 
-		"insert into orders values(orders_o_no_SEQ.nextval,'배송준비',sysdate,?,?,?)";
+		"insert into orders values(orders_o_no_SEQ.nextval,'상품준비중',sysdate,?,?,?)";
 	
 	public static final String ORDER_ITEM_INSERT =
 		"insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,?,orders_o_no_SEQ.currval,?)";
