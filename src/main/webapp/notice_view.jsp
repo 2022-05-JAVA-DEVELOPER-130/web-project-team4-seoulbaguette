@@ -4,10 +4,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-
+if (request.getParameter("notice_no") == null || request.getParameter("notice_no").equals("")) {
+	response.sendRedirect("notice_list.jsp");
+	return;
+}
 NoticeService noticeService = new NoticeService();
 List<Notice> noticeList = noticeService.selectAllNotice();
-Notice notice = noticeService.selectByNoticeNo(1);
+String noStr=request.getParameter("notice_no");
+Notice notice = noticeService.selectByNoticeNo(Integer.parseInt(noStr));
 
 
 %>
@@ -21,7 +25,7 @@ Notice notice = noticeService.selectByNoticeNo(1);
 <body>
 
 
-공지 번호: <%=notice.getNotice_no() %><br>
+		공지 번호: <%=notice.getNotice_no() %><br>
 		제목: <%=notice.getNotice_title() %><br>
 		작성일: <%=notice.getNotice_title() %><br>
 		내용: <%=notice.getNotice_content() %><br>

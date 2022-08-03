@@ -29,16 +29,16 @@ public class QnADao {
 	
 	//게시물insert
 	
-	public int create(QnA qna) throws Exception {
-		Connection con=null;
-		PreparedStatement pstmt=null;
-		try {
-			con=dataSource.getConnection();
-			pstmt=con.prepareStatement(QnASQL.QNA_INSERT);
-			
-		}finally {
-			
-		}
-	}
+//	public int create(QnA qna) throws Exception {
+//		Connection con=null;
+//		PreparedStatement pstmt=null;
+//		try {
+//			con=dataSource.getConnection();
+//			pstmt=con.prepareStatement(QnASQL.QNA_INSERT);
+//			
+//		}finally {
+//			
+//		}
+//	}
 	
 }
