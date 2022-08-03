@@ -66,6 +66,7 @@ DROP SEQUENCE address_add_no_SEQ;
 CREATE SEQUENCE address_add_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
 
+
 CREATE TABLE orders(
 		o_no                          		NUMBER(10)		 NULL ,
 		o_desc                        		VARCHAR2(50)		 NULL ,
@@ -79,7 +80,6 @@ DROP SEQUENCE orders_o_no_SEQ;
 
 CREATE SEQUENCE orders_o_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
-
 CREATE TABLE order_item(
 		oi_no                         		NUMBER(10)		 NULL ,
 		oi_qty                        		NUMBER(10)		 NULL ,
@@ -90,6 +90,7 @@ CREATE TABLE order_item(
 DROP SEQUENCE order_item_oi_no_SEQ;
 
 CREATE SEQUENCE order_item_oi_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+
 
 CREATE TABLE review(
 		r_no                          		NUMBER(10)		 NULL ,
@@ -104,7 +105,6 @@ CREATE TABLE review(
 DROP SEQUENCE review_r_no_SEQ;
 
 CREATE SEQUENCE review_r_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
-
 
 CREATE TABLE notice(
 		notice_no                     		NUMBER(10)		 NULL ,
@@ -123,7 +123,10 @@ CREATE TABLE QnA(
 		qna_title                     		VARCHAR2(100)		 NULL ,
 		qna_date                      		DATE		 DEFAULT sysdate		 NULL ,
 		qna_content                   		VARCHAR2(200)		 NULL ,
-		qna_readcount                 		NUMBER(10)		 DEFAULT 0		 NULL 
+		qna_readcount                 		NUMBER(10)		 DEFAULT 0		 NULL ,
+		groupno                       		NUMBER(10)		 NULL ,
+		step                          		NUMBER(10)		 NULL ,
+		depth                         		NUMBER(10)		 DEFAULT 0		 NULL 
 );
 
 DROP SEQUENCE QnA_qna_no_SEQ;

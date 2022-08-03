@@ -21,4 +21,7 @@ public class QnADao {
 		basicDataSource.setPassword(properties.getProperty("password"));
 		this.dataSource = basicDataSource;
 	}
+	
+	
+	
 }
