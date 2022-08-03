@@ -6,6 +6,8 @@ public class CartSQL {
 			"insert into cart(cart_no,cart_qty,user_id,p_no) values(cart_cart_no_SEQ.nextval,?,?,?)";
 	public static final String SELECT_CART_BY_USERID=
 			"select * from cart c join product p on c.p_no=p.p_no where c.user_id=?";
+	public static final String SELECT_CART_BY_CART_NO=
+			"select * from cart c join product p on c.p_no=p.p_no where cart_no=?";
 	public static final String UPDATE_CART_BY_USERID_P_NO=
 			"update cart set cart_qty=cart_qty+? where user_id=? and p_no=?";
 	public static final String DELETE_CART_BY_CART_NO=

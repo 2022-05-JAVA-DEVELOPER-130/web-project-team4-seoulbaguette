@@ -19,10 +19,10 @@ public class CartDaoTestMain {
 		System.out.println(cartDao.updateQtyByPNo(new Cart(0, 2, 
 													new Product(1, null, 0, null, null, 0, 0),
 												"yeji2345")));
-		System.out.println(cartDao.selectCartByUserid("woohuck45"));
-		System.out.println(cartDao.selectCartByCartno(2));
+		System.out.println(cartDao.selectCartByUserid("yeji2345"));
+		System.out.println(cartDao.selectCartByCartNo(2));
 		System.out.println(cartDao.deleteCart("woohuck45"));
-		System.out.println(cartDao.deleteCartByCNo(1));
+		System.out.println(cartDao.deleteCartByCNo(6));
 	}
 	
 

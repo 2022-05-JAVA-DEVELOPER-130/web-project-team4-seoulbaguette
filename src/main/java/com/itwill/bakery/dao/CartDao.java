@@ -116,29 +116,34 @@ public class CartDao {
 		return cartList;
 	}
 	
-	//select cart list by cart_no
-	public List<Cart> selectCartByCartno(int cart_no)throws Exception{
-		List<Cart> cartList=new ArrayList<Cart>();
-		Connection con=dataSource.getConnection();
-		PreparedStatement pstmt=con.prepareStatement(CartSQL.SELECT_CART_BY_USERID);
-		pstmt.setInt(1, cart_no);
-		ResultSet rs=pstmt.executeQuery();
-		while(rs.next()) {
-			Cart cart=
-					new Cart(rs.getInt("cart_no"),
-							rs.getInt("cart_qty"),
-							new Product(rs.getInt("p_no"),
-										rs.getString("p_name"),
-										rs.getInt("p_price"),
-										rs.getString("p_image"),
-										rs.getString("p_desc"),
-										rs.getInt("p_click_count"),
-										rs.getInt("category_no")),
-							null);
-			cartList.add(cart);
+	//select cart by cart_no
+	public Cart selectCartByCartNo(int cart_no)throws Exception {
+		Cart cart=null;
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try {
+			con=dataSource.getConnection();
+			pstmt=con.prepareStatement(CartSQL.SELECT_CART_BY_CART_NO);
+			pstmt.setInt(1,cart_no);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				cart = new Cart(rs.getInt("cart_no"),
+									rs.getInt("cart_qty"),
+									new Product(rs.getInt("p_no"),
+											rs.getString("p_name"),
+											rs.getInt("p_price"),
+											rs.getString("p_image"),
+											rs.getString("p_desc"),
+											rs.getInt("p_click_count"),
+											rs.getInt("category_no")),
+								rs.getString("user_id"));
+			}
+		}finally {
+			if(con!=null) {
+				con.close();
+			}
 		}
-		con.close();
-		return cartList;
+		return cart;
 	}
-	
 }
