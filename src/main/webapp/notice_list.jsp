@@ -18,7 +18,7 @@ List<Notice> noticeList = noticeService.selectAllNotice();
 	<div>
 			<ul>
 			<%for(Notice notice:noticeList){ %>
-			<li><a href='notice_view.jsp?noice_no=<%= notice.getNotice_no()%>'>
+			<li><a href='notice_view.jsp?notice_no=<%= notice.getNotice_no()%>'>
 			[<%=notice.getNotice_title() %>]</a><br>
 			작성일 : <%=notice.getNotice_date() %>
 			<br>

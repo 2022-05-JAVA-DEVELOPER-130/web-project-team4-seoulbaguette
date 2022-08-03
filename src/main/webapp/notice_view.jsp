@@ -27,7 +27,7 @@ Notice notice = noticeService.selectByNoticeNo(Integer.parseInt(noStr));
 
 		공지 번호: <%=notice.getNotice_no() %><br>
 		제목: <%=notice.getNotice_title() %><br>
-		작성일: <%=notice.getNotice_title() %><br>
+		작성일: <%=notice.getNotice_date() %><br>
 		내용: <%=notice.getNotice_content() %><br>
 
 </body>
