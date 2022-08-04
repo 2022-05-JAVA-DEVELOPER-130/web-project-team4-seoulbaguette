@@ -267,7 +267,7 @@ public class UserDao {
 			pstmt.setString(1, userId);
 			rs = pstmt.executeQuery();
 			rs.next();
-			int count = rs.getInt("cnt");
+			int count = rs.getInt(1);
 			if (count == 1) {
 				isExist = true;
 			}
