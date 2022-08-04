@@ -4,18 +4,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	int qna_no=8;
+	//int qna_no=8;
 	
-	//String qna_no=request.getParameter("qna_no");
+	String qna_no=request.getParameter("qna_no");
 	
-	//if(qna_no==null || qna_no.equals("")){
-	//	response.sendRedirect("shop_main.jsp");
-	//	return;
-	//}
+	if(qna_no==null || qna_no.equals("")){
+		response.sendRedirect("shop_main.jsp");
+		return;
+	}
 	
 	QnAService qnaService=new QnAService();
-	//QnA qna=qnaService.findQnA(Integer.parseInt(qna_no));
-	QnA qna=qnaService.findQnA(qna_no);
+	QnA qna=qnaService.findQnA(Integer.parseInt(qna_no));
+	//QnA qna=qnaService.findQnA(qna_no);
 
 %>
 <!DOCTYPE html>
