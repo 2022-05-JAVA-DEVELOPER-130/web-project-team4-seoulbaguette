@@ -213,8 +213,44 @@ public class QnADao {
 		return count;
 	}
 
-	// 리스트출력
-	public ArrayList<QnA> findList()
+	// 리스트출력 (게시물 시작,끝번호)
+	public ArrayList<QnA> findList(int start,int end) throws Exception {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		
+		ArrayList<QnA> qnas=new ArrayList<QnA>();
+		
+		try {
+			con=dataSource.getConnection();
+			StringBuffer sql=new StringBuffer();
+			sql.append(QnASQL.QNA_LIST);
+			pstmt=con.prepareStatement(sql.toString());
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+				QnA qna=new QnA(rs.getInt("qna_no"), rs.getString("qna_title"), rs.getString("user_id"), 
+								rs.getDate("qna_date"), rs.getInt("qna_readcount"), rs.getInt("groupno"), 
+								rs.getInt("step"), rs.getInt("depth"));
+				qnas.add(qna);
+			}
+		}finally {
+			if(pstmt != null)
+				try {
+					pstmt.close();
+				}catch (Exception ex) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (Exception ex) {
+				}
+		}
+		return qnas;
+	}
 	
 	
 

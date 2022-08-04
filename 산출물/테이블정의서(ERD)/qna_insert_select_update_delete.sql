@@ -33,9 +33,17 @@ select count(*) from QnA;
 select qna_no,qna_title,user_id,qna_date,qna_readcount,groupno,step,depth 
 from QnA order by groupno desc,step asc; 
 
+--리스트 페이지시작,끝번호
+SELECT * FROM
+		( SELECT rownum idx, s.*  FROM
+				( SELECT qna_no, qna_title, user_id,qna_date,qna_readcount,groupno,step, depth FROM QnA
+					ORDER BY groupno DESC,step ASC
+				) s
+		 )
+WHERE idx >=? AND idx <= ? ;
+
 --select 게시물번호로
 select * from QnA where qna_no=2;
-
 
 --update 게시물수정
 update QnA set qna_title='변경제목',qna_content='변경내용' where qna_no=6;

@@ -27,6 +27,19 @@ public class QnA {
 		this.qna_readcount = qna_readcount;
 	
 	}
+	public QnA(int qna_no, String qna_title, String user_id,  Date qna_date, int qna_readcount,
+			    int groupno, int step, int depth) {
+		super();
+		this.qna_no = qna_no;
+		this.qna_title = qna_title;
+		this.user_id = user_id;
+		this.qna_content = qna_content;
+		this.qna_date = qna_date;
+		this.qna_readcount = qna_readcount;
+		this.groupno = groupno;
+		this.step = step;
+		this.depth = depth;
+	}
 	public QnA(int qna_no, String qna_title, String user_id, String qna_content, Date qna_date, int qna_readcount,
 			int groupno, int step, int depth) {
 		super();
