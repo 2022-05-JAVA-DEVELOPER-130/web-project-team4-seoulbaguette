@@ -22,7 +22,7 @@
 쿠폰 발급일 : <%=coupon.getC_start_date() %><br>
 쿠폰 기한 : <%=coupon.getC_end_date() %><br>
 쿠폰 할인율: <%=coupon.getC_discount() %>
-<input type="submit" value="삭제"/>
+<input type="submit" value="사용"/>
 </form>
 </body>
 </html>
