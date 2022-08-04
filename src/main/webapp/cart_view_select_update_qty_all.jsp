@@ -201,7 +201,7 @@ ArrayList<Cart> cartList=cartService.selectCartList(user_id);
 										</td>
 
 										<td width=112 height=26 align=center bgcolor="ffffff" class=t1>
-											<form action="cart_update_action.jsp" method="post"
+											<form  method="post"
 												id="cart_update_form_<%=cart.getCart_no()%>">
 												<input type="hidden" name="cart_no"
 													value="<%=cart.getCart_no()%>"> <input
@@ -209,8 +209,8 @@ ArrayList<Cart> cartList=cartService.selectCartList(user_id);
 													onclick="changeNumber('-','cart_update_form_<%=cart.getCart_no()%>');"/>
 												<input type="text" readonly="readonly" size="2"
 													style="text-align: center; width: 15%" name="cart_qty"
-													value="<%=cart.getCart_qty()%>"> <input
-													type="button" value="+"
+													value="<%=cart.getCart_qty()%>">
+												<input type="button" value="+"
 													onclick="changeNumber('+','cart_update_form_<%=cart.getCart_no()%>');"/>
 												<input type="hidden" name="cart_product_unit_price" value="<%=cart.getProduct().getP_price()%>"/>	
 											</form>

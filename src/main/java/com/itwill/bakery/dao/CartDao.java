@@ -81,7 +81,7 @@ public class CartDao {
 		con.close();
 		return rowCount;
 	}
-	
+
 	//cart updateqty
 	public int UpdateQty(String user_id,int cart_no,int cart_qty) throws Exception{
 		Connection con = dataSource.getConnection();
@@ -92,7 +92,15 @@ public class CartDao {
 		int rowCount = pstmt.executeUpdate();
 		return rowCount;
 	}
-	
+	public int updateQtyByCNo(String user_id,int cart_no,int cart_qty) throws Exception{
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(CartSQL.UPDATE_QTY);
+		pstmt.setInt(1, cart_qty);
+		pstmt.setString(2, user_id);
+		pstmt.setInt(3, cart_no);
+		int rowCount = pstmt.executeUpdate();
+		return rowCount;
+	}
 	//cart delete 1
 	public int deleteCartByCNo(int cart_no)throws Exception{
 		Connection con=dataSource.getConnection();

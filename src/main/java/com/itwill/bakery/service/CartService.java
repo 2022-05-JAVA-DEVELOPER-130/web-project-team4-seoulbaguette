@@ -25,6 +25,10 @@ public class CartService {
 		return cartDao.updateQtyByPNo(user_id,p_no,cart_qty);
 	}
 	
+	public int updateQtyByCNo(String user_id ,int c_no,int cart_qty)throws Exception{
+		return cartDao.updateQtyByCNo(user_id,c_no,cart_qty);
+	}
+	
 	//cart deleteAll
 	public int deleteCartByUserId(String userid)throws Exception{
 		return cartDao.deleteCart(userid);
