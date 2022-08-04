@@ -14,8 +14,8 @@ public class ReviewService {
 	}
 
 	//리뷰 작성
-	public int writeReivew(Review review) throws Exception{
-		return reviewDao.createReview(review);
+	public int writeReivew(Review review,int oi_no) throws Exception{
+		return reviewDao.createReview(review,oi_no);
 	}
 	
 	//리뷰 삭제

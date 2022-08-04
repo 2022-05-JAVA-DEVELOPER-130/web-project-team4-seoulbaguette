@@ -12,17 +12,17 @@ public class CartService {
 	}
 	
 	//cart create
-	public int CreateCart(Cart cart)throws Exception{
-		if(cartDao.cartProductExist(cart)){
-			return cartDao.updateQtyByPNo(cart);
+	public int CreateCart(String user_id,int p_no,int cart_qty)throws Exception{
+		if(cartDao.cartProductExist(user_id,p_no)){
+			return cartDao.UpdateQty(user_id, p_no, cart_qty);
 		}else {
-			return cartDao.insertCart(cart);
+			return cartDao.insertCart(user_id,p_no,cart_qty);
 		}
 	}
 	
 	//cart update
-	public int updateQtyByPNo(Cart cart)throws Exception{
-		return cartDao.updateQtyByPNo(cart);
+	public int updateQtyByPNo(String user_id,int p_no,int cart_qty)throws Exception{
+		return cartDao.updateQtyByPNo(user_id,p_no,cart_qty);
 	}
 	
 	//cart deleteAll
