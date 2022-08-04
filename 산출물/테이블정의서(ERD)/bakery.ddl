@@ -30,16 +30,6 @@ DROP SEQUENCE category_category_no_SEQ;
 
 CREATE SEQUENCE category_category_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
-CREATE TRIGGER category_category_no_TRG
-BEFORE INSERT ON category
-FOR EACH ROW
-BEGIN
-IF :NEW.category_no IS NOT NULL THEN
-  SELECT category_category_no_SEQ.NEXTVAL INTO :NEW.category_no FROM DUAL;
-END IF;
-END;
-
-
 CREATE TABLE product(
 		p_no                          		NUMBER(10)		 NULL ,
 		p_name                        		VARCHAR2(50)		 NULL ,
@@ -54,16 +44,6 @@ DROP SEQUENCE product_p_no_SEQ;
 
 CREATE SEQUENCE product_p_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
-CREATE TRIGGER product_p_no_TRG
-BEFORE INSERT ON product
-FOR EACH ROW
-BEGIN
-IF :NEW.p_no IS NOT NULL THEN
-  SELECT product_p_no_SEQ.NEXTVAL INTO :NEW.p_no FROM DUAL;
-END IF;
-END;
-
-
 CREATE TABLE cart(
 		cart_no                       		NUMBER(10)		 NULL ,
 		cart_qty                      		NUMBER(10)		 NULL ,
@@ -75,15 +55,6 @@ DROP SEQUENCE cart_cart_no_SEQ;
 
 CREATE SEQUENCE cart_cart_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
-CREATE TRIGGER cart_cart_no_TRG
-BEFORE INSERT ON cart
-FOR EACH ROW
-BEGIN
-IF :NEW.cart_no IS NOT NULL THEN
-  SELECT cart_cart_no_SEQ.NEXTVAL INTO :NEW.cart_no FROM DUAL;
-END IF;
-END;
-
 
 CREATE TABLE address(
 		add_no                        		NUMBER(10)		 NULL ,
@@ -94,15 +65,6 @@ CREATE TABLE address(
 DROP SEQUENCE address_add_no_SEQ;
 
 CREATE SEQUENCE address_add_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
-
-CREATE TRIGGER address_add_no_TRG
-BEFORE INSERT ON address
-FOR EACH ROW
-BEGIN
-IF :NEW.add_no IS NOT NULL THEN
-  SELECT address_add_no_SEQ.NEXTVAL INTO :NEW.add_no FROM DUAL;
-END IF;
-END;
 
 
 CREATE TABLE orders(
@@ -118,16 +80,6 @@ DROP SEQUENCE orders_o_no_SEQ;
 
 CREATE SEQUENCE orders_o_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
-CREATE TRIGGER orders_o_no_TRG
-BEFORE INSERT ON orders
-FOR EACH ROW
-BEGIN
-IF :NEW.o_no IS NOT NULL THEN
-  SELECT orders_o_no_SEQ.NEXTVAL INTO :NEW.o_no FROM DUAL;
-END IF;
-END;
-
-
 CREATE TABLE order_item(
 		oi_no                         		NUMBER(10)		 NULL ,
 		oi_qty                        		NUMBER(10)		 NULL ,
@@ -138,16 +90,6 @@ CREATE TABLE order_item(
 DROP SEQUENCE order_item_oi_no_SEQ;
 
 CREATE SEQUENCE order_item_oi_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
-
-CREATE TRIGGER order_item_oi_no_TRG
-BEFORE INSERT ON order_item
-FOR EACH ROW
-BEGIN
-IF :NEW.oi_no IS NOT NULL THEN
-  SELECT order_item_oi_no_SEQ.NEXTVAL INTO :NEW.oi_no FROM DUAL;
-END IF;
-END;
-
 
 CREATE TABLE review(
 		r_no                          		NUMBER(10)		 NULL ,
@@ -163,16 +105,6 @@ DROP SEQUENCE review_r_no_SEQ;
 
 CREATE SEQUENCE review_r_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
-CREATE TRIGGER review_r_no_TRG
-BEFORE INSERT ON review
-FOR EACH ROW
-BEGIN
-IF :NEW.r_no IS NOT NULL THEN
-  SELECT review_r_no_SEQ.NEXTVAL INTO :NEW.r_no FROM DUAL;
-END IF;
-END;
-
-
 CREATE TABLE notice(
 		notice_no                     		NUMBER(10)		 NULL ,
 		notice_title                  		VARCHAR2(100)		 NULL ,
@@ -183,15 +115,6 @@ CREATE TABLE notice(
 DROP SEQUENCE notice_notice_no_SEQ;
 
 CREATE SEQUENCE notice_notice_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
-
-CREATE TRIGGER notice_notice_no_TRG
-BEFORE INSERT ON notice
-FOR EACH ROW
-BEGIN
-IF :NEW.notice_no IS NOT NULL THEN
-  SELECT notice_notice_no_SEQ.NEXTVAL INTO :NEW.notice_no FROM DUAL;
-END IF;
-END;
 
 
 CREATE TABLE QnA(
@@ -210,15 +133,6 @@ DROP SEQUENCE QnA_qna_no_SEQ;
 
 CREATE SEQUENCE QnA_qna_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
-CREATE TRIGGER QnA_qna_no_TRG
-BEFORE INSERT ON QnA
-FOR EACH ROW
-BEGIN
-IF :NEW.qna_no IS NOT NULL THEN
-  SELECT QnA_qna_no_SEQ.NEXTVAL INTO :NEW.qna_no FROM DUAL;
-END IF;
-END;
-
 
 CREATE TABLE coupon(
 		c_no                          		NUMBER(10)		 NULL ,
@@ -231,15 +145,6 @@ CREATE TABLE coupon(
 DROP SEQUENCE coupon_c_no_SEQ;
 
 CREATE SEQUENCE coupon_c_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
-
-CREATE TRIGGER coupon_c_no_TRG
-BEFORE INSERT ON coupon
-FOR EACH ROW
-BEGIN
-IF :NEW.c_no IS NOT NULL THEN
-  SELECT coupon_c_no_SEQ.NEXTVAL INTO :NEW.c_no FROM DUAL;
-END IF;
-END;
 
 
 CREATE TABLE order_review(
