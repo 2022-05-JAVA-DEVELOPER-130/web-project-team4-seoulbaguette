@@ -6,7 +6,7 @@
     pageEncoding="UTF-8"%>
 <%-- <%@include file="user_login_check.jspf"%>  --%>
 <%
-	String user_id="";
+	String user_id="yeji2345";
 	CartService cartService = new CartService();
 	ArrayList<Cart> cartList=cartService.selectCartList(user_id);
 %>
