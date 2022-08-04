@@ -9,9 +9,11 @@
 <%
 	CartService cartService = new CartService();
 	ProductService productService = new ProductService();
+	String user_id="";
+	String cart_qtyStr=request.getParameter("cart_qty");
+   	String p_noStr=request.getParameter("p_no");
 	Product product = productService.selectByNo(2);
-	Cart cart = new Cart(0,2,product,"one");
-	cartService.CreateCart(cart);
+	cartService.CreateCart(user_id,Integer.parseInt(p_noStr),Integer.parseInt(cart_qtyStr));
 %>
 
 
@@ -22,7 +24,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-		
+		<%-- 
 		상품 수량: <%=cart.getCart_qty() %><br>
 		상품 이름: <%=cart.getProduct().getP_name() %><br>
 		상품 가격: <%=cart.getProduct().getP_price() %><br>
@@ -30,7 +32,7 @@
 		주문 아이디: <%=cart.getUser_id() %><br>
 		<br>
 		<br>
-		
+		 --%>
 
 </body>
 </html>

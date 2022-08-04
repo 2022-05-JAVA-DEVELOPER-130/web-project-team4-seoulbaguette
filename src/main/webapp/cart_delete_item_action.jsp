@@ -7,8 +7,9 @@
 <%@include file="user_login_check.jspf"%> 
 
 <%
+String cart_noStr=request.getParameter("cart_no");
 CartService cartService = new CartService();
-cartService.deleteCartByCNo(2);
+cartService.deleteCartByCNo(Integer.parseInt(cart_noStr));
 %>
 
 

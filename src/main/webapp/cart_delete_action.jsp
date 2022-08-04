@@ -4,7 +4,8 @@
 <%@include file="user_login_check.jspf"%>  
 <%
 CartService cartService = new CartService();
-cartService.deleteCartByUserId("two");
+String user_id="";
+cartService.deleteCartByUserId(user_id);
 %>
     
 <!DOCTYPE html>
