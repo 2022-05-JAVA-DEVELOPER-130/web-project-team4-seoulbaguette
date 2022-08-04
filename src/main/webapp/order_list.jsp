@@ -1,4 +1,5 @@
 <%@page import="java.util.ArrayList"%>
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="com.itwill.bakery.vo.Address"%>
 <%@page import="com.itwill.bakery.service.UserService"%>
 <%@page import="com.itwill.bakery.service.ProductService"%>
@@ -7,13 +8,14 @@
 <%@page import="com.itwill.bakery.vo.Orders"%>
 <%@page import="java.util.List"%>
 <%@page import="com.itwill.bakery.service.OrderService"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="user_login_check.jspf"%>  
+
 
 <%
 OrderService orderService = new OrderService();
-List<Orders> orderList = orderService.list_detail("two");
+List<Orders> orderList = orderService.list_detail("yeji2345");
 ProductService productService = new ProductService();
 %>
 
@@ -22,9 +24,12 @@ ProductService productService = new ProductService();
 <head>
 <meta charset="UTF-8">
 
-<title>Insert title here</title>
+<title>쇼핑몰 관리</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 </head>
 <body>
+
 	<% for(Orders order : orderList) { %>
 		
 		
@@ -41,9 +46,12 @@ ProductService productService = new ProductService();
 			가격: <%=orderItemList.getOi_qty() * product.getP_price() %><br>
 			<br>
 			<br>
+			
 		
 		<%} %>
 	<% }%>
+
+	
 	
 
 </body>

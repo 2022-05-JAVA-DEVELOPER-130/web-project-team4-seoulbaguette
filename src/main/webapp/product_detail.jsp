@@ -29,8 +29,25 @@ if(product==null){
 <head>
 <meta charset="UTF-8">
 <title>SEOULBAGUETTE</title>
+<script type="text/javascript">
+	
+function order_create_form() {
+	
+		document.product_detail_form.method = 'POST';
+		document.product_detail_form.action = 'order_create_form.jsp';
+		document.product_detail_form.submit();
+	
+}
+</script>
 </head>
 <body>
+<form name="product_detail_form">
+		<input type="hidden" name="p_no" value="<%=product.getP_no()%>">
+		<input type="hidden" name="p_qty" value=6>
+		 <input
+			type="hidden" name="buyType" value="direct">
+</form>
+	
 	<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
@@ -55,7 +72,7 @@ if(product==null){
 								</tr>
 								<tr width=100%>
 									<td width=30% height=200 align=center class=t1>
-										<form name="add_cart_form" method="post" action="cart_add_action.jsp">
+										<form name="add_cart_form" method="post" action="cart_add_action.jsp" action="order_create_form.jsp">
 											수량 :
 											<!-- 
 											 <input type=text name="cart_qty" value=1 size=4 class=TXTFLD>  
@@ -75,6 +92,7 @@ if(product==null){
 												<input type=submit value="장바구니[이동]" /><br><br> 
 												<input type=button onclick="add_cart_popup_window();" value="장바구니[계속쇼핑]" />
 												<input type="hidden" name=p_no value="<%=product.getP_no()%>">
+												
 										</form>
 									</td>
 									<td width=40% height=200 align=center><img border=0
@@ -99,9 +117,11 @@ if(product==null){
 
 							<table border="0" cellpadding="0" cellspacing="1">
 								<tr>
-									<td align=center><input type="button" value="주문하기[주문폼]"
-										onClick="order_create_form();"> &nbsp; <input
-										type="button" value="상품리스트" onClick="productList();"></td>
+									<td align=center>
+									<input type="button" value="주문하기[주문폼]"
+										onClick="order_create_form();"> &nbsp; 
+									<input type="button" value="상품리스트" onClick="productList();">
+										</td>
 								</tr>
 							</table></td>
 					</tr>
