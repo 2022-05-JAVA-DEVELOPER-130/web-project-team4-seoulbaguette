@@ -46,7 +46,6 @@ public class OrderService {
 	 */
 	public int create(String sUserId,int p_no,int oi_qty,int add_no) throws Exception{
 		Product product=productDao.selectByNo(p_no);
-		System.out.println(product);
 		OrderItem orderItem=new OrderItem(0, oi_qty, p_no, product);
 		ArrayList<OrderItem> orderItemList=new ArrayList<OrderItem>();
 		orderItemList.add(orderItem);
