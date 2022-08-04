@@ -51,3 +51,21 @@ function userCreate_cancel(){
 	document.f.method = "POST";
 	document.f.submit();
 }
+
+function userModify(){
+	document.f.action = "user_update_form.jsp";
+	document.f.method = "POST";
+	document.f.submit();
+}
+
+function userRemove(){
+	document.f.action = "user_remove_action.jsp";
+	document.f.method = "POST";
+	document.f.submit();
+}
+
+function userAddress(){
+	document.f.action = "address_list.jsp";
+	document.f.method = "POST";
+	document.f.submit();
+}
