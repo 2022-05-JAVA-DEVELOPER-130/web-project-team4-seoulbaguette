@@ -151,7 +151,11 @@ if (buyType.equals("cart")) {
 									</tr>
 								</table>
 							</form>
+							<form name="order_create_form" method="post">
+		 						<input type="hidden" name="p_no" value="<%=p_noStr%>"> 
+								<input type="hidden" name="p_qty" value="<%=p_qtyStr%>">
 							<br />
+							</form>
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
 									<td align=center>&nbsp;&nbsp; <a

@@ -43,9 +43,8 @@ function order_create_form() {
 <body>
 <form name="product_detail_form">
 		<input type="hidden" name="p_no" value="<%=product.getP_no()%>">
-		<input type="hidden" name="p_qty" value=6>
-		 <input
-			type="hidden" name="buyType" value="direct">
+		<input type="hidden" name="p_qty" value="1">
+		 <input type="hidden" name="buyType" value="direct">
 </form>
 	
 	<table style="padding-left: 10px" border=0 cellpadding=0
