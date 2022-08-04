@@ -13,10 +13,10 @@ public class UserServiceTestMain {
 		String id = "three";
 		
 		//회원가입
-		 //int rowCount = userService.createUser(new User_info("two2", "insert", "인서트",
-		// "insert@email.com", "2223333", 1000, null));
-		// 회원가입
-		// System.out.println("회원가입>>" +rowCount);
+		//int rowCount = userService.createUser(new User("two2", "insert", "인서트",
+		//"insert@email.com", "2223333", 1000,null));
+		 //회원가입
+		 //System.out.println("회원가입>>" +rowCount);
 		// 로그인
 		//System.out.println(userService.login("three", "3333"));
 		// 전체 회원 정보
@@ -24,7 +24,7 @@ public class UserServiceTestMain {
 		// 주소추가
 		// System.out.println(userService.createAddress(new Address(0, "서비스테스트", "two")));
 		//번호 주소명검색
-		System.out.println(userService.selectAddressno(2));
+		//System.out.println(userService.selectAddressno(2));
 		// 회원정보
 		// System.out.println(userService.selectUser(id));
 		// 주소삭제
