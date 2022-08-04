@@ -1,7 +1,7 @@
 <%@page import="com.itwill.bakery.service.ReviewService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="user_login_check.jspf"%> 
+<%-- <%@include file="user_login_check.jspf"%>  --%>
 
 <%
 
@@ -16,7 +16,7 @@ String r_no=request.getParameter("r_no");
 ReviewService reviewService=new ReviewService();
 try{
 	reviewService.deleteReivew(Integer.parseInt(r_no));
-	response.sendRedirect("review_list_product.jsp");
+	response.sendRedirect("review_list_user.jsp");
 	
 }catch(Exception e){
 	e.printStackTrace();

@@ -31,9 +31,10 @@ Review review=reviewService.selectReview(r_no);
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="js/review.js"></script>
 </head>
 <body>
-<form name="f" method="post" action="review_update_action.jsp">
+<form name="f" method="post" >
 <input type="hidden" name="r_no" value="<%=r_no%>"/>
 리뷰 상품명 : <%=review.getProduct().getP_name() %>
 <br>
@@ -42,9 +43,10 @@ Review review=reviewService.selectReview(r_no);
 작성자: <%=user.getUser_name()%> (<%=user.getUser_id()%>) <br>
 별점 : <input type="number" name="r_stargrade" value="<%=review.getR_stargrade()%>" min="1" max="5"> 
 리뷰내용 : <input type="text" name="r_content" value="<%=review.getR_content()%>"/> <br>
-<input type ="submit" value="수정" >
 
 </form>
+<input type ="button" value="수정" onclick="reviewformCheck_update()"/>
+<input type="button" value="취소" onclick="reviewCancelUpdate()"/>
 
 </body>
 </html>

@@ -7,7 +7,7 @@
     pageEncoding="UTF-8"%>
 <%-- <%@include file="user_login_check.jspf"%>  --%>
     <%
-String userId="juhee13";
+String userId="guntae123";
 ReviewService reviewService = new ReviewService();
 List<Review> reviewList = reviewService.selectReviewById(userId);
 
