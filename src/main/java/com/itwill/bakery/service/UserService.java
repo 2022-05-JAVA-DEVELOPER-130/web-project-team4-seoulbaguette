@@ -38,21 +38,21 @@ public class UserService {
 	//로그인 
 	
 	
-	public int login(String userId,String password) throws Exception {
+	public int login(String user_id,String user_password) throws Exception {
 		int result=-1;
-		//1.아이디 존재여부
-		User user = userDao.checkId(userId);
+		
+		User user = userDao.checkId(user_id);
 		if(user==null) {
 			//아이디없음
 			result=0;
 		}else {
 			//아이디존재
-			if(user.isMatchPassword(password)) {
-				//로그인성공
-				result=2;
-			}else {
-				//비밀번호틀림
+			if(user.isMatchPassword(user_password)) {
+				//성공
 				result=1;
+			}else {
+				//비밀번호불일치
+				result=2;
 			}
 		}
 		
@@ -99,8 +99,8 @@ public class UserService {
 		return userDao.deleteAddress(address);
 	}
 	//회원탈퇴
-	public int deleteUser(User user) throws Exception{
-		return userDao.deleteUser(user);
+	public int deleteUser(String user_id) throws Exception{
+		return userDao.deleteUser(user_id);
 	}
 	
 	

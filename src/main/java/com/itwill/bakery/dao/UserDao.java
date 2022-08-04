@@ -222,17 +222,28 @@ public class UserDao {
 		return userList;
 	}
 	
-	public int deleteUser(User user) throws Exception{
-		Connection con=dataSource.getConnection();
-		PreparedStatement pstmt=con.prepareStatement(UserSQL.USER_DELETE);
-		pstmt.setString(1, user.getUser_id());
-		int rowCount=pstmt.executeUpdate();
-		
-		pstmt.close();
-		con.close();
-		return rowCount;
+	public int deleteUser(String user_id) throws Exception{
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		int removeRowCount = 0;
+		try {
+			con = dataSource.getConnection();
+			pstmt = con.prepareStatement(UserSQL.USER_DELETE);
+			pstmt.setString(1, user_id);
+			removeRowCount = pstmt.executeUpdate();
+
+		} finally {
+			/*
+			 * 예외발생과 관계없이 반드시 실행되는 코드
+			 */
+			if (pstmt != null)
+				pstmt.close();
+			if (con != null)
+				con.close();
+
+		}
+		return removeRowCount;
 	}
-	
 	public int deleteAddress(Address address)throws Exception{
 		Connection con=dataSource.getConnection();
 		PreparedStatement pstmt=con.prepareStatement(UserSQL.ADDRESS_DELETE_ONE);

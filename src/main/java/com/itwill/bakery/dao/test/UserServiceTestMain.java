@@ -18,7 +18,7 @@ public class UserServiceTestMain {
 		 //회원가입
 		 //System.out.println("회원가입>>" +rowCount);
 		// 로그인
-		//System.out.println(userService.login("three", "3333"));
+		//System.out.println(userService.login("three", "1234"));
 		// 전체 회원 정보
 		// System.out.println(userService.selectAllUser());
 		// 주소추가
