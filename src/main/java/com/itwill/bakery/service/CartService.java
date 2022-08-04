@@ -1,6 +1,6 @@
 package com.itwill.bakery.service;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import com.itwill.bakery.dao.CartDao;
 import com.itwill.bakery.vo.Cart;
@@ -36,7 +36,7 @@ public class CartService {
 	}
 	
 	//select cartlist
-	public List<Cart> selectCartList(String user_id)throws Exception{
+	public ArrayList<Cart> selectCartList(String user_id)throws Exception{
 		return cartDao.selectCartByUserid(user_id);
 	}
 	

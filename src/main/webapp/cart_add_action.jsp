@@ -7,9 +7,13 @@
 <%@include file="user_login_check.jspf"%> 
 
 <%
+	if(request.getMethod().equalsIgnoreCase("GET")){
+		response.sendRedirect("product_list.jsp");
+		return;
+	}
 	CartService cartService = new CartService();
 	ProductService productService = new ProductService();
-	String user_id="";
+	String user_id="yeji2345";
 	String cart_qtyStr=request.getParameter("cart_qty");
    	String p_noStr=request.getParameter("p_no");
 	Product product = productService.selectByNo(2);

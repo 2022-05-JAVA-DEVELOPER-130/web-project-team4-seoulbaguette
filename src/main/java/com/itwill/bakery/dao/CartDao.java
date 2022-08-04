@@ -3,7 +3,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 
 import javax.sql.DataSource;
@@ -118,8 +117,8 @@ public class CartDao {
 	 
 	
 	//select cart list by user_id
-	public List<Cart> selectCartByUserid(String user_id)throws Exception{
-		List<Cart> cartList=new ArrayList<Cart>();
+	public ArrayList<Cart> selectCartByUserid(String user_id)throws Exception{
+		ArrayList<Cart> cartList=new ArrayList<Cart>();
 		Connection con=dataSource.getConnection();
 		PreparedStatement pstmt=con.prepareStatement(CartSQL.SELECT_CART_BY_USERID);
 		pstmt.setString(1, user_id);
