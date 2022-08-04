@@ -3,7 +3,7 @@ package com.itwill.bakery.sql;
 
 public class CartSQL {
 	public static final String INSERT_CART =
-			"insert into cart(cart_no,userId,p_no,cart_qty) values(cart_cart_no_SEQ.nextval,?,?,?)";
+			"insert into cart(cart_no,user_id,p_no,cart_qty) values(cart_cart_no_SEQ.nextval,?,?,?)";
 	public static final String SELECT_CART_BY_USERID=
 			"select * from cart c join product p on c.p_no=p.p_no where c.user_id=?";
 	public static final String SELECT_CART_BY_CART_NO=
