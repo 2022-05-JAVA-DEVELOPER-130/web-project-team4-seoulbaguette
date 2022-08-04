@@ -23,7 +23,7 @@ UserService userService = new UserService();
 
 int check = userService.createUser(newUser);
 
-response.sendRedirect("user_login_form.jsp");
+
 
 if (check == -1) {
 	/*##################아이디중복#################*/
