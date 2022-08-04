@@ -19,5 +19,9 @@ public class OrderReviewService {
 	public int checkOR(int oi_no) throws Exception{
 		return orderReviewDao.checkOR(oi_no);
 	}
+	
+	public int returnRno(int oi_no) throws Exception{
+		return orderReviewDao.returnR_no(oi_no);
+	}
 
 }

@@ -4,14 +4,15 @@
 <%@page import="com.itwill.bakery.service.UserService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="user_login_check.jspf"%> 
- --%>
+<%-- <%@include file="user_login_check.jspf"%>  --%>
+
  <%
- String user_id="juhee13";
+ String user_id="guntae123";
  UserService userService=new UserService();
  User user=userService.selectUser(user_id); 
  
- int p_no=13;
+ int p_no=Integer.parseInt(request.getParameter("p_no"));
+ int oi_no=Integer.parseInt(request.getParameter("oi_no"));
  ProductService productService=new ProductService();
  Product product=productService.selectByNo(p_no);
  %>
@@ -24,6 +25,8 @@
 </head>
 <body>
 <form name="f" method="post" action="review_write_action.jsp">
+<input type="hidden" name="p_no" value="<%=product.getP_no() %>">
+<input type="hidden" name="oi_no" value="<%=oi_no %>">
 리뷰 상품명 : <%=product.getP_name() %>
 <br>
 리뷰 제목:<input type="text" name="r_title" value="리뷰제목"/> 

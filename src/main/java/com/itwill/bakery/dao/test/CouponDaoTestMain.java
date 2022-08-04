@@ -9,7 +9,7 @@ public class CouponDaoTestMain {
 		System.out.println("쿠폰 생성");
 		//System.out.println(couponDao.createCoupon(new Coupon(0, null, null, 99, "juhee13", 10)));
 		System.out.println("쿠폰 사용 ");
-		System.out.println(couponDao.deleteCoupon_Use(new Coupon(3, null, null, 0, null, 0)));
+		//System.out.println(couponDao.deleteCoupon_Use(new Coupon(3, null, null, 0, null, 0)));
 		
 		System.out.println("쿠폰 날짜 기한 지남");
 		System.out.println(couponDao.deleteCoupon_Date());
@@ -19,6 +19,7 @@ public class CouponDaoTestMain {
 	
 		System.out.println("회원의 쿠폰리스트 찾기");
 		System.out.println(couponDao.selectCouponById(new Coupon(0, null, null, 0, "juhee13", 0)));
+	
 	}
 
 }

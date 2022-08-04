@@ -12,14 +12,15 @@
 <head>
 <meta charset="UTF-8">
 <title>쿠폰 발급</title>
+<script src="js/coupon.js"></script>
 </head>
 <body>
-<form method="post" action="coupon_create_action.jsp" >
+<form name="f" method="post" >
 <input type="hidden"  name="period" value="<%=period%>"/>
 쿠폰 기한 : <%=period %> <br>
 <input type="hidden" name="discount" value="<%=discount%>"/>
 할인율:<%=discount %><br>
-<input type="submit" value="발급"/>
+<input type="button" value="발급" onclick="couponCreate()"/>
 
 
 </form>
