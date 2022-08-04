@@ -11,7 +11,7 @@
 		cartService.deleteCartByCNo(Integer.parseInt(cart_noStr));
 		response.sendRedirect("cart_view_select_update_qty_all.jsp");
 	}else{
-		cartService.updateQtyByPNo(user_id, 2, cart_qtyStr);
+		cartService.updateQtyByPNo(user_id, Integer.parseInt(p_noStr), cart_qtyStr);
 		response.sendRedirect("cart_view_select_update_qty_all.jsp");
 	}
 	
