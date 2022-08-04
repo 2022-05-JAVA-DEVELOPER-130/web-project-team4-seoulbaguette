@@ -55,7 +55,7 @@
 										<td width=100 align=center bgcolor="E6ECDE" height="22">핸드폰
 											번호</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10">
-											<%=user.getUser_email()%>
+											<%=user.getUser_phone()%>
 										</td>
 									</tr>
 									<tr>

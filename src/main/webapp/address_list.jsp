@@ -17,6 +17,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="adress.js"></script>
 </head>
 <body>
 <div id="content">
