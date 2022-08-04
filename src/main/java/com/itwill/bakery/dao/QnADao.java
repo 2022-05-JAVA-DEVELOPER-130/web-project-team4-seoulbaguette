@@ -274,7 +274,7 @@ public class QnADao {
 
 	// 조회수 증가
 	
-	public int updateReadCount(QnA qna) throws Exception {
+	public int updateReadCount(int qna_no) throws Exception {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		int count = 0;
@@ -282,7 +282,7 @@ public class QnADao {
 		try {
 			con = dataSource.getConnection();
 			pstmt = con.prepareStatement(QnASQL.QNA_UPDATE_READ_COUNT);
-			pstmt.setInt(1, qna.getQna_no());
+			pstmt.setInt(1, qna_no);
 			count = pstmt.executeUpdate();
 		} finally {
 			try {

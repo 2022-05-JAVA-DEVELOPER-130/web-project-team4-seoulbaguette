@@ -6,14 +6,20 @@ import com.itwill.bakery.dao.QnADao;
 import com.itwill.bakery.vo.PageMaker;
 import com.itwill.bakery.vo.QnA;
 import com.itwill.bakery.vo.QnAListPageMaker;
-
 public class QnAService {
+	private static QnAService _instance; //싱글턴 패턴으로 구현된 클래스는 프로그램 내에서 하나의 객체만 갖음
+	
 	private QnADao qnaDao;
 	
 	public QnAService() throws Exception{
 		qnaDao=new QnADao();
 	}
-	
+	public static QnAService getInstance() throws Exception{
+		if(_instance==null) {
+			_instance=new QnAService();
+		}
+		return _instance;
+	}
 	//게시물 생성
 	public int create(QnA qna) throws Exception {
 		return qnaDao.create(qna);
@@ -50,6 +56,10 @@ public class QnAService {
 		return pageMakerQnAList;
 	}
 	
+	//조회수증가
+	public void updateReadCount(int qna_no) throws Exception {
+		qnaDao.updateReadCount(qna_no);
+	}
 	
 	
 	

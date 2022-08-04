@@ -40,10 +40,8 @@ QnAListPageMaker qnaListPage
 <head>
 <meta charset="UTF-8">
 <title>QnA</title>
-<script type="text/javascript">
-	function qnaCreate() {
-		location.href = "qna_write_form.jsp";
-	}
+<script type="text/javascript" src="js/qna.js">
+
 </script>
 </head>
 <body>
@@ -103,7 +101,7 @@ QnAListPageMaker qnaListPage
 										    <a href="./qna_list.jsp?pageno=1">◀◀</a>&nbsp;
 										 <%}%>
 										 <%if(qnaListPage.pageMaker.getPrevPage()>0) {%> <%-- 이전페이지가 0이면 안보임 --%>  
-											<a href="./board_list.jsp?pageno=<%=qnaListPage.pageMaker.getPrevPage()%>">◀</a>&nbsp;&nbsp;
+											<a href="./qna_list.jsp?pageno=<%=qnaListPage.pageMaker.getPrevPage()%>">◀</a>&nbsp;&nbsp;
 										 <%}%>
 										
 										<%
@@ -131,7 +129,7 @@ QnAListPageMaker qnaListPage
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
 									<td align="right"><input type="button" value="게시물 생성"
-										onclick="boardCreate();" /></td>
+										onclick="qnaCreate();" /></td>
 								</tr>
 							</table></td>
 					</tr>

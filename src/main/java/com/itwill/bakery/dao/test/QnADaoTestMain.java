@@ -47,7 +47,7 @@ public class QnADaoTestMain {
 		System.out.println(qnaDao.update(test2));
 		
 		System.out.println("조회수 증가");
-		System.out.println(qnaDao.updateReadCount(test2));
+		System.out.println(qnaDao.updateReadCount(5));
 		
 		System.out.println("게시글 삭제");
 		System.out.println(qnaDao.delete(13));
