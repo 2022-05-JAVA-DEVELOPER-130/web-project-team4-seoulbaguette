@@ -33,6 +33,7 @@ if(product==null){
 	
 function order_create_form() {
 	
+		document.product_detail_form.cart_qty.value = document.add_cart_form.cart_qty.value;
 		document.product_detail_form.method = 'POST';
 		document.product_detail_form.action = 'order_create_form.jsp';
 		document.product_detail_form.submit();
@@ -43,7 +44,7 @@ function order_create_form() {
 <body>
 <form name="product_detail_form">
 		<input type="hidden" name="p_no" value="<%=product.getP_no()%>">
-		<input type="hidden" name="p_qty" value="1">
+		<input type="hidden" name="cart_qty" value="1">
 		 <input type="hidden" name="buyType" value="direct">
 </form>
 	

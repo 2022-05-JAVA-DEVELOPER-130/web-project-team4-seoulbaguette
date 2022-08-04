@@ -15,15 +15,15 @@ OrderService orderService = new OrderService();
 
 String buyType = request.getParameter("buyType");
 String p_noStr = request.getParameter("p_no");
-String p_qtyStr = request.getParameter("p_qty");
+String c_qtyStr = request.getParameter("cart_qty");
 String[] cart_item_noStr_array = request.getParameterValues("cart_item_no");
 
 if (buyType == null)
 	buyType = "";
 if (p_noStr == null)
 	p_noStr = "";
-if (p_qtyStr == null)
-	p_qtyStr = "";
+if (c_qtyStr == null)
+	c_qtyStr = "";
 if (cart_item_noStr_array == null)
 	cart_item_noStr_array = new String[] {};
 
@@ -41,7 +41,7 @@ if (buyType.equals("cart")) {
 	}
 } else if (buyType.equals("direct")) {
 	Product product = productService.selectByNo(Integer.parseInt(p_noStr));
-	cartItemList.add(new Cart(0, Integer.parseInt(p_qtyStr), product, user.getUser_id()));
+	cartItemList.add(new Cart(0, Integer.parseInt(c_qtyStr), product, user.getUser_id()));
 }
 %>
 <!DOCTYPE html>
@@ -54,11 +54,11 @@ if (buyType.equals("cart")) {
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>
 	
-	<%=p_qtyStr %>
+	<%=c_qtyStr %>
 	<form name="order_create_form" method="post">
 		<input type="hidden" name="buyType" value="<%=buyType%>"> <input
 			type="hidden" name="p_no" value="<%=p_noStr%>"> <input
-			type="hidden" name="p_qty" value="<%=p_qtyStr%>">
+			type="hidden" name="p_qty" value="<%=c_qtyStr%>">
 		<%
 		for (String cart_item_noStr : cart_item_noStr_array) {
 		%>
@@ -153,7 +153,7 @@ if (buyType.equals("cart")) {
 							</form>
 							<form name="order_create_form" method="post">
 		 						<input type="hidden" name="p_no" value="<%=p_noStr%>"> 
-								<input type="hidden" name="p_qty" value="<%=p_qtyStr%>">
+								<input type="hidden" name="p_qty" value="<%=c_qtyStr%>">
 							<br />
 							</form>
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
