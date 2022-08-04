@@ -41,7 +41,6 @@ ProductService productService = new ProductService();
 			가격: <%=orderItemList.getOi_qty() * product.getP_price() %><br>
 			<br>
 			<br>
-			
 		
 		<%} %>
 	<% }%>

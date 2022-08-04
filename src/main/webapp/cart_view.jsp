@@ -8,7 +8,8 @@
 <%
 
 	CartService cartService = new CartService();
-	Cart cart=cartService.selectCart(4);
+	String noStr=request.getParameter("cart_no");
+	Cart cart=cartService.selectCart(Integer.parseInt(noStr));
 
 %>
 <!DOCTYPE html>

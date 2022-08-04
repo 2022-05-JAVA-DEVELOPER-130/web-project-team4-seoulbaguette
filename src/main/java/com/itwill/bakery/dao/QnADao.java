@@ -3,6 +3,7 @@ package com.itwill.bakery.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -102,7 +103,9 @@ public class QnADao {
 
 		try {
 			con = dataSource.getConnection();
-			pstmt = con.prepareStatement(QnASQL.QNA_SELECT_BY_QNA_NO);
+			StringBuffer sql=new StringBuffer(); //buffer에 담으면 실행속도 빨라짐,사이즈 설정은 하지 않아도됨
+			sql.append(QnASQL.QNA_SELECT_BY_QNA_NO);
+			pstmt=con.prepareStatement(sql.toString());
 			pstmt.setInt(1, qna_no);
 			rs = pstmt.executeQuery();
 
@@ -143,7 +146,9 @@ public class QnADao {
 
 		try {
 			con = dataSource.getConnection();
-			pstmt = con.prepareStatement(QnASQL.QNA_SELECT_BY_USERID);
+			StringBuffer sql=new StringBuffer();
+			sql.append(QnASQL.QNA_SELECT_BY_USERID);
+			pstmt=con.prepareStatement(sql.toString());
 			pstmt.setString(1, user_id);
 			rs = pstmt.executeQuery();
 
@@ -209,7 +214,7 @@ public class QnADao {
 	}
 
 	// 리스트출력
-	
+	public ArrayList<QnA> findList()
 	
 	
 
