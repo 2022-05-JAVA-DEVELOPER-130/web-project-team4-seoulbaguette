@@ -1,3 +1,4 @@
+<%@page import="com.itwill.bakery.vo.Address"%>
 <%@page import="java.util.List"%>
 <%@page import="com.itwill.bakery.vo.Product"%>
 <%@page import="com.itwill.bakery.vo.Cart"%>
@@ -25,13 +26,14 @@ if (p_noStr == null)
 if (c_qtyStr == null)
 	c_qtyStr = "";
 if (cart_item_noStr_array == null)
-	cart_item_noStr_array = new String[] {};
+	cart_item_noStr_array = new String[]{};
 
 CartService cartService = new CartService();
 UserService userService = new UserService();
 ProductService productService = new ProductService();
 
 List<Cart> cartItemList = new ArrayList<Cart>();
+Address add = userService.selectAddressno(7);
 User user = userService.selectUser("yeji2345");
 if (buyType.equals("cart")) {
 	cartItemList = cartService.selectCartList("yeji2345");
@@ -50,24 +52,19 @@ if (buyType.equals("cart")) {
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
+	function order_create_form_submit() {
+		document.order_create_form.method = 'POST';
+		document.order_create_form.action = 'order_create_action.jsp';
+		document.order_create_form.submit();
+	}
+</script>
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>
-	
-	<%=c_qtyStr %>
-	<form name="order_create_form" method="post">
-		<input type="hidden" name="buyType" value="<%=buyType%>"> <input
-			type="hidden" name="p_no" value="<%=p_noStr%>"> <input
-			type="hidden" name="p_qty" value="<%=c_qtyStr%>">
-		<%
-		for (String cart_item_noStr : cart_item_noStr_array) {
-		%>
-		<input type="hidden" name="cart_item_no" value="<%=cart_item_noStr%>">
-		<%
-		}
-		%>
-	</form>
-<!-- container start-->
+
+
+	<!-- container start-->
 	<div id="container">
 
 
@@ -92,16 +89,16 @@ if (buyType.equals("cart")) {
 									cellspacing="1" bgcolor="BBBBBB">
 									<caption style="text-align: left;">구매자정보</caption>
 									<tr>
-										<td width=290 height=25 align=center bgcolor="E6ECDE" class=t1>아이디</td>
+										<td width=112 height=25 align=center bgcolor="E6ECDE" class=t1>아이디</td>
 										<td width=112 height=25 align=center bgcolor="E6ECDE" class=t1>이름</td>
 										<td width=166 height=25 align=center bgcolor="E6ECDE" class=t1>이메일</td>
-										<td width=50 height=25 align=center bgcolor="E6ECDE" class=t1>비
-											고</td>
+										<td width=228 height=25 align=center bgcolor="E6ECDE" class=t1>주소</td>
 									</tr>
 									<tr>
 										<td width=290 height=26 align=center bgcolor="ffffff" class=t1><%=user.getUser_id()%></td>
 										<td width=112 height=26 align=center bgcolor="ffffff" class=t1><%=user.getUser_name()%></td>
 										<td width=166 height=26 align=center bgcolor="ffffff" class=t1><%=user.getUser_email()%></td>
+										<td width=166 height=26 align=center bgcolor="ffffff" class=t1><%=add.getAddress()%></td>
 										<td width=50 height=26 align=center bgcolor="ffffff" class=t1></td>
 									</tr>
 								</table>
@@ -139,7 +136,9 @@ if (buyType.equals("cart")) {
 										<td width=50 height=26 align=center bgcolor="ffffff" class=t1></td>
 									</tr>
 									<!-- cart item end -->
-									<%}%>
+									<%
+									}
+									%>
 									<tr>
 										<td width=640 colspan=4 height=26 bgcolor="ffffff" class=t1>
 											<p align=right style="padding-top: 10px">
@@ -152,9 +151,29 @@ if (buyType.equals("cart")) {
 								</table>
 							</form>
 							<form name="order_create_form" method="post">
-		 						<input type="hidden" name="p_no" value="<%=p_noStr%>"> 
-								<input type="hidden" name="p_qty" value="<%=c_qtyStr%>">
-							<br />
+								<input type="hidden" name="buyType" value="<%=buyType%>">
+								<input type="hidden" name="p_no" value="<%=p_noStr%>"> <input
+									type="hidden" name="p_qty" value="<%=c_qtyStr%>">
+
+								<%
+								for (String cart_item_noStr : cart_item_noStr_array) {
+								%>
+								<input type="hidden" name="cart_item_no"
+									value="<%=cart_item_noStr%>">
+								<%
+								}
+								%>
+								<table align=center width=80% border="0" cellpadding="0"
+									cellspacing="1" bgcolor="BBBBBB">
+								<h4>결제수단 선택</h4>
+							
+								<input type="radio" name="o_payselect" value="신용카드" checked>신용카드
+								<input type="radio" name="o_payselect" value="SMARTPAY">스마트페이
+								<input type="radio" name="o_payselect" value="계좌이체">계좌이체
+								<input type="radio" name="o_payselect" value="무통장 입금">무통장 입금
+								
+								</table>
+							</form> <br />
 							</form>
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
@@ -172,11 +191,11 @@ if (buyType.equals("cart")) {
 			<!-- content end -->
 		</div>
 		<!--wrapper end-->
-		
+
 	</div>
-	<!--container end-->	
-	
-	
+	<!--container end-->
+
+
 
 </body>
 </html>
