@@ -93,13 +93,14 @@ if (buyType.equals("cart")) {
 										<td width=112 height=25 align=center bgcolor="E6ECDE" class=t1>이름</td>
 										<td width=166 height=25 align=center bgcolor="E6ECDE" class=t1>이메일</td>
 										<td width=228 height=25 align=center bgcolor="E6ECDE" class=t1>주소</td>
+										<td width=120 height=25 align=center bgcolor="E6ECDE" class=t1>포인트</td>
 									</tr>
 									<tr>
 										<td width=290 height=26 align=center bgcolor="ffffff" class=t1><%=user.getUser_id()%></td>
 										<td width=112 height=26 align=center bgcolor="ffffff" class=t1><%=user.getUser_name()%></td>
 										<td width=166 height=26 align=center bgcolor="ffffff" class=t1><%=user.getUser_email()%></td>
 										<td width=166 height=26 align=center bgcolor="ffffff" class=t1><%=add.getAddress()%></td>
-										<td width=50 height=26 align=center bgcolor="ffffff" class=t1></td>
+										<td width=50 height=26 align=center bgcolor="ffffff" class=t1><%=user.getUser_point()%></td>
 									</tr>
 								</table>
 
@@ -109,8 +110,7 @@ if (buyType.equals("cart")) {
 									cellspacing="1" bgcolor="BBBBBB">
 									<caption style="text-align: left;">주문제품목록</caption>
 									<tr style="border: 0.1px solid">
-										<td width=290 height=25 bgcolor="E6ECDE" align=center class=t1>강아지
-											이름</td>
+										<td width=290 height=25 bgcolor="E6ECDE" align=center class=t1>제품</td>
 										<td width=112 height=25 bgcolor="E6ECDE" align=center class=t1>수
 											량</td>
 										<td width=166 height=25 bgcolor="E6ECDE" align=center class=t1>가
@@ -163,8 +163,13 @@ if (buyType.equals("cart")) {
 								<%
 								}
 								%>
+								
+								
 								<table align=center width=80% border="0" cellpadding="0"
 									cellspacing="1" bgcolor="BBBBBB">
+	
+											
+											
 								<h4>결제수단 선택</h4>
 							
 								<input type="radio" name="o_payselect" value="신용카드" checked>신용카드
@@ -172,9 +177,11 @@ if (buyType.equals("cart")) {
 								<input type="radio" name="o_payselect" value="계좌이체">계좌이체
 								<input type="radio" name="o_payselect" value="무통장 입금">무통장 입금
 								
+								
 								</table>
 							</form> <br />
 							</form>
+							
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
 									<td align=center>&nbsp;&nbsp; <a
