@@ -39,6 +39,9 @@ function order_create_form() {
 		document.product_detail_form.submit();
 	
 }
+function productList() {
+	location.href = 'product_list.jsp';
+}
 </script>
 </head>
 <body>
