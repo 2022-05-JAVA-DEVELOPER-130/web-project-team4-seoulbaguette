@@ -25,7 +25,7 @@ public class QnADao {
 		properties.load(this.getClass().getResourceAsStream("/com/itwill/bakery/common/jdbc.properties"));
 		basicDataSource.setDriverClassName(properties.getProperty("driverClassName"));
 		basicDataSource.setUrl(properties.getProperty("url"));
-		basicDataSource.setUsername(properties.getProperty("username"));
+		basicDataSource.setUsername(properties.getProperty("user"));
 		basicDataSource.setPassword(properties.getProperty("password"));
 		this.dataSource = basicDataSource;
 	}
@@ -35,7 +35,7 @@ public class QnADao {
 	public int create(QnA qna) throws Exception {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		try {
+		
 			con = dataSource.getConnection();
 			pstmt = con.prepareStatement(QnASQL.QNA_INSERT);
 			pstmt.setString(1, qna.getUser_id());
@@ -46,9 +46,6 @@ public class QnADao {
 
 			return result;
 
-		} finally {
-			con.close();
-		}
 	}
 
 	// 답글추가
@@ -57,7 +54,7 @@ public class QnADao {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		int rowCount = 0;
-		try {
+		
 			QnA temp = this.findByQnANo(qna.getQna_no());
 
 			con = dataSource.getConnection();
@@ -72,24 +69,12 @@ public class QnADao {
 			pstmt.setString(2, qna.getQna_title());
 			pstmt.setString(3, qna.getQna_content());
 			pstmt.setInt(4, temp.getGroupno());
-			pstmt.setInt(5, temp.getStep());
-			pstmt.setInt(6, temp.getDepth());
+			pstmt.setInt(5, temp.getStep()+1);
+			pstmt.setInt(6, temp.getDepth()+1);
 
 			rowCount = pstmt.executeUpdate();
 
-		} finally {
-			try {
-				if (pstmt != null)
-					pstmt.close();
-			} catch (Exception ex) {
-			}
-			try {
-				if (con != null)
-					con.close();
-			} catch (Exception ex) {
-			}
-		}
-		return rowCount;
+			return rowCount;
 	}
 
 	// 게시물 번호별 정보반환
@@ -136,46 +121,46 @@ public class QnADao {
 		return qna;
 	}
 
-	// 아이디별 게시물 반환
-
-	public QnA findByUserId(String user_id) throws Exception {
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		QnA qna = null;
-
-		try {
-			con = dataSource.getConnection();
-			StringBuffer sql=new StringBuffer();
-			sql.append(QnASQL.QNA_SELECT_BY_USERID);
-			pstmt=con.prepareStatement(sql.toString());
-			pstmt.setString(1, user_id);
-			rs = pstmt.executeQuery();
-
-			if (rs.next()) {
-				qna = new QnA(rs.getInt("qna_no"), rs.getString("qna_title"), rs.getString("user_id"),
-						rs.getString("qna_content"), rs.getDate("qna_date"), rs.getInt("qna_readcount"));
-			}
-		} finally {
-			try {
-				if (rs != null)
-					rs.close();
-			} catch (Exception ex) {
-			}
-			try {
-				if (pstmt != null)
-					pstmt.close();
-			} catch (Exception ex) {
-			}
-			try {
-				if (con != null)
-					con.close();
-			} catch (Exception ex) {
-			}
-		}
-
-		return qna;
-	}
+//	// 아이디별 게시물 반환
+//
+//	public QnA findByUserId(String user_id) throws Exception {
+//		Connection con = null;
+//		PreparedStatement pstmt = null;
+//		ResultSet rs = null;
+//		QnA qna = null;
+//
+//		try {
+//			con = dataSource.getConnection();
+//			StringBuffer sql=new StringBuffer();
+//			sql.append(QnASQL.QNA_SELECT_BY_USERID);
+//			pstmt=con.prepareStatement(sql.toString());
+//			pstmt.setString(1, user_id);
+//			rs = pstmt.executeQuery();
+//
+//			if (rs.next()) {
+//				qna = new QnA(rs.getInt("qna_no"), rs.getString("qna_title"), rs.getString("user_id"),
+//						rs.getString("qna_content"), rs.getDate("qna_date"), rs.getInt("qna_readcount"));
+//			}
+//		} finally {
+//			try {
+//				if (rs != null)
+//					rs.close();
+//			} catch (Exception ex) {
+//			}
+//			try {
+//				if (pstmt != null)
+//					pstmt.close();
+//			} catch (Exception ex) {
+//			}
+//			try {
+//				if (con != null)
+//					con.close();
+//			} catch (Exception ex) {
+//			}
+//		}
+//
+//		return qna;
+//	}
 
 	// 게시물 총 건수
 
