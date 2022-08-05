@@ -40,6 +40,9 @@ public class UserSQL {
 
 	public final static String ADDRESS_SELECT_ALL 
 			= "select * from address";
+	
+	public final static String ADDRESS_SELECT_BY_ADDRESS 
+			= "select * from address where address=?";
 
 	/******** delete *****/
 	public final static String USER_DELETE 

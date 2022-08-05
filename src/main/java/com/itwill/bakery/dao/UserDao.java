@@ -198,6 +198,22 @@ public class UserDao {
 		con.close();
 		return findAddress;
 	}
+	public Address selectAddress(String addressStr) throws Exception{
+		Address findAddress = null;
+		Connection con=dataSource.getConnection();
+		PreparedStatement pstmt=con.prepareStatement(UserSQL.ADDRESS_SELECT_BY_ADDRESS);
+		pstmt.setString(1, addressStr);
+		ResultSet rs=pstmt.executeQuery();
+		if(rs.next()) {
+			findAddress=new Address(rs.getInt("add_no"), 
+					rs.getString("address")
+					,null);
+		}
+		rs.close();
+		pstmt.close();
+		con.close();
+		return findAddress;
+	}
 	
 	
 	public List<User> selectAllUser() throws Exception{

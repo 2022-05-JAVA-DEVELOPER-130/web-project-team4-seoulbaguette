@@ -31,6 +31,6 @@ public class UserServiceTestMain {
 		// System.out.println(userService.deleteAddress(new Address(10, null, id)));
 		// 회원탈퇴
 		 //System.out.println(userService.deleteUser(new User_info(id, null, null, null, null, 0, null)));
-		 
+		 //System.out.println(userService.selectAddress("서울시 강남구"));
 	}
 }
