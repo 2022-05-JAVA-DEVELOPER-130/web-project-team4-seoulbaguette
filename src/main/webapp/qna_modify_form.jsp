@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-Integer qna_no=30;
+Integer qna_no=null;
 try{
 qna_no=Integer.valueOf(request.getParameter("qna_no"));
 } catch (Exception ex) {
@@ -68,7 +68,7 @@ if(request.getParameter("pageno")!=null){
 							</table> <br> <!-- modify Form  -->
 							<form name="f" method="post">
 								<input type="hidden" name="pageno" value="<%=pageno%>" /> <input
-									type="hidden" name="qnano" value="<%=qna.getQna_no()%>" />
+									type="hidden" name="qna_no" value="<%=qna.getQna_no()%>" />
 								<table border="0" cellpadding="0" cellspacing="1" width="590"
 									bgcolor="BBBBBB">
 									<tr>

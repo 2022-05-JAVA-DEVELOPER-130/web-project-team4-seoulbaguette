@@ -30,18 +30,15 @@ String pageno=request.getParameter("pageno");
 if(pageno==null||pageno.equals("")){
 	pageno="1";
 }
-
 QnAListPageMaker qnaListPage
 		= new QnAService().findQnAList(Integer.parseInt(pageno));
-
 %>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="UTF-8">
 <title>QnA</title>
 <script type="text/javascript" src="js/qna.js">
-
 </script>
 </head>
 <body>
@@ -117,11 +114,11 @@ QnAListPageMaker qnaListPage
 										  
 										  
 										 <%if(qnaListPage.pageMaker.getNextGroupStartPage()< qnaListPage.pageMaker.getTotPage()){%>
-										  <a href="./board_list.jsp?pageno=<%=qnaListPage.pageMaker.getNextPage()%>">▶&nbsp;</a>
+										  <a href="./qna_list.jsp?pageno=<%=qnaListPage.pageMaker.getNextPage()%>">▶&nbsp;</a>
 										 <%}%>
 										 <%if(qnaListPage.pageMaker.getNextGroupStartPage()< qnaListPage.pageMaker.getTotPage()){%>
 										<a
-										href="./board_list.jsp?pageno=<%=qnaListPage.pageMaker.getNextGroupStartPage()%>">▶▶</a>&nbsp;
+										href="./qna_list.jsp?pageno=<%=qnaListPage.pageMaker.getNextGroupStartPage()%>">▶▶</a>&nbsp;
 										 <%}%>
 									</td>
 								</tr>
@@ -131,8 +128,6 @@ QnAListPageMaker qnaListPage
 									<td align="right"><input type="button" value="게시물 생성"
 										onclick="qnaCreate();" /></td>
 								</tr>
-							</table></td>
-					</tr>
-				</table>
+							</table>
 </body>
 </html>

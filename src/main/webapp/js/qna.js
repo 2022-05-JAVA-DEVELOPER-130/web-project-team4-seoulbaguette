@@ -64,7 +64,7 @@ function qnaReplyMsg(){
 		f.content.focus();
 		return false;
 	}
-	f.acton="qna_reply_write_action.jsp";
+	f.action="qna_reply_write_action.jsp";
 	f.method='POST';
 	f.submit();
 }

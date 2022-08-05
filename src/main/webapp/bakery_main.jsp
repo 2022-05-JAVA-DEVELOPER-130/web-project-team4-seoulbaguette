@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="com.itwill.bakery.vo.Product"%>
 <%@page import="com.itwill.bakery.service.ProductService"%>
@@ -7,7 +8,7 @@
 String category_noStr="4";
 
 ProductService productService=new ProductService();
-List<Product> productList=null;
+List<Product> productList=new ArrayList<Product>();
 productList=productService.selectByCategory(Integer.parseInt(category_noStr));
 
 %>

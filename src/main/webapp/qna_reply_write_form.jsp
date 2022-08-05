@@ -64,7 +64,7 @@
 							</table> <br> <!-- write Form  -->
 							<form name="f" method="post">
 								<input type="hidden" name="pageno"  value="<%=pageno%>" />
-		        				<input type="hidden" name="qnano" value="<%=qna.getQna_no()%>"/>
+		        				<input type="hidden" name="qna_no" value="<%=qna.getQna_no()%>"/>
 
 								<table border="0" cellpadding="0" cellspacing="1" width="590"
 									bgcolor="BBBBBB">
@@ -79,7 +79,7 @@
 										<td width=100 align=center bgcolor="E6ECDE" height="22">작성자</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
 											<input value="<%=qna.getUser_id()%>" type="text" style="width: 150"
-											name="userid">
+											name="user_id">
 										</td>
 									</tr>
 									<tr>
@@ -97,7 +97,7 @@
 								<tr>
 									<td align=center>
 									<input type="button" value="게시판 답글 쓰기" onClick="qnaReplyMsg()"> &nbsp; 
-									<input type="button" value="게시판 목록" onClick="boardList()"></td>
+									<input type="button" value="게시판 목록" onClick="qnaList()"></td>
 								</tr>
 							</table></td>
 					</tr>

@@ -4,13 +4,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-Integer qna_no = null;
+Integer qna_no =null;
 int pageno = 1;
 try {
 	qna_no = Integer.parseInt(request.getParameter("qna_no"));
 	pageno = Integer.parseInt(request.getParameter("pageno"));
 } catch (Exception e) {
-
 }
 if (qna_no == null) {
 	response.sendRedirect("qna_list.jsp?pageno=" + pageno);
@@ -21,7 +20,6 @@ if (qna == null) {
 	response.sendRedirect("qna_list.jsp?=pageno=" + pageno);
 	return;
 }
-
 //readCount 증가
 QnAService.getInstance().updateReadCount(qna_no);
 %>
