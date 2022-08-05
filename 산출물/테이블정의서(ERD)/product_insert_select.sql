@@ -3,6 +3,7 @@ desc category;
 insert into category values (1,'브레드');
 insert into category values (2,'케이크');
 insert into category values (3,'샌드위치');
+insert into category values(4, 'BEST3');
 
 --product insert
 desc product;
@@ -33,6 +34,13 @@ insert into product values (product_p_no_SEQ.nextval,'치킨롤샌드위치',560
 insert into product values (product_p_no_SEQ.nextval,'톡톡콘치즈 핫도그',4800,'23.jpg','한 입 베어 물면 소시지의 육즙이 팡팡, 달콤한 옥수수가 톡톡!',0,3);
 insert into product values (product_p_no_SEQ.nextval,'연유듬뿍 프렌치토스트',3500,'24.jpg','부드러운 식빵 사이에 고소한 땅콩잼과 상큼한 딸기잼을 바르고, 연유를 듬뿍 뿌려 달달한 프렌치 토스트',0,3);
 insert into product values (product_p_no_SEQ.nextval,'미니버거 샌드위치',4300,'25.jpg','간편하게 즐기는 미니 사이즈 버거',0,3);
+
+insert into product values (product_p_no_SEQ.nextval,'추억의 소시지빵',2200,'1.jpg','짭조름한 소시지와 옥수수 마요 토핑의 거부할 수 없는 단짠 매력!',0,4);
+insert into product values (product_p_no_SEQ.nextval,'핵불닭소시지빵',3800,'9.jpg','소시지, 닭고기, 치즈와 함께 불닭 본연의 매운 맛을 담은 화끈한 불닭빵',0,4);
+insert into product values (product_p_no_SEQ.nextval,'톡톡콘치즈 핫도그',4800,'23.jpg','한 입 베어 물면 소시지의 육즙이 팡팡, 달콤한 옥수수가 톡톡!',0,4);
+
+
+
 
 --카테고리별 리스트 select
 select * from product where category_no=1;

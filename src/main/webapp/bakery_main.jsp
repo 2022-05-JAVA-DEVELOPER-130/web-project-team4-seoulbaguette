@@ -1,12 +1,17 @@
+<%@page import="java.util.List"%>
 <%@page import="com.itwill.bakery.vo.Product"%>
 <%@page import="com.itwill.bakery.service.ProductService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-String noStr=request.getParameter("p_no");
+String category_noStr="4";
+
 ProductService productService=new ProductService();
-Product product=productService.selectByNo(Integer.parseInt(noStr));
+List<Product> productList=null;
+productList=productService.selectByCategory(Integer.parseInt(category_noStr));
+
 %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -43,12 +48,43 @@ Product product=productService.selectByNo(Integer.parseInt(noStr));
 								cellspacing=0>
 								<tr>
 									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>서울바게트 -
-											상품리스트</b></td>
+											BEST3</b></td>
 								</tr>
 							</table>
 
 							<form name="f" method="post">
+								<table width="100%" align="center" border="0" cellpadding="10"
+									cellspacing="1" bgcolor="FFFFFF">
+									<%
+									int product_size=productList.size();
+									int product_column_size=3;
+									int product_line_count = 1;
+									
 								
+									for (int i=0;i<productList.size();i++) {
+											Product product=productList.get(i);
+											
+									%>
+									<!--상품시작 -->
+									<%
+									 if(i%product_column_size==0){
+									%>
+									<tr>
+									<%} %>
+										<td align="center" width="25%"  bgcolor="ffffff" style="border:0.5px solid #aaa; padding-left:10px;padding-top: 10px; padding-right: 10px;padding-bottom: 10px;"><a
+											href="product_detail.jsp?p_no=<%=product.getP_no()%>"><img width="88px" height="65px"
+												src="image/<%=product.getP_image()%>" border="0"></a><br />
+											<br /> <b><%=product.getP_name()%></b><br> <font
+											color="#FF0000">
+										</font></td>
+									<%if(i%product_column_size==3){%>
+									</tr>
+									<%} %>	
+									
+								   <!--상품 끝 -->
+								   <%}%>	
+								</table>
+				
 							</form> <br /></td>
 					</tr>
 				</table>

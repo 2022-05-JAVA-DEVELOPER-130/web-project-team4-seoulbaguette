@@ -27,8 +27,13 @@ if(product==null){
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
-<title>SEOULBAGUETTE</title>
+<title>SEOUL BAGUETTE</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel=stylesheet href="css/styles.css" type="text/css">
+<link rel=stylesheet href="css/menu.css" type="text/css">
+<link rel=stylesheet href="css/shop.css" type="text/css">
+<style type="text/css" media="screen">
+</style>
 <script type="text/javascript">
 function add_cart_popup_window(){
 	var left = Math.ceil(( window.screen.width)/3);
@@ -54,18 +59,37 @@ function productList() {
 }
 </script>
 </head>
-<body>
+<body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
+	marginwidth=0 marginheight=0>
 <form name="product_detail_form">
 		<input type="hidden" name="p_no" value="<%=product.getP_no()%>">
 		<input type="hidden" name="cart_qty" value="1">
 		 <input type="hidden" name="buyType" value="direct">
 </form>
 	
-	<table style="padding-left: 10px" border=0 cellpadding=0
+<div id="container">
+		<!-- header start -->
+		<div id="header">
+			<!-- include_common_top.jsp start-->
+			<jsp:include page="include_common_top_product.jsp"/>
+			<!-- include_common_top.jsp end-->
+		</div>
+		<!-- header end -->
+		<!-- navigation start-->
+		<!-- navigation end-->
+		<!-- wrapper start -->
+		<div id="wrapper">
+			<!-- content start -->
+			<!-- include_content.jsp start-->
+			<div id="content">
+				<table border=0 cellpadding=0 cellspacing=0>
+					<tr>
+						<td><br />
+							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
 									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>서울바게트 -
-											제품상세페이지</b></td>
+											상품리스트</b></td>
 								</tr>
 							</table> <!-- 
 							<form name="f" method="post">
@@ -76,7 +100,7 @@ function productList() {
 									<td width=30% align=center class=t1><font size=2
 										color=#0000FF><b>수량</b></font></td>
 									<td width=40% align=center class=t1><font size=2
-										color=#0000FF><b>상품명</b></font></td>
+										color=#0000FF><b>상품</b></font></td>
 									<td width=30% align=center class=t1><font size=2
 										color=#0000FF><b>상품설명</b></font></td>
 								</tr>
@@ -109,7 +133,7 @@ function productList() {
 										</form>
 									</td>
 									<td width=40% height=200 align=center><img border=0
-										src='image/<%=product.getP_image()%>' width=120 height=200></td>
+										src='image/<%=product.getP_image()%>' width=200 height=200></td>
 									<td width=30% height=200 class=t1>
 										<ol type="disc">
 											<li><b>상품명 : <%=product.getP_name()%>&nbsp;&nbsp;&nbsp;
