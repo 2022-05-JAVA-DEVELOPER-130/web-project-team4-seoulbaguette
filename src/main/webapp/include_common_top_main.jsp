@@ -10,9 +10,9 @@
 </div>
 <div id="sub_menu">
 	<ul>
-		<li><a href="#">전체</a></li>
-		<li><a href="#">브레드</a></li>
-		<li><a href="#">케이크</a></li>
-		<li><a href="#">샌드위치</a></li>
+		<li id="menu_product"><a href="product_list.jsp">PRODUCT</a></li>
+		<li id="menu_notice"><a href="notice_list.jsp">NOTICE</a></li>
+		<li id="menu_qna"><a href="qna_list.jsp">Q&A</a></li>
+		<li id="menu_coupon"><a href="coupon_view.jsp">EVENT</a></li>
 	</ul>
 </div>
