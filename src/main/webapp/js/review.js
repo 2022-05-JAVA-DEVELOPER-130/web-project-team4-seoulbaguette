@@ -81,5 +81,23 @@ function reviewCancelUpdate(){
 	document.f.submit();
 }
 
+function reviewReturn(){
+	document.f.action = "review_list_user.jsp";
+	document.f.method = "POST";
+	document.f.submit();
+	
+}
+
+function returnMypage(){
+	document.f.action = "user_view.jsp";
+	document.f.method = "POST";
+	document.f.submit();
+}
+
+function reviewView(){
+	document.f.action = "review_view.jsp";
+	document.f.method = "POST";
+	document.f.submit();
+}
 
 

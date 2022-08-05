@@ -13,10 +13,11 @@
     String r_no=request.getParameter("r_no");
     
     if(r_no==null||r_no.equals("")){
-    	response.sendRedirect("review_list_product.jsp");
+    	response.sendRedirect("review_list_user.jsp");
     	return;
     }
-    
+     
+
     ReviewService reviewService=new ReviewService();
     Review review=reviewService.selectReview(Integer.parseInt(r_no));
     %>
@@ -55,6 +56,7 @@
 	
 	<input type="button" value="수정하기" onclick="reviewModify()"/>&nbsp; 
 	<input type="button" value="삭제하기" onclick="reviewRemove()"/>&nbsp; 
+	<input type="button" value="돌아가기" onclick="reviewReturn()"/>&nbsp;
 	
 	</div>
 </body>
