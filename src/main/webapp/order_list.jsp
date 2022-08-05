@@ -57,15 +57,7 @@ ProductService productService = new ProductService();
 		<%} %>
 	<% }%>
 -------------------------------------------------------------->
-<div id="container">
-		<!-- header start -->
-		<div id="header">
-			<!-- include_common_top.jsp start-->
-			<jsp:include page="include_common_top.jsp"/>
-			<!-- include_common_top.jsp end-->
-		</div>
-		
-		<div id="wrapper">
+
 	<!-- include_content.jsp start-->
 			<div id="content">
 				<table border=0 cellpadding=0 cellspacing=0>
@@ -126,7 +118,6 @@ ProductService productService = new ProductService();
 				</table>
 			</div>
 			<!-- include_content.jsp end-->
-	</div>
-</div>
+
 </body>
 </html>
