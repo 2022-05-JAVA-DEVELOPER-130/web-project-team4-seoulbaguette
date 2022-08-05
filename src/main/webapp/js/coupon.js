@@ -14,5 +14,9 @@ function couponDelete() {
 	document.f.submit();
 }
 
-
+function couponOrderList(){
+	document.order_create_form.method='POST';
+	document.order_create_form.action = "coupon_list_order.jsp";
+	document.order_create_form.submit();
+}
 

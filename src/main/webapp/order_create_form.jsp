@@ -68,6 +68,7 @@ if (buyType.equals("cart")) {
 		document.order_create_form.submit();
 	}
 </script>
+<script src="js/coupon.js"></script>
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>
@@ -203,7 +204,7 @@ if (buyType.equals("cart")) {
 											</p>
 										</td>
 										<td align="left" width=520 colspan=5 height=20 bgcolor="ffffff" class=t1>
-											<input type="button" value="선택하기">
+											<input type="button" value="선택하기" onClick="couponOrderList()">
 										</td>
 									</tr>
 									<tr>

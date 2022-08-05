@@ -4,7 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-String userId = "juhee13";
+String userId = "yeji2345";
 CouponService couponService = new CouponService();
 List<Coupon> couponList = couponService.selectCouponById(userId);
 String msg="";
