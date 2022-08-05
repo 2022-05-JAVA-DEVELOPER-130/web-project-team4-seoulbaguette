@@ -2,7 +2,6 @@
 <%@page import="com.itwill.bakery.service.QnAService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <%
 	
@@ -22,6 +21,7 @@
 		pageno = request.getParameter("pageno");
 	}
 %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="UTF-8">
@@ -72,7 +72,7 @@
 										<td width=100 align=center bgcolor="E6ECDE" height="22">제목</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
 											<input value="[RE]<%=qna.getQna_title()%>"  type="text" style="width: 150"
-											name="title">
+											name="qna_title">
 										</td>
 									</tr>
 									<tr>
@@ -85,7 +85,7 @@
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">내용</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
-											<textarea name="content" class="textarea" style="width: 350px" rows="14">>><%=qna.getQna_content()%></textarea>
+											<textarea name="qna_content" class="textarea" style="width: 350px" rows="14">>><%=qna.getQna_content().replace("\n",">>").trim()%></textarea>
 										</td>
 									</tr>
 

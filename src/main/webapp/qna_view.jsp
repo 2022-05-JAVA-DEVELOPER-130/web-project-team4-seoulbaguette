@@ -64,7 +64,7 @@ QnAService.getInstance().updateReadCount(qna_no);
 								</table> <br>
 
 								<form name="f" method="post">
-									<input type="hidden" name="boardno"
+									<input type="hidden" name="qna_no"
 										value="<%=qna.getQna_no()%>"> <input type="hidden"
 										name="pageno" value="<%=pageno%>">
 									<table border="0" cellpadding="0" cellspacing="1" width="590"

@@ -120,12 +120,12 @@ CREATE SEQUENCE notice_notice_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 CREATE TABLE QnA(
 		qna_no                        		NUMBER(10)		 NULL ,
 		user_id                       		VARCHAR2(100)		 NULL ,
-		qna_title                     		VARCHAR2(100)		 NULL ,
+		qna_title                     		VARCHAR2(100)		 NOT NULL,
 		qna_date                      		DATE		 DEFAULT sysdate		 NULL ,
-		qna_content                   		VARCHAR2(200)		 NULL ,
+		qna_content                   		VARCHAR2(200)		 NOT NULL,
 		qna_readcount                 		NUMBER(10)		 DEFAULT 0		 NULL ,
-		groupno                       		NUMBER(10)		 NULL ,
-		step                          		NUMBER(10)		 NULL ,
+		groupno                       		NUMBER(10)		 NOT NULL,
+		step                          		NUMBER(10)		 NOT NULL,
 		depth                         		NUMBER(10)		 DEFAULT 0		 NULL 
 );
 

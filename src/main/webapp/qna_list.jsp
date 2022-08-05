@@ -109,7 +109,7 @@ QnAListPageMaker qnaListPage
 											for (int i = qnaListPage.pageMaker.getBlockBegin(); i <= qnaListPage.pageMaker.getBlockEnd(); i++) {
 										 	if (qnaListPage.pageMaker.getCurPage() == i) {
 										%>
-										 <font color='red'><strong><%=i%></strong></font>&nbsp;
+										 <font color='aqua'><strong><%=i%></strong></font>&nbsp;
 										<%} else {%>
 										<a href="./qna_list.jsp?pageno=<%=i%>"><strong><%=i%></strong></a>&nbsp;
 										<%
@@ -118,7 +118,7 @@ QnAListPageMaker qnaListPage
 										  
 										  
 										 <%if(qnaListPage.pageMaker.getNextGroupStartPage()< qnaListPage.pageMaker.getTotPage()){%>
-										  <a href="./qna_list.jsp?pageno=<%=qnaListPage.pageMaker.getNextPage()%>">▶&nbsp;</a>
+										  <a href="./qna_list.jsp?pageno=<%=qnaListPage.pageMaker.getNextPage()%>">▶</a>&nbsp;
 										 <%}%>
 										 <%if(qnaListPage.pageMaker.getNextGroupStartPage()< qnaListPage.pageMaker.getTotPage()){%>
 										<a
