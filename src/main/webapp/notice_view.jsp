@@ -7,40 +7,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-        <%!public String getTitleString(QnA qna) {
-		StringBuilder title = new StringBuilder(128);
-		String t = qna.getQna_title();
-		if (t.length() > 15) {
-			//t = t.substring(0,15);
-			//t = t+"...";
-			t = String.format("%s...", t.substring(0, 15));
-		}
-		//답글공백삽입
-		
-		for (int i = 0; i < qna.getDepth(); i++) {
-			title.append("&nbsp;&nbsp;");
-		}
-		
-		if (qna.getDepth() > 0) {
-			title.append("<img border='0' src='image/re.gif'/>");
-		}
-		
-		title.append(t.replace(" ", "&nbsp;"));
-		
-		return title.toString();
-	}%>
-<%
-String pageno=request.getParameter("pageno");
-if(pageno==null||pageno.equals("")){
-	pageno="1";
-}
-
-QnAListPageMaker qnaListPage
-		= new QnAService().findQnAList(Integer.parseInt(pageno));
-
-%>
-    
-    
 <%
 if (request.getParameter("notice_no") == null || request.getParameter("notice_no").equals("")) {
 	response.sendRedirect("notice_list.jsp");
@@ -107,7 +73,7 @@ Notice notice = noticeService.selectByNoticeNo(Integer.parseInt(noStr));
 							 
 							<form name="f" method="post">
 								<input type="hidden" name="boardno" value="<%=notice.getNotice_no()%>">
-								<input type="hidden" name="pageno" value="<%=pageno%>">
+								<input type="hidden" name="pageno" value="">
 								<table border="0" cellpadding="0" cellspacing="1" width="590"
 									bgcolor="BBBBBB">
 
