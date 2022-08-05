@@ -14,6 +14,8 @@ if(msg2 == null) msg2 = "";
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel=stylesheet href="css/styles.css" type="text/css">
+<link rel=stylesheet href="css/user.css" type="text/css">
 <title>Insert title here</title>
 <script type="text/javascript" src=js/user.js></script>
 </head>
@@ -34,6 +36,9 @@ if(msg2 == null) msg2 = "";
 		<div id="wrapper">
 			<!-- content start -->
 			<!-- include_content.jsp start-->
+			<!-- include_common_top.jsp start-->
+			<jsp:include page="include_common_top_main.jsp"/>
+			<!-- include_common_top.jsp end-->
 			<div id="content">
 
 				<table border=0 cellpadding=0 cellspacing=0>
@@ -51,14 +56,14 @@ if(msg2 == null) msg2 = "";
 								<table border="0" cellpadding="0" cellspacing="1"
 									bgcolor="BBBBBB">
 									<tr>
-										<td width=100 align=center bgcolor="E5F0FA" height="40">사용자
+										<td width=100 align=center bgcolor= skyblue  height="40">사용자
 											아이디</td>
 										<td width=490 align="left" bgcolor="ffffff"
 											style="padding-left: 10px"><input type="text"
 											style="width: 150px; height:15px; font-size: 18px;"  name="userId" value="<%=loginId%>">&nbsp;&nbsp;<font color="red"><%=msg1%></font></td>
 									</tr>
 									<tr>
-										<td width=100 align=center bgcolor="E5F0FA" height="40">비밀번호</td>
+										<td width=100 align=center bgcolor=skyblue height="40">비밀번호</td>
 										<td width=490 align="left" bgcolor="ffffff"
 											style="padding-left: 10px"><input type="password"
 											style="width: 150px; height:15px; font-size: 18px" name="password" value="">&nbsp;&nbsp;<font color="red"><%=msg2%></font></td>
@@ -79,7 +84,9 @@ if(msg2 == null) msg2 = "";
 		</div>
 		<!--wrapper end-->
 		<div id="footer">
-		
+				<!-- include_common_bottom.jsp start-->
+			<jsp:include page="include_common_bottom.jsp"/>
+			<!-- include_common_bottom.jsp end-->
 		</div>
 	</div>
 	<!--container end-->
