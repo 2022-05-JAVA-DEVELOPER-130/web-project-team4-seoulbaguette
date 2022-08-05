@@ -55,6 +55,16 @@ public class OrderService {
 		return ordersDao.create(newOrder);
 	}
 	
+	public int createTest(String sUserId,int p_no,int oi_qty,int add_no,int o_price) throws Exception{
+		Product product=productDao.selectByNo(p_no);
+		OrderItem orderItem=new OrderItem(0, oi_qty, p_no, product);
+		ArrayList<OrderItem> orderItemList=new ArrayList<OrderItem>();
+		orderItemList.add(orderItem);
+		
+		Orders newOrder=
+				new Orders(0,"",null,o_price,sUserId,add_no,orderItemList);
+		return ordersDao.create(newOrder);
+	}
 	
 	//  cart에서 주문
 	 
