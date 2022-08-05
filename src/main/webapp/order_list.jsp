@@ -116,7 +116,7 @@ ProductService productService = new ProductService();
 									<td align=center>&nbsp;&nbsp;
 									<a href=product_list.jsp
 										class=m1>계속 구경하기</a>
-									<a href='javascript:order_delete_all_action();'
+									<a href=order_delete_all_action.jsp
 										class=m1>주문전체삭제</a>
 									</td>
 									
