@@ -37,6 +37,9 @@ public class OrdersDaoTest {
 		//List<Orders> orderList = ordersDao.list_detail("three");
 		//System.out.println(orderList);
 		
+		//삭제
+		//System.out.println(ordersDao.delete("yeji2345"));
+		
 		
 		
 		
