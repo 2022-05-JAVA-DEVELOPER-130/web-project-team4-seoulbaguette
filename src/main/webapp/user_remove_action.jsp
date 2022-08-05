@@ -13,7 +13,7 @@ String userid="guard1";
 UserService userService= new UserService();
 try{
 	userService.deleteUser(userid);
-	response.sendRedirect("user_logout_action.jsp");
+	//response.sendRedirect("user_logout_action.jsp");
 }catch(Exception e){
 	e.printStackTrace();
 }
@@ -26,6 +26,11 @@ try{
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+
+alert("탈퇴되었습니다.");
+location.href='user_logout_action.jsp';
+</script>
 </head>
 <body>
 
