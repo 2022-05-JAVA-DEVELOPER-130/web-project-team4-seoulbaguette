@@ -17,6 +17,7 @@ int result = userService.login(user_id, user_password);
 
 if(result==1){//성공
 	 session.setAttribute("s_u_id", user_id);
+	 session.setAttribute("sUser", result);
 	 response.sendRedirect("bakery_main.jsp");
 }else if(result==0){//아이디없음
 	String msg = user_id+"는 존재하지 않는 아이디 입니다.";
@@ -31,4 +32,6 @@ if(result==1){//성공
 	RequestDispatcher rd = request.getRequestDispatcher("user_login_form.jsp");
 	rd.forward(request, response);
 }
+
+
 %>
