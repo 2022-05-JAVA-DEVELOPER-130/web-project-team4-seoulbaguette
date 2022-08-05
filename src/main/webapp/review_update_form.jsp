@@ -6,7 +6,7 @@
 <%@page import="com.itwill.bakery.service.UserService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%-- <%@include file="user_login_check.jspf"%>  --%>
+<%@include file="user_login_check.jspf"%> 
 <%
 if(request.getMethod().equalsIgnoreCase("GET")){
 	response.sendRedirect("review_list_product.jsp");
@@ -16,7 +16,8 @@ String user_id=request.getParameter("user_id");
 UserService userService=new UserService();
 User user=userService.selectUser(user_id);
 String r_nostr=request.getParameter("r_no");
-if(r_nostr.equals("")||r_nostr==null){
+
+if(r_nostr==null||r_nostr.equals("")){
 	response.sendRedirect("review_list_product.jsp");
 	return;
 }

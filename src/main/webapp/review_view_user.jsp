@@ -25,6 +25,7 @@ Review review = reviewService.selectReview(Integer.parseInt(r_no));
 <link rel=stylesheet href="css/shop.css" type="text/css">
 <style type="text/css" media="screen">
 </style>
+<script src="js/review.js"></script>
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>
@@ -50,7 +51,7 @@ Review review = reviewService.selectReview(Integer.parseInt(r_no));
 
 							<form name="f" method="post" action="order_delete_action.jsp"
 								onsubmit="return check_delete_order()">
-								<input type="hidden" name="o_no" value="131">
+								<input type="hidden" name="r_no" value="<%=review.getR_no()%>">
 								<table align="center" width="80%" border="0" cellpadding="0"
 									cellspacing="1" bgcolor="#FFFFFF">
 									<caption
@@ -93,7 +94,7 @@ Review review = reviewService.selectReview(Integer.parseInt(r_no));
 										<td width=260 height=40 align=center bgcolor="ffffff" class=t1>
 											<%=review.getUser_id() %></td>
 										<td width=109 height=40 align=center bgcolor="ffffff" class=t1
-											colspan="3"><%=review.getR_date().substring(0, 11)%></td>
+											colspan="3"><%=review.getR_date().substring(0, 16)%></td>
 									</tr>
 									<tr>
 										<td width=30 height=80 align=left bgcolor="ffffff" class=t1
