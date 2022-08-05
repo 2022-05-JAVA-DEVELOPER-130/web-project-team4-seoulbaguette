@@ -21,6 +21,8 @@ table.coupon_list {
 	display: block;
 }
 </style>
+
+<script src="js/coupon.js"></script>
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>
@@ -43,9 +45,9 @@ table.coupon_list {
 				<table border=0 cellpadding=0 cellspacing=0>
 					<tr>
 						<td><br />
-							<form name="f" method="post" action="order_delete_action.jsp"
-								onsubmit="return check_delete_order()">
-								<input type="hidden" name="o_no" value="131">
+							<form name="f" method="post" >
+								<input type="hidden" name="period" value="<%=period %>">
+								<input type="hidden" name="discount" value="<%=discount%>">
 								<table align=center width=100% border="0" cellpadding="0"
 									cellspacing="1" bgcolor="BBBBBB">
 									<caption

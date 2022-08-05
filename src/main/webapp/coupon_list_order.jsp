@@ -56,14 +56,14 @@ table.coupon_list {
 									cellspacing="1" bgcolor="BBBBBB">
 									<caption
 										style="text-align: left; font-weight: bold; padding-bottom: 7px">
-										<span style="border-left: 4px solid #888888;"></span>&nbsp;&nbsp;회원의
-										보유 쿠폰리스트
+										<span style="border-left: 4px solid #888888;"></span>&nbsp;&nbsp;
+										사용가능한 쿠폰리스트
 									</caption>
 								</table>
-								<br><br>
+								
 								<!-- coupon item start -->
 								<%for(Coupon coupon:couponList){%>
-								
+								<a href="coupon_view.jsp?c_no=<%=coupon.getC_no()%>">
 									<table class="coupon_list" align=center border="0"
 										cellpadding="0" cellspacing="1" bgcolor="BBBBBB"
 										style="padding: 2px; border: 2px double #000000;">
@@ -92,7 +92,7 @@ table.coupon_list {
 												<%=coupon.getC_end_date().substring(0,11) %> 까지</td>
 										</tr>
 									</table>
-								
+								</a>
 								<%} %>
 
 								<!-- coupon item end -->
