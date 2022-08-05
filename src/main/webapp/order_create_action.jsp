@@ -12,6 +12,7 @@
 	String add_select = request.getParameter("add_select");
 	int o_price=Integer.parseInt(request.getParameter("changeTot"));
 	System.out.println(add_select);
+	
 	String[] cart_item_no_strArray=request.getParameterValues("cart_item_no");
 	OrderService orderService=new OrderService();
 	CartService cartService=new CartService();

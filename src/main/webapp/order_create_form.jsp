@@ -68,11 +68,7 @@ if (buyType.equals("cart")) {
       document.order_create_form.submit();
    }
 </script>
-<script type="text/javascript">
-   function point(point) {
-      
-   }
-</script>
+
 <script src="js/coupon.js"></script>
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
@@ -221,10 +217,10 @@ if (buyType.equals("cart")) {
                                  </p>
                               </td>
                               <td align="left" width=60  height=20 bgcolor="ffffff" class=t1>
-                                 <input type="text" name="point" placeholder="원">
+                                 <input type="text" name="po" placeholder="원">
                               </td>
                               <td align="left" width=520 colspan=5 height=20 bgcolor="ffffff" class=t1>
-                                 <input type="button" value="적용하기" onClick="point()" >
+                                 <input type="button" value="적용하기"  >
                               </td>
                               <!--  
                               <td align="left" width=560 colspan=54 height=20 bgcolor="ffffff" class=t1>
