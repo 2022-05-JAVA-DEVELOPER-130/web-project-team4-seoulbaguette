@@ -2,60 +2,80 @@
 <%@page import="com.itwill.bakery.vo.QnA"%>
 <%@page import="com.itwill.bakery.vo.QnAListPageMaker"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%!
-public String getTitleString(QnA qna) {
+	pageEncoding="UTF-8"%>
+<%!public String getTitleString(QnA qna) {
 		StringBuilder title = new StringBuilder(128);
 		String t = qna.getQna_title();
-	
+
 		if (t.length() > 15) {
 			//t = t.substring(0,15);
 			//t = t+"...";
 			t = String.format("%s...", t.substring(0, 15));
 		}
 		//답글공백삽입
-		
+
 		for (int i = 0; i < qna.getDepth(); i++) {
 			title.append("&nbsp;&nbsp;");
 		}
-		
+
 		if (qna.getDepth() > 0) {
 			title.append("<img border='0' src='image/re.gif'/>");
 		}
-		
+
 		title.append(t.replace(" ", "&nbsp;"));
-		
+
 		return title.toString();
 	}%>
 <%
-QnAService qnaService=new QnAService();
+QnAService qnaService = new QnAService();
 
-String pageno=request.getParameter("pageno");
-if(pageno==null||pageno.equals("")){
-	pageno="1";
+String pageno = request.getParameter("pageno");
+if (pageno == null || pageno.equals("")) {
+	pageno = "1";
 }
-QnAListPageMaker qnaListPage
-		= new QnAService().findQnAList(Integer.parseInt(pageno));
+QnAListPageMaker qnaListPage = new QnAService().findQnAList(Integer.parseInt(pageno));
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
-<title>QnA</title>
-<script type="text/javascript" src="js/qna.js">
-</script>
+<title>SEOUL BAGUETTE</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel=stylesheet href="css/styles.css" type="text/css">
+<link rel=stylesheet href="css/menu.css" type="text/css">
+<link rel=stylesheet href="css/shop.css" type="text/css">
+<style type="text/css" media="screen">
+</style>
 </head>
-<body>
-<table style="padding-left: 10px" border=0 cellpadding=0
+<body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
+	marginwidth=0 marginheight=0>
+	<!-- container start-->
+	<div id="container">
+		<!-- header start -->
+		<div id="header">
+			<!-- include_common_top.jsp start-->
+			<jsp:include page="include_common_top_main.jsp" />
+			<!-- include_common_top.jsp end-->
+		</div>
+		<!-- header end -->
+		
+		<!-- wrapper start -->
+		<div id="wrapper">
+			<!-- content start -->
+			<!-- include_content.jsp start-->
+			<div id="content">
+				<table border=0 cellpadding=0 cellspacing=0>
+					<tr>
+						<td><br />
+							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp; <b>게시판-리스트</b>
+									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp; <b>Q&A-리스트</b>
 									</td>
 								</tr>
 								<tr bgcolor="#FFFFFF">
 									<td height="20" class="t1" align="right" valign="bottom">
-										총 <font color="#FF0000"><%=qnaListPage.totCount%></font>
-										건 | 현재페이지( <font color="#FF0000"><%=qnaListPage.pageMaker.getCurPage()%></font>
+										총 <font color="#FF0000"><%=qnaListPage.totCount%></font> 건 |
+										현재페이지( <font color="#FF0000"><%=qnaListPage.pageMaker.getCurPage()%></font>
 										/ <font color="#0000FF"><%=qnaListPage.pageMaker.getTotPage()%></font>
 										)
 									</td>
@@ -66,30 +86,30 @@ QnAListPageMaker qnaListPage
 									bgcolor="BBBBBB">
 
 									<tr>
-										<td width=280 align=center bgcolor="E6ECDE">제목</td>
-										<td width=120 align=center bgcolor="E6ECDE">작성자</td>
-										<td width=120 align=center bgcolor="E6ECDE">작성일</td>
-										<td width=70 align=center bgcolor="E6ECDE">조회수</td>
+										<td width=200 align=center bgcolor="E2E2E2">제목</td>
+										<td width=150 align=center bgcolor="E2E2E2">작성자</td>
+										<td width=150 align=center bgcolor="E2E2E2">작성일</td>
+										<td width=90 align=center bgcolor="E2E2E2">조회수</td>
 									</tr>
 									<%
-										for (QnA qna : qnaListPage.itemList) {
+									for (QnA qna : qnaListPage.itemList) {
 									%>
 									<tr>
-										<td width=280 bgcolor="ffffff" style="padding-left: 10px" align="left">
-										<a href='qna_view.jsp?qna_no=<%=qna.getQna_no()%>&pageno=<%=qnaListPage.pageMaker.getCurPage()%>'>
-										<%=this.getTitleString(qna)%>
-										</a>
+										<td width=200 bgcolor="ffffff" style="padding-left: 10px"
+											align="left"><a
+											href='qna_view.jsp?qna_no=<%=qna.getQna_no()%>&pageno=<%=qnaListPage.pageMaker.getCurPage()%>'>
+												<%=this.getTitleString(qna)%>
+										</a></td>
+										<td width=150 align=center bgcolor="ffffff"><%=qna.getUser_id()%>
 										</td>
-										<td width=120 align=center bgcolor="ffffff"><%=qna.getUser_id()%>
+										<td width=150 bgcolor="ffffff" style="padding-left: 10px"
+											align="center"><%=qna.getQna_date().toString().substring(0, 10)%>
 										</td>
-										<td width=120 bgcolor="ffffff" style="padding-left: 10px" align="left">
-											<%=qna.getQna_date().toString().substring(0,10)%>
-										</td>
-										<td width=70 align=center bgcolor="ffffff" align="left"><%=qna.getQna_readcount()%>
+										<td width=90 align=center bgcolor="ffffff" align="left"><%=qna.getQna_readcount()%>
 										</td>
 									</tr>
 									<%
-										}
+									}
 									%>
 								</table>
 								<!-- /list -->
@@ -97,33 +117,36 @@ QnAListPageMaker qnaListPage
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
 									<td align="center">
-							     
-										 <%if(qnaListPage.pageMaker.getPrevGroupStartPage()>0) {%>    
-										    <a href="./qna_list.jsp?pageno=1">◀◀</a>&nbsp;
-										 <%}%>
-										 <%if(qnaListPage.pageMaker.getPrevPage()>0) {%> <%-- 이전페이지가 0이면 안보임 --%>  
-											<a href="./qna_list.jsp?pageno=<%=qnaListPage.pageMaker.getPrevPage()%>">◀</a>&nbsp;&nbsp;
-										 <%}%>
-										
 										<%
-											for (int i = qnaListPage.pageMaker.getBlockBegin(); i <= qnaListPage.pageMaker.getBlockEnd(); i++) {
-										 	if (qnaListPage.pageMaker.getCurPage() == i) {
-										%>
-										 <font color='aqua'><strong><%=i%></strong></font>&nbsp;
-										<%} else {%>
+										if (qnaListPage.pageMaker.getPrevGroupStartPage() > 0) {
+										%> 
+										<a href="./qna_list.jsp?pageno=1">◀◀</a>&nbsp; <%}%> 
+										<%if (qnaListPage.pageMaker.getPrevPage() > 0) {%>
+										<%-- 이전페이지가 0이면 안보임 --%> 
+										<a href="./qna_list.jsp?pageno=<%=qnaListPage.pageMaker.getPrevPage()%>">◀</a>&nbsp;&nbsp;
+										<%
+										}
+										%> 
+										<%for (int i = qnaListPage.pageMaker.getBlockBegin(); i <= qnaListPage.pageMaker.getBlockEnd(); i++) {
+ 										if (qnaListPage.pageMaker.getCurPage() == i) {
+										 %> <font color='aqua'><strong><%=i%></strong></font>&nbsp; 
+										 <%} else {%>
 										<a href="./qna_list.jsp?pageno=<%=i%>"><strong><%=i%></strong></a>&nbsp;
+										<%} }%> 
 										<%
-										   }
-										  }%>
-										  
-										  
-										 <%if(qnaListPage.pageMaker.getNextGroupStartPage()< qnaListPage.pageMaker.getTotPage()){%>
-										  <a href="./qna_list.jsp?pageno=<%=qnaListPage.pageMaker.getNextPage()%>">▶</a>&nbsp;
-										 <%}%>
-										 <%if(qnaListPage.pageMaker.getNextGroupStartPage()< qnaListPage.pageMaker.getTotPage()){%>
-										<a
-										href="./qna_list.jsp?pageno=<%=qnaListPage.pageMaker.getNextGroupStartPage()%>">▶▶</a>&nbsp;
-										 <%}%>
+ 										if (qnaListPage.pageMaker.getNextGroupStartPage() < qnaListPage.pageMaker.getTotPage()) {
+										 %>
+										<a href="./qna_list.jsp?pageno=<%=qnaListPage.pageMaker.getNextPage()%>">▶</a>&nbsp;
+										<%
+										}
+										%> 
+										<%
+ 										if (qnaListPage.pageMaker.getNextGroupStartPage() < qnaListPage.pageMaker.getTotPage()) {
+ 										%>
+										<a href="./qna_list.jsp?pageno=<%=qnaListPage.pageMaker.getNextGroupStartPage()%>">▶▶</a>&nbsp;
+										<%
+										}
+										%>
 									</td>
 								</tr>
 							</table> <!-- button -->
@@ -133,5 +156,22 @@ QnAListPageMaker qnaListPage
 										onclick="qnaCreate();" /></td>
 								</tr>
 							</table>
+				
+							 <br /></td>
+					</tr>
+				</table>
+			</div>
+
+			<!-- include_content.jsp end-->
+			<!-- content end -->
+		</div>
+		<!--wrapper end-->
+		<div id="footer">
+			<!-- include_common_bottom.jsp start-->
+			<jsp:include page="include_common_bottom.jsp"/>
+			<!-- include_common_bottom.jsp end-->
+		</div>
+	</div>
+	<!--container end-->
 </body>
 </html>

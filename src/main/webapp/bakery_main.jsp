@@ -35,8 +35,7 @@ productList=productService.selectByCategory(Integer.parseInt(category_noStr));
 			<!-- include_common_top.jsp end-->
 		</div>
 		<!-- header end -->
-		<!-- navigation start-->
-		<!-- navigation end-->
+		
 		<!-- wrapper start -->
 		<div id="wrapper">
 			<!-- content start -->
@@ -48,9 +47,9 @@ productList=productService.selectByCategory(Integer.parseInt(category_noStr));
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>서울바게트 -
-											BEST3</b></td>
-								</tr>
+									<td align="center" bgcolor="f4f4f4" height="35"><font size="5">BEST 3</font>&nbsp;&nbsp;<b></b></td></tr>
+								<tr>	
+									<td align="center" bgcolor="f4f4f4" height="22"><font color="gray">실시간 베스트 상품입니다 :)</font>&nbsp;&nbsp;<b> </b></td></tr>
 							</table>
 
 							<form name="f" method="post">
