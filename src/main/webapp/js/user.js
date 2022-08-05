@@ -112,7 +112,24 @@ function userRemove(){
 	document.f.method = "POST";
 	document.f.submit();
 }
+function userPasswordCheck(){
+	if (window.confirm("정말 탈퇴하시겠습니까?")){
+	document.f.action = "user_password_check_form.jsp";
+	document.f.method = "POST";
+	document.f.submit();
+	}
+}
 
+function userPasswordCheckAction(){
+	if (document.f.user_password.value == "") {
+			alert("비밀번호를 입력하십시요.");
+			f.user_password.focus();
+			return false;
+		}
+	document.f.action = "user_password_check_action.jsp";
+	document.f.method = "POST";
+	document.f.submit();
+}
 function userAddress(){
 	document.f.action = "address_list.jsp";
 	document.f.method = "POST";
