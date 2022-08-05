@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="com.itwill.bakery.vo.Product"%>
 <%@page import="java.util.List"%>
 <%@page import="com.itwill.bakery.service.ProductService"%>
@@ -58,6 +59,7 @@ List<Product> productList = productService.selectAll();
 								
 									for (int i=0;i<productList.size();i++) {
 											Product product=productList.get(i);
+											if(product.getCategory_no()==1){
 											
 									%>
 									<!--상품시작 -->
@@ -70,14 +72,14 @@ List<Product> productList = productService.selectAll();
 											href="product_detail.jsp?p_no=<%=product.getP_no()%>"><img width="88px" height="65px"
 												src="image/<%=product.getP_image()%>" border="0"></a><br />
 											<br /> <b><%=product.getP_name()%></b><br> <font
-											color="#FF0000">금액: <%=product.getP_price()%>원
+											color="#FF0000">금액: <%=new DecimalFormat("#,##0").format(product.getP_price())%>원
 										</font></td>
 									<%if(i%product_column_size==3){%>
 									</tr>
 									<%} %>	
 									
 								   <!--상품 끝 -->
-								   <%}%>	
+								   <%}}%>	
 								</table>
 							</form> <br /></td>
 					</tr>

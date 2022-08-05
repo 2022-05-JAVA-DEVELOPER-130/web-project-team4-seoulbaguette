@@ -94,6 +94,11 @@ public class UserService {
 		return userDao.updatePoint(user);
 	}
 	
+	//주소 수정
+	public int updateAddr(Address address) throws Exception{
+		return userDao.updateAddress(address);
+	}
+	
 	//주소한개 삭제
 	public int deleteAddress(Address address)throws Exception{
 		return userDao.deleteAddress(address);
