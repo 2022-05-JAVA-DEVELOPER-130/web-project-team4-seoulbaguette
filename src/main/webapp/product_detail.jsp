@@ -6,7 +6,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 <%
-/* String p_noStr=request.getParameter("p_no");
+String p_noStr=request.getParameter("p_no");
 if(p_noStr==null||p_noStr.equals("")){
 response.sendRedirect("product_list.jsp");
 return;
@@ -14,9 +14,8 @@ return;
 boolean isLogin = false;
 if(session.getAttribute("sUserId")!=null){
 isLogin=true;
-} */
+} 
 
-String p_noStr = "1";
 ReviewService reviewService = new ReviewService();
 List<Review> reviewList = reviewService.selectReviewByP(Integer.parseInt(p_noStr));
 ProductService productService = new ProductService();
@@ -34,21 +33,8 @@ return;
 <head>
 <meta charset="UTF-8">
 <title>SEOULBAGUETTE</title>
-<script type="text/javascript">
-function order_create_form() {
+<script src="js/product.js">
 
-```
-	document.product_detail_form.cart_qty.value = document.add_cart_form.cart_qty.value;
-	document.product_detail_form.method = 'POST';
-	document.product_detail_form.action = 'order_create_form.jsp';
-	document.product_detail_form.submit();
-
-}
-function productList() {
-	location.href = 'product_list.jsp';
-}
-
-```
 
 </script>
 </head>

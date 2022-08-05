@@ -5,6 +5,7 @@
 CartService cartService = new CartService();
 String user_id="yeji2345";
 cartService.deleteCartByUserId(user_id);
+response.sendRedirect("cart_view_select_update_qyt_all_check_delete_image.jsp");
 %>
     
 <!DOCTYPE html>
