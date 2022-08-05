@@ -18,7 +18,8 @@ function addressModifyAction(){
 }
 
 function addressRemove(form){
-	document.getElementById(form).action = "shop_main.jsp";
+	alert("삭제하시겠습니까?");
+	document.getElementById(form).action = "address_remove_action.jsp";
 	document.getElementById(form).method = "POST";
 	document.getElementById(form).submit();
 }

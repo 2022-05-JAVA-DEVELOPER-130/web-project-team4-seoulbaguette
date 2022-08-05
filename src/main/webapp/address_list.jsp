@@ -49,7 +49,7 @@
 								
 								</table>
 									<input type="button" value="수정" onClick="addressModify('addr_<%=i%>')"/>&nbsp; 
-									<input type="button" value="삭제" onClick="addressRemove(addr_<%=i%>)"/>&nbsp;
+									<input type="button" value="삭제" onClick="addressRemove('addr_<%=i%>')"/>&nbsp;
 							</form> <br />
 							
 							<%} %>
