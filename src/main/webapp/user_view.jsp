@@ -1,22 +1,44 @@
 <%@page import="com.itwill.bakery.vo.User"%>
 <%@page import="com.itwill.bakery.service.UserService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%
-    String userid="guard1";
-    UserService userService=new UserService();
-    User user=userService.selectUser(userid);
-    
-    %>
-<!DOCTYPE html>
+	pageEncoding="UTF-8"%>
+<%
+String userid = "guard1";
+UserService userService = new UserService();
+User user = userService.selectUser(userid);
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<title>SEOUL BAGUETTE</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel=stylesheet href="css/styles.css" type="text/css">
+<link rel=stylesheet href="css/menu.css" type="text/css">
+<link rel=stylesheet href="css/shop.css" type="text/css">
+<style type="text/css" media="screen">
+</style>
+
+
 <script src="js/user.js"></script>
 </head>
-<body>
-	<div id="content">
+<body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
+	marginwidth=0 marginheight=0>
+	<!-- container start-->
+	<div id="container">
+		<!-- header start -->
+		<div id="header">
+			<!-- include_common_top.jsp start-->
+			<jsp:include page="include_common_top_main.jsp" />
+			<!-- include_common_top.jsp end-->
+		</div>
+		<!-- header end -->
+		<!-- navigation start-->
+		<!-- navigation end-->
+		<!-- wrapper start -->
+		<div id="wrapper">
+			<!-- content start -->
+			<!-- include_content.jsp start-->
+			<div id="content">
 				<table border=0 cellpadding=0 cellspacing=0>
 					<tr>
 						<td>
@@ -60,27 +82,36 @@
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">포인트
-											</td>
+										</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10">
 											<%=user.getUser_point()%>
 										</td>
 									</tr>
-								
+
 								</table>
 							</form> <br />
 							<table border="0" cellpadding="0" cellspacing="1">
 								<tr>
-									<td align=center>
-									<input type="button" value="내정보수정" onClick="userModify()">&nbsp; 
-									<input type="button" value="탈퇴" onClick="userPasswordCheck()">&nbsp;
-									<input type="button" value="주소록" onClick="userAddress()">
-									</td>
+									<td align=center><input type="button" value="내정보수정"
+										onClick="userModify()">&nbsp; <input type="button"
+										value="탈퇴" onClick="userPasswordCheck()">&nbsp; <input
+										type="button" value="주소록" onClick="userAddress()"></td>
 								</tr>
 							</table>
 						</td>
 					</tr>
 				</table>
 			</div>
-
+			<!-- include_content.jsp end-->
+			<!-- content end -->
+		</div>
+		<!--wrapper end-->
+		<div id="footer">
+			<!-- include_common_bottom.jsp start-->
+			<jsp:include page="include_common_bottom.jsp" />
+			<!-- include_common_bottom.jsp end-->
+		</div>
+	</div>
+	<!--container end-->
 </body>
 </html>
