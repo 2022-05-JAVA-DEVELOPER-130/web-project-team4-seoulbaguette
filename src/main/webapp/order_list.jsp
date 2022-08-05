@@ -61,7 +61,7 @@ ProductService productService = new ProductService();
 		<!-- header start -->
 		<div id="header">
 			<!-- include_common_top.jsp start-->
-			<jsp:include page="include_common_top.jsp"/>
+			<jsp:include page="include_common_top_main.jsp"/>
 			<!-- include_common_top.jsp end-->
 		</div>
 		
@@ -116,7 +116,7 @@ ProductService productService = new ProductService();
 									<td align=center>&nbsp;&nbsp;
 									<a href=product_list.jsp
 										class=m1>계속 구경하기</a>
-									<a href=order_delete_all_action.jsp
+									<a href='javascript:order_delete_all_action();'
 										class=m1>주문전체삭제</a>
 									</td>
 									

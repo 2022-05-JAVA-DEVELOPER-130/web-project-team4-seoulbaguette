@@ -11,9 +11,9 @@
 <div id="sub_menu">
 	<ul>
 		
-		<li id="tatal"><a href="product_list.jsp">TOTAL</a></li>
-		<li id="bread"><a href="product_category1.jsp">BREAD</a></li>
-		<li id="cake"><a href="product_category2.jsp">CAKE</a></li>
-		<li id="sandwich"><a href="product_category3.jsp">SANDWICH</a></li>
+		<li id="tatal"><a href="product_list.jsp?category_no=0">TOTAL</a></li>
+		<li id="bread"><a href="product_list.jsp?category_no=1">BREAD</a></li>
+		<li id="cake"><a href="product_list.jsp?category_no=2">CAKE</a></li>
+		<li id="sandwich"><a href="product_list.jsp?category_no=3">SANDWICH</a></li>
 	</ul>
 </div>
