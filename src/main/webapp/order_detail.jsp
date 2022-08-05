@@ -8,9 +8,10 @@
 <%@page import="com.itwill.bakery.service.OrderService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@include file="user_login_check.jspf"%>  
 
 <%
-String sUserId="yeji2345";
+
 String o_noStr=request.getParameter("o_no");
 OrderService orderService = new OrderService();
 Orders orders = orderService.detail(sUserId, Integer.parseInt(o_noStr));

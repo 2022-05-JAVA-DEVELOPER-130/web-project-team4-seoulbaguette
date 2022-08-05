@@ -4,6 +4,7 @@
 <%@page import="com.itwill.bakery.service.OrderService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@include file="user_login_check.jspf"%>    
  
  <%
  String buyType=request.getParameter("buyType");
@@ -19,11 +20,11 @@
 	UserService userService = new UserService();
 	
 	if(buyType.equals("cart")){
-		orderService.create("yeji2345");
+		orderService.create(sUserId);
 	}else if(buyType.equals("cart_select")){
-		orderService.create("yeji2345",cart_item_no_strArray);	
+		orderService.create(sUserId,cart_item_no_strArray);	
  }else if(buyType.equals("direct")){
-		orderService.createTest("yeji2345", Integer.parseInt(p_noStr), Integer.parseInt(p_qtyStr),Integer.parseInt(add_select),o_price);
+	orderService.createTest(sUserId, Integer.parseInt(p_noStr), Integer.parseInt(p_qtyStr),Integer.parseInt(add_select),o_price);
 	
 	// orderService.create("yeji2345", Integer.parseInt(p_noStr), Integer.parseInt(p_qtyStr),Integer.parseInt(add_select));
 	}

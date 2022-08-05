@@ -11,21 +11,34 @@
 <%@page import="java.text.DecimalFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
+<%@include file="user_login_check.jspf"%>  
+   
 <%
 OrderService orderService = new OrderService();
 
 
 String buyType = request.getParameter("buyType");
-String p_noStr = request.getParameter("p_no");
-String c_qtyStr = request.getParameter("cart_qty");
+String p_no = request.getParameter("p_no");
+
+String c_qty = request.getParameter("cart_qty");
+
 String[] cart_item_noStr_array = request.getParameterValues("cart_item_no");
 
 if (buyType == null)
    buyType = "";
-if (p_noStr == null)
-   p_noStr = "";
-if (c_qtyStr == null)
-   c_qtyStr = "";
+if (request.getAttribute("p_no") == null){
+   p_no = request.getParameter("p_no");
+}else{
+	p_no=(String)request.getAttribute("p_no");
+}
+if (request.getAttribute("c_qty") == null){
+	   c_qty = request.getParameter("cart_qty");;
+	}else{
+		c_qty=(String)request.getAttribute("c_qty");
+	}
+
+
+
 if (cart_item_noStr_array == null)
    cart_item_noStr_array = new String[]{};
 
@@ -33,21 +46,41 @@ CartService cartService = new CartService();
 UserService userService = new UserService();
 ProductService productService = new ProductService();
 
-List<Address> userAddress=userService.selectAddress(new User("yeji2345","","","","",0,null));
+List<Address> userAddress=userService.selectAddress(new User(sUserId,"","","","",0,null));
 
 List<Cart> cartItemList = new ArrayList<Cart>();
 Address add = userService.selectAddressno(7);
-User user = userService.selectUser("yeji2345");
+User user = userService.selectUser(sUserId);
+
+
 if (buyType.equals("cart")) {
-   cartItemList = cartService.selectCartList("yeji2345");
+   cartItemList = cartService.selectCartList(sUserId);
 } else if (buyType.equals("cart_select")) {
    for (String cart_item_noStr : cart_item_noStr_array) {
       cartItemList.add(cartService.selectCart(Integer.parseInt(cart_item_noStr)));
    }
 } else if (buyType.equals("direct")) {
-   Product product = productService.selectByNo(Integer.parseInt(p_noStr));
-   cartItemList.add(new Cart(0, Integer.parseInt(c_qtyStr), product, user.getUser_id()));
+   Product product = productService.selectByNo(Integer.parseInt(p_no));
+   cartItemList.add(new Cart(0, Integer.parseInt(c_qty), product, user.getUser_id()));
 }
+
+
+
+int tot_price = 0;
+
+for (Cart cart : cartItemList) {
+   tot_price += cart.getCart_qty() * cart.getProduct().getP_price();
+}
+
+int point=0;
+if(request.getAttribute("remainPoint")==null){
+	point=0;
+}else{
+	point=(Integer)request.getAttribute("remainPoint");
+}
+
+
+
 %>
 <!DOCTYPE html>
 <html>
@@ -60,15 +93,7 @@ if (buyType.equals("cart")) {
 <link rel=stylesheet href="css/shop.css" type="text/css">
 <style type="text/css" media="screen">
 </style>
-<script type="text/javascript">
-   function order_create_form_submit() {
-   
-      document.order_create_form.method = 'POST';
-      document.order_create_form.action = 'order_create_action.jsp';
-      document.order_create_form.submit();
-   }
-</script>
-
+<script src="js/test.js"></script>
 <script src="js/coupon.js"></script>
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
@@ -104,8 +129,8 @@ if (buyType.equals("cart")) {
                      </table> <!--form-->
                      <form name="order_create_form" method="post">
                         <input type="hidden" name="buyType" value="<%=buyType%>">
-                        <input type="hidden" name="p_no" value="<%=p_noStr%>"> <input
-                           type="hidden" name="p_qty" value="<%=c_qtyStr%>">
+                        <input type="hidden" name="p_no" value="<%=p_no%>"> <input
+                           type="hidden" name="p_qty" value="<%=c_qty%>">
                                              <table align=center width=80% border="0" cellpadding="0"
                            cellspacing="1" bgcolor="BBBBBB">
                            <caption style="text-align: left;">구매자정보</caption>
@@ -154,9 +179,8 @@ if (buyType.equals("cart")) {
                                  고</td>
                            </tr>
                            <%
-                           int tot_price = 0;
+                          
                            for (Cart cart : cartItemList) {
-                              tot_price += cart.getCart_qty() * cart.getProduct().getP_price();
                            %>
                            <!-- cart item start -->
                            <tr>
@@ -178,9 +202,10 @@ if (buyType.equals("cart")) {
                            <tr>
                               <td width=640 colspan=4 height=26 bgcolor="ffffff" class=t1>
                                  <p align=right style="padding-top: 10px">
-                                    <font color=#FF0000>총 주문 금액 : <%=new DecimalFormat("#,###").format(tot_price)%>
-                                       원
+                                    <font color=#FF0000>총 주문 금액 : <%=tot_price-point%>원
                                     </font>
+                                    <input type="hidden" name="changeTot" value="<%=tot_price-point%>">
+                                    
                                  </p>
                               </td>
                            </tr>
@@ -217,10 +242,11 @@ if (buyType.equals("cart")) {
                                  </p>
                               </td>
                               <td align="left" width=60  height=20 bgcolor="ffffff" class=t1>
-                                 <input type="text" name="po" placeholder="원">
+                                 <input type="text" name="point"  onchange="calPointF()" value="<%=point %>" placeholder="원">
                               </td>
                               <td align="left" width=520 colspan=5 height=20 bgcolor="ffffff" class=t1>
-                                 <input type="button" value="적용하기"  >
+                                 <%-- <input type="button" value="적용하기" onClick="point(<%=point %>)" > --%>
+                                 <input type="button" value="취소" onClick="point(<%=point %>)" >
                               </td>
                               <!--  
                               <td align="left" width=560 colspan=54 height=20 bgcolor="ffffff" class=t1>

@@ -11,11 +11,11 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@include file="user_login_check.jspf"%>  
 
 <%
 OrderService orderService = new OrderService();
-List<Orders> orderList = orderService.list_detail("yeji2345");
+List<Orders> orderList = orderService.list_detail(sUserId);
 ProductService productService = new ProductService();
 %>
 
