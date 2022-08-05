@@ -6,10 +6,12 @@
     int point=Integer.parseInt(request.getParameter("point"));
   	String p_no=request.getParameter("p_no");
   	String c_qtyStr = request.getParameter("p_qty");
+  	String a_addno = request.getParameter("add_select");
+  	request.setAttribute("add_select",a_addno);
     request.setAttribute("remainPoint", point);
     request.setAttribute("p_no", p_no);
     request.setAttribute("c_qty", c_qtyStr);
-    RequestDispatcher rd=request.getRequestDispatcher("order_form_test.jsp");
+    RequestDispatcher rd=request.getRequestDispatcher("order_create_form.jsp");
     rd.forward(request, response);
    
     

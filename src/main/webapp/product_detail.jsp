@@ -37,6 +37,7 @@ return;
 
 
 </script>
+<script src="js/test.js"></script>
 </head>
 <body>
 <form name="product_detail_form">
