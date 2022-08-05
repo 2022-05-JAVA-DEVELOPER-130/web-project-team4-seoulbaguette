@@ -7,8 +7,7 @@
 String userId = "juhee13";
 CouponService couponService = new CouponService();
 List<Coupon> couponList = couponService.selectCouponById(userId);
-String msg="";
-
+String msg = "";
 %>
 
 
@@ -29,7 +28,7 @@ table.coupon_list {
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>
-	
+
 	<!-- container start-->
 	<div id="container">
 		<!-- header start -->
@@ -60,44 +59,49 @@ table.coupon_list {
 										보유 쿠폰리스트
 									</caption>
 								</table>
-								<br><br>
+								<br>
+								<br>
 								<!-- coupon item start -->
-								<%for(Coupon coupon:couponList){%>
-								
-									<table class="coupon_list" align=center border="0"
-										cellpadding="0" cellspacing="1" bgcolor="BBBBBB"
-										style="padding: 2px; border: 2px double #000000;">
-										<tr>
-											<td width=25% height=26 align=center class=t1></td>
-											<td width=15% height=26 align=center class=t1></td>
-											<td width=35% height=26 align=left class=t1
-												style="font-size: 8pt; font-weight: bold">발급일자 :
-												<%=coupon.getC_start_date().substring(0,11) %></td>
+								<%
+								for (Coupon coupon : couponList) {
+								%>
 
-										</tr>
-										<tr>
+								<table class="coupon_list" align=center border="0"
+									cellpadding="0" cellspacing="1" bgcolor="BBBBBB"
+									style="padding: 2px; border: 2px double #000000;">
+									<tr>
+										<td width=25% height=26 align=center class=t1></td>
+										<td width=15% height=26 align=center class=t1></td>
+										<td width=35% height=26 align=left class=t1
+											style="font-size: 8pt; font-weight: bold">발급일자 : <%=coupon.getC_start_date().substring(0, 11)%></td>
 
-											<td style="font-size: 30pt" width=25% height=26 align=center
-												class=t1><%=coupon.getC_discount() %>%</td>
-											<td width=15% height=26 align=center class=t1></td>
-											<td width=35% height=26 align=center class=t1></td>
+									</tr>
+									<tr>
 
-										</tr>
-										<tr>
+										<td style="font-size: 30pt" width=25% height=26 align=center
+											class=t1><%=coupon.getC_discount()%>%</td>
+										<td width=15% height=26 align=center class=t1></td>
+										<td width=35% height=26 align=center class=t1></td>
 
-											<td width=25% height=26 align=center class=t1></td>
-											<td width=25% height=26 align=center class=t1></td>
-											<td width=30% height=26 align="left" class=t1
-												style="font-size: 8pt; font-weight: bold">쿠폰기한 :
-												<%=coupon.getC_end_date().substring(0,11) %> 까지</td>
-										</tr>
-									</table>
-								
-								<%} %>
+									</tr>
+									<tr>
+
+										<td width=25% height=26 align=center class=t1></td>
+										<td width=25% height=26 align=center class=t1></td>
+										<td width=30% height=26 align="left" class=t1
+											style="font-size: 8pt; font-weight: bold">쿠폰기한 : <%=coupon.getC_end_date().substring(0, 11)%>
+											까지
+										</td>
+									</tr>
+								</table>
+
+								<%
+								}
+								%>
 
 								<!-- coupon item end -->
 
-							
+
 
 							</form></td>
 					</tr>
@@ -107,7 +111,11 @@ table.coupon_list {
 			<!-- content end -->
 		</div>
 		<!--wrapper end-->
-
+		<div id="footer">
+			<!-- include_common_bottom.jsp start-->
+			<jsp:include page="include_common_bottom.jsp" />
+			<!-- include_common_bottom.jsp end-->
+		</div>
 	</div>
 	<!--container end-->
 </body>

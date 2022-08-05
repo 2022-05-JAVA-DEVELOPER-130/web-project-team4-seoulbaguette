@@ -3,9 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-String userId="juhee13";
-int period=10;
-int discount=40;
+String userId = "juhee13";
+int period = 10;
+int discount = 40;
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -45,15 +45,16 @@ table.coupon_list {
 				<table border=0 cellpadding=0 cellspacing=0>
 					<tr>
 						<td><br />
-							<form name="f" method="post" >
-								<input type="hidden" name="period" value="<%=period %>">
+							<form name="f" method="post">
+								<input type="hidden" name="period" value="<%=period%>">
 								<input type="hidden" name="discount" value="<%=discount%>">
 								<table align=center width=100% border="0" cellpadding="0"
 									cellspacing="1" bgcolor="BBBBBB">
 									<caption
 										style="text-align: left; font-weight: bold; padding-bottom: 7px">
-										<span style="border-left: 4px solid #888888;"></span>&nbsp;&nbsp;쿠폰 발급
-										
+										<span style="border-left: 4px solid #888888;"></span>&nbsp;&nbsp;쿠폰
+										발급
+
 									</caption>
 								</table>
 								<br> <br> <br>
@@ -69,11 +70,13 @@ table.coupon_list {
 										<td width=38% height=70 align=left class=t1
 											style="font-size: 10pt; font-weight: bold">SUMMER COUPON
 
+										
 									</tr>
 									<tr>
 
 										<td style="font-size: 45pt" width=25% height=70 align=center
-											class=t1>&nbsp;&nbsp;&nbsp;<%=discount %>%</td>
+											class=t1>&nbsp;&nbsp;&nbsp;<%=discount%>%
+										</td>
 										<td height=70 align=center class=t1></td>
 										<td height=70 align=center class=t1></td>
 
@@ -83,16 +86,17 @@ table.coupon_list {
 										<td height=70 align=center class=t1></td>
 										<td height=70 align=center class=t1></td>
 										<td height=70 align="left" class=t1
-											style="font-size: 10pt; font-weight: bold">유효기간 :
-											 <%=period %>일</td>
+											style="font-size: 10pt; font-weight: bold">유효기간 : <%=period%>일
+										</td>
 									</tr>
 								</table>
 								<br> <br> <br>
 								<!-- coupon item end -->
 								<table border="0" cellpadding="0" cellspacing="1" width="590">
 									<tr>
-										
-											<td><input type="button" value="발급" onclick="couponCreate()"></td>
+
+										<td><input type="button" value="발급"
+											onclick="couponCreate()"></td>
 									</tr>
 								</table>
 							</form> <br /> <br /> <br /></td>
@@ -104,7 +108,11 @@ table.coupon_list {
 			<!-- content end -->
 		</div>
 		<!--wrapper end-->
-
+		<div id="footer">
+			<!-- include_common_bottom.jsp start-->
+			<jsp:include page="include_common_bottom.jsp" />
+			<!-- include_common_bottom.jsp end-->
+		</div>
 	</div>
 	<!--container end-->
 </body>
