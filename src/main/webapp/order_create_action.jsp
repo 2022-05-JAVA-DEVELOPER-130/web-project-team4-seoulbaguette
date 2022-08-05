@@ -10,7 +10,7 @@
 	String p_noStr=request.getParameter("p_no");
 	String p_qtyStr=request.getParameter("p_qty");
 	String add_select = request.getParameter("add_select");
-	System.out.println(add_select);
+	
 	String[] cart_item_no_strArray=request.getParameterValues("cart_item_no");
 	OrderService orderService=new OrderService();
 	CartService cartService=new CartService();
