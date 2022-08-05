@@ -9,10 +9,10 @@
 	
 	if(cart_qtyStr.equals("0")){
 		cartService.deleteCartByCNo(Integer.parseInt(cart_noStr));
-		response.sendRedirect("cart_view_select_update_qty_all.jsp");
+		response.sendRedirect("cart_view_select_update_qyt_all_check_delete_image.jsp");
 	}else{
 		cartService.updateQty(user_id, Integer.parseInt(cart_noStr), Integer.parseInt(cart_qtyStr));
-		response.sendRedirect("cart_view_select_update_qty_all.jsp");
+		response.sendRedirect("cart_view_select_update_qyt_all_check_delete_image.jsp");
 	}
 	
 %>
