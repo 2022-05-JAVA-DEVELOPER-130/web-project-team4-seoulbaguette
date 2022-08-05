@@ -1,11 +1,13 @@
 <%@page import="com.itwill.bakery.service.QnAService"%>
-<%@page import="com.itwill.bakery.vo.QnAListPageMaker"%>
 <%@page import="com.itwill.bakery.vo.QnA"%>
+<%@page import="com.itwill.bakery.vo.QnAListPageMaker"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%!public String getTitleString(QnA qna) {
+<%!
+public String getTitleString(QnA qna) {
 		StringBuilder title = new StringBuilder(128);
 		String t = qna.getQna_title();
+	
 		if (t.length() > 15) {
 			//t = t.substring(0,15);
 			//t = t+"...";
@@ -26,6 +28,8 @@
 		return title.toString();
 	}%>
 <%
+QnAService qnaService=new QnAService();
+
 String pageno=request.getParameter("pageno");
 if(pageno==null||pageno.equals("")){
 	pageno="1";
