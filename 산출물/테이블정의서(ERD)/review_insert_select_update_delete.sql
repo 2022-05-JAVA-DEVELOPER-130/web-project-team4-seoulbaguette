@@ -33,6 +33,7 @@ insert into review(r_no,r_title,r_date,r_stargrade,r_content,user_id,p_no) value
 insert into review(r_no,r_title,r_date,r_stargrade,r_content,user_id,p_no) values(review_r_no_SEQ.nextval,'리뷰2',sysdate,3,'리뷰2내용','one',14);
 insert into review(r_no,r_title,r_date,r_stargrade,r_content,user_id,p_no) values(review_r_no_SEQ.nextval,'리뷰3',sysdate,3,'리뷰3내용','one',15);
 
+
 /*select */
 
 -- 'three' 회원의 리뷰 전체 출력

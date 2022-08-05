@@ -6,7 +6,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%
-    String userid="guntae123";
+    String userid="guard1";
     UserService userService=new UserService();
     User user=userService.selectUser(userid);
     List<Address> addressList=userService.selectAddress(user);

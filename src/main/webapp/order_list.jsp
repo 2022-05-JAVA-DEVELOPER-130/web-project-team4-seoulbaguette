@@ -24,13 +24,18 @@ ProductService productService = new ProductService();
 <head>
 <meta charset="UTF-8">
 
-<title>쇼핑몰 관리</title>
+<title>SEOUL BAGUETTE</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<link rel=stylesheet href="css/styles.css" type="text/css">
+<link rel=stylesheet href="css/menu.css" type="text/css">
+<link rel=stylesheet href="css/shop.css" type="text/css">
+<style type="text/css" media="screen">
+</style>
 
 </head>
-<body>
-<!--  
+<body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
+	marginwidth=0 marginheight=0>
+<!--------------------------------------------------------------  
 	<% for(Orders order : orderList) { %>
 		
 		
@@ -51,7 +56,16 @@ ProductService productService = new ProductService();
 		
 		<%} %>
 	<% }%>
--->
+-------------------------------------------------------------->
+<div id="container">
+		<!-- header start -->
+		<div id="header">
+			<!-- include_common_top.jsp start-->
+			<jsp:include page="include_common_top.jsp"/>
+			<!-- include_common_top.jsp end-->
+		</div>
+		
+		<div id="wrapper">
 	<!-- include_content.jsp start-->
 			<div id="content">
 				<table border=0 cellpadding=0 cellspacing=0>
@@ -112,7 +126,7 @@ ProductService productService = new ProductService();
 				</table>
 			</div>
 			<!-- include_content.jsp end-->
-	
-
+	</div>
+</div>
 </body>
 </html>

@@ -2,20 +2,21 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="user_login_check.jspf"%> 
+<%-- <%@include file="user_login_check.jspf"%>  --%>
 <%
 if(request.getMethod().equalsIgnoreCase("GET")){
 	response.sendRedirect("shop_main.jsp");
 	return;	
-}
+} 
+
+String userid="guard1";
+UserService userService= new UserService();
 try{
-	UserService UserService=new UserService();
-	int removeUser = UserService.deleteUser(sUserId);
-	response.sendRedirect("member_logout_action.jsp");
+	userService.deleteUser(userid);
+	response.sendRedirect("user_logout_action.jsp");
 }catch(Exception e){
 	e.printStackTrace();
-	response.sendRedirect("member_error.jsp");
-}	
+}
 %>
 
 

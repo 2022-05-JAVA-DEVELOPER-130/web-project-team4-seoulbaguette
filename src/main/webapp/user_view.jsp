@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%
-    String userid="guntae123";
+    String userid="guard1";
     UserService userService=new UserService();
     User user=userService.selectUser(userid);
     
@@ -72,7 +72,7 @@
 								<tr>
 									<td align=center>
 									<input type="button" value="내정보수정" onClick="userModify()">&nbsp; 
-									<input type="button" value="탈퇴" onClick="userRemove()">&nbsp;
+									<input type="button" value="탈퇴" onClick="userPasswordCheck()">&nbsp;
 									<input type="button" value="주소록" onClick="userAddress()">
 									</td>
 								</tr>
