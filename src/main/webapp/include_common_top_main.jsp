@@ -18,11 +18,11 @@
 	%>
 		<li><a href="user_login_form.jsp">LOGIN</a></li>
 		<li><a href="user_view.jsp">MYPAGE</a></li>
-		<li><a href="cart_view.jsp">CART</a></li>
+		<li><a href="cart_view_select_update_qyt_all_check_delete_image.jsp">CART</a></li>
 		<%}else{ %>
 		<li><a href="user_logout_action.jsp">LOGOUT</a></li>
 		<li><a href="user_view.jsp">MYPAGE</a></li>
-		<li><a href="cart_view.jsp">CART</a></li>
+		<li><a href="cart_view_select_update_qyt_all_check_delete_image.jsp">CART</a></li>
 			<%} %>
 	</ul>
 </div>
