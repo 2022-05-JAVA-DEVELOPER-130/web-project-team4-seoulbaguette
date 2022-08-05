@@ -61,7 +61,7 @@ ProductService productService = new ProductService();
 		<!-- header start -->
 		<div id="header">
 			<!-- include_common_top.jsp start-->
-			<jsp:include page="include_common_top.jsp"/>
+			<jsp:include page="include_common_top_main.jsp"/>
 			<!-- include_common_top.jsp end-->
 		</div>
 		

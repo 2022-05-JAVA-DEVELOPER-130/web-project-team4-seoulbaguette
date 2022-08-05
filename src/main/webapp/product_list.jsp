@@ -4,8 +4,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+String category_noStr=request.getParameter("category_no");
+if(category_noStr==null)category_noStr="0";
+
 ProductService productService = new ProductService();
-List<Product> productList = productService.selectAll();
+List<Product> productList = null;
+if(category_noStr.equals("0")){
+	productList=productService.selectAll();
+}else{
+	productList=productService.selectByCategory(Integer.parseInt(category_noStr));
+}
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -49,7 +57,7 @@ List<Product> productList = productService.selectAll();
 
 							<form name="f" method="post">
 								<table width="100%" align="center" border="0" cellpadding="10"
-									cellspacing="1" bgcolor="BBBBBB">
+									cellspacing="1" bgcolor="FFFFFF">
 									<%
 									int product_size=productList.size();
 									int product_column_size=4;
@@ -66,7 +74,7 @@ List<Product> productList = productService.selectAll();
 									%>
 									<tr>
 									<%} %>
-										<td align="center" width="25%"  bgcolor="ffffff"><a
+										<td align="center" width="25%"  bgcolor="ffffff" style="border:0.5px solid #aaa; padding-left:10px;padding-top: 10px; padding-right: 10px;padding-bottom: 10px;"><a
 											href="product_detail.jsp?p_no=<%=product.getP_no()%>"><img width="88px" height="65px"
 												src="image/<%=product.getP_image()%>" border="0"></a><br />
 											<br /> <b><%=product.getP_name()%></b><br> <font
