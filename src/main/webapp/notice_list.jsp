@@ -94,30 +94,28 @@ List<Notice> noticeList = noticeService.selectAllNotice();
 								
 							</table> <br /> <!-- list -->
 							<form name="f" method="post" action="">
-								<table border="0" cellpadding="0" cellspacing="1" width="590"
+								<table border="0" cellpadding="0" cellspacing="1" width="400"
 									bgcolor="BBBBBB">
 
 									<tr>
-										<td width=280 align=center bgcolor="E6ECDE">제목</td>
-										<td width=120 align=center bgcolor="E6ECDE">작성일</td>
-										<td width=70 align=center bgcolor="E6ECDE">내용</td>
+										<td width=200 align=center bgcolor="E6ECDE">제목</td>
+										<td width=70 align=center bgcolor="E6ECDE">작성일</td>
+										<td width=50 align=center bgcolor="E6ECDE">내용</td>
 									</tr>
 									<%
 										for(Notice notice:noticeList) {
 									%>
 									<tr>
 									
-										<td width=280 bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<td width=200 bgcolor="ffffff" style="padding-left: 10px" align="left">
 										<a href='notice_view.jsp?notice_no=<%= notice.getNotice_no()%>'>
 										<%=notice.getNotice_title()%>
 										</a>
 										<td width=70 align=center bgcolor="ffffff" align="left"><%=notice.getNotice_date()%>
 										</td>
-										<td width=120 bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<td width=50 align="center" bgcolor="ffffff">
 											<a href='notice_view.jsp?notice_no=<%= notice.getNotice_no()%>'>
-											<%=notice.getNotice_content().toString().substring(0,15)+"..." %>
-											<br>
-												<%= "<상세 보기>" %>
+											<%="<상세 보기>"%>
 											</a>
 										</td>
 									</tr>
@@ -127,7 +125,7 @@ List<Notice> noticeList = noticeService.selectAllNotice();
 								</table>
 								<!-- /list -->
 							</form> <br>
-							<table border="0" cellpadding="0" cellspacing="1" width="590">
+							<table border="0" cellpadding="0" cellspacing="1" width="400">
 								<tr>
 									<td align="center">
 							     
@@ -142,7 +140,6 @@ List<Notice> noticeList = noticeService.selectAllNotice();
 			<jsp:include page="include_common_bottom.jsp"/>
 			<!-- include_common_bottom.jsp end-->
 		</div>
-	</div>
 	<!--container end-->
 </body>
 </html>
