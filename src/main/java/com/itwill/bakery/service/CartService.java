@@ -14,19 +14,19 @@ public class CartService {
 	//cart create
 	public int CreateCart(String user_id,int p_no,int cart_qty)throws Exception{
 		if(cartDao.cartProductExist(user_id,p_no)){
-			return cartDao.UpdateQty(user_id, p_no, cart_qty);
+			return cartDao.addQty(user_id, p_no, cart_qty);
 		}else {
 			return cartDao.insertCart(user_id,p_no,cart_qty);
 		}
 	}
 	
 	//cart update
-	public int updateQtyByPNo(String user_id,int p_no,int cart_qty)throws Exception{
-		return cartDao.updateQtyByPNo(user_id,p_no,cart_qty);
+	public int updateQty(String user_id,int p_no,int cart_qty)throws Exception{
+		return cartDao.updateQty(user_id,p_no,cart_qty);
 	}
 	
-	public int updateQtyByCNo(String user_id ,int c_no,int cart_qty)throws Exception{
-		return cartDao.updateQtyByCNo(user_id,c_no,cart_qty);
+	public int addQty(String user_id ,int c_no,int cart_qty)throws Exception{
+		return cartDao.addQty(user_id,c_no,cart_qty);
 	}
 	
 	//cart deleteAll

@@ -8,8 +8,8 @@ public class CartSQL {
 			"select * from cart c join product p on c.p_no=p.p_no where c.user_id=?";
 	public static final String SELECT_CART_BY_CART_NO=
 			"select * from cart c join product p on c.p_no=p.p_no where cart_no=?";
-	public static final String UPDATE_CART_BY_USERID_P_NO=
-			"update cart set cart_qty=cart_qty+? where user_id=? and p_no=?";
+	public static final String ADD_QTY=
+			"update cart set cart_qty=cart_qty+? where user_id=? and cart_no=?";
 	public static final String UPDATE_QTY=
 			"update cart set cart_qty=? where user_id=? and cart_no=?";
 	public static final String DELETE_CART_BY_CART_NO=

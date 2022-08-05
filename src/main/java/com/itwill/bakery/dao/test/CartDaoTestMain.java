@@ -20,7 +20,7 @@ public class CartDaoTestMain {
 		 */
 		  //System.out.println(cartDao.UpdateQty("yeji2345",7,40));
 		  //System.out.println(cartDao.updateQtyByPNo("yeji2345", 3, 5));
-		  System.out.println(cartDao.insertCart("yeji2345",12,1));
+		  System.out.println(cartDao.insertCart("yeji2345",5,1));
 			/*
 			 * System.out.println(cartDao.updateQtyByPNo(new Cart(0, 6, new Product(3,
 			 * null,0, null, null, 0, 0), "yeji2345")));

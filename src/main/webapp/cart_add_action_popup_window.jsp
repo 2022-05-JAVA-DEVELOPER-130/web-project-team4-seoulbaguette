@@ -6,7 +6,7 @@
 <%@include file="user_login_check.jspf"%>
 <%
 	if (request.getMethod().equalsIgnoreCase("GET")) {
-		response.sendRedirect("cart_list.jsp");
+		response.sendRedirect("product_list.jsp");
 		return;
 	}
 	String user_id="yeji2345";
