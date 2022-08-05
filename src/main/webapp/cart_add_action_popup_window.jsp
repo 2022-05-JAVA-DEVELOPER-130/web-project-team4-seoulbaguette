@@ -27,7 +27,7 @@
 	<strong>상품을 담았습니다.</strong>
 	<div  style="margin-top: 15px;margin-left: auto;margin-right: auto;padding: 10px" >
 		<div  style="margin: 0 auto;padding: 0px 20px">
-			<button onclick="window.close();opener.location.href='product_list.jsp';">
+			<button onclick="window.close();opener.location.reload();">
 				계속 쇼핑
 			</button>
 			<!-- 

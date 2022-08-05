@@ -15,7 +15,7 @@
 	String cart_qtyStr=request.getParameter("cart_qty");
    	String p_noStr=request.getParameter("p_no");
 	cartService.CreateCart(user_id,Integer.parseInt(p_noStr),Integer.parseInt(cart_qtyStr));
-	response.sendRedirect("cart_view.jsp");
+	response.sendRedirect("cart_view_select_update_qyt_all_check_delete_image.jsp");
 %>
 
 
