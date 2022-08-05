@@ -1,9 +1,6 @@
-<%@page import="com.itwill.bakery.vo.Product"%>
-<%@page import="com.itwill.bakery.vo.Cart"%>
 <%@page import="com.itwill.bakery.service.CartService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="user_login_check.jspf"%>
 <%
 	if (request.getMethod().equalsIgnoreCase("GET")) {
 		response.sendRedirect("product_list.jsp");
@@ -30,7 +27,7 @@
 	<strong>상품을 담았습니다.</strong>
 	<div  style="margin-top: 15px;margin-left: auto;margin-right: auto;padding: 10px" >
 		<div  style="margin: 0 auto;padding: 0px 20px">
-			<button onclick="window.close();opener.location.reload();">
+			<button onclick="window.close();opener.location.href='product_list.jsp';">
 				계속 쇼핑
 			</button>
 			<!-- 
@@ -38,7 +35,7 @@
 				장바구니로
 			</button> 
 			-->
-			<button onclick="window.close();opener.location.href='cart_view.jsp';">
+			<button onclick="window.close();opener.location.href='cart_view_select_update_qyt_all_check_delete_image.jsp';">
 				장바구니로
 			</button>
 		</div>

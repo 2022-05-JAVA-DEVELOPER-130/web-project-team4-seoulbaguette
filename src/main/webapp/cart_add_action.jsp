@@ -14,8 +14,8 @@
 	String user_id="yeji2345";
 	String cart_qtyStr=request.getParameter("cart_qty");
    	String p_noStr=request.getParameter("p_no");
-	Product product = productService.selectByNo(2);
 	cartService.CreateCart(user_id,Integer.parseInt(p_noStr),Integer.parseInt(cart_qtyStr));
+	response.sendRedirect("cart_view.jsp");
 %>
 
 
