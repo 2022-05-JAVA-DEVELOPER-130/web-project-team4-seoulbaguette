@@ -107,6 +107,8 @@ String bName = "리뷰 작성";
 
 							<td width=50 height=26 align=center class=t1 bgcolor="ffffff">
 								<form name='f<%=i%>' method='post' onsubmit='return false'>
+								<input type="hidden" name="oi_no" value="<%= orderItem.getOi_no()%>">
+								<input type="hidden" name="p_no" value="<%=orderItem.getProduct().getP_no() %>">
 									<%
 									if (orderReviewService.checkOR(orderItem.getOi_no()) == 1) {
 									%>

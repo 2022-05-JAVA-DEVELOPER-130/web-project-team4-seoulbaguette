@@ -28,6 +28,11 @@ function reviewRemove() {
 	}
 }
 
+function reviewOrderReturn(){
+	document.f.action = "order_detail.jsp";
+	document.f.method = "POST";
+	document.f.submit();
+}
 
 function reviewformCheck_write() {
 	if (document.f.r_title.value == "") {
@@ -95,7 +100,7 @@ function returnMypage(){
 }
 
 function reviewView(){
-	document.f.action = "review_view.jsp";
+	document.f.action = "review_view_user.jsp";
 	document.f.method = "POST";
 	document.f.submit();
 }

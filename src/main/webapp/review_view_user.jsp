@@ -110,7 +110,7 @@ Review review = reviewService.selectReview(Integer.parseInt(r_no));
 							</form> <br /> <br /> <br />
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
-									<td align=center><input type="button" value="뒤로가기">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<td align=center><input type="button" value="뒤로가기" onclick="memberReview()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<input type="button" value="삭제" onclick="reviewRemove()">
 										<input type="button" value="수정" onclick="reviewModify()">
 									</td>

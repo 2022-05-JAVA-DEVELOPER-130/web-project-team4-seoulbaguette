@@ -1,7 +1,7 @@
 <%@page import="com.itwill.bakery.service.ReviewService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%-- <%@include file="user_login_check.jspf"%>  --%>
+<%@include file="user_login_check.jspf"%> 
 
 <%
 
@@ -10,7 +10,7 @@ if(request.getMethod().equalsIgnoreCase("GET")){
 	return;
 }
 
-String user_id=request.getParameter("user_id");
+
 String r_no=request.getParameter("r_no");
 
 ReviewService reviewService=new ReviewService();

@@ -20,7 +20,7 @@ ReviewService reviewService=new ReviewService();
 Review review=new Review(Integer.parseInt(r_no),r_title,null,Integer.parseInt(r_stargrade),r_content,null ,null );
 try{
 reviewService.updateReview(review);
-response.sendRedirect("review_view.jsp?r_no="+r_no);
+response.sendRedirect("review_view_user.jsp?r_no="+r_no);
 }
 catch(Exception e){
 	e.printStackTrace();
