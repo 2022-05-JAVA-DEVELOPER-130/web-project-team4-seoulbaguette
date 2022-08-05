@@ -5,7 +5,7 @@
 
 <%
 if(request.getMethod().equalsIgnoreCase("GET")){
-	 response.sendRedirect("user_login_form.jsp");
+	  response.sendRedirect("user_login_form.jsp");
 	 return;
 }
 String user_id = (String) request.getParameter("userId");

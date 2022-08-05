@@ -5,7 +5,7 @@
 	String sUserId=(String)session.getAttribute("s_u_id");
 %>	
 <script type="text/javascript">
-	function login_message() {
+	 function login_message() {
 		alert('로그인하세요');
 		location.href = 'userinfo_login_form.jsp';
 	}
