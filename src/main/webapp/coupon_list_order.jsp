@@ -3,10 +3,10 @@
 <%@page import="com.itwill.bakery.service.CouponService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@include file="user_login_check.jspf"%>
 <%
-String userId = "yeji2345";
 CouponService couponService = new CouponService();
-List<Coupon> couponList = couponService.selectCouponById(userId);
+List<Coupon> couponList = couponService.selectCouponById(sUserId);
 String msg="";
 
 %>

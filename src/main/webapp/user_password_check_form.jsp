@@ -1,9 +1,9 @@
 <%@page import="com.itwill.bakery.service.UserService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%-- <%@include file="user_login_check.jspf"%> --%>
+<%@include file="user_login_check.jspf"%>
 <%
-String userid = "guard1";
+
 String msg2 = (String) request.getAttribute("msg2");
 if (msg2 == null)
 	msg2 = "";

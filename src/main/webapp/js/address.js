@@ -37,6 +37,22 @@ function addressCancel(){
 	document.f.submit();
 }
 
+function addressInsert(){
+	if (document.f.address.value == "") {
+			alert("주소를 입력하십시요.");
+			f.address.focus();
+			return false;
+		}
+	document.f.action="address_insert_action.jsp";
+	document.f.method = "POST";
+	document.f.submit();
+}
+
+function addressAdd(){
+	document.f.action="address_insert_form.jsp";
+	document.f.method = "POST";
+	document.f.submit();
+}
 
 /*function addressAdd(check){
 	if(check>=3){

@@ -2,10 +2,11 @@
 <%@page import="com.itwill.bakery.service.UserService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@include file="user_login_check.jspf"%>
+    
     <%
-    String userid="guard1";
     UserService userService=new UserService();
-    User user=userService.selectUser(userid);
+    User user=userService.selectUser(sUserId);
     
     String password=request.getParameter("user_password");
     

@@ -5,10 +5,11 @@
 <%@page import="com.itwill.bakery.service.UserService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@include file="user_login_check.jspf"%>
     <%
-    String userid="guard1";
+   
     UserService userService=new UserService();
-    User user=userService.selectUser(userid);
+    User user=userService.selectUser(sUserId);
     List<Address> addressList=userService.selectAddress(user);
     int check=addressList.size();
     %>
@@ -62,7 +63,7 @@
 								<tr>
 									<td align=center>
 									<input type="button" value="돌아가기" onClick="addressBack()"/>&nbsp;
-									<input type="button" id="addcheck" value="추가하기"  onclick="addressAdd(<%=check%>)"/>&nbsp;
+									<input type="button" id="addcheck" value="추가하기"  onclick="addressAdd()"/>&nbsp;
 									</td>
 								</tr>
 							</table>
