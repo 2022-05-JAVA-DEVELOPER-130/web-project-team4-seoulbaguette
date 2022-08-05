@@ -71,8 +71,8 @@ productList=productService.selectByCategory(Integer.parseInt(category_noStr));
 									%>
 									<tr>
 									<%} %>
-										<td align="center" width="25%"  bgcolor="ffffff" style="border:0.5px solid #aaa; padding-left:10px;padding-top: 10px; padding-right: 10px;padding-bottom: 10px;"><a
-											href="product_detail.jsp?p_no=<%=product.getP_no()%>"><img width="88px" height="65px"
+										<td align="center" width="25%"  bgcolor="ffffff" style="padding-left:10px;padding-top: 10px; padding-right: 10px;padding-bottom: 10px;"><a
+											href="product_detail.jsp?p_no=<%=product.getP_no()%>"><img width="210px" height="210px"
 												src="image/<%=product.getP_image()%>" border="0"></a><br />
 											<br /> <b><%=product.getP_name()%></b><br> <font
 											color="#FF0000">

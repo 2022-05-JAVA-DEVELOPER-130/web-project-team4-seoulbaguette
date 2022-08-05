@@ -3,9 +3,9 @@
 <div id="menu">
 	<div id="menu_title">SEOUL BAGUETTE</div>
 	<ul>
-		<li><a href="#">LOGIN</a></li>
-		<li><a href="#">MYPAGE</a></li>
-		<li><a href="#">CART</a></li>
+		<li><a href="user_login_form.jsp">LOGIN</a></li>
+		<li><a href="user_view.jsp">MYPAGE</a></li>
+		<li><a href="cart_view.jsp">CART</a></li>
 	</ul>
 </div>
 <div id="sub_menu">

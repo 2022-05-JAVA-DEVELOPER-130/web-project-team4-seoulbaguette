@@ -327,4 +327,6 @@ public class QnADao {
 		}
 		return count;
 	}
+	
+
 }

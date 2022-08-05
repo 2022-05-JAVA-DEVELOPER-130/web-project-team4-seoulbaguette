@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-Integer qna_no=3;
+Integer qna_no=30;
 try{
 qna_no=Integer.valueOf(request.getParameter("qna_no"));
 } catch (Exception ex) {
@@ -36,6 +36,7 @@ if(request.getParameter("pageno")!=null){
 <link rel=stylesheet href="css/shop.css" type="text/css">
 
 <script type="text/javascript" src="js/qna.js">
+
 </script>
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
@@ -67,7 +68,7 @@ if(request.getParameter("pageno")!=null){
 							</table> <br> <!-- modify Form  -->
 							<form name="f" method="post">
 								<input type="hidden" name="pageno" value="<%=pageno%>" /> <input
-									type="hidden" name="boardno" value="<%=qna.getQna_no()%>" />
+									type="hidden" name="qnano" value="<%=qna.getQna_no()%>" />
 								<table border="0" cellpadding="0" cellspacing="1" width="590"
 									bgcolor="BBBBBB">
 									<tr>
@@ -80,7 +81,7 @@ if(request.getParameter("pageno")!=null){
 										<td width=100 align=center bgcolor="E6ECDE" height="22">작성자</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px"
 											align="left"><input type="text" style="width: 150"
-											name="writer" value="<%=qna.getUser_id()%>"></td>
+											name="userid" value="<%=qna.getUser_id()%>"></td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">내용</td>
@@ -96,8 +97,8 @@ if(request.getParameter("pageno")!=null){
 							<table width=590 border=0 cellpadding=0 cellspacing=0>
 								<tr>
 									<td align=center>
-									<input type="button" value="수정" onClick="boardUpdate()"> &nbsp; 
-									<input type="button" value="리스트" onClick="boardList()"></td>
+									<input type="button" value="수정" onClick="qnaModifyMsg()"> &nbsp; 
+									<input type="button" value="리스트" onClick="qnaList()"></td>
 								</tr>
 							</table></td>
 					</tr>

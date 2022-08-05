@@ -61,6 +61,9 @@ public class QnAService {
 		qnaDao.updateReadCount(qna_no);
 	}
 	
-	
+	//게시물삭제
+	public int delete(int groupno) throws Exception{
+		return qnaDao.delete(groupno);
+	}
 	
 }
