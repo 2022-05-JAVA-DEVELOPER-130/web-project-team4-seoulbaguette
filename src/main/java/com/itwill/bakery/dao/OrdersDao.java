@@ -190,6 +190,30 @@ public class OrdersDao {
 			return orderList;
 
 	}
+	/*
+	 * 주문전체삭제(ON DELETE CASCADE)
+	 */
+	public int delete(String sUserId)throws Exception{
+		
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		int rowCount=0;
+		try {
+			con=dataSource.getConnection();
+			con.setAutoCommit(false);
+			pstmt=con.prepareStatement(OrdersSQL.DELETE_ALL_BY_ID);
+			pstmt.setString(1, sUserId);
+			rowCount = pstmt.executeUpdate();
+			con.commit();
+		}catch (Exception e) {
+			con.rollback();
+			e.printStackTrace();
+			throw e;
+		}finally {
+			if(con!=null)con.close();
+		}
+		return rowCount;
+	}
 	
 
 

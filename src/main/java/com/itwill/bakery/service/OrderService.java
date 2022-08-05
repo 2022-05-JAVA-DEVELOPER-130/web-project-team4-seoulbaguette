@@ -96,7 +96,13 @@ public class OrderService {
 		}
 		return 0;
 	}
-	
+
+	/*
+	 * 주문전체삭제
+	 */
+	public int delete(String sUserId)throws Exception{
+		return ordersDao.delete(sUserId);
+	}
 	
 	
 	

@@ -17,4 +17,6 @@ public class OrdersSQL {
 
 	public static final String SELECT_ORDER_NO_BY_ID = 
 		"select o_no from orders where user_id=?";
+	
+	public static final String DELETE_ALL_BY_ID = "delete from orders where user_id=?";
 }
