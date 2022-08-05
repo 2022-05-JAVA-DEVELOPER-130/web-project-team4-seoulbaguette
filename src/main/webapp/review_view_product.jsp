@@ -53,6 +53,7 @@ Review review = reviewService.selectReview(Integer.parseInt(r_no));
 							<form name="f" method="post" action="order_delete_action.jsp"
 								onsubmit="return check_delete_order()">
 								<input type="hidden" name="r_no" value="<%=review.getR_no()%>">
+								<input type="hidden" name="p_no" value="<%=review.getProduct().getP_no()%>">
 								<table align="center" width="80%" border="0" cellpadding="0"
 									cellspacing="1" bgcolor="#FFFFFF">
 									<caption
@@ -110,9 +111,8 @@ Review review = reviewService.selectReview(Integer.parseInt(r_no));
 							</form> <br /> <br /> <br />
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
-									<td align=center><input type="button" value="뒤로가기">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<input type="button" value="삭제" onclick="reviewRemove()">
-										<input type="button" value="수정" onclick="reviewModify()">
+									<td align=center><input type="button" value="뒤로가기" onClick="productReview()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										
 									</td>
 								</tr>
 							</table></td>

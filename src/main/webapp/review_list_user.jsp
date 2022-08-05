@@ -6,14 +6,14 @@
 <%@page import="com.itwill.bakery.service.ReviewService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%-- <%@include file="user_login_check.jspf"%>  --%>
+<%@include file="user_login_check.jspf"%>  
 <%
-String userId = "guntae123";
+
 ReviewService reviewService = new ReviewService();
-List<Review> reviewList = reviewService.selectReviewById(userId);
+List<Review> reviewList = reviewService.selectReviewById(sUserId);
 
 UserService userService = new UserService();
-User user = userService.selectUser(userId);
+User user = userService.selectUser(sUserId);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

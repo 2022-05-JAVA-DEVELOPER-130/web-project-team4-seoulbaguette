@@ -100,4 +100,18 @@ function reviewView(){
 	document.f.submit();
 }
 
+function memberReview(){
+	document.f.action = "review_list_user.jsp";
+	document.f.method = "POST";
+	document.f.submit();
+}
+
+function productReview(){
+	document.f.action = "product_detail.jsp";
+	document.f.method = "POST";
+	document.f.submit();
+}
+
+
+
 

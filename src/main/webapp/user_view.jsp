@@ -21,6 +21,7 @@ User user = userService.selectUser(sUserId);
 
 
 <script src="js/user.js"></script>
+<script src="js/review.js"></script>
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>
@@ -96,7 +97,9 @@ User user = userService.selectUser(sUserId);
 									<td align=center><input type="button" value="내정보수정"
 										onClick="userModify()">&nbsp; <input type="button"
 										value="탈퇴" onClick="userPasswordCheck()">&nbsp; <input
-										type="button" value="주소록" onClick="userAddress()"></td>
+										type="button" value="주소록" onClick="userAddress()">&nbsp;
+										<input
+										type="button" value="내가 쓴 리뷰" onClick="memberReview()"></td>
 								</tr>
 							</table>
 						</td>
