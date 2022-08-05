@@ -45,6 +45,22 @@ function userCreate(){
 	document.f.method = "POST";
 	document.f.submit();
 }
+function login() {
+		if (document.f.userId.value == "") {
+			alert("사용자 아이디를 입력하십시요.");
+			document.f.userId.focus();
+			return;
+		}
+		if (document.f.password.value == "") {
+			alert("비밀번호를 입력하십시요.");
+			f.password.focus();
+			return;
+		}
+
+		document.f.action = "user_login_action.jsp";
+		document.f.method='POST';
+		document.f.submit();
+	}
 
 function userCreate_cancel(){
 	document.f.action = "shop_main.jsp";
