@@ -80,12 +80,12 @@ public class CartDao {
 	 */
 
 	//cart addQty
-	public int addQty(String user_id,int cart_no,int cart_qty) throws Exception{
+	public int addQty(String user_id,int p_no,int cart_qty) throws Exception{
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(CartSQL.ADD_QTY);
 		pstmt.setInt(1, cart_qty);
 		pstmt.setString(2, user_id);
-		pstmt.setInt(3, cart_no);
+		pstmt.setInt(3, p_no);
 		int rowCount = pstmt.executeUpdate();
 		return rowCount;
 	}

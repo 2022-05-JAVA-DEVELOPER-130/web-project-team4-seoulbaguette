@@ -15,6 +15,14 @@ function productList() {
 	location.href = 'product_list.jsp';
 }
 
-function aaa() {
-	
+function add_cart_popup_window(){
+	var left = Math.ceil(( window.screen.width)/3);
+	var top = Math.ceil(( window.screen.height)/3);
+	console.log(left);
+	console.log(top);
+	var cartWin = window.open("about:blank","cartForm","width=420,height=200,top="+top+",left="+left+",location=no, directories=no, status=no, menubar=no, scrollbars=no,copyhistory=no");
+	document.add_cart_form.action = 'cart_add_action_popup_window.jsp';
+	document.add_cart_form.target = 'cartForm';
+	document.add_cart_form.method = 'POST';
+	document.add_cart_form.submit();
 }
