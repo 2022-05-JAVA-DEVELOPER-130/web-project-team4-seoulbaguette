@@ -46,7 +46,6 @@ public class OrderService {
 	 */
 	public int create(String sUserId,int p_no,int oi_qty,int add_no) throws Exception{
 		Product product=productDao.selectByNo(p_no);
-		System.out.println(product);
 		OrderItem orderItem=new OrderItem(0, oi_qty, p_no, product);
 		ArrayList<OrderItem> orderItemList=new ArrayList<OrderItem>();
 		orderItemList.add(orderItem);
@@ -56,6 +55,16 @@ public class OrderService {
 		return ordersDao.create(newOrder);
 	}
 	
+	public int createTest(String sUserId,int p_no,int oi_qty,int add_no,int o_price) throws Exception{
+		Product product=productDao.selectByNo(p_no);
+		OrderItem orderItem=new OrderItem(0, oi_qty, p_no, product);
+		ArrayList<OrderItem> orderItemList=new ArrayList<OrderItem>();
+		orderItemList.add(orderItem);
+		
+		Orders newOrder=
+				new Orders(0,"",null,o_price,sUserId,add_no,orderItemList);
+		return ordersDao.create(newOrder);
+	}
 	
 	//  cart에서 주문
 	 
@@ -97,8 +106,20 @@ public class OrderService {
 		}
 		return 0;
 	}
+
+	/*
+	 * 주문전체삭제
+	 */
+	public int delete(String sUserId)throws Exception{
+		return ordersDao.delete(sUserId);
+	}
 	
-	
+	/*
+	 * 주문1개삭제
+	 */
+	public int deleteByOrderNo(int o_no)throws Exception{
+		return ordersDao.deleteByOrderNo(o_no);
+	}
 	
 	
 	

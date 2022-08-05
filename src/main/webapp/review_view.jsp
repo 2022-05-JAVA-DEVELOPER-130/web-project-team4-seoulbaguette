@@ -12,10 +12,12 @@
    
     String r_no=request.getParameter("r_no");
     
-    if(r_no.equals("")||r_no==null){
-    	response.sendRedirect("review_list_product.jsp");
+    if(r_no==null||r_no.equals("")){
+    	response.sendRedirect("review_list_user.jsp");
     	return;
     }
+     
+
     ReviewService reviewService=new ReviewService();
     Review review=reviewService.selectReview(Integer.parseInt(r_no));
     %>
@@ -25,20 +27,9 @@
 <meta charset="UTF-8">
 <title>리뷰 상세</title>
 
-<script type="text/javascript">
+<script src="js/review.js">
 	
-	function reviewModify() {
-		document.f.action = "review_update_form.jsp";
-		document.f.method = "POST";
-		document.f.submit();
-	}
-	function reviewRemove() {
-		if (confirm("정말 삭제하시겠습니까?")) {
-			document.f.action = "review_delete_action.jsp";
-			document.f.method='POST';
-			document.f.submit();
-		}
-	}
+	
 </script>
 </head>
 <body>
@@ -65,6 +56,7 @@
 	
 	<input type="button" value="수정하기" onclick="reviewModify()"/>&nbsp; 
 	<input type="button" value="삭제하기" onclick="reviewRemove()"/>&nbsp; 
+	<input type="button" value="돌아가기" onclick="reviewReturn()"/>&nbsp;
 	
 	</div>
 </body>

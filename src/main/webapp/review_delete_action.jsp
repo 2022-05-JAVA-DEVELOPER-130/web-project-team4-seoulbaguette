@@ -10,13 +10,13 @@ if(request.getMethod().equalsIgnoreCase("GET")){
 	return;
 }
 
-String user_id=request.getParameter("user_id");
+
 String r_no=request.getParameter("r_no");
 
 ReviewService reviewService=new ReviewService();
 try{
 	reviewService.deleteReivew(Integer.parseInt(r_no));
-	response.sendRedirect("review_list_product.jsp");
+	response.sendRedirect("review_list_user.jsp");
 	
 }catch(Exception e){
 	e.printStackTrace();

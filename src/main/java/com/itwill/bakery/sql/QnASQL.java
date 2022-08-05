@@ -22,8 +22,11 @@ public static final String QNA_TOTAL_COUNT
 ="select count(*) from QnA";
 
 public static final String QNA_LIST
-="select qna_no,qna_title,user_id,qna_date,qna_readcount,groupno,step,depth"
-		+ "		from QnA order by groupno desc,step asc";
+="SELECT * FROM ( SELECT rownum idx, s.*  FROM"
+		+"	( SELECT qna_no, qna_title, user_id,qna_date,qna_readcount,groupno, step, depth FROM QnA"
+		+"		ORDER BY groupno DESC,step ASC"
+		+"	) s"
+		+"	 )WHERE idx >= ? AND idx <= ? ";
 
 public static final String QNA_UPDATE
 ="update QnA set qna_title=?,qna_content=? where qna_no=?";

@@ -11,6 +11,7 @@ import javax.sql.DataSource;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 
+import com.itwill.bakery.sql.OrderReviewSQL;
 import com.itwill.bakery.sql.ReviewSQL;
 import com.itwill.bakery.vo.Product;
 import com.itwill.bakery.vo.Review;
@@ -26,28 +27,34 @@ public class ReviewDao {
 		properties.load(this.getClass().getResourceAsStream("/com/itwill/bakery/common/jdbc.properties"));
 		/*** Apache DataSource ***/
 		BasicDataSource basicDataSource = new BasicDataSource();
-		basicDataSource.setDriverClassName(properties.getProperty("driverClass"));
+		basicDataSource.setDriverClassName(properties.getProperty("driverClassName"));
 		basicDataSource.setUrl(properties.getProperty("url"));
 		basicDataSource.setUsername(properties.getProperty("user"));
 		basicDataSource.setPassword(properties.getProperty("password"));
 		dataSource = basicDataSource;
 	}
 
-	public int createReview(Review review) throws Exception {
+	public int createReview(Review review,int oi_no) throws Exception {
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		PreparedStatement pstmt2=null;
 		int rowCount = 0;
 
 		try {
 			con = dataSource.getConnection();
 			pstmt = con.prepareStatement(ReviewSQL.REVIEW_CREATE);
+			pstmt2=con.prepareStatement(OrderReviewSQL.INSERT_OR);
+			
 			pstmt.setString(1, review.getR_title());
 			pstmt.setInt(2, review.getR_stargrade());
 			pstmt.setString(3, review.getR_content());
 			pstmt.setString(4, review.getUser_id());
 			pstmt.setInt(5, review.getProduct().getP_no());
+			
+			pstmt2.setInt(1, oi_no);
 
 			rowCount = pstmt.executeUpdate();
+			pstmt2.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();

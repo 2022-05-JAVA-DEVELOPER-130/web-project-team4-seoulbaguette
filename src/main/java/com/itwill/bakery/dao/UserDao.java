@@ -182,22 +182,37 @@ public class UserDao {
 		return addressList;
 	}
 	
-	public List<Address> selectAddressno(int add_no) throws Exception{
+	public Address selectAddressno(int add_no) throws Exception{
+		Address findAddress = null;
 		Connection con=dataSource.getConnection();
 		PreparedStatement pstmt=con.prepareStatement(UserSQL.ADDRESS_SELECT_BY_NO);
-		List<Address> addressList=new ArrayList<Address>();
-		pstmt.setInt(1,add_no);
+		pstmt.setInt(1, add_no);
 		ResultSet rs=pstmt.executeQuery();
-		while(rs.next()) {
-			//int add_no, String address, String user_id
-			addressList.add(new Address(rs.getInt("add_no"),rs.getString("address"), null ));
+		if(rs.next()) {
+			findAddress=new Address(rs.getInt("add_no"), 
+					rs.getString("address")
+					,null);
 		}
-		
 		rs.close();
 		pstmt.close();
 		con.close();
-		
-		return addressList;
+		return findAddress;
+	}
+	public Address selectAddress(String addressStr) throws Exception{
+		Address findAddress = null;
+		Connection con=dataSource.getConnection();
+		PreparedStatement pstmt=con.prepareStatement(UserSQL.ADDRESS_SELECT_BY_ADDRESS);
+		pstmt.setString(1, addressStr);
+		ResultSet rs=pstmt.executeQuery();
+		if(rs.next()) {
+			findAddress=new Address(rs.getInt("add_no"), 
+					rs.getString("address")
+					,null);
+		}
+		rs.close();
+		pstmt.close();
+		con.close();
+		return findAddress;
 	}
 	
 	
@@ -223,17 +238,28 @@ public class UserDao {
 		return userList;
 	}
 	
-	public int deleteUser(User user) throws Exception{
-		Connection con=dataSource.getConnection();
-		PreparedStatement pstmt=con.prepareStatement(UserSQL.USER_DELETE);
-		pstmt.setString(1, user.getUser_id());
-		int rowCount=pstmt.executeUpdate();
-		
-		pstmt.close();
-		con.close();
-		return rowCount;
+	public int deleteUser(String user_id) throws Exception{
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		int removeRowCount = 0;
+		try {
+			con = dataSource.getConnection();
+			pstmt = con.prepareStatement(UserSQL.USER_DELETE);
+			pstmt.setString(1, user_id);
+			removeRowCount = pstmt.executeUpdate();
+
+		} finally {
+			/*
+			 * 예외발생과 관계없이 반드시 실행되는 코드
+			 */
+			if (pstmt != null)
+				pstmt.close();
+			if (con != null)
+				con.close();
+
+		}
+		return removeRowCount;
 	}
-	
 	public int deleteAddress(Address address)throws Exception{
 		Connection con=dataSource.getConnection();
 		PreparedStatement pstmt=con.prepareStatement(UserSQL.ADDRESS_DELETE_ONE);
@@ -257,7 +283,7 @@ public class UserDao {
 			pstmt.setString(1, userId);
 			rs = pstmt.executeQuery();
 			rs.next();
-			int count = rs.getInt("cnt");
+			int count = rs.getInt(1);
 			if (count == 1) {
 				isExist = true;
 			}
