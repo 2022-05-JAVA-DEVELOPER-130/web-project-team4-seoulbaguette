@@ -1,5 +1,12 @@
+<%@page import="com.itwill.bakery.vo.Coupon"%>
+<%@page import="com.itwill.bakery.service.CouponService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+String userId="juhee13";
+int period=10;
+int discount=40;
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -43,14 +50,12 @@ table.coupon_list {
 									cellspacing="1" bgcolor="BBBBBB">
 									<caption
 										style="text-align: left; font-weight: bold; padding-bottom: 7px">
-										<span style="border-left: 4px solid #888888;"></span>&nbsp;&nbsp;쿠폰1개
-										상세보기
+										<span style="border-left: 4px solid #888888;"></span>&nbsp;&nbsp;쿠폰 발급
+										
 									</caption>
 								</table>
-								<br>
-								<br>
-								<br>
-								
+								<br> <br> <br>
+
 								<!-- coupon item start -->
 
 								<table class="coupon_list" align=center border="0"
@@ -59,42 +64,39 @@ table.coupon_list {
 									<tr>
 										<td width=20% height=70 align=left class=t1></td>
 										<td width=42% height=70 align=center class=t1></td>
-										<td width=38% height=70 align=left class=t1 style="font-size: 10pt;font-weight: bold">발급일자 :
-											2022.05.08</td>
+										<td width=38% height=70 align=left class=t1
+											style="font-size: 10pt; font-weight: bold">SUMMER COUPON
 
 									</tr>
 									<tr>
 
 										<td style="font-size: 45pt" width=25% height=70 align=center
-											class=t1>&nbsp;&nbsp;&nbsp;30%</td>
-										<td  height=70 align=center class=t1></td>
-										<td  height=70 align=center class=t1></td>
+											class=t1>&nbsp;&nbsp;&nbsp;<%=discount %>%</td>
+										<td height=70 align=center class=t1></td>
+										<td height=70 align=center class=t1></td>
 
 									</tr>
 									<tr>
 
 										<td height=70 align=center class=t1></td>
 										<td height=70 align=center class=t1></td>
-										<td height=70 align="left" class=t1 style="font-size: 10pt;font-weight: bold">쿠폰기한 :
-											2022.05.08 까지</td>
+										<td height=70 align="left" class=t1
+											style="font-size: 10pt; font-weight: bold">유효기간 :
+											 <%=period %>일</td>
 									</tr>
 								</table>
-								<br>
-								<br>
-								<br>
+								<br> <br> <br>
 								<!-- coupon item end -->
 								<table border="0" cellpadding="0" cellspacing="1" width="590">
-								<tr>
-									<td align=center>
-										<input type="button" value="취소">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<input type="button" value="쿠폰적용">
-									</td>
-								</tr>
-							</table>
+									<tr>
+										
+											<td><input type="button" value="발급" onclick="couponCreate()"></td>
+									</tr>
+								</table>
 							</form> <br /> <br /> <br /></td>
 					</tr>
 				</table>
-				
+
 			</div>
 			<!-- include_content.jsp end-->
 			<!-- content end -->

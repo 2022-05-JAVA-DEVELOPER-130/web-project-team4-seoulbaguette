@@ -165,7 +165,7 @@ type="hidden" name="buyType" value="direct">
 			</td>
 			<td width=145 height=26 align=center bgcolor="ffffff" class=t1><a
 				href="review_view.jsp?r_no=<%=review.getR_no()%>" class=m1><%=review.getR_title()%></a></td>
-			<td width=112 height=26 align=center bgcolor="ffffff" class=t1><%=review.getR_date()%></td>
+			<td width=112 height=26 align=center bgcolor="ffffff" class=t1><%=review.getR_date().substring(0,11) %></td>
 			<td width=136 height=26 align=center bgcolor="ffffff" class=t1>
 				<%
 				for (int i = 0; i < review.getR_stargrade(); i++) {

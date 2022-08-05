@@ -13,3 +13,4 @@ function couponDelete() {
 	document.f.action = "coupon_delete_action.jsp";
 	document.f.submit();
 }
+
