@@ -8,7 +8,7 @@
 String cart_noStr=request.getParameter("cart_no");
 CartService cartService = new CartService();
 cartService.deleteCartByCNo(Integer.parseInt(cart_noStr));
-response.sendRedirect("cart_view.jsp");
+response.sendRedirect("cart_view_select_update_qyt_all_check_delete_image.jsp");
 %>
 
 
