@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="com.itwill.bakery.vo.Product"%>
 <%@page import="java.util.List"%>
 <%@page import="com.itwill.bakery.service.ProductService"%>
@@ -18,7 +19,7 @@ if(category_noStr.equals("0")){
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>SEOUL BAGUETTE</title>
+<title>SEOULBAGUETTE</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/menu.css" type="text/css">
@@ -50,8 +51,7 @@ if(category_noStr.equals("0")){
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>서울바게트 -
-											상품리스트</b></td>
+									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>서울바게트 > 상품리스트</b></td>
 								</tr>
 							</table>
 
@@ -75,10 +75,9 @@ if(category_noStr.equals("0")){
 									<tr>
 									<%} %>
 										<td align="center" width="25%"  bgcolor="ffffff" style=" padding-left:10px;padding-top: 10px; padding-right: 10px;padding-bottom: 10px;"><a
-											href="product_detail.jsp?p_no=<%=product.getP_no()%>"><img width="150px" height="120px"
+											href="product_detail.jsp?p_no=<%=product.getP_no()%>"><img width="150px" height="130px"
 												src="image/<%=product.getP_image()%>" border="0"></a><br />
-											<br /> <b><%=product.getP_name()%></b><br> <font
-											color="#FF0000">금액: <%=product.getP_price()%>원
+											<br /> <b><%=product.getP_name()%></b><br> <font color="#FF0000">금액: <%=new DecimalFormat("#,##0").format(product.getP_price())%>원
 										</font></td>
 									<%if(i%product_column_size==3){%>
 									</tr>

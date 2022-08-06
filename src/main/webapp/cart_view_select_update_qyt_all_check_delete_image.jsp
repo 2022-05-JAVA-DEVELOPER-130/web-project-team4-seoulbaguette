@@ -13,14 +13,14 @@ ArrayList<Cart> cartList=cartService.selectCartList(user_id);
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>쇼핑몰 관리</title>
+<title>SEOULBAGUETTE</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
+<link rel=stylesheet href="css/menu.css" type="text/css">
 <link rel=stylesheet href="css/shop.css" type="text/css">
- 
 <style type="text/css" media="screen">
-
 </style>
+
 <script type="text/javascript">
 	function changeNumber(desc, formId) {
 		console.log(formId);
@@ -138,17 +138,11 @@ ArrayList<Cart> cartList=cartService.selectCartList(user_id);
 		<!-- header start -->
 		<div id="header">
 			<!-- include_common_top.jsp start-->
-			<%-- <jsp:include page="include_common_top.jsp" /> --%>
+			<jsp:include page="include_common_top_product.jsp" />
 			<!-- include_common_top.jsp end-->
 		</div>
 		<!-- header end -->
-		<!-- navigation start-->
-		<div id="navigation">
-			<!-- include_common_left.jsp start-->
-			<%-- <jsp:include page="include_common_left.jsp" /> --%>
-			<!-- include_common_left.jsp end-->
-		</div>
-		<!-- navigation end-->
+		
 		<!-- wrapper start -->
 		<div id="wrapper">
 			<!-- content start -->
@@ -161,7 +155,7 @@ ArrayList<Cart> cartList=cartService.selectCartList(user_id);
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td height="22">&nbsp;&nbsp;<b>쇼핑몰 - 장바구니 보기</b></td>
+									<td height="22">&nbsp;&nbsp;<b>서울바게트 > 장바구니 보기</b></td>
 								</tr>
 							</table> <!--form--> <!-- 
 							<form name="f" method="post">
@@ -173,15 +167,15 @@ ArrayList<Cart> cartList=cartService.selectCartList(user_id);
 										<td width=60 height=25 align="center" bgcolor="E6ECDE"
 											class=t1><input type="checkbox" id="all_select_checkbox" checked="checked" onchange="cart_item_all_select(event);cart_item_select_count();"></td>
 										<td width=40 height=25 align="center" bgcolor="E6ECDE"
-											class=t1><font>사진</font></td>
+											class=t1><font>상품</font></td>
 										<td width=210 height=25 align="center" bgcolor="E6ECDE"
-											class=t1><font>제품명</font></td>
+											class=t1><font>상품명</font></td>
 										<td width=112 height=25 align="center" bgcolor="E6ECDE"
 											class=t1><font>수 량</font></td>
 										<td width=146 height=25 align="center" bgcolor="E6ECDE"
-											class=t1><font>가 격</font></td>
+											class=t1><font>금 액</font></td>
 										<td width=50 height=25 align="center" bgcolor="E6ECDE"
-											class=t1><font>비 고</font></td>
+											class=t1><font>삭 제</font></td>
 									</tr>
 									<!-- cart item start -->
 									<%
@@ -252,7 +246,7 @@ ArrayList<Cart> cartList=cartService.selectCartList(user_id);
 										<td width=640 colspan=6 height=26 class=t1 bgcolor="ffffff">
 											<p align=right>
 												<br /> 
-												<font color='red'>총주문금액 : <span id="tot_order_price"><%=new DecimalFormat("#,##0").format(tot_price)%></span> 원</font>
+												<font color='red'>총주문금액 : <span id="tot_order_price"><%=new DecimalFormat("#,##0").format(tot_price)%></span> 원</font>&nbsp;&nbsp;&nbsp;
 											</p>
 										</td>
 									</tr>
@@ -287,7 +281,7 @@ ArrayList<Cart> cartList=cartService.selectCartList(user_id);
 		<!--wrapper end-->
 		<div id="footer">
 			<!-- include_common_bottom.jsp start-->
-			<%-- <jsp:include page="include_common_bottom.jsp" /> --%>
+			<jsp:include page="include_common_bottom.jsp" />
 			<!-- include_common_bottom.jsp end-->
 		</div>
 	</div>

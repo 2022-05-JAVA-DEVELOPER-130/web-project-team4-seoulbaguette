@@ -58,7 +58,7 @@ Notice notice = noticeService.selectByNoticeNo(Integer.parseInt(noStr));
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>공지 상세</b></td>
+									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>공지사항 > 상세보기</b></td>
 								</tr>
 							</table>	
 							
@@ -78,18 +78,18 @@ Notice notice = noticeService.selectByNoticeNo(Integer.parseInt(noStr));
 									bgcolor="BBBBBB">
 
 									<tr>
-										<td width=100 align=center bgcolor="E6ECDE" height="22">제목</td>
+										<td width=100 align=center bgcolor="E2E2E2" height="30">제목</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px"
 											align="left"><%=notice.getNotice_title()%></td>
 									</tr>
 									<tr>
-										<td width=100 align=center bgcolor="E6ECDE" height="22">작성일</td>
+										<td width=100 align=center bgcolor="E2E2E2" height="30">작성일</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px"
 											align="left"><%=notice.getNotice_date()%></td>
 									</tr>
 									
 									<tr>
-										<td width=100 align=center bgcolor="E6ECDE" height="22">내용</td>
+										<td width=100 align=center bgcolor="E2E2E2" height="22">내용</td>
 										<td width=490 bgcolor="ffffff" height="180px"
 											style="padding-left: 10px" align="left"><%=notice.getNotice_content()%><br />
 

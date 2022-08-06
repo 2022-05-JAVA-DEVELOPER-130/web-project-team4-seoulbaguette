@@ -17,40 +17,62 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>SEOULBAGUETTE</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel=stylesheet href="css/styles.css" type="text/css">
+<link rel=stylesheet href="css/menu.css" type="text/css">
+<link rel=stylesheet href="css/shop.css" type="text/css">
+<style type="text/css" media="screen">
+</style>
 <script src="js/address.js"></script>
 </head>
-<body onload="addressCheck(<%=check%>)">
+<body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
+	marginwidth=0 marginheight=0 onload="addressCheck(<%=check%>)">
 <div id="content">
+
+	<!-- container start-->
+	<div id="container">
+		<!-- header start -->
+		<div id="header">
+			<!-- include_common_top.jsp start-->
+			<jsp:include page="include_common_top_product.jsp" />
+			<!-- include_common_top.jsp end-->
+		</div>
+		<!-- header end -->
+
+		<!-- wrapper start -->
+		<div id="wrapper">
+			<!-- content start -->
+			<!-- include_content.jsp start-->
+			<div id="content">
 				<table border=0 cellpadding=0 cellspacing=0>
 					<tr>
-						<td>
-							<!--contents--> <br />
+						<td><br />
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>내정보 관리
-											- 주소록 보기<b></td>
+									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>내정보 관리 > 주소록 보기</b></td>
 											
 								</tr>
 							</table> <!-- view Form  -->
 							<% for(int i=0;i<addressList.size();i++){ %>
 							<form id="addr_<%=i%>" method="post">
 							<input type="hidden" name="add_no" value="<%=addressList.get(i).getAdd_no()%>"   />
-								<table border="0" cellpadding="0" cellspacing="1" width="590"
+								<table border="0" cellpadding="0" cellspacing="1" width="590" height="40"
 									bgcolor="BBBBBB">
 									<tr>
-										<td width=100 align=center bgcolor="E6ECDE" height="22">
+										<td width=100 align=center bgcolor="E6ECDE" height="40">
 											<%=i+1%></td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10">
 											<%=addressList.get(i).getAddress()%>
+											<input type="button" style="float:right;" value="수정" onClick="addressModify('addr_<%=i%>')"/>&nbsp;&nbsp;&nbsp;&nbsp; 
+											<input type="button" style="float:right;" value="삭제" onClick="addressRemove('addr_<%=i%>')"/>&nbsp;
 										</td>
 									</tr>
 								
 								
 								</table>
-									<input type="button" value="수정" onClick="addressModify('addr_<%=i%>')"/>&nbsp; 
-									<input type="button" value="삭제" onClick="addressRemove('addr_<%=i%>')"/>&nbsp;
+									
 							</form> <br />
 							
 							<%} %>
@@ -67,7 +89,19 @@
 									</td>
 								</tr>
 							</table>
+							</div>
+							
 			</div>
-
+			<!-- include_content.jsp end-->
+			<!-- content end -->
+		</div>
+		<!--wrapper end-->
+		<div id="footer">
+			<!-- include_common_bottom.jsp start-->
+			<jsp:include page="include_common_bottom.jsp" />
+			<!-- include_common_bottom.jsp end-->
+		</div>
+	</div>
+	<!--container end-->
 </body>
 </html>

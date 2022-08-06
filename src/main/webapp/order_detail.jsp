@@ -26,22 +26,39 @@ String bName = "리뷰 작성";
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<title>SEOULBAGUETTE</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel=stylesheet href="css/styles.css" type="text/css">
+<link rel=stylesheet href="css/menu.css" type="text/css">
+<link rel=stylesheet href="css/shop.css" type="text/css">
+<style type="text/css" media="screen">
+</style>
 <script src="js/review.js"></script>
 </head>
 <body>
+	<!-- container start-->
+	<div id="container">
+		<!-- header start -->
+		<div id="header">
+			<!-- include_common_top.jsp start-->
+			<jsp:include page="include_common_top_product.jsp" />
+			<!-- include_common_top.jsp end-->
+		</div>
+		<!-- header end -->
 
-	<!-- include_content.jsp start-->
-	<div id="content">
+		<!-- wrapper start -->
+		<div id="wrapper">
+			<!-- content start -->
+			<!-- include_content.jsp start-->
+			<div id="content">
+
 		<table border=0 cellpadding=0 cellspacing=0>
 			<tr>
 				<td><br />
 					<table style="padding-left: 10px" border=0 cellpadding=0
 						cellspacing=0>
 						<tr>
-							<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>쇼핑몰 -
-									주문상세조회</b></td>
+							<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>서울바게트 > 주문상세조회</b></td>
 						</tr>
 					</table> <!--form-->
 					<form name="f" method="post" action="order_delete_action.jsp">
@@ -53,8 +70,7 @@ String bName = "리뷰 작성";
 								<td width=290 height=25 bgcolor="E6ECDE" align=center class=t1><font>주문번호</font></td>
 								<td width=112 height=25 bgcolor="E6ECDE" align=center class=t1><font>주문일</font></td>
 								<td width=166 height=25 bgcolor="E6ECDE" align=center class=t1><font>주문자</font></td>
-								<td width=50 height=25 bgcolor="E6ECDE" align=center class=t1><font>비
-										고</font></td>
+								<td width=50 height=25 bgcolor="E6ECDE" align=center class=t1><font>삭제</font></td>
 							</tr>
 
 
@@ -77,8 +93,8 @@ String bName = "리뷰 작성";
 								량</td>
 							<td width=166 height=25 align=center bgcolor="E6ECDE" class=t1>가
 								격</td>
-							<td width=50 height=25 align=center bgcolor="E6ECDE" class=t1>비
-								고</td>
+							<td width=50 height=25 align=center bgcolor="E6ECDE" class=t1>리뷰
+								</td>
 						</tr>
 
 						<!-- orer item start -->
@@ -102,7 +118,7 @@ String bName = "리뷰 작성";
 							</td>
 
 							<td width=166 height=26 align=center bgcolor="ffffff" class=t1>
-								<%=new DecimalFormat("#,###").format(orderItem.getOi_qty() * orderItem.getProduct().getP_price())%>
+								<%=new DecimalFormat("#,##0").format(orderItem.getOi_qty() * orderItem.getProduct().getP_price())%>
 							</td>
 
 							<td width=50 height=26 align=center class=t1 bgcolor="ffffff">
@@ -118,7 +134,7 @@ String bName = "리뷰 작성";
 
 									<%
 									check = 1;
-									bName = "작성한 리뷰 보기";
+									bName = "작성한 리뷰";
 									}
 
 									else {
@@ -157,9 +173,19 @@ String bName = "리뷰 작성";
 						</tr>
 					</table></td>
 			</tr>
-		</table>
+					</table>
+				
+			</div>
+			<!-- include_content.jsp end-->
+			<!-- content end -->
+		</div>
+		<!--wrapper end-->
+		<div id="footer">
+			<!-- include_common_bottom.jsp start-->
+			<jsp:include page="include_common_bottom.jsp" />
+			<!-- include_common_bottom.jsp end-->
+		</div>
 	</div>
-	<!-- include_content.jsp end-->
-
+	<!--container end-->
 </body>
 </html>

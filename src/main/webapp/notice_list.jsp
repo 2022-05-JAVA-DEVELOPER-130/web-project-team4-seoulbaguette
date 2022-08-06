@@ -12,11 +12,11 @@ NoticeService noticeService = new NoticeService();
 List<Notice> noticeList = noticeService.selectAllNotice();
 
 %>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SEOUL BAGUETTE</title>
+<title>SEOULBAGUETTE</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/menu.css" type="text/css">
@@ -35,8 +35,7 @@ List<Notice> noticeList = noticeService.selectAllNotice();
 			<!-- include_common_top.jsp end-->
 		</div>
 		<!-- header end -->
-		<!-- navigation start-->
-		<!-- navigation end-->
+	
 		<!-- wrapper start -->
 		<div id="wrapper">
 <!-- content start -->
@@ -48,7 +47,7 @@ List<Notice> noticeList = noticeService.selectAllNotice();
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>공지</b></td>
+									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>서울바게트 > NOTICE</b></td>
 								</tr>
 							</table>	
 							
@@ -63,24 +62,24 @@ List<Notice> noticeList = noticeService.selectAllNotice();
 							<form name="f" method="post" action="">
 								<table border="0" cellpadding="0" cellspacing="1" width="400"
 									bgcolor="BBBBBB">
-
+									
 									<tr>
-										<td width=200 align=center bgcolor="E6ECDE">제목</td>
-										<td width=70 align=center bgcolor="E6ECDE">작성일</td>
-										<td width=50 align=center bgcolor="E6ECDE">내용</td>
+										<td width=200 height=30 align=center bgcolor="E2E2E2">제목</td>
+										<td width=70 height=30 align=center bgcolor="E2E2E2">작성일</td>
+										<td width=50 height=30 align=center bgcolor="E2E2E2">내용</td>
 									</tr>
 									<%
 										for(Notice notice:noticeList) {
 									%>
 									<tr>
 									
-										<td width=200 bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<td width=200 height=25  bgcolor="ffffff" style="padding-left: 10px" align="left">
 										<a href='notice_view.jsp?notice_no=<%= notice.getNotice_no()%>'>
 										<%=notice.getNotice_title()%>
 										</a>
-										<td width=70 align=center bgcolor="ffffff" align="left"><%=notice.getNotice_date()%>
+										<td width=70 height=25 align=center bgcolor="ffffff" align="left"><%=notice.getNotice_date()%>
 										</td>
-										<td width=50 align="center" bgcolor="ffffff">
+										<td width=50 height=25 align="center" bgcolor="ffffff">
 											<a href='notice_view.jsp?notice_no=<%= notice.getNotice_no()%>'>
 											<%="<상세 보기>"%>
 											</a>
@@ -100,12 +99,13 @@ List<Notice> noticeList = noticeService.selectAllNotice();
 							
 							<!-- **************************************************** -->
 				
-				</div>
+			
 		<!--wrapper end-->
 		<div id="footer">
 			<!-- include_common_bottom.jsp start-->
 			<jsp:include page="include_common_bottom.jsp"/>
 			<!-- include_common_bottom.jsp end-->
+			
 		</div>
 	<!--container end-->
 </body>
