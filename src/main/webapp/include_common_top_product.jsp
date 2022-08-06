@@ -1,11 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+		
+	<%
+	String sUserId=(String)session.getAttribute("s_u_id");
+%>	
 <div id="menu">
 	<div id="menu_title">SEOUL BAGUETTE</div>
 	<ul>
-		<li><a href="#">LOGIN</a></li>
-		<li><a href="#">MYPAGE</a></li>
-		<li><a href="#">CART</a></li>
+	<%
+		if(sUserId==null){
+	%>
+		<li><a href="user_login_form.jsp">LOGIN</a></li>
+		<li><a href="user_login_form.jsp">MYPAGE</a></li>
+		<li><a href="cart_view_select_update_qyt_all_check_delete_image.jsp">CART</a></li>
+		<%}else{ %>
+		<li><a href="user_logout_action.jsp">LOGOUT</a></li>
+		<li><a href="user_view.jsp">MYPAGE</a></li>
+		<li><a href="cart_view_select_update_qyt_all_check_delete_image.jsp">CART</a></li>
+		<%} %>
 	</ul>
 </div>
 <div id="sub_menu">

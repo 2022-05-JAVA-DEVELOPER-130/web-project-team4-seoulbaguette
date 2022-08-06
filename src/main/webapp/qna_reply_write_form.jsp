@@ -2,7 +2,7 @@
 <%@page import="com.itwill.bakery.service.QnAService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@include file="user_login_check.jspf"%> 
 <%
 	
 
@@ -24,13 +24,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
 <title>QnA</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/menu.css" type="text/css">
 <link rel=stylesheet href="css/shop.css" type="text/css">
-
+<style type="text/css" media="screen">
+</style>
 <script type="text/javascript" src="js/qna.js">
 
 </script>
@@ -62,7 +62,7 @@
 									</td>
 								</tr>
 							</table> <br> <!-- write Form  -->
-							<form name="f" method="post">
+							<form name="f" action="qna_reply_write_action.jsp" method="post">
 								<input type="hidden" name="pageno"  value="<%=pageno%>" />
 		        				<input type="hidden" name="qna_no" value="<%=qna.getQna_no()%>"/>
 
@@ -96,7 +96,7 @@
 							<table width=590 border=0 cellpadding=0 cellspacing=0>
 								<tr>
 									<td align=center>
-									<input type="button" value="게시판 답글 쓰기" onClick="qnaReplyMsg()"> &nbsp; 
+									<input type="button" value="게시판 답글 작성" onClick="qnaReplyMsg()"> &nbsp; 
 									<input type="button" value="게시판 목록" onClick="qnaList()"></td>
 								</tr>
 							</table></td>

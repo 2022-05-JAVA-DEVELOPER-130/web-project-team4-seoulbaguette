@@ -7,19 +7,19 @@ function qnaCreate() {
 }
 
 function qnaCreateMsg() {
-	if(f.title.value == ""){
-		alert("제목을 입력하세요.");
-		f.title.focus();
+	if(f.qna_title.value == ""){
+		alert("제목을 입력하십시오.");
+		f.qna_title.focus();
 		return false;
 	}
 	if(f.user_id.value == ""){
-		alert("작성자를 입력하세요.");
+		alert("작성자를 입력하십시오.");
 		f.user_id.focus();
 		return false;
 	}
-	if(f.content.value == ""){
-		alert("내용을 입력하세요.");
-		f.content.focus();
+	if(f.qna_content.value == ""){
+		alert("내용을 입력하십시오.");
+		f.qna_content.focus();
 		return false;
 	}
 	
@@ -28,19 +28,19 @@ function qnaCreateMsg() {
 	f.submit();
 }
 function qnaModifyMsg() {
-	if(f.title.value == ""){
-		alert("제목을 입력하세요.");
-		f.title.focus();
+	if(f.qna_title.value == ""){
+		alert("제목을 입력하십시오.");
+		f.qna_title.focus();
 		return false;
 	}
 	if(f.user_id.value == ""){
-		alert("작성자를 입력하세요.");
+		alert("작성자를 입력하십시오.");
 		f.user_id.focus();
 		return false;
 	}
-	if(f.content.value == ""){
-		alert("내용을 입력하세요.");
-		f.content.focus();
+	if(f.qna_content.value == ""){
+		alert("내용을 입력하십시오.");
+		f.qna_content.focus();
 		return false;
 	}
 	f.action="qna_modify_action.jsp";
@@ -49,19 +49,19 @@ function qnaModifyMsg() {
 }
 
 function qnaReplyMsg(){
-	if(f.title.value == ""){
-		alert("제목을 입력하세요.");
-		f.title.focus();
+	if(f.qna_title.value == ""){
+		alert("제목을 입력하십시오.");
+		f.qna_title.focus();
 		return false;
 	}
 	if(f.user_id.value == ""){
-		alert("작성자를 입력하세요.");
+		alert("작성자를 입력하십시오.");
 		f.user_id.focus();
 		return false;
 	}
-	if(f.content.value == ""){
-		alert("내용을 입력하세요.");
-		f.content.focus();
+	if(f.qna_content.value == ""){
+		alert("내용을 입력하십시오.");
+		f.qna_content.focus();
 		return false;
 	}
 	f.action="qna_reply_write_action.jsp";
