@@ -4,8 +4,8 @@
 	<%
 	String sUserId=(String)session.getAttribute("s_u_id");
 %>	
-<div id="menu">
-	<div id="menu_title">SEOUL BAGUETTE</div>
+<div id="menu" >
+	<div id="menu_title" OnClick="location.href ='bakery_main.jsp'"><img src="image/llogo.png" width="200" height="40"></div>
 	<ul>
 	<%
 		if(sUserId==null){

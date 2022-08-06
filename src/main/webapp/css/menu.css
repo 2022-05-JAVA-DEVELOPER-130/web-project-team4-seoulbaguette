@@ -4,6 +4,8 @@ div#header {
 div#header #menu {
 	background-color: rgb(46, 69, 148);
 }
+
+
 #menu_title{
 	font-size:15pt;
 	float: left;
@@ -42,7 +44,7 @@ div#header #menu {
     font-weight: bold;
 	opacity: 0.9
 }
-
+/********************
 #menu li#logo {
 	width: 300px;
 	height: 100px;
@@ -53,6 +55,7 @@ div#header #menu {
 	opacity: 0.8;
 	margin: 0 auto;
 }
+*******************/
 
 /**********************/
 #sub_menu ul {
