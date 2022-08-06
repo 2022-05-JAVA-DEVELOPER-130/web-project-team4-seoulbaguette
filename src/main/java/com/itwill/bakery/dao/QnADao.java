@@ -175,7 +175,7 @@ public class QnADao {
 			rs = pstmt.executeQuery();
 
 			if (rs.next())
-				count = rs.getInt(1); // 1을 넣는게 맞나확인하기
+				count = rs.getInt(1); 
 
 		} finally {
 			try {

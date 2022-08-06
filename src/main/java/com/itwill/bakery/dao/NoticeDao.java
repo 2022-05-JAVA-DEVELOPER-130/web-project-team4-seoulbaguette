@@ -12,6 +12,7 @@ import javax.sql.DataSource;
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 
 import com.itwill.bakery.sql.NoticeSQL;
+import com.itwill.bakery.sql.QnASQL;
 import com.itwill.bakery.vo.Notice;
 
 public class NoticeDao {
@@ -72,6 +73,91 @@ public class NoticeDao {
 		con.close();
 		return noticeList;
 	}
+	
+	public ArrayList<Notice> findList(int start, int end) throws Exception {
+		
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		ArrayList<Notice> notices=new ArrayList<Notice>();
+		
+		try {
+			con=dataSource.getConnection();
+			StringBuffer sql=new StringBuffer();
+			sql.append(NoticeSQL.NOTICE_LIST_PAGE);
+			pstmt=con.prepareStatement(sql.toString());
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Notice notice = new Notice(rs.getInt("notice_no"), rs.getString("notice_title"), rs.getDate("notice_date"),
+						rs.getString("notice_content"));
+				notices.add(notice);
+			}
+			
+		} finally {
+			if(pstmt!=null) {
+				try {
+					pstmt.close();
+				}catch (Exception ex) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (Exception ex) {
+				}
+			}
+		}
+		return notices;
+	}
+	
+	// 게시물 총 건수
+
+		public int getNoticeCount() throws Exception {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			int count = 0;
+			try {
+				con = dataSource.getConnection();
+				pstmt = con.prepareStatement(NoticeSQL.NOTICE_TOTAL_COUNT);
+				rs = pstmt.executeQuery();
+
+				if (rs.next())
+					count = rs.getInt(1); 
+
+			} finally {
+				try {
+					if (rs != null)
+						rs.close();
+				} catch (Exception ex) {
+				}
+				try {
+					if (pstmt != null)
+						pstmt.close();
+				} catch (Exception ex) {
+				}
+				try {
+					if (con != null)
+						con.close();
+				} catch (Exception ex) {
+				}
+			}
+
+			return count;
+		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }
