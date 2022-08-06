@@ -73,10 +73,11 @@ if (product == null) {
 						<td><br />
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
-								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>PRODUCT
-											> 상세페이지</b></td>
-								</tr>
+								<caption
+									style="text-align: left; font-weight: bold; padding-bottom: 7px">
+									<span style="border-left: 4px solid #888888;"></span>&nbsp;&nbsp;
+									PRODUCT > 상세페이지
+								</caption>
 							</table> <!--
 						<form name="f" method="post">
 						--><br>

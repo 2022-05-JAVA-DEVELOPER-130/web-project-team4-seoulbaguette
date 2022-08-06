@@ -40,7 +40,7 @@ SELECT * FROM
 					ORDER BY groupno DESC,step ASC
 				) s
 		 )
-WHERE idx >=? AND idx <= ? ;
+WHERE idx >=1 AND idx <= 5 ;
 
 --select 게시물번호로
 select * from QnA where qna_no=2;

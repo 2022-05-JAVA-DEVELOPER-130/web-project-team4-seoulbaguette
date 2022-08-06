@@ -64,3 +64,9 @@ select * from notice where notice_no = 4;
 
 --게시물 제목으로 출력
 select * from notice where notice_title like '%영업시간%';
+
+-- 리스트 페이지 시작,끝부분
+SELECT * FROM ( SELECT rownum idx, s.*  FROM ( SELECT * FROM Notice ORDER BY notice_no ASC ) s)WHERE idx >= 1 AND idx <= 4;
+
+--select 게시물 총건수 확인
+select count(*) from Notice;
