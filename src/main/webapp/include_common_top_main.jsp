@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+	 
 	<%
 	String sUserId=(String)session.getAttribute("s_u_id");
 %>	
@@ -11,18 +11,18 @@
 	}
 </script>
 <div id="menu">
-	<div id="menu_title"></div>
-	<div id="logoimg"></div>
+	<div id="menu_title"></div> <!-- 서울바게트글자 빼서 남은 틀입니다. -->
 	<ul>
 	<%
 		if(sUserId==null){
 	%>
 
-		<li id="logo"><a href="bakery_main.jsp"><img src="image/logo.png" width="300" height="100"></a></li>
+		<li id="logo"><a href="bakery_main.jsp"></a></li>
 		<li><a href="user_login_form.jsp">LOGIN</a></li>
 		<li><a href="user_login_form.jsp">MYPAGE</a></li>
 		<li><a href="cart_view_select_update_qyt_all_check_delete_image.jsp">CART</a></li>
 		<%}else{ %>
+		<li id="logo"><a href="bakery_main.jsp"></a></li>
 		<li><a href="user_logout_action.jsp">LOGOUT</a></li>
 		<li><a href="user_view.jsp">MYPAGE</a></li>
 		<li><a href="cart_view_select_update_qyt_all_check_delete_image.jsp">CART</a></li>
