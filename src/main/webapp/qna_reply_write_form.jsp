@@ -4,7 +4,6 @@
     pageEncoding="UTF-8"%>
 <%@include file="user_login_check.jspf"%> 
 <%
-	
 
 	if(request.getParameter("qna_no")==null){
 		response.sendRedirect("qna_list.jsp");
@@ -19,6 +18,11 @@
 	String pageno="1";
 	if(request.getParameter("pageno")!=null){
 		pageno = request.getParameter("pageno");
+	}
+	
+	String sUser_id=null;
+	if(session.getAttribute("s_u_id")!=null){
+		sUser_id=(String)session.getAttribute("s_u_id");
 	}
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -78,7 +82,7 @@
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">작성자</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
-											<input value="<%=qna.getUser_id()%>" type="text" style="width: 150"
+											<input value="<%=sUser_id%>" type="text" style="width: 150"
 											name="user_id">
 										</td>
 									</tr>
