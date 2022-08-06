@@ -5,9 +5,12 @@
 	pageEncoding="UTF-8"%>
 <%
 Integer qna_no =null;
+Integer groupno=null;
 int pageno = 1;
+
 try {
 	qna_no = Integer.parseInt(request.getParameter("qna_no"));
+	qna_no = Integer.parseInt(request.getParameter("groupno"));
 	pageno = Integer.parseInt(request.getParameter("pageno"));
 } catch (Exception e) {
 }
@@ -64,9 +67,9 @@ QnAService.getInstance().updateReadCount(qna_no);
 								</table> <br>
 
 								<form name="f" method="post">
-									<input type="hidden" name="qna_no"
-										value="<%=qna.getQna_no()%>"> <input type="hidden"
-										name="pageno" value="<%=pageno%>">
+									<input type="hidden" name="qna_no" value="<%=qna.getQna_no()%>"> 
+									<input type="hidden" name="pageno" value="<%=pageno%>">
+									<input type="hidden" name="groupno" value="<%=qna.getGroupno()%>">
 									<table border="0" cellpadding="0" cellspacing="1" width="590"
 										bgcolor="BBBBBB">
 										<tr>

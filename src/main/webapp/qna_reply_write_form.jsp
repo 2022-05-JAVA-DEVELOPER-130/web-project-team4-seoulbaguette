@@ -9,6 +9,10 @@
 		response.sendRedirect("qna_list.jsp");
 		return;
 	}
+	if(request.getParameter("groupno")==null){
+		response.sendRedirect("qna_list.jsp");
+		return;
+	}
 	int qna_no = Integer.parseInt(request.getParameter("qna_no"));
 	QnA qna=QnAService.getInstance().findQnA(qna_no);
 	if(qna==null){
@@ -69,6 +73,7 @@
 							<form name="f" action="qna_reply_write_action.jsp" method="post">
 								<input type="hidden" name="pageno"  value="<%=pageno%>" />
 		        				<input type="hidden" name="qna_no" value="<%=qna.getQna_no()%>"/>
+		        				<input type="hidden" name="groupno" value="<%=qna.getGroupno()%>"/>
 
 								<table border="0" cellpadding="0" cellspacing="1" width="590"
 									bgcolor="BBBBBB">

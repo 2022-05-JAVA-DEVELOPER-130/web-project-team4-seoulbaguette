@@ -9,16 +9,19 @@ qna_no=Integer.valueOf(request.getParameter("qna_no"));
 } catch (Exception ex) {
 	
 }
+Integer groupno=null;
+try{
+groupno=Integer.valueOf(request.getParameter("groupno"));
+} catch (Exception ex) {
+	
+}
 //번호없으면 list이동
 if(qna_no==null){
 	response.sendRedirect("qna_list.jsp");
 	return;
 }
 QnA qna=QnAService.getInstance().findQnA(qna_no);
-if(qna_no==null){
-	response.sendRedirect("qna_list.jsp");
-	return;
-}
+
 String pageno="1";
 if(request.getParameter("pageno")!=null){
 	pageno=request.getParameter("pageno");
@@ -67,8 +70,10 @@ if(request.getParameter("pageno")!=null){
 								</tr>
 							</table> <br> <!-- modify Form  -->
 							<form name="f" method="post">
-								<input type="hidden" name="pageno" value="<%=pageno%>" /> <input
-									type="hidden" name="qna_no" value="<%=qna.getQna_no()%>" />
+								<input type="hidden" name="pageno" value="<%=pageno%>" /> 
+								<input type="hidden" name="qna_no" value="<%=qna.getQna_no()%>" />
+								<input type="hidden" name="groupno" value="<%=qna.getGroupno()%>" />
+								
 								<table border="0" cellpadding="0" cellspacing="1" width="590"
 									bgcolor="BBBBBB">
 									<tr>

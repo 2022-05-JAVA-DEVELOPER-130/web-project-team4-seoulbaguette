@@ -15,6 +15,7 @@
  	qna.setQna_title(request.getParameter("qna_title"));
  	qna.setUser_id(request.getParameter("user_id"));
  	qna.setQna_content(request.getParameter("qna_content"));
+ 	qna.setGroupno(Integer.parseInt(request.getParameter("groupno")));
 
 	QnAService.getInstance().createReply(qna);
 
