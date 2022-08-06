@@ -16,6 +16,7 @@
 	<%
 		if(sUserId==null){
 	%>
+		<li id="logo"><a href="bakery_main.jsp"><img src="image/logo.png"></a></li>
 		<li><a href="user_login_form.jsp">LOGIN</a></li>
 		<li><a href="user_login_form.jsp">MYPAGE</a></li>
 		<li><a href="cart_view_select_update_qyt_all_check_delete_image.jsp">CART</a></li>

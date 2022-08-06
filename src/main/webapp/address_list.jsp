@@ -28,7 +28,6 @@
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0 onload="addressCheck(<%=check%>)">
-<div id="content">
 
 	<!-- container start-->
 	<div id="container">
@@ -101,7 +100,7 @@
 			<jsp:include page="include_common_bottom.jsp" />
 			<!-- include_common_bottom.jsp end-->
 		</div>
-	</div>
+	
 	<!--container end-->
 </body>
 </html>

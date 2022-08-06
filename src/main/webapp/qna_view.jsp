@@ -97,11 +97,11 @@ QnAService.getInstance().updateReadCount(qna_no);
 								<table width=590 border=0 cellpadding=0 cellspacing=0>
 									<tr>
 										<td align=center>
-										<input type="button" value="글쓰기" onClick="qnaCreate()"> &nbsp; 
-										<input type="button" value="답글쓰기" onClick="qnaReplyCreate()"> &nbsp; 
-										<input type="button" value="수정" onClick="qnaUpdate()"> &nbsp; 
-										<input type="button" value="삭제" onClick="qnaRemove()"> &nbsp; 
-										<input type="button" value="리스트" onClick="qnaList()">
+										<input type="button" style="font: inherit;"value="글쓰기" onClick="qnaCreate()"> &nbsp; 
+										<input type="button" style="font: inherit;"value="답글쓰기" onClick="qnaReplyCreate()"> &nbsp; 
+										<input type="button" style="font: inherit;"value="수정" onClick="qnaUpdate()"> &nbsp; 
+										<input type="button" style="font: inherit;"value="삭제" onClick="qnaRemove()"> &nbsp; 
+										<input type="button" style="font: inherit;"value="리스트" onClick="qnaList()">
 										</td>
 									</tr>
 								</table></td>

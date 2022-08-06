@@ -20,6 +20,7 @@ User user = userService.selectUser(sUserId);
 </style>
 <script src="js/user.js"></script>
 <script src="js/review.js"></script>
+<script src="js/coupon.js"></script>
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>
@@ -98,6 +99,13 @@ User user = userService.selectUser(sUserId);
 										</td>
 										<td width=490 height=30  bgcolor="ffffff" style="padding-left: 10">
 											<input type="button" style="font: inherit;" value="내가 작성한 리뷰" onClick="memberReview()">
+										</td>
+									</tr>
+									<tr>
+										<td width=100  height=30 align=center bgcolor=E2E2E2 height="22">쿠폰
+										</td>
+										<td width=490 height=30  bgcolor="ffffff" style="padding-left: 10">
+											<input type="button" style="font: inherit;" value="내가 보유한 쿠폰" onClick="couponUserList()">
 										</td>
 									</tr>
 

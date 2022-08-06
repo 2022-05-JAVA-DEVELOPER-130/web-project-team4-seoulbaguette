@@ -2,7 +2,7 @@ div#header {
 	/*all: unset; */
 }
 div#header #menu {
-	background-color: BLUE;
+	background-color: rgb(46, 69, 148);
 }
 #menu_title{
 	font-size:15pt;

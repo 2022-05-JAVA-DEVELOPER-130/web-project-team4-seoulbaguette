@@ -20,3 +20,9 @@ function couponOrderList(){
 	document.order_create_form.submit();
 }
 
+function couponUserList(){
+	document.order_create_form.method='POST';
+	document.order_create_form.action = "coupon_list_user.jsp";
+	document.order_create_form.submit();
+}
+
