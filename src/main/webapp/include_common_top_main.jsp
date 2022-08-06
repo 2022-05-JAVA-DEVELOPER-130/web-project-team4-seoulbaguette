@@ -10,8 +10,9 @@
 		location.href = 'userinfo_login_form.jsp';
 	}
 </script>
+
 <div id="menu">
-	<div id="menu_title"></div> <!-- 서울바게트글자 빼서 남은 틀입니다. -->
+	<div id="menu_title" OnClick="location.href ='bakery_main.jsp'"><img src="image/llogo.png" width="200" height="40"></div>
 	<ul>
 	<%
 		if(sUserId==null){
