@@ -12,12 +12,16 @@
 	String p_qtyStr=request.getParameter("p_qty");
 	String add_select = request.getParameter("add_select");
 	int o_price=Integer.parseInt(request.getParameter("changeTot"));
+	int o_point=Integer.parseInt(request.getParameter("changePointTot"));
+	
 	System.out.println(add_select);
 	
 	String[] cart_item_no_strArray=request.getParameterValues("cart_item_no");
 	OrderService orderService=new OrderService();
 	CartService cartService=new CartService();
 	UserService userService = new UserService();
+	User p_User = userService.selectUser(sUserId);
+	p_User.setUser_point(o_point);
 	
 	if(buyType.equals("cart")){
 		orderService.create(sUserId);
@@ -25,7 +29,7 @@
 		orderService.create(sUserId,cart_item_no_strArray);	
  }else if(buyType.equals("direct")){
 	orderService.createTest(sUserId, Integer.parseInt(p_noStr), Integer.parseInt(p_qtyStr),Integer.parseInt(add_select),o_price);
-	
+	userService.updatePoint(p_User);
 	// orderService.create("yeji2345", Integer.parseInt(p_noStr), Integer.parseInt(p_qtyStr),Integer.parseInt(add_select));
 	}
 	response.sendRedirect("order_list.jsp");

@@ -67,6 +67,7 @@ if (buyType.equals("cart")) {
 
 
 int tot_price = 0;
+int remain_point = 0;
 
 for (Cart cart : cartItemList) {
    tot_price += cart.getCart_qty() * cart.getProduct().getP_price();
@@ -74,9 +75,12 @@ for (Cart cart : cartItemList) {
 
 int point=0;
 if(request.getAttribute("remainPoint")==null){
+	
 	point=0;
+	remain_point = user.getUser_point() - point;
 }else{
 	point=(Integer)request.getAttribute("remainPoint");
+	remain_point = user.getUser_point() - point;
 }
 
 
@@ -160,7 +164,7 @@ if(request.getAttribute("remainPoint")==null){
                               
                               </select>
                               </td>
-                              <td width=166 height=26 align=center bgcolor="ffffff" class=t1><%=user.getUser_point()%></td>
+                              <td width=166 height=26 align=center bgcolor="ffffff" class=t1><%=remain_point%></td>
                            </tr>
                         </table>
 
@@ -205,7 +209,7 @@ if(request.getAttribute("remainPoint")==null){
                                     <font color=#FF0000>총 주문 금액 : <%=tot_price-point%>원
                                     </font>
                                     <input type="hidden" name="changeTot" value="<%=tot_price-point%>">
-                                    
+                                    <input type="hidden" name="changePointTot" value="<%=point%>">
                                  </p>
                               </td>
                            </tr>

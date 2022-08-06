@@ -13,7 +13,7 @@ public class UserSQL {
 			= "update user_info set user_password=?,user_name=?,user_phone=?,user_email=? where user_id=?";
 
 	public final static String USER_POINT_UPDATE 
-			= "update user_info set user_point=user_point+ ?  where user_id=?";
+			= "update user_info set user_point=user_point- ?  where user_id=?";
 
 	public final static String ADDRESS_UPDATE 
 			= "update address set address=? where add_no=?";
