@@ -15,6 +15,12 @@ function productList() {
 	location.href = 'product_list.jsp';
 }
 
+function productDelete(){
+	if(confirm("정말 삭제하시겠습니까?")){
+		f.action="product_delete_action.jsp";
+		f.submit();
+	}
+}
 
 
 function add_cart_popup_window(){

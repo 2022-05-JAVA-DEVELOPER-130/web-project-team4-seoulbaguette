@@ -4,11 +4,9 @@
 <%@include file="user_login_check.jspf"%>  
 
 <%
-
-
-                     	OrderService orderService=new OrderService();
-                     	orderService.delete(sUserId);
-                     	response.sendRedirect("order_list.jsp");
-       %>
+      OrderService orderService=new OrderService();
+      orderService.delete(sUserId);
+      response.sendRedirect("order_list.jsp");
+ %>
 
 

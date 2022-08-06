@@ -141,7 +141,7 @@ if (product == null) {
 											<%}else if(sUserId.equals("admin")){ %>
 												<input type=button style="font: inherit;" value="상품수정"  onclick="();" /> 
 												<input type="hidden" name=p_no value="<%=product.getP_no()%>">
-												<input type="button" style="font: inherit;" value="상품삭제" onClick="();"> <br> <br>
+												<input type="button" style="font: inherit;" value="상품삭제" onClick="productDelete();"> <br> <br>
 												<input type="button" style="font: inherit;" value="상품 리스트" onClick="productList();">
 											
 											<%}else{ %>
