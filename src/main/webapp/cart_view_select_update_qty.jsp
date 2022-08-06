@@ -4,10 +4,10 @@
 <%@page import="com.itwill.bakery.service.CartService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@include file="user_login_check.jspf"%>
 <%
-String user_id="yeji2345";
 CartService cartService=new CartService();
-ArrayList<Cart> cartList=cartService.selectCartList(user_id);
+ArrayList<Cart> cartList=cartService.selectCartList(sUserId);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

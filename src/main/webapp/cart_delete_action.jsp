@@ -1,10 +1,10 @@
 <%@page import="com.itwill.bakery.service.CartService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@include file="user_login_check.jspf"%>
 <%
 CartService cartService = new CartService();
-String user_id="yeji2345";
-cartService.deleteCartByUserId(user_id);
+cartService.deleteCartByUserId(sUserId);
 response.sendRedirect("cart_view_select_update_qyt_all_check_delete_image.jsp");
 %>
     
