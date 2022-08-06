@@ -30,6 +30,7 @@ productList=productService.selectByCategory(Integer.parseInt(category_noStr));
 	<div id="container">
 		<!-- header start -->
 		<div id="header">
+			
 			<!-- include_common_top.jsp start-->
 			<jsp:include page="include_common_top_main.jsp"/>
 			<!-- include_common_top.jsp end-->
@@ -100,6 +101,7 @@ productList=productService.selectByCategory(Integer.parseInt(category_noStr));
 			<!-- include_common_bottom.jsp end-->
 		</div>
 	</div>
+	
 	<!--container end-->
 </body>
 </html>

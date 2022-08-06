@@ -11,12 +11,14 @@
 	}
 </script>
 <div id="menu">
-	<div id="menu_title">SEOUL BAGUETTE</div>
+	<div id="menu_title"></div>
+	<div id="logoimg"></div>
 	<ul>
 	<%
 		if(sUserId==null){
 	%>
-		<li id="logo"><a href="bakery_main.jsp"><img src="image/logo.png"></a></li>
+
+		<li id="logo"><a href="bakery_main.jsp"><img src="image/logo.png" width="300" height="100"></a></li>
 		<li><a href="user_login_form.jsp">LOGIN</a></li>
 		<li><a href="user_login_form.jsp">MYPAGE</a></li>
 		<li><a href="cart_view_select_update_qyt_all_check_delete_image.jsp">CART</a></li>
