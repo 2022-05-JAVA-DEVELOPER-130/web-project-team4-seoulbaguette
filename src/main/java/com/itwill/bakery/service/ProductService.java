@@ -26,4 +26,16 @@ public class ProductService {
 		List<Product> productList=productDao.selectAll();
 		return productList;
 	}
+	
+	public int update(Product product) throws Exception {
+		int count=productDao.update(product);
+		return count;
+	}
+	
+	public int delete(int p_no) throws Exception {
+		int count=productDao.delete(p_no);
+		return count;
+	}
+	
+	
 }

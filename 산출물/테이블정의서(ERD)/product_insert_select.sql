@@ -39,11 +39,15 @@ insert into product values (product_p_no_SEQ.nextval,'추억의 소시지빵',22
 insert into product values (product_p_no_SEQ.nextval,'핵불닭소시지빵',3800,'9.jpg','소시지, 닭고기, 치즈와 함께 불닭 본연의 매운 맛을 담은 화끈한 불닭빵',0,4);
 insert into product values (product_p_no_SEQ.nextval,'톡톡콘치즈 핫도그',4800,'23.jpg','한 입 베어 물면 소시지의 육즙이 팡팡, 달콤한 옥수수가 톡톡!',0,4);
 
-
-
-
 --카테고리별 리스트 select
 select * from product where category_no=1;
 
 --전체리스트 select
 select * from product;
+
+desc product;
+--product update
+update product set p_name='톡톡 콘치즈 핫도그',p_price=4300, p_desc='한 입 베어 물면 소시지의 육즙이 팡팡, 달콤한 옥수수가 톡톡!' where p_no=23;
+
+--product delete
+delete from product where p_no=25;

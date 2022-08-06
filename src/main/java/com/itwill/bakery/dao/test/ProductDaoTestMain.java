@@ -1,6 +1,7 @@
 package com.itwill.bakery.dao.test;
 
 import com.itwill.bakery.dao.ProductDao;
+import com.itwill.bakery.vo.Product;
 
 public class ProductDaoTestMain {
 
@@ -9,7 +10,8 @@ public class ProductDaoTestMain {
 		System.out.println(productDao.selectByNo(3));
 		System.out.println(productDao.selectByCategory(1));
 		System.out.println(productDao.selectAll());
-
+		System.out.println(productDao.update(new Product(0, "톡톡 콘치즈 핫도그", 4500, null, "톡톡터지는 콘치즈", 0, 0)));
+		System.out.println(productDao.delete(4));
 	}
 
 }

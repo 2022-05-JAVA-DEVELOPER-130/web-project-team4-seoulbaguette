@@ -15,6 +15,8 @@ function productList() {
 	location.href = 'product_list.jsp';
 }
 
+
+
 function add_cart_popup_window(){
 	var left = Math.ceil(( window.screen.width)/3);
 	var top = Math.ceil(( window.screen.height)/3);

@@ -13,6 +13,7 @@ if (p_noStr == null || p_noStr.equals("")) {
 	return;
 }
 boolean isLogin = false;
+String sUserId=(String)session.getAttribute("sUserId");
 if (session.getAttribute("sUserId") != null) {
 	isLogin = true;
 }
@@ -85,19 +86,19 @@ if (product == null) {
 							<table style="margin-left: 10px" border=0 width=80% height=376
 								align=center>
 								<tr valign=bottom>
-									<td width=40% align=center class=t1><font size=3
-										color=#0000FF><b>상품</b></font></td>
-									<td width=30% align=center class=t1><font size=3
-										color=#0000FF><b>상품설명</b></font></td>
-									<td width=30% align=center class=t1><font size=3
-										color=#0000FF><b>수량</b></font></td>
+									<td width=40% align=center class=t1>
+									<font size=3 color=#0000FF><b>상품</b></font></td>
+									<td width=30% align=center class=t1>
+									<font size=3 color=#0000FF><b>상품설명</b></font></td>
+									<td width=30% align=center class=t1>
+									<font size=3 color=#0000FF><b>수량</b></font></td>
 								</tr>
 								<tr width=100%>
 									<td colspan=3 height=5><hr color=#556b2f></td>
 								</tr>
 								<tr width=100%>
-									<td width=40% height=200 align=center><img border=0
-										src='image/<%=product.getP_image()%>' width=220 height=220></td>
+									<td width=40% height=200 align=center>
+									<img border=0 src='image/<%=product.getP_image()%>' width=220 height=220></td>
 									<td width=30% height=200 class=t1>
 										<ol type="disc">
 											<li><b><font size=2 >상품명 : <%=product.getP_name()%></font>&nbsp;&nbsp;&nbsp;<br>
@@ -127,11 +128,29 @@ if (product == null) {
 												<option value="9">9
 												<option value="10">10
 											</select> 개<br> <br> <br>
-												<input type=button style="font: inherit;" onclick="add_cart_popup_window();" value="장바구니" /> 
+											
+											
+											<%
+											 if(sUserId==null){
+											%>
+												<input type=button style="font: inherit;"  value="장바구니" onclick="add_cart_popup_window();"/> 
 												<input type="hidden" name=p_no value="<%=product.getP_no()%>">
 												<input type="button" style="font: inherit;" value="바로주문" onClick="order_create_form();"> <br> <br>
 												<input type="button" style="font: inherit;" value="상품 리스트" onClick="productList();">
-										
+											
+											<%}else if(sUserId.equals("admin")){ %>
+												<input type=button style="font: inherit;" value="상품수정"  onclick="();" /> 
+												<input type="hidden" name=p_no value="<%=product.getP_no()%>">
+												<input type="button" style="font: inherit;" value="상품삭제" onClick="();"> <br> <br>
+												<input type="button" style="font: inherit;" value="상품 리스트" onClick="productList();">
+											
+											<%}else{ %>
+												<input type=button style="font: inherit;" value="장바구니" onclick="add_cart_popup_window();"/> 
+												<input type="hidden" name=p_no value="<%=product.getP_no()%>">
+												<input type="button" style="font: inherit;" value="바로주문" onClick="order_create_form();"> <br> <br>
+												<input type="button" style="font: inherit;" value="상품 리스트" onClick="productList();">
+											
+											<%} %>
 										</form>
 									</td>
 								</tr>
@@ -155,10 +174,10 @@ if (product == null) {
 						cellspacing="1" bgcolor="BBBBBB">
 						
 						<tr>
-							<td width=145 height=25 bgcolor="E6ECDE" align=center class=t1><font>작성자</font></td>
-							<td width=145 height=25 bgcolor="E6ECDE" align=center class=t1><font>제목</font></td>
-							<td width=112 height=25 bgcolor="E6ECDE" align=center class=t1><font>작성날짜</font></td>
-							<td width=136 height=25 bgcolor="E6ECDE" align=center class=t1><font>별점</font></td>
+							<td width=145 height=25 bgcolor="E2E2E2" align=center class=t1><font>작성자</font></td>
+							<td width=145 height=25 bgcolor="E2E2E2" align=center class=t1><font>제목</font></td>
+							<td width=112 height=25 bgcolor="E2E2E2" align=center class=t1><font>작성날짜</font></td>
+							<td width=136 height=25 bgcolor="E2E2E2" align=center class=t1><font>별점</font></td>
 
 						</tr>
 

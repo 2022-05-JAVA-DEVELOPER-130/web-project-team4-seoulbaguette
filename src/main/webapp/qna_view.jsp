@@ -59,13 +59,13 @@ QnAService.getInstance().updateReadCount(qna_no);
 							<td><br />
 								<table style="padding-left: 10px" border=0 cellpadding=0
 									cellspacing=0>
-									<tr>
+								
 									<caption
 									style="text-align: left; font-weight: bold; padding-bottom: 7px">
 									<span style="border-left: 4px solid #888888;"></span>&nbsp;&nbsp;
 									Q & A > 상세보기
 									</caption>
-									</tr>
+								
 								</table> <br>
 
 								<form name="f" method="post">
@@ -75,18 +75,18 @@ QnAService.getInstance().updateReadCount(qna_no);
 									<table border="0" cellpadding="0" cellspacing="1" width="590"
 										bgcolor="BBBBBB">
 										<tr>
-											<td width=100 align=center bgcolor="E6ECDE" height="22">작성자</td>
+											<td width=100 align=center bgcolor="E2E2E2" height="22">작성자</td>
 											<td width=490 bgcolor="ffffff" style="padding-left: 10px"
 												align="left"><%=qna.getUser_id()%></td>
 										</tr>
 
 										<tr>
-											<td width=100 align=center bgcolor="E6ECDE" height="22">제목</td>
+											<td width=100 align=center bgcolor="E2E2E2" height="22">제목</td>
 											<td width=490 bgcolor="ffffff" style="padding-left: 10px"
 												align="left"><%=qna.getQna_title()%></td>
 										</tr>
 										<tr>
-											<td width=100 align=center bgcolor="E6ECDE" height="22">내용</td>
+											<td width=100 align=center bgcolor="E2E2E2" height="22">내용</td>
 											<td width=490 bgcolor="ffffff" height="180px"
 												style="padding-left: 10px" align="left"><%=qna.getQna_content()%><br />
 

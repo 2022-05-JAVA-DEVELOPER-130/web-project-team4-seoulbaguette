@@ -91,5 +91,41 @@ public class ProductDao {
 		con.close();
 		return productList;
 	}
+	
+	/*
+	 * 상품수정
+	 */
+	public int update(Product product) throws Exception {
+		int rowCount=0;
+		Connection con=dataSource.getConnection();
+		PreparedStatement pstmt=con.prepareStatement(ProductSQL.PRODUCT_UPDATE_BY_NO);
+		pstmt.setString(1, product.getP_name());
+		pstmt.setInt(2, product.getP_price());
+		pstmt.setString(3, product.getP_desc());
+		pstmt.setInt(4, product.getP_no());
+		rowCount=pstmt.executeUpdate();
+		
+		pstmt.close();
+		con.close();
+		
+		return rowCount;
+	}
+	
+	
+	/*
+	 * 상품삭제
+	 */
+	public int delete(int p_no) throws Exception {
+		int rowCount=0;
+		Connection con=dataSource.getConnection();
+		PreparedStatement pstmt=con.prepareStatement(ProductSQL.PRODUCT_DELETE_BY_NO);
+		pstmt.setInt(1, p_no);
+		rowCount=pstmt.executeUpdate();
+		
+		pstmt.close();
+		con.close();
+		
+		return rowCount;
+	}
 
 }
