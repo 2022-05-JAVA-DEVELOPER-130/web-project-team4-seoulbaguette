@@ -127,5 +127,35 @@ public class ProductDao {
 		
 		return rowCount;
 	}
+	
+	public int insert(Product product) throws Exception{
+		int rowCount=0;
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		
+		try {
+			con=dataSource.getConnection();
+			pstmt=con.prepareStatement(ProductSQL.PRODUCT_INSERT);
+			pstmt.setString(1, product.getP_name());
+			pstmt.setInt(2, product.getP_price());
+			pstmt.setString(3, product.getP_desc());
+			pstmt.setInt(4, product.getCategory_no());
+			
+			rowCount=pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}finally {
+			if(pstmt!=null) {
+				pstmt.close();
+			}
+			if(con!=null) {
+				con.close();
+			}
+		}
+		
+		return rowCount;
+	}
 
 }

@@ -37,5 +37,9 @@ public class ProductService {
 		return count;
 	}
 	
+	public int insert(Product product) throws Exception{
+		return productDao.insert(product);
+	}
+	
 	
 }

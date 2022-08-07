@@ -16,4 +16,7 @@ public class ProductSQL {
 	
 	public final static String PRODUCT_DELETE_BY_NO
 				="delete from product where p_no=?";
+	
+	public final static String PRODUCT_INSERT
+    ="insert into product (p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values (product_p_no_SEQ.nextval,?,?,concat(product_p_no_SEQ.nextval,'.jpg'),?,0,?)";
 }
