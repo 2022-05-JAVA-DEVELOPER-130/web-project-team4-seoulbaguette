@@ -19,22 +19,30 @@ List<Orders> orderList = orderService.list_detail(sUserId);
 ProductService productService = new ProductService();
 %>
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
+<title>SEOULBAGUETTE</title>
 
-<title>SEOUL BAGUETTE</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/menu.css" type="text/css">
 <link rel=stylesheet href="css/shop.css" type="text/css">
 <style type="text/css" media="screen">
 </style>
+<script type="text/javascript">
+	function order_delete_all_action(){
+		document.order_delete_all_form.action='order_delete_all_action.jsp';
+		document.order_delete_all_form.method='POST';
+		document.order_delete_all_form.submit();
+	}
+</script>
 
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>
+	<form name="order_delete_all_form" style="margin: 0">
+</form>	
 <!--------------------------------------------------------------  
 	<% for(Orders order : orderList) { %>
 		
