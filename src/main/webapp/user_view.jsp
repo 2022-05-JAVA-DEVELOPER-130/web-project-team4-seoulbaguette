@@ -108,6 +108,13 @@ User user = userService.selectUser(sUserId);
 											<input type="button" style="font: inherit;" value="내가 보유한 쿠폰" onClick="couponUserList()">
 										</td>
 									</tr>
+									<tr>
+										<td width=100  height=30 align=center bgcolor=E2E2E2 height="22">주문 내역
+										</td>
+										<td width=490 height=30  bgcolor="ffffff" style="padding-left: 10">
+											<input type="button" style="font: inherit;" value="내가 주문한 내역" onClick="userOrderList()">
+										</td>
+									</tr>
 
 								</table>
 							</form> <br />
