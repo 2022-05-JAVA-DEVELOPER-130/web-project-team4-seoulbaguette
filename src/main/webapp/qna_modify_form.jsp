@@ -33,6 +33,21 @@ if(session.getAttribute("s_u_id")!=null){
 	sUser_id=(String)session.getAttribute("s_u_id");
 }
 
+QnAService qnaService=new QnAService();
+int count=qnaService.update(qna,sUser_id);
+
+String msg="";
+if(count==0){
+	msg="수정권한이 없습니다.";
+	out.println("<script>");
+	out.println("alert('"+msg+"');");
+	out.println("location.href='qna_list.jsp';");
+	out.println("</script>");
+} 
+
+
+
+
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

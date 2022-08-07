@@ -36,8 +36,8 @@ public class QnAService {
 	}
 	
 	//게시물수정
-	public int update(QnA qna) throws Exception {
-		return qnaDao.update(qna);
+	public int update(QnA qna,String user_id) throws Exception {
+		return qnaDao.update(qna,user_id);
 	}
 	
 	//전체게시물리스트
