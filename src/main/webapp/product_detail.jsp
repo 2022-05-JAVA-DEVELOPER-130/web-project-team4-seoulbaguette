@@ -6,6 +6,7 @@
 <%@page import="com.itwill.bakery.service.ProductService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@include file="user_login_check.jspf"%> 
 <%
 String p_noStr = request.getParameter("p_no");
 if (p_noStr == null || p_noStr.equals("")) {
@@ -13,8 +14,8 @@ if (p_noStr == null || p_noStr.equals("")) {
 	return;
 }
 boolean isLogin = false;
-String sUserId=(String)session.getAttribute("sUserId");
-if (session.getAttribute("sUserId") != null) {
+String sUser_id=(String)session.getAttribute("sUserId");
+if (session.getAttribute("sUser_id") != null) {
 	isLogin = true;
 }
 
@@ -51,8 +52,9 @@ if (product == null) {
 	marginwidth=0 marginheight=0>
 	<form name="product_detail_form">
 		<input type="hidden" name="p_no" value="<%=product.getP_no()%>">
-		<input type="hidden" name="cart_qty" value="1"> <input
-			type="hidden" name="buyType" value="direct">
+		<input type="hidden" name="s_u_id" value="<%=sUser_id%>">
+		<input type="hidden" name="cart_qty" value="1"> 
+		<input type="hidden" name="buyType" value="direct">
 	</form>
 	<!-- container start-->
 	<div id="container">
@@ -131,15 +133,15 @@ if (product == null) {
 											
 											
 											<%
-											 if(sUserId==null){
+											 if(sUser_id==null){
 											%>
 												<input type=button style="font: inherit;"  value="장바구니" onclick="add_cart_popup_window();"/> 
 												<input type="hidden" name=p_no value="<%=product.getP_no()%>">
 												<input type="button" style="font: inherit;" value="바로주문" onClick="order_create_form();"> <br> <br>
 												<input type="button" style="font: inherit;" value="상품 리스트" onClick="productList();">
 											
-											<%}else if(sUserId.equals("admin")){ %>
-												<input type=button style="font: inherit;" value="상품수정"  onclick="();" /> 
+											<%}else if(sUser_id.equals("admin")){ %>
+												<input type=button style="font: inherit;" value="상품수정"  onclick="productModify();" /> 
 												<input type="hidden" name=p_no value="<%=product.getP_no()%>">
 												<input type="button" style="font: inherit;" value="상품삭제" onClick="productDelete();"> <br> <br>
 												<input type="button" style="font: inherit;" value="상품 리스트" onClick="productList();">

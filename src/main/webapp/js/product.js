@@ -18,6 +18,7 @@ function productList() {
 function productDelete(){
 	if(confirm("정말 삭제하시겠습니까?")){
 		f.action="product_delete_action.jsp";
+		f.method='POST';
 		f.submit();
 	}
 }
@@ -33,4 +34,11 @@ function add_cart_popup_window(){
 	document.add_cart_form.target = 'cartForm';
 	document.add_cart_form.method = 'POST';
 	document.add_cart_form.submit();
+}
+
+
+function productModify(){
+	f.action="product_modify_form.jsp";
+	f.method='POST';
+	f.submit();
 }

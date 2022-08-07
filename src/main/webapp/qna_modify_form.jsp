@@ -2,6 +2,7 @@
 <%@page import="com.itwill.bakery.service.QnAService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@include file="user_login_check.jspf"%> 
 <%
 Integer qna_no=null;
 try{
@@ -78,21 +79,18 @@ if(request.getParameter("pageno")!=null){
 									bgcolor="BBBBBB">
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">제목</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10px"
-											align="left"><input type="text" style="width: 150"
-											name="title" value="<%=qna.getQna_title()%>"></td>
+										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<input type="text" style="width: 150" name="qna_title" value="<%=qna.getQna_title()%>"></td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">작성자</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10px"
-											align="left"><input type="text" style="width: 150"
-											name="userid" value="<%=qna.getUser_id()%>"></td>
+										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<input type="text" style="width: 150" name="user_id" value="<%=qna.getUser_id()%>"></td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">내용</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10px"
-											align="left"><textarea name="content"
-												style="width: 350px" rows="14"><%=qna.getQna_content()%></textarea></td>
+										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
+											<textarea name="qna_content" style="width: 350px" rows="14"><%=qna.getQna_content()%></textarea></td>
 									</tr>
 
 
