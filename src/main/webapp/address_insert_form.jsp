@@ -11,10 +11,33 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>SEOULBAGUETTE</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel=stylesheet href="css/styles.css" type="text/css">
+<link rel=stylesheet href="css/menu.css" type="text/css">
+<link rel=stylesheet href="css/shop.css" type="text/css">
+<style type="text/css" media="screen">
+</style>
 <script src="js/address.js"></script>
 </head>
-<body>
+
+<body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
+	marginwidth=0 marginheight=0>
+
+	<!-- container start-->
+	<div id="container">
+		<!-- header start -->
+		<div id="header">
+			<!-- include_common_top.jsp start-->
+			<jsp:include page="include_common_top_product.jsp" />
+			<!-- include_common_top.jsp end-->
+		</div>
+		<!-- header end -->
+
+		<!-- wrapper start -->
+		<div id="wrapper">
+			<!-- content start -->
+			<!-- include_content.jsp start-->
 <div id="content">
 				<table border=0 cellpadding=0 cellspacing=0>
 					<tr>
@@ -24,19 +47,18 @@
 								cellspacing=0>
 								<tr>
 									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>내정보 관리
-											- 주소록 수정<b></td>
+											- 주소록 추가<b></td>
 								</tr>
 							</table> <!-- view Form  -->
 							
 							<form name=f method="post">
-							<input type="hidden" name="add_no" value="새로운 주소"   />
 								<table border="0" cellpadding="0" cellspacing="1" width="590"
 									bgcolor="BBBBBB">
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">
-											</td>
+											새로운 주소</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10">
-											<input type="text" style="width: 150px"
+											<input type="text" style="width: 300px"
 									name="address" value="">
 										</td>
 									</tr>
@@ -59,6 +81,18 @@
 			</tr>
 		</table>
 				</div>
+				</div>
+			<!-- include_content.jsp end-->
+			<!-- content end -->
+		</div>
+		<!--wrapper end-->
+		<div id="footer">
+			<!-- include_common_bottom.jsp start-->
+			<jsp:include page="include_common_bottom.jsp" />
+			<!-- include_common_bottom.jsp end-->
+		</div>
+	
+	<!--container end-->
 
 </body>
 </html>
