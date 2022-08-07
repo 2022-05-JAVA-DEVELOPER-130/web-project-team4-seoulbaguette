@@ -72,13 +72,14 @@ public class NoticeService {
 	
 	//전체게시물리스트
 		public NoticeListPageMaker findNoticeList(int currPage) throws Exception{
-			
-			PageMaker pageMaker = new PageMaker(0, currPage);
+			int totalCount = noticeDao.getNoticeCount();
+			PageMaker pageMaker = new PageMaker(totalCount, currPage);
 			
 			List<Notice> noticeList = 
 					noticeDao.findList(pageMaker.getPageBegin(), pageMaker.getPageEnd());
 			
 			NoticeListPageMaker pageMakerNoticeList=new NoticeListPageMaker();
+			pageMakerNoticeList.totCount=totalCount;
 			pageMakerNoticeList.itemList = noticeList;
 			pageMakerNoticeList.pageMaker = pageMaker;
 			return pageMakerNoticeList;
