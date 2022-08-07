@@ -33,6 +33,7 @@ if (product == null) {
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "[http://www.w3.org/TR/html4/loose.dtd](http://www.w3.org/TR/html4/loose.dtd)">
 <html>
 <head>
+
 <meta charset="UTF-8">
 <title>SEOULBAGUETTE</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -100,7 +101,7 @@ if (product == null) {
 								</tr>
 								<tr width=100%>
 									<td width=40% height=200 align=center><img border=0
-										src='image/<%=product.getP_image()%>' width=220 height=220></td>
+										src='./image/<%=product.getP_image()%>' width=220 height=220></td>
 									<td width=30% height=200 class=t1>
 										<ul type="disc">
 											<li><b><font size=2>상품명 : <%=product.getP_name()%></font>&nbsp;&nbsp;&nbsp;<br>
