@@ -25,4 +25,4 @@
  </body>
  
  
- </html><script src="event.js"></script>
+ </html><script src="js/event.js"></script>
