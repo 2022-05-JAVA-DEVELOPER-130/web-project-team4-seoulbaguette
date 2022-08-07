@@ -19,6 +19,11 @@ if (document.f.p_name.value == "") {
 	document.f.submit();
 }
 
+function productInsertForm(){
+	location.href = "admin_product_insert_form.jsp";
+
+}
+
 function productCancel() {
 	location.href = "product_list.jsp";
 

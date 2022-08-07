@@ -5,6 +5,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+boolean isLogin = false;
+String sUserId=(String)session.getAttribute("s_u_id");
+if (session.getAttribute("s_u_id") != null) {
+	isLogin = true;
+}
 String category_noStr=request.getParameter("category_no");
 if(category_noStr==null)category_noStr="0";
 
@@ -26,6 +31,7 @@ if(category_noStr.equals("0")){
 <link rel=stylesheet href="css/shop.css" type="text/css">
 <style type="text/css" media="screen">
 </style>
+<script src="js/admin.js"></script>
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>
@@ -57,6 +63,14 @@ if(category_noStr.equals("0")){
 									서울바게트 > 상품리스트
 								</caption>
 							</table>
+							<%if(sUserId==null||sUserId.equals("")) {
+								
+							} 
+								else if(sUserId.equals("admin")) {%>
+							
+								<input type="button" style="font: inherit; float:right;" value ="상품 추가" onclick="productInsertForm()" >
+								<%}
+									%>
 							
 							
 
