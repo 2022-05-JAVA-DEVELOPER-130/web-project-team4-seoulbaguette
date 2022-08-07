@@ -14,6 +14,7 @@ import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import com.itwill.bakery.sql.NoticeSQL;
 import com.itwill.bakery.sql.QnASQL;
 import com.itwill.bakery.vo.Notice;
+import com.itwill.bakery.vo.QnA;
 
 public class NoticeDao {
 	
@@ -46,7 +47,10 @@ public class NoticeDao {
 					rs.getInt("notice_no"),
 					rs.getString("notice_title"),
 					rs.getDate("notice_date"),
-					rs.getString("notice_content"));
+					rs.getString("notice_content"),
+					rs.getInt("groupno"),
+					rs.getInt("step"),
+					rs.getInt("depth"));
 		}
 		rs.close();
 		pstmt.close();
@@ -57,23 +61,25 @@ public class NoticeDao {
 	/*
 	 * selectAll : 게시물 전체 검색
 	 */
-	public List<Notice> selectAllNotice() throws Exception {
-		List<Notice> noticeList = new ArrayList<Notice>();
-
-		Connection con = dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(NoticeSQL.NOTICE_LIST);
-		ResultSet rs = pstmt.executeQuery();
-		while (rs.next()) {
-			Notice notice = new Notice(rs.getInt("notice_no"), rs.getString("notice_title"), rs.getDate("notice_date"),
-					rs.getString("notice_content"));
-			noticeList.add(notice);
-		}
-		rs.close();
-		pstmt.close();
-		con.close();
-		return noticeList;
-	}
+//	public List<Notice> selectAllNotice() throws Exception {
+//		List<Notice> noticeList = new ArrayList<Notice>();
+//
+//		Connection con = dataSource.getConnection();
+//		PreparedStatement pstmt = con.prepareStatement(NoticeSQL.NOTICE_LIST);
+//		ResultSet rs = pstmt.executeQuery();
+//		while (rs.next()) {
+//			Notice notice = new Notice(rs.getInt("notice_no"), rs.getString("notice_title"), rs.getDate("notice_date"),
+//					rs.getString("notice_content"), rs.getInt("groupno"), rs.getInt("step"), rs.getInt("depth"));
+//			noticeList.add(notice);
+//		}
+//		rs.close();
+//		pstmt.close();
+//		con.close();
+//		return noticeList;
+//	}
 	
+	
+	//게시물 전제 검색
 	public ArrayList<Notice> findList(int start, int end) throws Exception {
 		
 		Connection con=null;
@@ -85,7 +91,7 @@ public class NoticeDao {
 		try {
 			con=dataSource.getConnection();
 			StringBuffer sql=new StringBuffer();
-			sql.append(NoticeSQL.NOTICE_LIST_PAGE);
+			sql.append(NoticeSQL.NOTICE_LIST);
 			pstmt=con.prepareStatement(sql.toString());
 			pstmt.setInt(1, start);
 			pstmt.setInt(2, end);
@@ -93,7 +99,7 @@ public class NoticeDao {
 			
 			while(rs.next()) {
 				Notice notice = new Notice(rs.getInt("notice_no"), rs.getString("notice_title"), rs.getDate("notice_date"),
-						rs.getString("notice_content"));
+						rs.getString("notice_content"), rs.getInt("groupno"), rs.getInt("step"), rs.getInt("depth"));
 				notices.add(notice);
 			}
 			
@@ -113,7 +119,7 @@ public class NoticeDao {
 		return notices;
 	}
 	
-	// 게시물 총 건수
+	// 공지 총 개수
 
 		public int getNoticeCount() throws Exception {
 			Connection con = null;
@@ -148,14 +154,132 @@ public class NoticeDao {
 
 			return count;
 		}
+		
+		// 공지 번호별 정보반환
+
+		public Notice findByNoticeNo(int notice_no) throws Exception {
+
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			Notice notice = null;
+
+			try {
+				con = dataSource.getConnection();
+				StringBuffer sql=new StringBuffer(); //buffer에 담으면 실행속도 빨라짐,사이즈 설정은 하지 않아도됨
+				sql.append(NoticeSQL.NOTICE_SELECT_BY_NOTICE_NO);
+				pstmt=con.prepareStatement(sql.toString());
+				pstmt.setInt(1, notice_no);
+				rs = pstmt.executeQuery();
+
+				if (rs.next()) {
+					notice = new Notice(rs.getInt("notice_no"), rs.getString("notice_title"),
+							rs.getDate("notice_date"), rs.getString("notice_content"),
+							rs.getInt("groupno"), rs.getInt("step"), rs.getInt("depth")
+							);
+				}
+			} finally {
+				try {
+					if (rs != null)
+						rs.close();
+				} catch (Exception ex) {
+				}
+				try {
+					if (pstmt != null)
+						pstmt.close();
+				} catch (Exception ex) {
+				}
+				try {
+					if (con != null)
+						con.close();
+				} catch (Exception ex) {
+				}
+			}
+
+			return notice;
+		}
+	
+		
+		// 공지 추가
+
+		public int insertNotice(Notice notice) throws Exception {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			
+				con = dataSource.getConnection();
+				pstmt = con.prepareStatement(NoticeSQL.NOTICE_INSERT);
+				pstmt.setString(1, notice.getNotice_title());
+				pstmt.setDate(2, notice.getNotice_date());
+				pstmt.setString(3, notice.getNotice_content());
+
+				int result = pstmt.executeUpdate();
+
+				return result;
+
+		}
 	
 	
+		// 공지 수정
+
+		public int updateNotice(Notice notice) throws Exception {
+
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			int rowCount = 0;
+
+			try {
+				con = dataSource.getConnection();
+				pstmt = con.prepareStatement(NoticeSQL.NOTICE_UPDATE);
+				pstmt.setString(1, notice.getNotice_title());
+				pstmt.setString(2, notice.getNotice_content());
+				pstmt.setInt(3, notice.getNotice_no());
+				rowCount = pstmt.executeUpdate();
+
+			} finally {
+				try {
+					if (pstmt != null)
+						pstmt.close();
+				} catch (Exception ex) {
+				}
+				try {
+					if (con != null)
+						con.close();
+					;
+				} catch (Exception ex) {
+				}
+			}
+
+			return rowCount;
+		}
 	
 	
-	
-	
-	
-	
+		// 공지 삭제
+
+		public int deleteNotice(int notice_no) throws Exception {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			int count = 0;
+
+			try {
+				con = dataSource.getConnection();
+				pstmt = con.prepareStatement(NoticeSQL.NOTICE_DELETE);
+				pstmt.setInt(1, notice_no);
+				count = pstmt.executeUpdate();
+			} finally {
+				try {
+					if (pstmt != null)
+						pstmt.close();
+				} catch (Exception ex) {
+				}
+				try {
+					if (con != null)
+						con.close();
+					;
+				} catch (Exception ex) {
+				}
+			}
+			return count;
+		}
 	
 	
 	

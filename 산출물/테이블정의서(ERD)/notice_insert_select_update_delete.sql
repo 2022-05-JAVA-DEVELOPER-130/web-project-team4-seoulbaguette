@@ -13,16 +13,16 @@ NOTICE_CONTENT          VARCHAR2(200)
 --insert
 
 
-insert into notice (notice_no, notice_title, notice_date, notice_content)
-        values (NOTICE_NOTICE_NO_SEQ.nextval, '우리 가게 영업시간 공지', '2022-07-15', '07시부터 18시까지 영업합니다!');
-insert into notice (notice_no, notice_title, notice_date, notice_content)
-        values (NOTICE_NOTICE_NO_SEQ.nextval, '우리 가게 찾아오는 법', '2022-07-11', 'xx역 1번출구에 도보 10분 거리입니다~');
-insert into notice (notice_no, notice_title, notice_date, notice_content)
-        values (NOTICE_NOTICE_NO_SEQ.nextval, '대량 주문은 미리 예약 전화주세요', '2022-07-07', '연락처는 010-1234-5678 입니다.');
-insert into notice (notice_no, notice_title, notice_date, notice_content)
-        values (NOTICE_NOTICE_NO_SEQ.nextval, '신선한 우리가게 빵 온라인 오더 하는 법', '2022-07-03', '홈페이지에 접속해서 주문해주세요');
-insert into notice (notice_no, notice_title, notice_date, notice_content)
-        values (NOTICE_NOTICE_NO_SEQ.nextval, '우리가게 선정 이달의 추천 빵', '2022-07-01', '이번달에는 페스츄리를 추천합니다~');
+insert into notice (notice_no, notice_title, notice_date, notice_content,groupno,step,depth)
+        values (NOTICE_NOTICE_NO_SEQ.nextval, '우리 가게 영업시간 공지', '2022-07-15', '07시부터 18시까지 영업합니다!',NOTICE_NOTICE_NO_SEQ.currval,1,0);
+insert into notice (notice_no, notice_title, notice_date, notice_content,groupno,step,depth)
+        values (NOTICE_NOTICE_NO_SEQ.nextval, '우리 가게 찾아오는 법', '2022-07-11', 'xx역 1번출구에 도보 10분 거리입니다~',NOTICE_NOTICE_NO_SEQ.currval,1,0);
+insert into notice (notice_no, notice_title, notice_date, notice_content,groupno,step,depth)
+        values (NOTICE_NOTICE_NO_SEQ.nextval, '대량 주문은 미리 예약 전화주세요', '2022-07-07', '연락처는 010-1234-5678 입니다.',NOTICE_NOTICE_NO_SEQ.currval,1,0);
+insert into notice (notice_no, notice_title, notice_date, notice_content,groupno,step,depth)
+        values (NOTICE_NOTICE_NO_SEQ.nextval, '신선한 우리가게 빵 온라인 오더 하는 법', '2022-07-03', '홈페이지에 접속해서 주문해주세요',NOTICE_NOTICE_NO_SEQ.currval,1,0);
+insert into notice (notice_no, notice_title, notice_date, notice_content,groupno,step,depth)
+        values (NOTICE_NOTICE_NO_SEQ.nextval, '우리가게 선정 이달의 추천 빵', '2022-07-01', '이번달에는 페스츄리를 추천합니다~',NOTICE_NOTICE_NO_SEQ.currval,1,0);
         
         desc notice;
 
@@ -38,16 +38,9 @@ NOTICE_CONTENT          VARCHAR2(200)
 
 --insert
 
-insert into notice (notice_no, notice_title, notice_date, notice_content)
-        values (NOTICE_NOTICE_NO_SEQ.nextval, '우리가게 선정 이달의 추천 빵', sysdate, '이번달에는 토스트를 추천합니다~');
-insert into notice (notice_no, notice_title, notice_date, notice_content)
-        values (NOTICE_NOTICE_NO_SEQ.nextval, '신선한 우리가게 빵 온라인 오더 하는 법', sysdate, '홈페이지에 접속해서 주문해주세요');
-insert into notice (notice_no, notice_title, notice_date, notice_content)
-        values (NOTICE_NOTICE_NO_SEQ.nextval, '대량 주문은 미리 예약 전화주세요', '2022-07-07', '연락처는 010-1234-5678 입니다.');
-insert into notice (notice_no, notice_title, notice_date, notice_content)
-        values (NOTICE_NOTICE_NO_SEQ.nextval, '우리 가게 찾아오는 법', '2022-07-11', '강남역 1번출구에 도보 10분 거리입니다~');
-insert into notice (notice_no, notice_title, notice_date, notice_content)
-        values (NOTICE_NOTICE_NO_SEQ.nextval, '우리 가게 영업시간 공지', '2022-07-15', '07시부터 18시까지 영업합니다!');
+insert into notice (notice_no, notice_title, notice_date, notice_content, groupno,step,depth)
+        values (NOTICE_NOTICE_NO_SEQ.nextval, '우리가게 선정 이달의 추천 빵', sysdate, '이번달에는 토스트를 추천합니다~',2,2,1);
+
         
 --update
 update notice set notice_content = '이번달에는 소시지빵을 추천합니다~' where notice_no = 1 and notice_title = '우리가게 선정 이달의 추천 빵';

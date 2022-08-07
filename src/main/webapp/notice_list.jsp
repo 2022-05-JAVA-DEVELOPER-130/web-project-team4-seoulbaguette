@@ -28,9 +28,17 @@ NoticeListPageMaker noticeListPage=new NoticeService().findNoticeList(Integer.pa
 <link rel=stylesheet href="css/shop.css" type="text/css">
 <style type="text/css" media="screen">
 </style>
+<script src="js/notice.js"></script>
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>
+
+<script type="text/javascript">
+	function noticeCreate() {
+		location.href = "notice_write_form.jsp";
+	}
+</script>	
+
 	<!-- container start-->
 	<div id="container">
 		<!-- header start -->
@@ -137,7 +145,18 @@ NoticeListPageMaker noticeListPage=new NoticeService().findNoticeList(Integer.pa
 										%>
 									</td>
 								</tr>
-							</table> 
+							</table> <!-- button -->
+							<table border="0" cellpadding="0" cellspacing="1" width="590">
+								<tr>
+									<td align="right">
+									<input type="button" style="font: inherit;" value="공지 쓰기" onclick="noticeCreate();" /></td>
+								</tr>
+							</table> <br /></td>
+							
+							
+							
+					</tr>
+				</table>
 						</div>
 		
 					<!-- include_content.jsp end-->
