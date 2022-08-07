@@ -85,7 +85,7 @@ if(request.getParameter("pageno")!=null){
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">작성자</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
-										<input type="text" style="width: 150" name="user_id" value="<%=qna.getUser_id()%>"></td>
+										<input type="text" style="width: 150" readonly="readonly" name="user_id" value="<%=qna.getUser_id()%>"></td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">내용</td>

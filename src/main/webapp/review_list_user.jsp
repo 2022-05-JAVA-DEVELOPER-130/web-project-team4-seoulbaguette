@@ -54,7 +54,7 @@ User user = userService.selectUser(sUserId);
 								<caption
 									style="text-align: left; font-weight: bold; padding-bottom: 7px">
 									<span style="border-left: 4px solid #888888;"></span>&nbsp;&nbsp;
-								마이페이지 -내가 쓴 리뷰
+								마이페이지 > 내가 쓴 리뷰
 								</caption>						
 					</table> <!--form-->
 					<form name="f" method="post">

@@ -46,66 +46,56 @@ if (msg == null)
 			<tr>
 				<td>
 					<!--contents--> <br />
-					<table style="padding-left: 10px" border=0 cellpadding=0
-						cellspacing=0>
-						<caption
-									style="text-align: left; font-weight: bold; padding-bottom: 7px">
-									<span style="border-left: 4px solid #888888;"></span>&nbsp;&nbsp;
-									사용자관리 > 회원가입
-								</caption>
+					<table style="padding-left: 10px" border=0 cellpadding=0 cellspacing=0>
+						<caption style="text-align: left; font-weight: bold; padding-bottom: 7px">
+							<span style="border-left: 4px solid #888888;"></span>&nbsp;&nbsp;
+							사용자관리 > 회원가입
+						</caption>
 					</table> <!-- write Form  -->
 					<form name="f" method="post">
-						<table border="0" cellpadding="0" cellspacing="1" width="590"
-							bgcolor="BBBBBB">
+						<table border="0" cellpadding="0" cellspacing="1" width="590" bgcolor="BBBBBB">
 							<tr>
 								<td width=100 align=center bgcolor="E6ECDE" height="22">
 									아이디</td>
-								<td width=490 bgcolor="ffffff" style="padding-left: 10px"
-									align="left"><input type="text" style="width: 150px"
-									name="user_id" value="<%=fuser.getUser_id()%>">&nbsp;&nbsp;<font
+								<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
+								<input type="text" style="width: 150px" name="user_id" value="<%=fuser.getUser_id()%>">&nbsp;&nbsp;<font
 									color="red"><%=msg%></font></td>
 							</tr>
 							<tr>
 								<td width=100 align=center bgcolor="E6ECDE" height="22">비밀번호</td>
-								<td width=490 bgcolor="ffffff" style="padding-left: 10px"
-									align="left"><input type="password" style="width: 150px"
-									name="user_password" value="<%=fuser.getUser_password()%>"></td>
+								<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
+								<input type="password" style="width: 150px" name="user_password" value="<%=fuser.getUser_password()%>"></td>
 							</tr>
 							<tr>
 								<td width=100 align=center bgcolor="E6ECDE" height="22">비밀번호
 									확인</td>
-								<td width=490 bgcolor="ffffff" style="padding-left: 10px"
-									align="left"><input type="password" style="width: 150px"
-									name="user_password2" value="<%=fuser.getUser_password()%>"></td>
+								<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
+								<input type="password" style="width: 150px" name="user_password2" value="<%=fuser.getUser_password()%>"></td>
 							</tr>
 							<tr>
 								<td width=100 align=center bgcolor="E6ECDE" height="22">이름</td>
-								<td width=490 bgcolor="ffffff" style="padding-left: 10px"
-									align="left"><input type="text" style="width: 150px"
-									name="user_name" value="<%=fuser.getUser_name()%>"></td>
+								<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
+								<input type="text" style="width: 150px" name="user_name" value="<%=fuser.getUser_name()%>"></td>
 							</tr>
 							<tr>
 								<td width=100 align=center bgcolor="E6ECDE" height="22">이메일
 									주소</td>
-								<td width=490 bgcolor="ffffff" style="padding-left: 10px"
-									align="left"><input type="text" style="width: 150px"
-									name="user_email" value="<%=fuser.getUser_email()%>"></td>
+								<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
+								<input type="text" style="width: 150px" name="user_email" value="<%=fuser.getUser_email()%>"></td>
 							</tr>
 							<tr>
 								<td width=100 align=center bgcolor="E6ECDE" height="22">핸드폰
 									번호</td>
-								<td width=490 bgcolor="ffffff" style="padding-left: 10px"
-									align="left"><input type="text" style="width: 150px"
-									name="user_phone" value="<%=fuser.getUser_email()%>"></td>
+								<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
+								<input type="text" style="width: 150px" name="user_phone" value="<%=fuser.getUser_email()%>"></td>
 							</tr>
 							<tr>
-										<td width=100 align=center bgcolor="E6ECDE" height="22">포인트</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
-										<input disabled="disabled" type="text" style="width: 150px" name="user_point"
-											value="1000">
-										<input type="hidden" name="point" value="1000">
-										</td>
-									</tr>
+								<td width=100 align=center bgcolor="E6ECDE" height="22">포인트</td>
+								<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
+								<input disabled="disabled" type="text" style="width: 150px" name="user_point" value="1000">
+								<input type="hidden" name="point" value="1000">
+							</td>
+							</tr>
 						</table>
 					</form> <br />
 

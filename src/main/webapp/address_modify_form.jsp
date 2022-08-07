@@ -43,9 +43,11 @@ Address address = userService.selectAddressno(add_no);
 							<!--contents--> <br />
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
-								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>내정보 관리 > 주소록 수정</b></td>
-								</tr>
+								<caption
+									style="text-align: left; font-weight: bold; padding-bottom: 7px">
+									<span style="border-left: 4px solid #888888;"></span>&nbsp;&nbsp;
+									내정보 관리 > 주소록 수정
+								</caption>		
 							</table> <!-- view Form  -->
 
 							<form name=f method="post">

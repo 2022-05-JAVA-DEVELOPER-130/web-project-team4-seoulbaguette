@@ -87,7 +87,7 @@
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">작성자</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
-											<input value="<%=sUser_id%>" type="text" style="width: 150"
+											<input value="<%=sUser_id%>" readonly="readonly" type="text" style="width: 150"
 											name="user_id">
 										</td>
 									</tr>

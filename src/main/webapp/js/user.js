@@ -158,3 +158,8 @@ function userOrderList() {
 	document.f.submit();
 }
 
+function userCreateForm(){
+	document.f.action = "user_write_form.jsp";
+	document.f.method = "POST";
+	document.f.submit();
+}

@@ -61,7 +61,7 @@ if(sUser_id==null){
 									<tr>
 										<td width=100 align=center bgcolor="E2E2E2" height="22">작성자</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left" >
-										<input type="text" style="width: 150px" name="user_id" value=<%=sUser_id %>></td>
+										<input type="text" style="width: 150px" readonly="readonly" name="user_id" value=<%=sUser_id %>></td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E2E2E2">내용</td>
