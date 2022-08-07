@@ -1,21 +1,21 @@
 --insert
 ------------------------------orders-----------------------------------------------------------
 
-insert into orders values(orders_o_no_SEQ.nextval,'배송중',sysdate,10000,'one',1);
-insert into orders values(orders_o_no_SEQ.nextval,'배송중',sysdate,5000,'two',3);
-insert into orders values(orders_o_no_SEQ.nextval,'배송준비',sysdate,3000,'three',4);
-insert into orders values(orders_o_no_SEQ.nextval,'배송완료',sysdate,10000,'one',2);
-insert into orders values(orders_o_no_SEQ.nextval,'배송중',sysdate,2000,'two',3);
-insert into orders values(orders_o_no_SEQ.nextval,'배송준비',sysdate,4000,'three',5);
-insert into orders values(orders_o_no_SEQ.nextval,'배송완료',sysdate,10000,'jungwook1234',8);
+insert into orders values(orders_o_no_SEQ.nextval,'배송준비',sysdate,10000,'yeji2345',1);
+insert into orders values(orders_o_no_SEQ.nextval,'배송준비',sysdate,5000,'yeji2345',3);
+insert into orders values(orders_o_no_SEQ.nextval,'배송중',sysdate,3000,'yeji2345',4);
+insert into orders values(orders_o_no_SEQ.nextval,'배송중',sysdate,10000,'yeji2345',2);
+insert into orders values(orders_o_no_SEQ.nextval,'배송중',sysdate,2000,'yeji2345',4);
+insert into orders values(orders_o_no_SEQ.nextval,'배송완료',sysdate,4000,'yeji2345',2);
+insert into orders values(orders_o_no_SEQ.nextval,'배송완료',sysdate,10000,'yeji2345',8);
 
 ------------------------------order_item---------------------------------
-insert into order_item values(order_item_oi_no_SEQ.nextval,2,1,2);
-insert into order_item values(order_item_oi_no_SEQ.nextval,1,2,3);
-insert into order_item values(order_item_oi_no_SEQ.nextval,2,3,4);
-insert into order_item values(order_item_oi_no_SEQ.nextval,3,4,4);
-insert into order_item values(order_item_oi_no_SEQ.nextval,4,5,2);
-insert into order_item values(order_item_oi_no_SEQ.nextval,5,6,3);
+insert into order_item values(order_item_oi_no_SEQ.nextval,2,1,130);
+insert into order_item values(order_item_oi_no_SEQ.nextval,1,2,131);
+insert into order_item values(order_item_oi_no_SEQ.nextval,2,3,133);
+insert into order_item values(order_item_oi_no_SEQ.nextval,3,4,135);
+insert into order_item values(order_item_oi_no_SEQ.nextval,4,5,136);
+insert into order_item values(order_item_oi_no_SEQ.nextval,5,6,128);
 
 --delete
 -------------------------orders & order_item ------------------------------
