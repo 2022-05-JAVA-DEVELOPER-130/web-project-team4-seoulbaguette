@@ -23,7 +23,7 @@ int check = 1;
 int i = 0;
 String bName = "리뷰 보기";
 %>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>SEOULBAGUETTE</title>
@@ -63,8 +63,7 @@ String bName = "리뷰 보기";
 					</table> <!--form-->
 					<form name="f" method="post" action="order_delete_action.jsp">
 						<input type="hidden" name="j_no" value="<%=orders.getO_no()%>"/>
-						<table align="center" width="80%" border="0" cellpadding="0"
-							cellspacing="1" bgcolor="BBBBBB">
+						<table align="center" width="80%" border="0" cellpadding="0" cellspacing="1" bgcolor="BBBBBB">
 							<caption style="text-align: left;">주문상세정보</caption>
 							<tr>
 								<td width=290 height=25 bgcolor="E6ECDE" align=center class=t1><font>주문번호</font></td>
@@ -152,7 +151,7 @@ String bName = "리뷰 보기";
 						%>
 						<!-- cart item end -->
 						<tr>
-							<td width=640 colspan=4 height=26 bgcolor="ffffff" class=t1>
+							<td width=440 colspan=4 height=26 bgcolor="ffffff" class=t1>
 
 								<p align=right style="padding-top: 10px">
 									<font color=#FF0000>총 주문 금액 : <%=new DecimalFormat("#,##0").format(tot_price)%>

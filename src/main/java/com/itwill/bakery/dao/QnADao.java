@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import javax.naming.spi.DirStateFactory.Result;
 import javax.sql.DataSource;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
@@ -300,7 +301,7 @@ public class QnADao {
 		return count;
 	}
 
-	// 게시글 삭제
+	// 게시글 삭제(그룹으로 묶어 답글까지 달린 글 전체삭제)
 
 	public int delete(int groupno) throws Exception {
 		Connection con = null;
@@ -328,5 +329,85 @@ public class QnADao {
 		return count;
 	}
 	
+	//답변 게시물 존재여부 확인
+	public boolean countReply(QnA qna) throws Exception {
+		
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		Boolean isExist = false;
+		int cnt=0;
+		try {
+			con=dataSource.getConnection();
+			StringBuffer sql=new StringBuffer();
+			sql.append(QnASQL.QNA_REPLY_EXIST);
+			
+			pstmt=con.prepareStatement(sql.toString());
+			pstmt.setInt(1, qna.getGroupno());
+			pstmt.setInt(2, qna.getDepth());
+			pstmt.setInt(3, qna.getStep());
+			
+			rs=pstmt.executeQuery();
+			if (rs.next()) {
+				cnt = rs.getInt("cnt");
+			}
+			if (cnt > 1) {
+				isExist = true;
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+			} catch (Exception ex) {
+			}
+			try {
+				if (pstmt != null)
+					pstmt.close();
+			} catch (Exception ex) {
+			}
+			try {
+				if (con != null)
+					con.close();
+			} catch (Exception ex) {
+			}
+		}
+		return isExist;
+	}
 
+	//게시물삭제(qna_no기준)
+	public int remove(int qna_no,String user_id) throws Exception {
+		
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		int count = 0;
+		try {
+			con = dataSource.getConnection();
+			pstmt = con.prepareStatement(QnASQL.QNA_DELETE_BY_NO);
+			pstmt.setInt(1, qna_no);
+			pstmt.setString(2, user_id);
+			count = pstmt.executeUpdate();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+			} catch (Exception ex) {
+			}
+			try {
+				if (con != null)
+					con.close();;
+			} catch (Exception ex) {
+			}
+		}
+		return count;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 }

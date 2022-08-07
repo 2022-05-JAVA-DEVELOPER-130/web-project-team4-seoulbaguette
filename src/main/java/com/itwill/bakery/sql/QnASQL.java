@@ -36,4 +36,10 @@ public static final String QNA_UPDATE_READ_COUNT
 
 public static final String QNA_DELETE
 ="delete from QnA where groupno=?";
+
+public static final String QNA_DELETE_BY_NO
+="delete from QnA where qna_no=? and user_id=?";
+
+public static final String QNA_REPLY_EXIST
+="SELECT count(*) cnt FROM qna WHERE groupno = ? AND depth >= ? AND step >= ? ORDER BY step,depth ASC";
 }

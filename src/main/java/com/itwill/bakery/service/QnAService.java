@@ -61,9 +61,25 @@ public class QnAService {
 		qnaDao.updateReadCount(qna_no);
 	}
 	
-	//게시물삭제
+	//게시물삭제(답글까지 전체삭제)
 	public int delete(int groupno) throws Exception{
 		return qnaDao.delete(groupno);
+	}
+	
+	//게시물삭제(qna_no기준)
+	public int remove(int qna_no,String user_id)throws Exception{
+		QnA tempQnA=qnaDao.findByQnANo(qna_no);
+		boolean rExist=qnaDao.countReply(tempQnA);
+		System.out.println("답글의 존재여부: "+rExist);
+		if(qnaDao.countReply(tempQnA)) {
+			throw new Exception("답글이 있는 게시물은 삭제안됨");
+		}else {
+			return qnaDao.remove(tempQnA.getQna_no(),user_id);
+		}
+	
+		
+		
+		
 	}
 	
 }

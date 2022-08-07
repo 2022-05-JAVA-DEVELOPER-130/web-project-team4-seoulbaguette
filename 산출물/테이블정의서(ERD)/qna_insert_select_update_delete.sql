@@ -42,8 +42,11 @@ SELECT * FROM
 		 )
 WHERE idx >=1 AND idx <= 5 ;
 
+--게시물존재여부
+SELECT count(*) cnt FROM qna WHERE groupno = 3 AND depth >= 0 AND step >= 1 ORDER BY step,depth ASC;
+
 --select 게시물번호로
-select * from QnA where qna_no=2;
+select * from QnA where qna_no=128;
 
 --update 게시물수정
 update QnA set qna_title='변경제목',qna_content='변경내용' where qna_no=6;
@@ -53,3 +56,6 @@ update QnA set qna_readcount=qna_readcount+1 where qna_no=2;
 
 --delete
 delete from QnA where groupno=1;
+
+--delete (게시물번호로)
+delete from QnA where qna_no=128 and user_id='guntae123';

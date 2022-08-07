@@ -12,7 +12,6 @@
 	try {
 		qna_no=Integer.valueOf(request.getParameter("qna_no"));
 		pageno=Integer.valueOf(request.getParameter("pageno"));
-		groupno=Integer.valueOf(request.getParameter("groupno"));
 	}catch(Exception ex){
 	}
 	boolean result=true;
@@ -23,7 +22,7 @@
 		msg="삭제실패";
 	}else{
 		try{
-			QnAService.getInstance().delete(groupno);
+			QnAService.getInstance().remove(qna_no,sUser_id);
 			result=true;
 			msg="삭제성공";
 		}catch(Exception ex){
@@ -31,7 +30,7 @@
 			msg="삭제실패";
 				
 		}
-	}
+	} 
 	
 %>
 <script type="text/javascript">
