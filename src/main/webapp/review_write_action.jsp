@@ -26,7 +26,7 @@ ReviewService reviewService=new ReviewService();
 try{
 	reviewService.writeReivew(review,oi_no);
 	
-	response.sendRedirect("order_detail.jsp");
+	response.sendRedirect("review_list_user.jsp");
 	
 }catch(Exception e){
 	e.printStackTrace();

@@ -17,6 +17,8 @@ User user = userService.selectUser(sUserId);
 
 int p_no = Integer.parseInt(request.getParameter("p_no"));
 int oi_no = Integer.parseInt(request.getParameter("oi_no"));
+int o_no = Integer.parseInt(request.getParameter("o_no"));
+
 OrderService orderService=new OrderService();
 
 ProductService productService = new ProductService();
@@ -62,6 +64,7 @@ Product product = productService.selectByNo(p_no);
 								onsubmit="return check_delete_order()">
 								<input type="hidden" name="p_no" value="<%=product.getP_no()%>">
 								<input type="hidden" name="oi_no" value="<%=oi_no%>">
+								<input type="hidden" name="o_no" value="<%=o_no%>">
 								<table align="center" width="80%" border="0" cellpadding="0"
 									cellspacing="1" bgcolor="#FFFFFF">
 									<caption
@@ -105,7 +108,7 @@ Product product = productService.selectByNo(p_no);
 									</tr>
 									<tr>
 										<td width=30 height=80 align=left bgcolor="ffffff" class=t1
-											colspan="5">&nbsp;&nbsp;&nbsp; 내용 : <input type="text"
+											colspan="5">&nbsp;&nbsp;&nbsp; 내용 : <input type="text"  style="width: 300px"
 											name="r_content" value="">
 										</td>
 

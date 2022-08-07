@@ -19,9 +19,9 @@ ProductService productService = new ProductService();
 
 OrderReviewService orderReviewService = new OrderReviewService();
 
-int check = 0;
+int check = 1;
 int i = 0;
-String bName = "리뷰 작성";
+String bName = "리뷰 보기";
 %>
 <!DOCTYPE html>
 <html>
@@ -123,6 +123,7 @@ String bName = "리뷰 작성";
 
 							<td width=50 height=26 align=center class=t1 bgcolor="ffffff">
 								<form name='f<%=i%>' method='post' onsubmit='return false'>
+								<input type="hidden" name="o_no" value="<%=orders.getO_no() %>">
 								<input type="hidden" name="oi_no" value="<%= orderItem.getOi_no()%>">
 								<input type="hidden" name="p_no" value="<%=orderItem.getProduct().getP_no() %>">
 									<%
@@ -137,7 +138,7 @@ String bName = "리뷰 작성";
 									bName = "작성한 리뷰";
 									}
 
-									else {
+									if(orderReviewService.checkOR(orderItem.getOi_no()) == 0) {
 									check = 0;
 									bName = "리뷰 작성";
 									}

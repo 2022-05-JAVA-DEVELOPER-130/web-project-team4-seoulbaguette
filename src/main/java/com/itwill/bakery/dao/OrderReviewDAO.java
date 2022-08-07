@@ -20,7 +20,7 @@ public class OrderReviewDAO {
 		properties.load(this.getClass().getResourceAsStream("/com/itwill/bakery/common/jdbc.properties"));
 		/*** Apache DataSource ***/
 		BasicDataSource basicDataSource = new BasicDataSource();
-		basicDataSource.setDriverClassName(properties.getProperty("driverClass"));
+		basicDataSource.setDriverClassName(properties.getProperty("driverClassName"));
 		basicDataSource.setUrl(properties.getProperty("url"));
 		basicDataSource.setUsername(properties.getProperty("user"));
 		basicDataSource.setPassword(properties.getProperty("password"));
