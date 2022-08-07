@@ -35,6 +35,6 @@
 		<li id="menu_product"><a href="product_list.jsp">PRODUCT</a></li>
 		<li id="menu_notice"><a href="notice_list.jsp">NOTICE</a></li>
 		<li id="menu_qna"><a href="qna_list.jsp">Q&A</a></li>
-		<li id="menu_coupon"><a href="coupon_view.jsp">EVENT</a></li>
+		<li id="menu_coupon"><a href="coupon_create_form.jsp">EVENT</a></li>
 	</ul>
 </div>

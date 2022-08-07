@@ -49,9 +49,9 @@ function addressInsert(){
 }
 
 function addressAdd(){
-	document.f.action="address_insert_form.jsp";
-	document.f.method = "POST";
-	document.f.submit();
+	document.getElementById("addreturn").action="address_insert_form.jsp";
+	document.getElementById("addreturn").method = "POST";
+	document.getElementById("addreturn").submit();
 }
 
 /*function addressAdd(check){
