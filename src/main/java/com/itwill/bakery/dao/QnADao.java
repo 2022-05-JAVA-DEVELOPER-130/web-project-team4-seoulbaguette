@@ -254,6 +254,7 @@ public class QnADao {
 			pstmt.setString(1, qna.getQna_title());
 			pstmt.setString(2, qna.getQna_content());
 			pstmt.setInt(3, qna.getQna_no());
+			pstmt.setString(4, qna.getUser_id());
 			rowCount = pstmt.executeUpdate();
 
 		} finally {

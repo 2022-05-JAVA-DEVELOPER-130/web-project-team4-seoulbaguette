@@ -12,6 +12,10 @@ qna.setQna_content(request.getParameter("qna_content"));
 qna.setGroupno(Integer.parseInt(request.getParameter("groupno")));
 
 QnAService.getInstance().update(qna);
+
+
+
+
 String pageno="1";
 if(request.getParameter("pageno")!=null){
 	pageno=request.getParameter("pageno");

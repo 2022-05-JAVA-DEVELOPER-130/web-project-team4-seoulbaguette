@@ -29,7 +29,7 @@ public static final String QNA_LIST
 		+"	 )WHERE idx >= ? AND idx <= ? ";
 
 public static final String QNA_UPDATE
-="update QnA set qna_title=?,qna_content=? where qna_no=? ";
+="update QnA set qna_title=?,qna_content=? where qna_no=? and user_id=?";
 
 public static final String QNA_UPDATE_READ_COUNT
 ="update QnA set qna_readcount=qna_readcount+1 where qna_no=?";
