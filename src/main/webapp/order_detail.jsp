@@ -154,7 +154,7 @@ String bName = "리뷰 보기";
 							<td width=440 colspan=4 height=26 bgcolor="ffffff" class=t1>
 
 								<p align=right style="padding-top: 10px">
-									<font color=#FF0000>총 주문 금액 : <%=new DecimalFormat("#,##0").format(tot_price)%>
+									<font color=#FF0000>총 주문 금액 : <%=orders.getO_price()%>
 										원&nbsp;&nbsp;&nbsp;
 									</font>
 								</p>
