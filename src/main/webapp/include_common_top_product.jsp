@@ -1,3 +1,4 @@
+<%@page import="com.itwill.bakery.service.CartService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 		
@@ -14,11 +15,14 @@
 		<li><a href="user_login_form.jsp">LOGIN</a></li>
 		<li><a href="user_login_form.jsp">MYPAGE</a></li>
 		<li><a href="user_login_form.jsp">CART</a></li>
-		<%}else{ %>
+		<%}else{ 
+			CartService cartService=new CartService();
+		  	int cart_item_count = cartService.selectCartList(sUserId).size();
+		%>
 		<li id="logo"><a href="bakery_main.jsp"></a></li>
 		<li><a href="user_logout_action.jsp">LOGOUT</a></li>
 		<li><a href="user_view.jsp">MYPAGE</a></li>
-		<li><a href="cart_view_select_update_qyt_all_check_delete_image.jsp">CART</a></li>
+		<li><a href="cart_view_select_update_qyt_all_check_delete_image.jsp">CART<span class="w3-badge w3-green w3-margin-right">[<%=cart_item_count%>]</span></a></li>
 		<%} %>
 	</ul>
 </div>
