@@ -21,8 +21,8 @@ function couponOrderList(){
 }
 
 function couponUserList(){
-	document.order_create_form.method='POST';
-	document.order_create_form.action = "coupon_list_user.jsp";
-	document.order_create_form.submit();
+	document.f.method='POST';
+	document.f.action = "coupon_list_user.jsp";
+	document.f.submit();
 }
 
