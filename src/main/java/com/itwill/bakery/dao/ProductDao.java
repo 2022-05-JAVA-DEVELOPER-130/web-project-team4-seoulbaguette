@@ -102,7 +102,8 @@ public class ProductDao {
 		pstmt.setString(1, product.getP_name());
 		pstmt.setInt(2, product.getP_price());
 		pstmt.setString(3, product.getP_desc());
-		pstmt.setInt(4, product.getP_no());
+		pstmt.setInt(4, product.getCategory_no());
+		pstmt.setInt(5, product.getP_no());
 		rowCount=pstmt.executeUpdate();
 		
 		pstmt.close();

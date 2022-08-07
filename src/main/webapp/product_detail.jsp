@@ -13,8 +13,8 @@ if (p_noStr == null || p_noStr.equals("")) {
 	return;
 }
 boolean isLogin = false;
-String sUser_id=(String)session.getAttribute("sUserId");
-if (session.getAttribute("sUser_id") != null) {
+String sUserId=(String)session.getAttribute("s_u_id");
+if (session.getAttribute("s_u_id") != null) {
 	isLogin = true;
 }
 
@@ -45,15 +45,16 @@ if (product == null) {
 <script src="js/product.js">
 	
 </script>
+<script src="js/admin.js"></script>
 <script src="js/test.js"></script>
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
-	marginwidth=0 marginheight=0>
+	marginwidth=0 marginheight=0 >
 	<form name="product_detail_form">
 		<input type="hidden" name="p_no" value="<%=product.getP_no()%>">
-		<input type="hidden" name="s_u_id" value="<%=sUser_id%>">
-		<input type="hidden" name="cart_qty" value="1"> 
-		<input type="hidden" name="buyType" value="direct">
+		<input type="hidden" name="s_u_id" value="<%=sUserId%>"> <input
+			type="hidden" name="cart_qty" value="1"> <input type="hidden"
+			name="buyType" value="direct">
 	</form>
 	<!-- container start-->
 	<div id="container">
@@ -82,32 +83,34 @@ if (product == null) {
 								</caption>
 							</table> <!--
 						<form name="f" method="post">
-						--><br>
-						<br>
+						-->
+							<br> <br>
 							<table style="margin-left: 10px" border=0 width=80% height=376
 								align=center>
 								<tr valign=bottom>
-									<td width=40% align=center class=t1>
-									<font size=3 color=#0000FF><b>상품</b></font></td>
-									<td width=30% align=center class=t1>
-									<font size=3 color=#0000FF><b>상품설명</b></font></td>
-									<td width=30% align=center class=t1>
-									<font size=3 color=#0000FF><b>수량</b></font></td>
+									<td width=40% align=center class=t1><font size=3
+										color=#0000FF><b>상품</b></font></td>
+									<td width=30% align=center class=t1><font size=3
+										color=#0000FF><b>상품설명</b></font></td>
+									<td width=30% align=center class=t1><font size=3
+										color=#0000FF><b>수량</b></font></td>
 								</tr>
 								<tr width=100%>
 									<td colspan=3 height=5><hr color=#556b2f></td>
 								</tr>
 								<tr width=100%>
-									<td width=40% height=200 align=center>
-									<img border=0 src='image/<%=product.getP_image()%>' width=220 height=220></td>
+									<td width=40% height=200 align=center><img border=0
+										src='image/<%=product.getP_image()%>' width=220 height=220></td>
 									<td width=30% height=200 class=t1>
-										<ol type="disc">
-											<li><b><font size=2 >상품명 : <%=product.getP_name()%></font>&nbsp;&nbsp;&nbsp;<br>
+										<ul type="disc">
+											<li><b><font size=2>상품명 : <%=product.getP_name()%></font>&nbsp;&nbsp;&nbsp;<br>
 											</b></li>
-											<li><font size=2 color=#FF0000>판매가 : <%=new DecimalFormat("#,##0").format(product.getP_price()) %> 원&nbsp;&nbsp;&nbsp;<br>
+											<li><font size=2 color=#FF0000>판매가 : <%=new DecimalFormat("#,##0").format(product.getP_price())%>
+													원&nbsp;&nbsp;&nbsp;<br>
 											</font></li>
-											<li><font size=2  color=#0000FF><%=product.getP_desc()%></font></li>
-										</ol>
+											<li><font size=2 color=#0000FF><%=product.getP_desc()%></font></li>
+										</ul> 
+
 									</td>
 									<td width=30% height=200 align=center class=t1>
 										<form name="add_cart_form" method="post"
@@ -129,29 +132,46 @@ if (product == null) {
 												<option value="9">9
 												<option value="10">10
 											</select> 개<br> <br> <br>
-											
-											
+
+
 											<%
-											 if(sUser_id==null){
+											if (sUserId == null) {
 											%>
-												<input type=button style="font: inherit;"  value="장바구니" onclick="add_cart_popup_window();"/> 
-												<input type="hidden" name=p_no value="<%=product.getP_no()%>">
-												<input type="button" style="font: inherit;" value="바로주문" onClick="order_create_form();"> <br> <br>
-												<input type="button" style="font: inherit;" value="상품 리스트" onClick="productList();">
-											
-											<%}else if(sUser_id.equals("admin")){ %>
-												<input type=button style="font: inherit;" value="상품수정"  onclick="productModify();" /> 
-												<input type="hidden" name=p_no value="<%=product.getP_no()%>">
-												<input type="button" style="font: inherit;" value="상품삭제" onClick="productDelete();"> <br> <br>
-												<input type="button" style="font: inherit;" value="상품 리스트" onClick="productList();">
-											
-											<%}else{ %>
-												<input type=button style="font: inherit;" value="장바구니" onclick="add_cart_popup_window();"/> 
-												<input type="hidden" name=p_no value="<%=product.getP_no()%>">
-												<input type="button" style="font: inherit;" value="바로주문" onClick="order_create_form();"> <br> <br>
-												<input type="button" style="font: inherit;" value="상품 리스트" onClick="productList();">
-											
-											<%} %>
+											<input type=button style="font: inherit;" value="장바구니"
+												onclick="add_cart_popup_window();" /> <input type="hidden"
+												name=p_no value="<%=product.getP_no()%>"> <input
+												type="button" style="font: inherit;" value="바로주문"
+												onClick="order_create_form();"> <br> <br>
+											<input type="button" style="font: inherit;" value="상품 리스트"
+												onClick="productList();">
+
+											<%
+											} else if (sUserId.equals("admin")) {
+											%>
+											<input type=button style="font: inherit;" value="상품수정"
+												onclick="productModifyForm();" /> <input type="hidden"
+												name=p_no value="<%=product.getP_no()%>"> <input
+												type="button" style="font: inherit;" value="상품삭제"
+												onClick="productDelete();"> <br> <br> <input
+												type="button" style="font: inherit;" value="상품 리스트"
+												onClick="productCancel();">
+
+											<%
+											} else {
+											%>
+											<input type=button style="font: inherit;" value="장바구니"
+												onclick="add_cart_popup_window();" /> <input type="hidden"
+												name=p_no value="<%=product.getP_no()%>"> <input
+												type="button" style="font: inherit;" value="바로주문"
+												onClick="order_create_form();"> <br> <br>
+											<input type="button" style="font: inherit;" value="상품 리스트"
+												onClick="productList();"><br>
+
+
+											<%
+											}
+											%>
+											<br>
 										</form>
 									</td>
 								</tr>
@@ -170,10 +190,13 @@ if (product == null) {
 					</tr>
 				</table>
 
+
+
+				<!-- review start -->
 				<form name="f" method="post">
 					<table align=center width=80% border="0" cellpadding="0"
 						cellspacing="1" bgcolor="BBBBBB">
-						
+
 						<tr>
 							<td width=145 height=25 bgcolor="E2E2E2" align=center class=t1><font>작성자</font></td>
 							<td width=145 height=25 bgcolor="E2E2E2" align=center class=t1><font>제목</font></td>
@@ -198,7 +221,8 @@ if (product == null) {
 								%>
 							</td>
 							<td width=145 height=26 align=center bgcolor="ffffff" class=t1><a
-								href="review_view_product.jsp?r_no=<%=review.getR_no()%>" class=m1><%=review.getR_title()%></a></td>
+								href="review_view_product.jsp?r_no=<%=review.getR_no()%>"
+								class=m1><%=review.getR_title()%></a></td>
 							<td width=112 height=26 align=center bgcolor="ffffff" class=t1><%=review.getR_date().substring(0, 11)%></td>
 							<td width=136 height=26 align=center bgcolor="ffffff" class=t1>
 								<%
