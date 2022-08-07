@@ -69,7 +69,7 @@ Product product = productService.selectByNo(p_no);
 									cellspacing="1" bgcolor="#FFFFFF">
 									<caption
 										style="text-align: left; font-weight: bold; padding-bottom: 7px">
-										<span style="border-left: 4px solid #888888;"></span>&nbsp;&nbsp;리뷰1개상세보기
+										<span style="border-left: 4px solid #888888;"></span>&nbsp;&nbsp;리뷰 > 작성하기
 									</caption>
 									<tr>
 										<td width="81px" height="83px" align=center bgcolor="#FFFFFF"

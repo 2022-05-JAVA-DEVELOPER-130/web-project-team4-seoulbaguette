@@ -242,7 +242,7 @@ public class QnADao {
 
 	// 게시글 수정
 
-	public int update(QnA qna) throws Exception {
+	public int update(QnA qna,String user_id) throws Exception {
 
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -254,7 +254,7 @@ public class QnADao {
 			pstmt.setString(1, qna.getQna_title());
 			pstmt.setString(2, qna.getQna_content());
 			pstmt.setInt(3, qna.getQna_no());
-			pstmt.setString(4, qna.getUser_id());
+			pstmt.setString(4, user_id);
 			rowCount = pstmt.executeUpdate();
 
 		} finally {

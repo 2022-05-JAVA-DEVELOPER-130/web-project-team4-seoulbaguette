@@ -44,7 +44,7 @@ public class QnADaoTestMain {
 		System.out.println(qnaDao.findList(1, 10));
 		
 		System.out.println("게시글 수정");
-		System.out.println(qnaDao.update(test2));
+		System.out.println(qnaDao.update(test2,"yeji2345"));
 		
 		System.out.println("조회수 증가");
 		System.out.println(qnaDao.updateReadCount(5));

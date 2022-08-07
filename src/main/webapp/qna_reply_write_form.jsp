@@ -1,4 +1,4 @@
-<%@page import="com.itwill.bakery.vo.QnA"%>
+x<%@page import="com.itwill.bakery.vo.QnA"%>
 <%@page import="com.itwill.bakery.service.QnAService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
