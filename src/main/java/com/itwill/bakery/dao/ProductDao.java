@@ -139,8 +139,9 @@ public class ProductDao {
 			pstmt=con.prepareStatement(ProductSQL.PRODUCT_INSERT);
 			pstmt.setString(1, product.getP_name());
 			pstmt.setInt(2, product.getP_price());
-			pstmt.setString(3, product.getP_desc());
-			pstmt.setInt(4, product.getCategory_no());
+			pstmt.setString(3, product.getP_image());
+			pstmt.setString(4, product.getP_desc());
+			pstmt.setInt(5, product.getCategory_no());
 			
 			rowCount=pstmt.executeUpdate();
 			

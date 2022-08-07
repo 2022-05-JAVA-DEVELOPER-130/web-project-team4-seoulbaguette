@@ -1,4 +1,19 @@
 function productInsert() {
+if (document.f.p_name.value == "") {
+		alert("상품명을 입력하십시요.");
+		f.p_name.focus();
+		return false;
+	}
+	if (document.f.p_price.value == "") {
+		alert("상품 가격을 입력하십시요.");
+		f.p_price.focus();
+		return false;
+	}
+	if (document.f.p_desc.value == "") {
+		alert("상품 설명을 입력하십시요.");
+		f.p_desc.focus();
+		return false;
+	}
 	document.f.action = "admin_product_insert_action.jsp";
 	document.f.method = 'POST';
 	document.f.submit();

@@ -89,7 +89,7 @@ Product product = productService.selectByNo(Integer.parseInt(p_no));
 									<tr>
 										<td width=100 height=40 align=center bgcolor="ffffff" class=t1>
 											상품 카테고리 :
-											<select name="category_no">
+											<select name="category_no" >
 											<option value="1">브레드</option>
 											<option value="2">케이크</option>
 											<option value="3"> 샌드위치</option>  </select> 

@@ -40,8 +40,7 @@
 					<tr>
 						<td><br />
 
-							<form name="f" method="post" action="order_delete_action.jsp"
-								onsubmit="return check_delete_order()">
+							<form name="f" method="post" enctype="multipart/form-data">
 								
 								<table align="center" width="80%" border="0" cellpadding="0"
 									cellspacing="1" bgcolor="#FFFFFF">
@@ -56,7 +55,8 @@
 											width="80px" height="80px"></td>
 										<td width=602 height=80 align=left bgcolor="ffffff" class=t1
 											style="padding-left: 20px; font-size: 10pt; font-weight: bold">
-											상품이름</td>
+											<input type=file name=p_image size=40
+							class="TXTFLD"></td>
 
 									</tr>
 								</table>
@@ -76,13 +76,14 @@
 									</tr>
 									<tr>
 										<td width=100 height=40 align=center bgcolor="ffffff" class=t1>
-											상품 카테고리 : <input type="number" name="category_no"
-											value="5" min="1" max="5">
+											상품 카테고리 : <select name="category_no" >
+											<option value="1">브레드</option>
+											<option value="2">케이크</option>
+											<option value="3"> 샌드위치</option>  </select> 
 
 										</td>
 										<td width=260 height=40 align=center bgcolor="ffffff" class=t1>
-											상품 가격: <input type="text" name="p_price"
-											value="" /></td>
+											상품 가격: <input type="text" name="p_price" value="" /></td>
 										
 									</tr>
 									<tr>
