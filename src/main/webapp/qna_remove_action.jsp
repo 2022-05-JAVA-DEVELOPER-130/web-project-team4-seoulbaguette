@@ -12,34 +12,39 @@
 	try {
 		qna_no=Integer.valueOf(request.getParameter("qna_no"));
 		pageno=Integer.valueOf(request.getParameter("pageno"));
+		groupno=Integer.valueOf(request.getParameter("groupno"));
 	}catch(Exception ex){
 	}
-	boolean result=true;
 	
+	QnAService qnaService = new QnAService();
+	int removeCount=qnaService.remove(qna_no, sUser_id);
+
 	String msg="";
-	if(qna_no==null){
-		result=false;
-		msg="삭제실패";
-	}else{
-		try{
-			QnAService.getInstance().remove(qna_no,sUser_id);
-			result=true;
-			msg="삭제성공";
-		}catch(Exception ex){
-			result=false;
-			msg="삭제실패";
-				
-		}
+	if(removeCount==0){
+		msg="삭제권한이 없습니다.";
+		out.println("<script>");
+		out.println("alert('"+msg+"');");
+		out.println("location.href='qna_list.jsp';");
+		out.println("</script>");
 	} 
+ 	if (removeCount==1){
+		msg="게시물을 삭제하였습니다.";
+		out.println("<script>");
+		out.println("alert('"+msg+"');");
+		out.println("location.href='qna_list.jsp';");
+		out.println("</script>");
+	}
+	
+
 	
 %>
 <script type="text/javascript">
-<%if (result) {%>
+<%//if (result) {%>
 	alert('<%=msg%>');
 	location.href='qna_list.jsp?pageno=<%=pageno%>';
-<%} else {%>
+<%//} else {%>
 	alert('<%=msg%>');
 	location.href='qna_list.jsp?pageno=<%=pageno%>';
-<%}%>
+<%//}%>
 	
 </script>
