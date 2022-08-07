@@ -50,10 +50,12 @@ User user = userService.selectUser(sUserId);
 				<td><br />
 					<table style="padding-left: 10px" border=0 cellpadding=0
 						cellspacing=0>
-						<tr>
-							<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>마이페이지 -
-									내가 쓴 리뷰</b></td>
-						</tr>
+
+								<caption
+									style="text-align: left; font-weight: bold; padding-bottom: 7px">
+									<span style="border-left: 4px solid #888888;"></span>&nbsp;&nbsp;
+								마이페이지 -내가 쓴 리뷰
+								</caption>						
 					</table> <!--form-->
 					<form name="f" method="post">
 						<table align=center width=80% border="0" cellpadding="0"

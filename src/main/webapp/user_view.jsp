@@ -46,9 +46,12 @@ User user = userService.selectUser(sUserId);
 							<!--contents--> <br />
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
-								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>내정보 관리 > 내정보 보기</b></td>
-								</tr>
+
+									<caption
+									style="text-align: left; font-weight: bold; padding-bottom: 7px">
+									<span style="border-left: 4px solid #888888;"></span>&nbsp;&nbsp;
+									내정보 관리 > 내정보 보기
+								</caption>
 							</table> <!-- view Form  -->
 							<form name="f" method="post">
 								<table border="0" cellpadding="0" cellspacing="1" width="590"

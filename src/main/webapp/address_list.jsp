@@ -49,10 +49,12 @@
 						<td><br />
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
-								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>내정보 관리 > 주소록 보기</b></td>
-											
-								</tr>
+
+								<caption
+									style="text-align: left; font-weight: bold; padding-bottom: 7px">
+									<span style="border-left: 4px solid #888888;"></span>&nbsp;&nbsp;
+									내정보 관리 > 주소록 보기
+								</caption>								
 							</table> <!-- view Form  -->
 							<% for(int i=0;i<addressList.size();i++){ %>
 							<form id="addr_<%=i%>" method="post">
