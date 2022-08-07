@@ -1,3 +1,4 @@
+<%@page import="com.itwill.bakery.service.NoticeService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="user_login_check.jspf"%>  
@@ -5,6 +6,7 @@
 String sUser_id=(String)session.getAttribute("s_u_id");
 
 if(sUser_id==null){
+	
 	response.sendRedirect("product_list.jsp");
 	return;
 }
@@ -82,11 +84,6 @@ if(sUser_id==null){
 										<td width=100 align=center bgcolor="E2E2E2" height="22">제목</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
 										<input type="text" style="width: 150px" name="notice_title"></td>
-									</tr>
-									<tr>
-										<td width=100 align=center bgcolor="E2E2E2" height="22">작성일</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left" >
-										<input type="text" style="width: 150px" name="notice_date" readonly="readonly" value=<%="날짜" %>></td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E2E2E2">내용</td>

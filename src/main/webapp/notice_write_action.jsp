@@ -11,7 +11,6 @@
 
 	Notice notice = new Notice();
 	notice.setNotice_title(request.getParameter("notice_title"));
-	//notice.setNotice_date(Integer.parseInt(request.getParameter("notice_date")));
 	notice.setNotice_content(request.getParameter("notice_content"));
 
 	NoticeService.getInstance().createNotice(notice);

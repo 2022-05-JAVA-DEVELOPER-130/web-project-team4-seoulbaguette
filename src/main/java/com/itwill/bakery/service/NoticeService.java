@@ -27,7 +27,7 @@ public class NoticeService {
 
 	// 게시물 번호로 공지사항 보기
 	public Notice selectByNoticeNo(int notice_no) throws Exception {
-		return noticeDao.selectByNoticeNo(notice_no);
+		return noticeDao.findByNoticeNo(notice_no);
 	}
 
 //	// 전체 공지사항 보기

@@ -11,7 +11,6 @@ public class NoticeDaoTestMain {
 		Notice test1=new Notice();
 		test1.setNotice_no(1);
 		test1.setNotice_title("신규공지1");
-		test1.setNotice_date(null);
 		test1.setNotice_content("신규공지 1 입니다!");
 		test1.setGroupno(0);
 		test1.setStep(1);
@@ -22,7 +21,7 @@ public class NoticeDaoTestMain {
 		System.out.println("1. 전체공지 보기");
 		System.out.println(" "+noticeDao.findList(1, 10));
 		System.out.println("2. 게시물 번호로 공지 보기");
-		System.out.println(" "+noticeDao.selectByNoticeNo(1));
+		System.out.println(" "+noticeDao.findByNoticeNo(1));
 		System.out.println("3. 질문작성");
 		System.out.println(" "+noticeDao.insertNotice(test1));
 		System.out.println("4. 게시글 수정");

@@ -10,6 +10,7 @@
 
 <%
 
+NoticeService noticeService = new NoticeService();
 
 String pageno = request.getParameter("pageno");
 if (pageno == null || pageno.equals("")) {

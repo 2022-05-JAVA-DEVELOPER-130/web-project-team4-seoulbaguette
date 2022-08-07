@@ -27,6 +27,13 @@ String pageno = "1";
 if (request.getParameter("pageno") != null) {
 	pageno = request.getParameter("pageno");
 }
+
+String sUser_id=null;
+if(session.getAttribute("s_u_id")!=null){
+	sUser_id=(String)session.getAttribute("s_u_id");
+}
+
+
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -88,15 +95,15 @@ if (request.getParameter("pageno") != null) {
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp; <b>게시판 -
-											게시물 수정</b>
+									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp; <b>공지 -
+											공지 수정</b>
 									</td>
 								</tr>
 							</table> <br> <!-- modify Form  -->
 							<form name="f" method="post">
-								<input type="hidden" name="pageno" value="<%=pageno%>" /> <input
-									type="hidden" name="notice_no"
-									value="<%=notice.getNotice_no()%>" />
+								<input type="hidden" name="pageno" value="<%=pageno%>" />
+								<input type="hidden" name="notice_no" value="<%=notice.getNotice_no()%>" />
+								<input type="hidden" name="groupno" value="<%=notice.getGroupno()%>" />
 
 								<table border="0" cellpadding="0" cellspacing="1" width="590"
 									bgcolor="BBBBBB">

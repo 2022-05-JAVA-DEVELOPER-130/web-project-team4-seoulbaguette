@@ -32,31 +32,31 @@ public class NoticeDao {
 		this.dataSource = basicDataSource;
 	}
 
-	/*
-	 * selelctByNo : 게시물 번호로 검색
-	 */
-	public Notice selectByNoticeNo(int notice_no) throws Exception {
-		Notice notice = null;
-		Connection con = dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(NoticeSQL.NOTICE_SELECT_BY_NO);
-		pstmt.setInt(1, notice_no);
-		ResultSet rs = pstmt.executeQuery();
-
-		if (rs.next()) {
-			notice = new Notice(
-					rs.getInt("notice_no"),
-					rs.getString("notice_title"),
-					rs.getDate("notice_date"),
-					rs.getString("notice_content"),
-					rs.getInt("groupno"),
-					rs.getInt("step"),
-					rs.getInt("depth"));
-		}
-		rs.close();
-		pstmt.close();
-		con.close();
-		return notice;
-	}
+//	/*
+//	 * selelctByNo : 게시물 번호로 검색
+//	 */
+//	public Notice selectByNoticeNo(int notice_no) throws Exception {
+//		Notice notice = null;
+//		Connection con = dataSource.getConnection();
+//		PreparedStatement pstmt = con.prepareStatement(NoticeSQL.NOTICE_SELECT_BY_NO);
+//		pstmt.setInt(1, notice_no);
+//		ResultSet rs = pstmt.executeQuery();
+//
+//		if (rs.next()) {
+//			notice = new Notice(
+//					rs.getInt("notice_no"),
+//					rs.getString("notice_title"),
+//					rs.getDate("notice_date"),
+//					rs.getString("notice_content"),
+//					rs.getInt("groupno"),
+//					rs.getInt("step"),
+//					rs.getInt("depth"));
+//		}
+//		rs.close();
+//		pstmt.close();
+//		con.close();
+//		return notice;
+//	}
 
 	/*
 	 * selectAll : 게시물 전체 검색
@@ -79,7 +79,7 @@ public class NoticeDao {
 //	}
 	
 	
-	//게시물 전제 검색
+	//게시물 전체 검색
 	public ArrayList<Notice> findList(int start, int end) throws Exception {
 		
 		Connection con=null;
@@ -209,8 +209,7 @@ public class NoticeDao {
 				con = dataSource.getConnection();
 				pstmt = con.prepareStatement(NoticeSQL.NOTICE_INSERT);
 				pstmt.setString(1, notice.getNotice_title());
-				pstmt.setDate(2, notice.getNotice_date());
-				pstmt.setString(3, notice.getNotice_content());
+				pstmt.setString(2, notice.getNotice_content());
 
 				int result = pstmt.executeUpdate();
 

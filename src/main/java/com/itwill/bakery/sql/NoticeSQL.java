@@ -8,8 +8,8 @@ public class NoticeSQL {
 					+"	) s"
 					+"	 )WHERE idx >= ? AND idx <= ? ";
 	
-	public final static String NOTICE_SELECT_BY_NO =
-			"select * from notice where notice_no=?";
+//	public final static String NOTICE_SELECT_BY_NO =
+//			"select * from notice where notice_no=?";
 
 //	public final static String NOTICE_LIST_PAGE
 //			="SELECT * FROM ( SELECT rownum idx, s.*  FROM"
@@ -25,7 +25,7 @@ public class NoticeSQL {
 	="select * from Notice where notice_no=?";
 	
 	public static final String NOTICE_INSERT
-	= "insert into notice(notice_no, notice_title, notice_date, notice_content, groupno, step) values(NOTICE_NOTICE_NO_SEQ.nextval,?,?,?,NOTICE_NOTICE_NO_SEQ.currval,1)";
+	= "insert into notice(notice_no, notice_title, notice_content, groupno, step) values(NOTICE_NOTICE_NO_SEQ.nextval,?,?,NOTICE_NOTICE_NO_SEQ.currval,1)";
 
 	public static final String NOTICE_UPDATE
 	="update Notice set notice_title=?,notice_content=? where notice_no=?";
