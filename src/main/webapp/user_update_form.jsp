@@ -47,10 +47,12 @@ User user = userService.selectUser(sUserId);
 							<!--contents--> <br />
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
-								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>사용자 관리
-											- 회원 정보 수정</b></td>
-								</tr>
+								<caption
+										style="text-align: left; font-weight: bold; padding-bottom: 7px">
+										<span style="border-left: 4px solid #888888;"></span>&nbsp;&nbsp;사용자 관리
+											> 회원 정보 수정
+									</caption>
+							
 							</table> <!-- write Form  -->
 							<form name="f" method="post">
 								<table border="0" cellpadding="0" cellspacing="1" width="590"
