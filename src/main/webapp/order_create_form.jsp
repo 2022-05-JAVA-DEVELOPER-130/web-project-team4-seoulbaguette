@@ -86,6 +86,22 @@ if(request.getAttribute("remainPoint")==null){
 	remain_point = user.getUser_point() - point;
 }
 
+int coupon=0;
+
+if(request.getAttribute("coupon_select")==null){
+	coupon=0;
+}else{
+	coupon= (Integer)request.getAttribute("coupon_select");
+} 
+
+double dis=(100-coupon)/100.0;
+
+int c_no=0;
+if(request.getAttribute("selectC")==null){
+	c_no=0;
+}else{
+	c_no= (Integer)request.getAttribute("selectC");
+} 
 
 
 %>
@@ -104,7 +120,7 @@ if(request.getAttribute("remainPoint")==null){
 <script src="js/coupon.js"></script>
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
-   marginwidth=0 marginheight=0>
+   marginwidth=0 marginheight=0 onload="couponSelect(<%=c_no %>)">
 
 
    <!-- container start-->
@@ -212,9 +228,9 @@ if(request.getAttribute("remainPoint")==null){
                            <tr>
                               <td width=640 colspan=4 height=26 bgcolor="ffffff" class=t1>
                                  <p align=right style="padding-top: 10px">
-                                    <font color=#FF0000>총 주문 금액 : <%=tot_price-point%>원
+                                    <font color=#FF0000>총 주문 금액 : <%= (tot_price-point) * dis%>원
                                     </font>
-                                    <input type="hidden" name="changeTot" value="<%=tot_price-point%>">
+                                    <input type="hidden" name="changeTot" value="<%=(tot_price-point) * dis%>">
                                     <input type="hidden" name="changePointTot" value="<%=point%>">
                                  </p>
                               </td>
@@ -246,11 +262,15 @@ if(request.getAttribute("remainPoint")==null){
                                  <input type="button" value="선택하기" onClick="couponOrderList()">
                               </td>
                                <td width=190 height=26 align=center bgcolor="ffffff" class=t1>
-                                 <select name="coupon_select">
-                                 <option value="None">미사용</option>
+                                 <select id="couponList" name="coupon_select" onchange="couponCal()">
+                                 
+                                 <option value="0">미사용</option>
                                  <% for(Coupon couponL : couponList) { %>
                                     
-                                 <option value="<%=couponL.getC_no()%>"><%=couponL.getC_discount()%>% 할인 [<%=couponL.getC_start_date().substring(0, 11)%> ~ <%=couponL.getC_end_date().substring(0, 11) %>]</option>
+                                 <option value="<%=couponL.getC_no()%>"
+                                 <%if(couponL.getC_no()==c_no){
+                                 %>selected<%} %>
+                                 ><%=couponL.getC_discount()%>% 할인 [<%=couponL.getC_start_date().substring(0, 11)%> ~ <%=couponL.getC_end_date().substring(0, 11) %>]</option>
                                     
                                     <%} %>   
                                     

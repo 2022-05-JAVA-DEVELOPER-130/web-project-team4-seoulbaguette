@@ -39,6 +39,12 @@ public class CouponService {
 		return couponDao.selectCouponByNo(coupon);
 	}
 	
+	public Coupon selectCoupon(int c_no) throws Exception{
+		Coupon coupon=new Coupon(c_no,null,null,0,null,0);
+		return couponDao.selectCouponByNo(coupon);
+
+	}
+	
 	//회원의 보유 쿠폰 리스트 
 	public List<Coupon> selectCouponById(Coupon coupon) throws Exception{
 		return couponDao.selectCouponById(coupon);

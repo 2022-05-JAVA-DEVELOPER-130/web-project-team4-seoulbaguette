@@ -19,6 +19,8 @@ public class CouponDaoTestMain {
 	
 		System.out.println("회원의 쿠폰리스트 찾기");
 		System.out.println(couponDao.selectCouponById(new Coupon(0, null, null, 0, "juhee13", 0)));
+		
+		
 	
 	}
 

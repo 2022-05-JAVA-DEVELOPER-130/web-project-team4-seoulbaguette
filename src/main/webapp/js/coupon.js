@@ -26,3 +26,19 @@ function couponUserList(){
 	document.f.submit();
 }
 
+function couponCal(){
+	document.order_create_form.method="post";	
+	document.order_create_form.action="coupon_cal_action.jsp";
+	document.order_create_form.submit();
+	
+}
+
+function couponSelect(c_no){
+	var selectList = document.getElementById("couponList");
+	for(i=0;i<10;i++){
+	if(selectList.options[i].value == c_no){
+		selectList.options[i].selected;
+		return;
+	}
+	}
+}
