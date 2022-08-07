@@ -50,9 +50,12 @@ if(category_noStr.equals("0")){
 						<td><br />
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
-								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>서울바게트 > 상품리스트</b></td>
-								</tr>
+
+								<caption
+									style="text-align: left; font-weight: bold; padding-bottom: 7px">
+									<span style="border-left: 4px solid #888888;"></span>&nbsp;&nbsp;
+									서울바게트 > 상품리스트
+								</caption>
 							</table>
 
 							<form name="f" method="post">
