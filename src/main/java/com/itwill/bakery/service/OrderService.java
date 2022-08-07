@@ -106,6 +106,25 @@ public class OrderService {
 		}
 		return 0;
 	}
+public int createTest(String sUserId,String[] cart_item_noStr_array,int tot_price) throws Exception{
+		
+		ArrayList<OrderItem> orderItemList=new ArrayList<OrderItem>();
+		int o_tot_price=0;
+		int oi_tot_count=0;
+		for(int i =0;i<cart_item_noStr_array.length;i++) {
+			Cart  cartItem = cartDao.selectCartByCartNo(Integer.parseInt(cart_item_noStr_array[i]));
+			OrderItem orderItem=new OrderItem(0, cartItem.getCart_qty(),0,cartItem.getProduct());
+			orderItemList.add(orderItem);
+			o_tot_price=tot_price;
+			oi_tot_count+=orderItem.getOi_qty();
+		}
+		Orders newOrder=new Orders(0,"", null, o_tot_price, sUserId,1,orderItemList);
+		ordersDao.create(newOrder);
+		for(int i =0;i<cart_item_noStr_array.length;i++) {
+			cartDao.deleteCartByCNo(Integer.parseInt(cart_item_noStr_array[i]));
+		}
+		return 0;
+	}
 
 	/*
 	 * 주문전체삭제

@@ -44,7 +44,15 @@
 	if(buyType.equals("cart")){
 		orderService.create(sUserId);
 	}else if(buyType.equals("cart_select")){
-		orderService.create(sUserId,cart_item_no_strArray);	
+		
+		orderService.createTest(sUserId,cart_item_no_strArray,total_price);	
+		if(coupon_select.equalsIgnoreCase("None")){
+			
+		}else{
+			couponService.useCoupon(coupon.getC_no());
+		}
+		
+		
  }else if(buyType.equals("direct")){
 	orderService.createTest(sUserId, Integer.parseInt(p_noStr), Integer.parseInt(p_qtyStr),Integer.parseInt(add_select),total_price);
 	userService.updatePoint(p_User);
