@@ -88,11 +88,9 @@ String bName = "리뷰 보기";
 						cellspacing="1" bgcolor="BBBBBB">
 						<caption style="text-align: left;">주문제품목록</caption>
 						<tr style="border: 0.1px solid">
-							<td width=290 height=25 align=center bgcolor="E6ECDE" class=t1>상품</td>
-							<td width=112 height=25 align=center bgcolor="E6ECDE" class=t1>수
-								량</td>
-							<td width=166 height=25 align=center bgcolor="E6ECDE" class=t1>가
-								격</td>
+							<td width=230 height=25 align=center bgcolor="E6ECDE" class=t1>상품명</td>
+							<td width=80 height=25 align=center bgcolor="E6ECDE" class=t1>수량</td>
+							<td width=80 height=25 align=center bgcolor="E6ECDE" class=t1>금액</td>
 							<td width=50 height=25 align=center bgcolor="E6ECDE" class=t1>리뷰
 								</td>
 						</tr>
@@ -107,17 +105,17 @@ String bName = "리뷰 보기";
 
 
 						<tr>
-							<td width=290 height=26 align=center bgcolor="ffffff" class=t1>
+							<td width=230 height=26 align=center bgcolor="ffffff" class=t1>
 								<a
 								href='product_detail.jsp?p_no=<%=orderItem.getProduct().getP_no()%>'>
 									<%=orderItem.getProduct().getP_name()%></a>
 							</td>
 
-							<td width=112 height=26 align=center bgcolor="ffffff" class=t1>
+							<td width=80 height=26 align=center bgcolor="ffffff" class=t1>
 								<%=orderItem.getOi_qty()%>
 							</td>
 
-							<td width=166 height=26 align=center bgcolor="ffffff" class=t1>
+							<td width=80 height=26 align=center bgcolor="ffffff" class=t1>
 								<%=new DecimalFormat("#,##0").format(orderItem.getOi_qty() * orderItem.getProduct().getP_price())%>
 							</td>
 
@@ -157,8 +155,8 @@ String bName = "리뷰 보기";
 							<td width=640 colspan=4 height=26 bgcolor="ffffff" class=t1>
 
 								<p align=right style="padding-top: 10px">
-									<font color=#FF0000>총 주문 금액 : <%=new DecimalFormat("#,###.0").format(tot_price)%>
-										원
+									<font color=#FF0000>총 주문 금액 : <%=new DecimalFormat("#,##0").format(tot_price)%>
+										원&nbsp;&nbsp;&nbsp;
 									</font>
 								</p>
 							</td>
