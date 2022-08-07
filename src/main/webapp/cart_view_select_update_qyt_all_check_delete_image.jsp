@@ -153,9 +153,12 @@ ArrayList<Cart> cartList=cartService.selectCartList(sUserId);
 						<td><br />
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
-								<tr>
-									<td height="22">&nbsp;&nbsp;<b>서울바게트 > 장바구니 보기</b></td>
-								</tr>
+
+								<caption
+									style="text-align: left; font-weight: bold; padding-bottom: 7px">
+									<span style="border-left: 4px solid #888888;"></span>&nbsp;&nbsp;
+									서울바게트 > 장바구니 보기
+								</caption>
 							</table> <!--form--> <!-- 
 							<form name="f" method="post">
 							 -->
