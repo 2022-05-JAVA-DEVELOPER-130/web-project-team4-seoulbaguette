@@ -41,6 +41,7 @@
  }else if(buyType.equals("direct")){
 	orderService.createTest(sUserId, Integer.parseInt(p_noStr), Integer.parseInt(p_qtyStr),Integer.parseInt(add_select),total_price);
 	userService.updatePoint(p_User);
+	couponService.useCoupon(coupon.getC_no());
 	}
 	response.sendRedirect("order_list.jsp");
  	
