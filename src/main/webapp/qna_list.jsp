@@ -45,6 +45,7 @@ QnAListPageMaker qnaListPage = new QnAService().findQnAList(Integer.parseInt(pag
 <link rel=stylesheet href="css/shop.css" type="text/css">
 <style type="text/css" media="screen">
 </style>
+<script src="js/qna.js"></script>
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>
