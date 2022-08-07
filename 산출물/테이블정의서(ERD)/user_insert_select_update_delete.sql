@@ -5,6 +5,7 @@ insert into user_info values('guntae123','123123','박건태','guntae@naver.com'
 insert into user_info values('woohuck45','4567','이우혁','woohuck@naver.com','01012355678',444);
 insert into user_info values('sungjun968','6234','김성준','sungjun@naver.com','01065345678',555);
 insert into user_info values('juhee13','1313','이주희','juhee@naver.com','01067895678',666);
+insert into user_info values('admin','0000','관리자','admin@naver.com','01000000000',0);
 
 --address insert--
 insert into address values(address_add_no_SEQ.nextval,'서울시 강남구  ','jungwook1234');

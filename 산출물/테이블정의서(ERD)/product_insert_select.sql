@@ -46,7 +46,7 @@ select * from product where category_no=1;
 select * from product;
 
 desc product;
---product update
+--product update    
 update product set p_name='톡톡 콘치즈 핫도그',p_price=4300, p_desc='한 입 베어 물면 소시지의 육즙이 팡팡, 달콤한 옥수수가 톡톡!' where p_no=23;
 
 --product delete
