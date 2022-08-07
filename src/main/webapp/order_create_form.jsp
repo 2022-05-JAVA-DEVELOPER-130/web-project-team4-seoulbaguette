@@ -1,3 +1,5 @@
+<%@page import="com.itwill.bakery.vo.Coupon"%>
+<%@page import="com.itwill.bakery.service.CouponService"%>
 <%@page import="com.itwill.bakery.vo.Address"%>
 <%@page import="java.util.List"%>
 <%@page import="com.itwill.bakery.vo.Product"%>
@@ -15,7 +17,8 @@
    
 <%
 OrderService orderService = new OrderService();
-
+CouponService couponService = new CouponService();
+List<Coupon> couponList = couponService.selectCouponById(sUserId);
 
 String buyType = request.getParameter("buyType");
 String p_no = request.getParameter("p_no");
@@ -238,9 +241,25 @@ if(request.getAttribute("remainPoint")==null){
                                     <font style="font-weight: bold">쿠폰 </font>
                                  </p>
                               </td>
+                              
                               <td align="left" width=520 colspan=5 height=20 bgcolor="ffffff" class=t1>
                                  <input type="button" value="선택하기" onClick="couponOrderList()">
                               </td>
+                               <td width=190 height=26 align=center bgcolor="ffffff" class=t1>
+                                 <select name="coupon_select">
+                                 <% for(Coupon couponL : couponList) { %>
+                                    
+                                 <option value="<%=couponL.getC_no()%>"><%=couponL.getC_discount()%>% 할인 [<%=couponL.getC_start_date().substring(0, 11)%> ~ <%=couponL.getC_end_date().substring(0, 11) %>]</option>
+                                    
+                                    <%} %>   
+                                    
+                                    
+                        
+                              
+                              
+                              </select>
+                              </td>
+                              
                            </tr>
                            <tr>
                               <td width=120  height=20 bgcolor="ffffff" class=t1>
@@ -264,7 +283,7 @@ if(request.getAttribute("remainPoint")==null){
                            <tr>
                               <td width=120  height=20 bgcolor="ffffff" class=t1>
                                  <p align=left style="padding-left: 30px">
-                                    <font style="font-weight: bold">결재수단 </font>
+                                    <font style="font-weight: bold">결제수단 </font>
                                  </p>
                               </td>
                               <td align="left" width=520 colspan=5 height=20 bgcolor="ffffff" class=t1>
