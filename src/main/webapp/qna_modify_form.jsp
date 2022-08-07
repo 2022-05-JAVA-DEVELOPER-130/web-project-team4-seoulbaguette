@@ -28,6 +28,11 @@ if(request.getParameter("pageno")!=null){
 	pageno=request.getParameter("pageno");
 }
 
+String sUser_id=null;
+if(session.getAttribute("s_u_id")!=null){
+	sUser_id=(String)session.getAttribute("s_u_id");
+}
+
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -85,7 +90,7 @@ if(request.getParameter("pageno")!=null){
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">작성자</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
-										<input type="text" style="width: 150" readonly="readonly" name="user_id" value="<%=qna.getUser_id()%>"></td>
+										<input type="text" style="width: 150" readonly="readonly" name="user_id" value="<%=sUser_id%>"></td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">내용</td>
