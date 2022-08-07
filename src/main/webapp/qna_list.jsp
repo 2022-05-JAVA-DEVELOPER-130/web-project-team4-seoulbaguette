@@ -156,7 +156,7 @@ QnAListPageMaker qnaListPage = new QnAService().findQnAList(Integer.parseInt(pag
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
 									<td align="right">
-									<input type="button" style="font: inherit;" value="게시물 생성" onclick="qnaCreate();" /></td>
+									<input type="button" style="font: inherit;" value="게시물 작성" onclick="qnaCreate();" /></td>
 								</tr>
 							</table> <br /></td>
 					</tr>

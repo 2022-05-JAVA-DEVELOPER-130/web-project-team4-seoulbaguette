@@ -20,7 +20,8 @@ Address address = userService.selectAddressno(add_no);
 </style>
 <script src="js/address.js"></script>
 </head>
-<body>
+<body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
+	marginwidth=0 marginheight=0>
 	<!-- container start-->
 	<div id="container">
 		<!-- header start -->

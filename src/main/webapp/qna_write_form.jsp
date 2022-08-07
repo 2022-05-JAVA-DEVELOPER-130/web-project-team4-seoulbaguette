@@ -1,7 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="user_login_check.jspf"%>  
+<% 
+String sUser_id=(String)session.getAttribute("s_u_id");
 
+if(sUser_id==null){
+	response.sendRedirect("product_list.jsp");
+	return;
+}
+
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -53,12 +61,12 @@
 									<tr>
 										<td width=100 align=center bgcolor="E2E2E2" height="22">작성자</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left" >
-										<input type="text" style="width: 150px" name="user_id" ></td>
+										<input type="text" style="width: 150px" name="user_id" value=<%=sUser_id %>></td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E2E2E2">내용</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px"
-											align="left"><textarea name="content" class="textarea"
+											align="left"><textarea name="qna_content" class="textarea"
 												style="width: 350px" rows="14"></textarea></td>
 									</tr>
 								</table>

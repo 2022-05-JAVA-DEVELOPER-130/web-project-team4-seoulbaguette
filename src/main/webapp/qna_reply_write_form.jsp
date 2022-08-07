@@ -105,8 +105,8 @@
 							<table width=590 border=0 cellpadding=0 cellspacing=0>
 								<tr>
 									<td align=center>
-									<input type="button" value="게시판 답글 작성" onClick="qnaReplyMsg()"> &nbsp; 
-									<input type="button" value="게시판 목록" onClick="qnaList()"></td>
+									<input type="button" value="게시물 답글 작성" onClick="qnaReplyMsg()"> &nbsp; 
+									<input type="button" value="게시물 목록" onClick="qnaList()"></td>
 								</tr>
 							</table></td>
 					</tr>

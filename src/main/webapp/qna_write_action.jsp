@@ -10,9 +10,9 @@
 	}
 
 	QnA qna=new QnA();
-	qna.setQna_title(request.getParameter("title"));
+	qna.setQna_title(request.getParameter("qna_title"));
 	qna.setUser_id(request.getParameter("user_id"));
-	qna.setQna_content(request.getParameter("content"));
+	qna.setQna_content(request.getParameter("qna_content"));
 	
 	QnAService.getInstance().create(qna);
 	response.sendRedirect("qna_list.jsp");
