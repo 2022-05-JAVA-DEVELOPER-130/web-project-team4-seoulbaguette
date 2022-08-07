@@ -273,7 +273,7 @@ if(request.getAttribute("remainPoint")==null){
                               </td>
                               <td align="left" width=520 colspan=5 height=20 bgcolor="ffffff" class=t1>
                                  <%-- <input type="button" value="적용하기" onClick="point(<%=point %>)" > --%>
-                                 <input type="button" value="취소" onClick="point(<%=point %>)" >
+                                 <input type="button" value="확인" onClick="point(<%=point %>)" >
                               </td>
                               <!--  
                               <td align="left" width=560 colspan=54 height=20 bgcolor="ffffff" class=t1>
