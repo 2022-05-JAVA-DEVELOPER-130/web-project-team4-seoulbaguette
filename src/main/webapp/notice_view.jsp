@@ -28,6 +28,7 @@ Notice notice = NoticeService.getInstance().findNotice(notice_no);
 if (notice == null) {
 	response.sendRedirect("notice_list.jsp?=pageno=" + pageno);
 	return;
+}
 
 //List<Notice> noticeList = noticeService.findNoticeList(currPage);
 //String noStr = request.getParameter("notice_no");
