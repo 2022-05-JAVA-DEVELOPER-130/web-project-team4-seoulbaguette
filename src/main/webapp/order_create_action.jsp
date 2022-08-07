@@ -16,15 +16,22 @@
 	String p_qtyStr=request.getParameter("p_qty");
 	String add_select = request.getParameter("add_select");
 	String coupon_select = request.getParameter("coupon_select");
-	
-	Coupon coupon = couponService.selectCoupon(new Coupon(Integer.parseInt(coupon_select), null, null, 0, null, 0));
-	int discount = coupon.getC_discount();
+
+
 	
 	
 	int o_price=Integer.parseInt(request.getParameter("changeTot"));
 	int o_point=Integer.parseInt(request.getParameter("changePointTot"));
+	int total_price;
+	Coupon coupon = new Coupon();
+	if(coupon_select.equalsIgnoreCase("None")){
+		total_price = o_price;
+	}else{
+		coupon = couponService.selectCoupon(new Coupon(Integer.parseInt(coupon_select), null, null, 0, null, 0));
+		int discount = coupon.getC_discount();
+		total_price = (o_price*(100-discount))/100;
+	}
 	
-	int total_price = (o_price*(100-discount))/100;
 	System.out.println(add_select);
 	
 	String[] cart_item_no_strArray=request.getParameterValues("cart_item_no");
@@ -41,7 +48,12 @@
  }else if(buyType.equals("direct")){
 	orderService.createTest(sUserId, Integer.parseInt(p_noStr), Integer.parseInt(p_qtyStr),Integer.parseInt(add_select),total_price);
 	userService.updatePoint(p_User);
-	couponService.useCoupon(coupon.getC_no());
+	if(coupon_select.equalsIgnoreCase("None")){
+	
+	}else{
+		couponService.useCoupon(coupon.getC_no());
+	}
+
 	}
 	response.sendRedirect("order_list.jsp");
  	

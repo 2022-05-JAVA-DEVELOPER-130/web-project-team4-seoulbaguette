@@ -9,6 +9,9 @@ public class Coupon {
 	private int c_discount;
 	private String user_id;
 	private int period;
+	public Coupon() {
+		
+	}
 	
 	public Coupon(int c_no, String c_start_date, String c_end_date, int c_discount, String user_id, int period) {
 		super();

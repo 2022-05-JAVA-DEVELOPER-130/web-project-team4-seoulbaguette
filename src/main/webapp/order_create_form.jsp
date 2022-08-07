@@ -247,6 +247,7 @@ if(request.getAttribute("remainPoint")==null){
                               </td>
                                <td width=190 height=26 align=center bgcolor="ffffff" class=t1>
                                  <select name="coupon_select">
+                                 <option value="None">미사용</option>
                                  <% for(Coupon couponL : couponList) { %>
                                     
                                  <option value="<%=couponL.getC_no()%>"><%=couponL.getC_discount()%>% 할인 [<%=couponL.getC_start_date().substring(0, 11)%> ~ <%=couponL.getC_end_date().substring(0, 11) %>]</option>
