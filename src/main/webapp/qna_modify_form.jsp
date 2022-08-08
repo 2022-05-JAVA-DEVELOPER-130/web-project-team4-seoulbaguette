@@ -92,6 +92,7 @@ if(count==0){
 							<form name="f" action="qna_modify_action.jsp" method="post">
 								<input type="hidden" name="pageno" value="<%=pageno%>" /> 
 								<input type="hidden" name="qna_no" value="<%=qna.getQna_no()%>" />
+								
 								<%-- <input type="hidden" name="groupno" value="<%=qna.getGroupno()%>" />--%>
 								
 								<table border="0" cellpadding="0" cellspacing="1" width="590"
