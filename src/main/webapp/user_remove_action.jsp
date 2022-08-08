@@ -24,7 +24,7 @@ try{
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>SEOUL BAGUETTE</title>
 <script type="text/javascript">
 
 alert("탈퇴되었습니다.");
