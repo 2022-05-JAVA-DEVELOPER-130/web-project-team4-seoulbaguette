@@ -140,7 +140,10 @@ String bName = "리뷰 보기";
 									bName = "리뷰 작성";
 									}
 									%>
-								</form> <input type="button" value="<%=bName%>" onClick="review_writeCheck('f<%=i%>',<%=check%>)" />
+								</form> 
+								<%if(orders.getO_desc().equals("배송완료")) {%>
+								<input name="reviewBtn" type="button" value="<%=bName%>" onClick="review_writeCheck('f<%=i%>',<%=check%>)" />
+								<%} %>
 							</td>
 						</tr>
 						<%

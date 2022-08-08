@@ -13,6 +13,7 @@ String saveFolder = "/image";//파일 업로드 경로
 saveDirectory=application.getRealPath(saveFolder);
 
 //String saveDirectory = "C:/00.JAVA/gitrepository/web-project-team4-seoulbaguette/src/main/webapp/image";
+
 int maxPostSize = 1024 * 1024 * 100;
 String encoding = "UTF-8";
 

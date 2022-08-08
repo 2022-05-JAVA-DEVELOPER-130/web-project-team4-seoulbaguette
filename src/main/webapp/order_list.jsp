@@ -93,7 +93,7 @@ ProductService productService = new ProductService();
 									cellspacing="1" bgcolor="BBBBBB">
 									<tr>
 										<td width=145 height=25 bgcolor="E6ECDE" align=center class=t1><font>주문번호</font></td>
-										<td width=145 height=25 bgcolor="E6ECDE" align=center class=t1><font>주문이름</font></td>
+										<td width=145 height=25 bgcolor="E6ECDE" align=center class=t1><font>주문상태</font></td>
 										<td width=112 height=25 bgcolor="E6ECDE" align=center class=t1><font>주문날짜</font></td>
 										<td width=136 height=25 bgcolor="E6ECDE" align=center class=t1><font>주문가격</font></td>
 										<td width=80 height=25 bgcolor="E6ECDE" align=center class=t1><font></font></td>
