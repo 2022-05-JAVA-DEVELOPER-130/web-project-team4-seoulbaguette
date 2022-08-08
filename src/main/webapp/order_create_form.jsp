@@ -104,10 +104,11 @@ if(request.getAttribute("selectC")==null){
 } 
 
 int add_no=0;
+String addStr=(String)request.getAttribute("add_select");
 if(request.getAttribute("add_select")==null){
 	add_no=0;
 }else{
-	add_no= (Integer)request.getAttribute("add_select");
+	add_no= Integer.parseInt(addStr);
 } 
 
 %>
@@ -270,9 +271,9 @@ if(request.getAttribute("add_select")==null){
                               </td>
                               
                               <td align="left" width=520 colspan=5 height=20 bgcolor="ffffff" class=t1>
-                                 <input type="button" value="선택하기" onClick="couponOrderList()">
-                              </td>
-                               <td width=190 height=26 align=center bgcolor="ffffff" class=t1>
+                                 
+<!--                                  <input type="button" value="선택하기" onClick="couponOrderList()">
+ -->                             
                                  <select id="couponList" name="coupon_select" onchange="couponCal()">
                                  
                                  <option value="0">미사용</option>
@@ -290,6 +291,8 @@ if(request.getAttribute("add_select")==null){
                               
                               
                               </select>
+  </td>
+                               <td width=190 height=26 align=center bgcolor="ffffff" class=t1>
                               </td>
                               
                            </tr>
@@ -304,7 +307,7 @@ if(request.getAttribute("add_select")==null){
                               </td>
                               <td align="left" width=520 colspan=5 height=20 bgcolor="ffffff" class=t1>
                                  <%-- <input type="button" value="적용하기" onClick="point(<%=point %>)" > --%>
-                                 <input type="button" value="확인" onClick="point(<%=point %>)" >
+                                <%--  <input type="button" value="확인" onClick="point(<%=point %>)" > --%>
                               </td>
                               <!--  
                               <td align="left" width=560 colspan=54 height=20 bgcolor="ffffff" class=t1>
