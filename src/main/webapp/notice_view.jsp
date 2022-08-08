@@ -151,7 +151,7 @@ String sUserId=(String)session.getAttribute("s_u_id");
 					<%
 					if(sUserId.equals("admin")){
 					%>
-						<td align=left><input type="button" style="font: inherit;" value="글쓰기" onClick="noticeCreate()"> &nbsp; 
+						<td align=center><input type="button" style="font: inherit;" value="글쓰기" onClick="noticeCreate()"> &nbsp; 
 						<input type="button" style="font: inherit;" value="수정" onClick="noticeUpdate()"> &nbsp; 
 						<input type="button" style="font: inherit;" value="삭제" onClick="noticeRemove()"> &nbsp; 
 					<% } %>
