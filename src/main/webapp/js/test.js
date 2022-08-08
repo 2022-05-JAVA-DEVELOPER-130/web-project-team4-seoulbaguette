@@ -27,6 +27,7 @@ function calPointF(userPoint) {
 
 }
 
+
 function order_test() {
 	document.product_detail_form.cart_qty.value = document.add_cart_form.cart_qty.value;
 	document.product_detail_form.method = 'POST';
