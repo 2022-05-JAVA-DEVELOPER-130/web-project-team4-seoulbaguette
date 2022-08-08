@@ -30,6 +30,7 @@
 		<li id="logo"><a href="bakery_main.jsp"></a></li>
 		<li><a href="user_logout_action.jsp">LOGOUT</a></li>
 		<li><a href="user_view.jsp">MYPAGE</a></li>
+		<span class="w3-badge w3-green w3-margin-right"></span>
 		<li><a href="cart_view_select_update_qyt_all_check_delete_image.jsp">CART<span class="w3-badge w3-green w3-margin-right">[<%=cart_item_count%>]</span></a></li>
 			<%} %>
 	</ul>
