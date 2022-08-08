@@ -138,36 +138,26 @@ if (product == null) {
 											<%
 											if (sUserId == null) {
 											%>
-											<input type=button style="font: inherit;" value="장바구니"
-												onclick="log_in_popup_window();" /> <input type="hidden"
-												name=p_no value="<%=product.getP_no()%>"> <input
-												type="button" style="font: inherit;" value="바로주문"
-												onClick="log_in_popup_window();"> <br> <br>
-											<input type="button" style="font: inherit;" value="상품 리스트"
-												onClick="productList();">
+											<input type=button style="font: inherit;" value="장바구니" onclick="log_in_popup_window();" /> 
+											<input type="hidden" name=p_no value="<%=product.getP_no()%>"> 
+											<input type="button" style="font: inherit;" value="바로주문" onClick="log_in_popup_window();"> <br> <br>
+											<input type="button" style="font: inherit;" value="상품 리스트" onClick="productList();">
 
 											<%
 											} else if (sUserId.equals("admin")) {
 											%>
-											<input type=button style="font: inherit;" value="상품수정"
-												onclick="productModifyForm();" /> <input type="hidden"
-												name=p_no value="<%=product.getP_no()%>"> <input
-												type="button" style="font: inherit;" value="상품삭제"
-												onClick="productDelete();"> <br> <br> <input
-												type="button" style="font: inherit;" value="상품 리스트"
-												onClick="productCancel();">
+											<input type=button style="font: inherit;" value="상품수정" onclick="productModifyForm();" /> 
+											<input type="hidden" name=p_no value="<%=product.getP_no()%>"> 
+											<input type="button" style="font: inherit;" value="상품삭제" onClick="productDelete();"> <br> <br> 
+											<input type="button" style="font: inherit;" value="상품 리스트" onClick="productCancel();">
 
 											<%
 											} else {
 											%>
-											<input type=button style="font: inherit;" value="장바구니"
-												onclick="add_cart_popup_window();" /> <input type="hidden"
-												name=p_no value="<%=product.getP_no()%>"> <input
-												type="button" style="font: inherit;" value="바로주문"
-												onClick="order_create_form();"> <br> <br>
-											<input type="button" style="font: inherit;" value="상품 리스트"
-												onClick="productList();"><br>
-
+											<input type=button style="font: inherit;" value="장바구니" onclick="add_cart_popup_window();" /> 
+											<input type="hidden" name=p_no value="<%=product.getP_no()%>"> 
+											<input type="button" style="font: inherit;" value="바로주문" onClick="order_create_form();"> <br> <br>
+											<input type="button" style="font: inherit;" value="상품 리스트" onClick="productList();"><br>
 
 											<%
 											}
