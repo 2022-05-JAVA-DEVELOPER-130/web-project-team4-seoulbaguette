@@ -1,7 +1,4 @@
 <%@page import="com.itwill.bakery.vo.NoticeListPageMaker"%>
-<%@page import="com.itwill.bakery.service.QnAService"%>
-<%@page import="com.itwill.bakery.vo.QnAListPageMaker"%>
-<%@page import="com.itwill.bakery.vo.QnA"%>
 <%@ page import="com.itwill.bakery.vo.Notice"%>
 <%@ page import="java.util.List"%>
 <%@ page import="com.itwill.bakery.service.NoticeService"%>
