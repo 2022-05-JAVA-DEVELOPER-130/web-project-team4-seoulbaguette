@@ -108,7 +108,7 @@ CREATE SEQUENCE review_r_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 CREATE TABLE notice(
 		notice_no                     		NUMBER(10)		 NULL ,
 		notice_title                  		VARCHAR2(100)		 NULL ,
-		notice_date                   		DATE		 NULL ,
+		notice_date                   		DATE		 DEFAULT sysdate     NULL ,
 		notice_content                		VARCHAR2(200)		 NULL,
 		groupno                       		NUMBER(10)		 NOT NULL,
 		step                          		NUMBER(10)		 NOT NULL,

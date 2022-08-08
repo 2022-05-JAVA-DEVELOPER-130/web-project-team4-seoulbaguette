@@ -168,11 +168,11 @@ if(request.getAttribute("add_select")==null){
                            cellspacing="1" bgcolor="BBBBBB">
                            <caption style="text-align: left;">구매자정보</caption>
                            <tr>
-                              <td width=112 height=25 align=center bgcolor="E6ECDE" class=t1>아이디</td>
-                              <td width=112 height=25 align=center bgcolor="E6ECDE" class=t1>이름</td>
-                              <td width=166 height=25 align=center bgcolor="E6ECDE" class=t1>이메일</td>
-                              <td width=228 height=25 align=center bgcolor="E6ECDE" class=t1>주소</td>
-                              <td width=228 height=25 align=center bgcolor="E6ECDE" class=t1>포인트</td>
+                              <td width=112 height=25 align=center bgcolor="E2E2E2" class=t1>아이디</td>
+                              <td width=112 height=25 align=center bgcolor="E2E2E2" class=t1>이름</td>
+                              <td width=166 height=25 align=center bgcolor="E2E2E2" class=t1>이메일</td>
+                              <td width=228 height=25 align=center bgcolor="E2E2E2" class=t1>주소</td>
+                              <td width=228 height=25 align=center bgcolor="E2E2E2" class=t1>포인트</td>
                               
                            </tr>
                            <tr>
@@ -208,12 +208,12 @@ if(request.getAttribute("add_select")==null){
                            cellspacing="1" bgcolor="BBBBBB">
                            <caption style="text-align: left;">주문제품목록</caption>
                            <tr style="border: 0.1px solid">
-                              <td width=290 height=25 bgcolor="E6ECDE" align=center class=t1>제품</td>
-                              <td width=112 height=25 bgcolor="E6ECDE" align=center class=t1>수
+                              <td width=290 height=25 bgcolor="E2E2E2" align=center class=t1>제품</td>
+                              <td width=112 height=25 bgcolor="E2E2E2" align=center class=t1>수
                                  량</td>
-                              <td width=166 height=25 bgcolor="E6ECDE" align=center class=t1>가
+                              <td width=166 height=25 bgcolor="E2E2E2" align=center class=t1>가
                                  격</td>
-                              <td width=50 height=25 bgcolor="E6ECDE" align=center class=t1>비
+                              <td width=50 height=25 bgcolor="E2E2E2" align=center class=t1>비
                                  고</td>
                            </tr>
                            <%
@@ -228,7 +228,7 @@ if(request.getAttribute("add_select")==null){
                               </td>
                               <td width=112 height=26 align=center bgcolor="ffffff" class=t1><%=cart.getCart_qty()%></td>
                               <td width=166 height=26 align=center bgcolor="ffffff" class=t1>
-                                 <%=new DecimalFormat("#,###").format(cart.getCart_qty() * cart.getProduct().getP_price())%>
+                                 <%=new DecimalFormat("#,##0").format(cart.getCart_qty() * cart.getProduct().getP_price())%>
                               </td>
                               <td width=50 height=26 align=center bgcolor="ffffff" class=t1></td>
                            </tr>
@@ -240,7 +240,7 @@ if(request.getAttribute("add_select")==null){
                            <tr>
                               <td width=640 colspan=4 height=26 bgcolor="ffffff" class=t1>
                                  <p align=right style="padding-top: 10px">
-                                    <font color=#FF0000>총 주문 금액 : <%= Math.round((tot_price-point) * dis)%>원
+                                    <font color=#FF0000>총 주문 금액 : <%=new DecimalFormat("#,##0").format( Math.round((tot_price-point) * dis))%>원 &nbsp;&nbsp;
                                     </font>
                                     <input type="hidden" name="changeTot" value="<%= Math.round((tot_price-point) * dis)%>">
                                     <input type="hidden" name="changePointTot" value="<%=point%>">
