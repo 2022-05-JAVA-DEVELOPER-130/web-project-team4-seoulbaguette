@@ -21,7 +21,7 @@ Product product=productService.selectByNo(p_no);
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>SEOUL BAGUETTE</title>
 </head>
 <body>
 
