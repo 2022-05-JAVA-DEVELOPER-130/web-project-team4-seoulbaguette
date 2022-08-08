@@ -303,7 +303,7 @@ if(request.getAttribute("add_select")==null){
                                  </p>
                               </td>
                               <td align="left" width=60  height=20 bgcolor="ffffff" class=t1>
-                                 <input type="text" name="point"  onchange="calPointF()" value="<%=point %>" placeholder="원">
+                                 <input type="text" name="point"  onchange="calPointF(<%=user.getUser_point() %>)" value="<%=point %>" placeholder="원">
                               </td>
                               <td align="left" width=520 colspan=5 height=20 bgcolor="ffffff" class=t1>
                                  <%-- <input type="button" value="적용하기" onClick="point(<%=point %>)" > --%>
