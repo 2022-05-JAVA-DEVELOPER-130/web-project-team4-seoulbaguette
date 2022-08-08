@@ -41,7 +41,7 @@ function log_in_popup_window() {
 	var top = Math.ceil(( window.screen.height)/3);
 	console.log(left);
 	console.log(top);
-	var cartWin = window.open("about:blank","cartForm","width=420,height=200,top="+top+",left="+left+",location=no, directories=no, status=no, menubar=no, scrollbars=no,copyhistory=no");
+	var cartWin = window.open("about:blank","cartForm","width=280,height=150,top="+top+",left="+left+",location=no, directories=no, status=no, menubar=no, scrollbars=no,copyhistory=no");
 	document.add_cart_form.action = 'log_in_popup_window.jsp';
 	document.add_cart_form.target = 'cartForm';
 	document.add_cart_form.method = 'POST';
