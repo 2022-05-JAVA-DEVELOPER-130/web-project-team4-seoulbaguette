@@ -163,3 +163,7 @@ function userCreateForm(){
 	document.f.method = "POST";
 	document.f.submit();
 }
+
+function openIdCheck(){
+	window.open('user_id_check_form.jsp','checkForm','width=500,height=300,resizable = no,scrollbar = no');
+}
