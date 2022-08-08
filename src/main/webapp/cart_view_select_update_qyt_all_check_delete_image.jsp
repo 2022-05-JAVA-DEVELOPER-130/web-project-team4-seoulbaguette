@@ -1,13 +1,114 @@
-<%@page import="java.text.DecimalFormat"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="com.itwill.bakery.vo.Cart"%>
-<%@page import="com.itwill.bakery.service.CartService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.itwill.bakery.vo.Cart"%>
+<%@page import="com.itwill.bakery.vo.User"%>
+<%@page import="com.itwill.bakery.vo.Coupon"%>
+<%@page import="com.itwill.bakery.vo.Coupon"%>
+<%@page import="com.itwill.bakery.vo.Address"%>
+<%@page import="com.itwill.bakery.vo.Product"%>
+<%@page import="com.itwill.bakery.service.CartService"%>
+<%@page import="com.itwill.bakery.service.CouponService"%>
+<%@page import="com.itwill.bakery.service.ProductService"%>
+<%@page import="com.itwill.bakery.service.UserService"%>
+<%@page import="com.itwill.bakery.service.OrderService"%>
+<%@page import="com.itwill.bakery.service.CouponService"%>
+<%@page import="java.text.DecimalFormat"%>
 <%@include file="user_login_check.jspf"%>
 <%
 CartService cartService=new CartService();
 ArrayList<Cart> cartList=cartService.selectCartList(sUserId);
+
+String buyType = request.getParameter("buyType");
+String p_no = request.getParameter("p_no");
+
+String c_qty = request.getParameter("cart_qty");
+
+String[] cart_item_noStr_array = request.getParameterValues("cart_item_no");
+
+if (buyType == null)
+   buyType = "";
+if (request.getAttribute("p_no") == null){
+   p_no = request.getParameter("p_no");
+}else{
+	p_no=(String)request.getAttribute("p_no");
+}
+if (request.getAttribute("c_qty") == null){
+	   c_qty = request.getParameter("cart_qty");;
+	}else{
+		c_qty=(String)request.getAttribute("c_qty");
+	}
+
+
+
+if (cart_item_noStr_array == null)
+   cart_item_noStr_array = new String[]{};
+
+UserService userService = new UserService();
+ProductService productService = new ProductService();
+
+List<Address> userAddress=userService.selectAddress(new User(sUserId,"","","","",0,null));
+
+List<Cart> cartItemList = new ArrayList<Cart>();
+Address add = userService.selectAddressno(7);
+User user = userService.selectUser(sUserId);
+
+
+if (buyType.equals("cart")) {
+   cartItemList = cartService.selectCartList(sUserId);
+} else if (buyType.equals("cart_select")) {
+   for (String cart_item_noStr : cart_item_noStr_array) {
+      cartItemList.add(cartService.selectCart(Integer.parseInt(cart_item_noStr)));
+   }
+} else if (buyType.equals("direct")) {
+   Product product = productService.selectByNo(Integer.parseInt(p_no));
+   cartItemList.add(new Cart(0, Integer.parseInt(c_qty), product, user.getUser_id()));
+}
+
+
+
+int tot_price = 0;
+int remain_point = 0;
+
+for (Cart cart : cartItemList) {
+   tot_price += cart.getCart_qty() * cart.getProduct().getP_price();
+}
+
+int point=0;
+if(request.getAttribute("remainPoint")==null){
+	
+	point=0;
+	remain_point = user.getUser_point() - point;
+}else{
+	point=(Integer)request.getAttribute("remainPoint");
+	remain_point = user.getUser_point() - point;
+}
+
+int coupon=0;
+
+if(request.getAttribute("coupon_select")==null){
+	coupon=0;
+}else{
+	coupon= (Integer)request.getAttribute("coupon_select");
+} 
+
+double dis=(100-coupon)/100.0;
+
+int c_no=0;
+if(request.getAttribute("selectC")==null){
+	c_no=0;
+}else{
+	c_no= (Integer)request.getAttribute("selectC");
+} 
+
+int add_no=0;
+String addStr=(String)request.getAttribute("add_select");
+if(request.getAttribute("add_select")==null){
+	add_no=0;
+}else{
+	add_no= Integer.parseInt(addStr);
+} 
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -181,7 +282,6 @@ ArrayList<Cart> cartList=cartService.selectCartList(sUserId);
 									</tr>
 									<!-- cart item start -->
 									<%
-									int tot_price = 0;
 									for (Cart cart : cartList) {
 										tot_price += cart.getProduct().getP_price() * cart.getCart_qty();
 									%>
@@ -275,6 +375,45 @@ ArrayList<Cart> cartList=cartService.selectCartList(sUserId);
 								</tr>
 							</table></td>
 					</tr>
+				<br>
+					<%-- <%
+					for (Cart cart : cartList) {
+                           %>
+                           <!-- cart item start -->
+                           <tr>
+                              <td width=290 height=26 align=center bgcolor="ffffff" class=t1>
+                                 <a
+                                 href='product_detail.jsp?p_no=<%=cart.getProduct().getP_no()%>'><%=cart.getProduct().getP_name()%></a>
+                              </td>
+                              <td width=112 height=26 align=center bgcolor="ffffff" class=t1><%=cart.getCart_qty()%></td>
+                              <td width=166 height=26 align=center bgcolor="ffffff" class=t1>
+                                 <%=new DecimalFormat("#,##0").format(cart.getCart_qty() * cart.getProduct().getP_price())%>
+                              </td>
+                              <td width=50 height=26 align=center bgcolor="ffffff" class=t1></td>
+                           </tr>
+                           <!-- cart item end -->
+                           <%
+                           }
+                           %> --%>
+					
+						<tr>
+							<td width=640 colspan=4 height=26 bgcolor="ffffff" class=t1>
+                                 <p align=center style="padding-top: 10px">
+                                    <font color=#FF0000>총 주문 금액 : <%=new DecimalFormat("#,##0").format( Math.round((tot_price)))%>원 &nbsp;&nbsp;
+                                    </font>
+                                    <input type="hidden" name="changeTot" value="<%= Math.round((tot_price))%>">
+                                    <input type="hidden" name="changePointTot" value="<%=point%>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <font color=#FF0000>총 할인 금액 : <%=new DecimalFormat("#,##0").format( tot_price-Math.round((tot_price) * dis)+point)%>원 &nbsp;&nbsp;
+                                    </font>
+                                    <input type="hidden" name="changeTot" value="<%= tot_price-Math.round((tot_price) * dis)+point%>">
+                                    <input type="hidden" name="changePointTot" value="<%=point%>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  	<font color=#FF0000>최종 결제 금액 : <%=new DecimalFormat("#,##0").format( Math.round((tot_price) * dis)-point)%>원 &nbsp;&nbsp;
+                                    </font>
+                                    <input type="hidden" name="changeTot" value="<%= Math.round((tot_price) * dis)-point%>">
+                                    <input type="hidden" name="changePointTot" value="<%=point%>">
+                                 </p>
+                              </td>
+						</tr>
 				</table>
 			</div>
 			<!-- include_content.jsp end-->
