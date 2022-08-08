@@ -16,7 +16,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SEOULBAGUETTE</title>
+<title>SEOUL BAGUETTE</title>
 <script type="text/javascript">
 </script>
 </head>

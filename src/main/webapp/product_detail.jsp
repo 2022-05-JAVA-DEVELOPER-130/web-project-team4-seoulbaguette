@@ -35,7 +35,7 @@ if (product == null) {
 <head>
 
 <meta charset="UTF-8">
-<title>SEOULBAGUETTE</title>
+<title>SEOUL BAGUETTE</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/menu.css" type="text/css">

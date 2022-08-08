@@ -34,7 +34,7 @@ if(product==null){
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SEOULBAGUETTE</title>
+<title>SEOUL BAGUETTE</title>
 <script type="text/javascript">
 	
 function order_create_form() {

@@ -25,7 +25,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>리뷰 상세</title>
+<title>SEOUL BAGUETTE</title>
 
 <script src="js/review.js">
 	
