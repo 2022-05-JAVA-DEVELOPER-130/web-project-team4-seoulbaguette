@@ -103,6 +103,12 @@ if(request.getAttribute("selectC")==null){
 	c_no= (Integer)request.getAttribute("selectC");
 } 
 
+int add_no=0;
+if(request.getAttribute("add_select")==null){
+	add_no=0;
+}else{
+	add_no= (Integer)request.getAttribute("add_select");
+} 
 
 %>
 <!DOCTYPE html>
@@ -177,7 +183,11 @@ if(request.getAttribute("selectC")==null){
                                   <option value="0">배송지 선택</option>
                                  <% for(Address address : userAddress) { %>
                                     
-                                 <option value="<%=address.getAdd_no()%>"><%=address.getAddress() %></option>
+                                 <option value="<%=address.getAdd_no()%>" 
+                                 <% if(address.getAdd_no()==add_no){%>
+                                 selected
+                                 <%}%>>
+                                 <%=address.getAddress() %></option>
                                     
                                     <%} %>   
                                     
