@@ -6,7 +6,8 @@
 <%
 
 int period = 10;
-int discount = 40;
+int discount = ((int)Math.round((Math.random()*5))*10)+10;
+
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -53,7 +54,7 @@ table.coupon_list {
 									cellspacing="1" bgcolor="BBBBBB">
 									<caption
 										style="text-align: left; font-weight: bold; padding-bottom: 7px">
-										<span style="border-left: 4px solid #888888;"></span>&nbsp;&nbsp;쿠폰
+										<span style="border-left: 4px solid #888888;"></span>&nbsp;&nbsp; 랜덤 쿠폰
 										발급
 
 									</caption>
@@ -63,13 +64,13 @@ table.coupon_list {
 								<!-- coupon item start -->
 
 								<table class="coupon_list" align=center border="0"
-									cellpadding="0" cellspacing="1" bgcolor="BBBBBB"
+									cellpadding="0" cellspacing="1" bgcolor="FFFFE4"
 									style="padding: 0px; border: 4px double #000000;">
 									<tr>
 										<td width=20% height=70 align=left class=t1></td>
 										<td width=42% height=70 align=center class=t1></td>
 										<td width=38% height=70 align=left class=t1
-											style="font-size: 10pt; font-weight: bold">SUMMER COUPON
+											style="font-size: 10pt; font-weight: bold">RANDOM COUPON
 
 										
 									</tr>

@@ -69,7 +69,7 @@ table.coupon_list {
 								%>
 
 								<table class="coupon_list" align=center border="0"
-									cellpadding="0" cellspacing="1" bgcolor="BBBBBB"
+									cellpadding="0" cellspacing="1" bgcolor="FFFFE4"
 									style="padding: 2px; border: 2px double #000000;">
 									<tr>
 										<td width=25% height=26 align=center class=t1></td>
