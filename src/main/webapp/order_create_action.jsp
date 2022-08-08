@@ -45,7 +45,7 @@
 		orderService.create(sUserId);
 	}else if(buyType.equals("cart_select")){
 		
-		orderService.createTest(sUserId,cart_item_no_strArray,total_price);	
+		orderService.createTest(sUserId,cart_item_no_strArray,total_price,Integer.parseInt(add_select));	
 		if(coupon_select.equalsIgnoreCase("0")){
 			
 		}else{

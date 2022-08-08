@@ -106,7 +106,7 @@ public class OrderService {
 		}
 		return 0;
 	}
-public int createTest(String sUserId,String[] cart_item_noStr_array,int tot_price) throws Exception{
+public int createTest(String sUserId,String[] cart_item_noStr_array,int tot_price,int address) throws Exception{
 		
 		ArrayList<OrderItem> orderItemList=new ArrayList<OrderItem>();
 		int o_tot_price=0;
@@ -118,7 +118,7 @@ public int createTest(String sUserId,String[] cart_item_noStr_array,int tot_pric
 			o_tot_price=tot_price;
 			oi_tot_count+=orderItem.getOi_qty();
 		}
-		Orders newOrder=new Orders(0,"", null, o_tot_price, sUserId,1,orderItemList);
+		Orders newOrder=new Orders(0,"", null, o_tot_price, sUserId,address,orderItemList);
 		ordersDao.create(newOrder);
 		for(int i =0;i<cart_item_noStr_array.length;i++) {
 			cartDao.deleteCartByCNo(Integer.parseInt(cart_item_noStr_array[i]));
