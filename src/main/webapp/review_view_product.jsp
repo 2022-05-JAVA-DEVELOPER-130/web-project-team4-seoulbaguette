@@ -2,7 +2,6 @@
 <%@page import="com.itwill.bakery.service.ReviewService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@include file="user_login_check.jspf"%>
 <%
 String r_no = request.getParameter("r_no");
 
@@ -10,7 +9,11 @@ if (r_no == null || r_no.equals("")) {
 	response.sendRedirect("review_list_user.jsp");
 	return;
 }
-
+boolean isLogin = false;
+String sUserId = (String) session.getAttribute("s_u_id");
+if (session.getAttribute("s_u_id") != null) {
+	isLogin = true;
+}
 ReviewService reviewService = new ReviewService();
 Review review = reviewService.selectReview(Integer.parseInt(r_no));
 %>
@@ -53,7 +56,8 @@ Review review = reviewService.selectReview(Integer.parseInt(r_no));
 							<form name="f" method="post" action="order_delete_action.jsp"
 								onsubmit="return check_delete_order()">
 								<input type="hidden" name="r_no" value="<%=review.getR_no()%>">
-								<input type="hidden" name="p_no" value="<%=review.getProduct().getP_no()%>">
+								<input type="hidden" name="p_no"
+									value="<%=review.getProduct().getP_no()%>">
 								<table align="center" width="80%" border="0" cellpadding="0"
 									cellspacing="1" bgcolor="#FFFFFF">
 									<caption
@@ -63,8 +67,8 @@ Review review = reviewService.selectReview(Integer.parseInt(r_no));
 									<tr>
 										<td width="81px" height="83px" align=center bgcolor="#FFFFFF"
 											class=t1 style="border: 1px solid #aaa;"><img
-											src="image/<%=review.getProduct().getP_image()%>" width="80px" height="80px">
-										</td>
+											src="image/<%=review.getProduct().getP_image()%>"
+											width="80px" height="80px"></td>
 										<td width=602 height=80 align=left bgcolor="ffffff" class=t1
 											style="padding-left: 20px; font-size: 10pt; font-weight: bold">
 											<%=review.getProduct().getP_name()%></td>
@@ -94,7 +98,15 @@ Review review = reviewService.selectReview(Integer.parseInt(r_no));
 											%>
 										</td>
 										<td width=260 height=40 align=center bgcolor="ffffff" class=t1>
-											<%=review.getUser_id() %></td>
+
+											<%
+											if (review.getUser_id() == null || review.getUser_id().equals("")) {
+												out.print("탈퇴한 회원");
+											} else {
+												out.print(review.getUser_id());
+											}
+											%>
+										</td>
 										<td width=109 height=40 align=center bgcolor="ffffff" class=t1
 											colspan="3"><%=review.getR_date().substring(0, 16)%></td>
 									</tr>
@@ -111,8 +123,9 @@ Review review = reviewService.selectReview(Integer.parseInt(r_no));
 							</form> <br /> <br /> <br />
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
-									<td align=center><input type="button" value="뒤로가기" onClick="productReview()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										
+									<td align=center><input type="button" value="뒤로가기"
+										onClick="productReview()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 									</td>
 								</tr>
 							</table></td>

@@ -110,6 +110,19 @@ public class UserDao {
 		return rowCount;
 	}
 	
+	public int addPoint(User user) throws Exception{
+		Connection con=dataSource.getConnection();
+		PreparedStatement pstmt=con.prepareStatement(UserSQL.USER_POINT_ADD);
+		pstmt.setInt(1, user.getUser_point());
+		pstmt.setString(2, user.getUser_id());
+		int rowCount=pstmt.executeUpdate();
+		
+		pstmt.close();
+		con.close();
+		
+		return rowCount;
+	}
+	
 	
 	public User checkId(String userId) throws Exception{
 		Connection con = null;

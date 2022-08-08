@@ -14,6 +14,9 @@ public class UserSQL {
 
 	public final static String USER_POINT_UPDATE 
 			= "update user_info set user_point=user_point- ?  where user_id=?";
+	
+	public final static String USER_POINT_ADD
+	="update user_info set user_point=user_point+ ?  where user_id=?";
 
 	public final static String ADDRESS_UPDATE 
 			= "update address set address=? where add_no=?";

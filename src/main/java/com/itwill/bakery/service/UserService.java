@@ -99,6 +99,11 @@ public class UserService {
 		return userDao.updatePoint(user);
 	}
 	
+	public int addPoint(String id,int point) throws Exception{
+		User user=new User(id, null, null, null, null, point, null);
+		return userDao.addPoint(user);
+	}
+	
 	//주소 수정
 	public int updateAddr(Address address) throws Exception{
 		return userDao.updateAddress(address);
