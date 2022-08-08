@@ -44,7 +44,7 @@ ProductService productService = new ProductService();
 	<form name="order_delete_all_form" style="margin: 0">
 </form>	
 <!--------------------------------------------------------------  
-	<% for(Orders order : orderList) { %>
+	<%-- <% for(Orders order : orderList) { %>
 		
 		
 		주문번호: <%=order.getO_no() %><br>
@@ -63,7 +63,7 @@ ProductService productService = new ProductService();
 			
 		
 		<%} %>
-	<% }%>
+	<% }%> --%>
 -------------------------------------------------------------->
 <div id="container">
 		<!-- header start -->
