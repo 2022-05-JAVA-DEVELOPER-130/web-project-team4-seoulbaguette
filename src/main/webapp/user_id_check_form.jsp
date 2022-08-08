@@ -19,6 +19,8 @@
 			msg="사용 불가능한 아이디입니다.";
 		}else{
 			msg="사용 가능한 아이디 입니다";
+			
+			
 		}
 	}
 	
@@ -69,7 +71,8 @@
 	function sendCheckValue() {
 		// 중복체크 결과인 idCheck 값을 전달한다.
 		// 회원가입 화면의 ID입력란에 값을 전달
-		opener.document.f.userId.value = window.document.getElementById('user_id').value;
+		opener.document.f.u_id.value = window.document.getElementById('user_id').value;
+		
 		window.close();
 	}
 </script>
