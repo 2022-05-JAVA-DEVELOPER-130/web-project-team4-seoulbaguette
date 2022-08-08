@@ -65,7 +65,6 @@
 		document.getElementById('checkForm').action='user_id_check_form.jsp';
 		document.getElementById('checkForm').method='POST';
 		document.getElementById('checkForm').submit();
-		
 	}
 	// 사용하기 클릭 시 부모창으로 값 전달 
 	function sendCheckValue() {
