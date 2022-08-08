@@ -146,7 +146,7 @@ String sUserId=(String)session.getAttribute("s_u_id");
 				<table width=590 border=0 cellpadding=0 cellspacing=0>
 					<tr>
 					<%
-					if(sUserId.equals("admin")){
+					if(sUserId!=null&&sUserId.equals("admin")){
 					%>
 						<td align=center><input type="button" style="font: inherit;" value="글쓰기" onClick="noticeCreate()"> &nbsp; 
 						<input type="button" style="font: inherit;" value="수정" onClick="noticeUpdate()"> &nbsp; 
