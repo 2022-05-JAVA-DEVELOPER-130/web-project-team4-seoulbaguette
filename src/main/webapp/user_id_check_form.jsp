@@ -6,7 +6,7 @@
 	boolean isDuplicate=false;	
 	String msg="";
 	//request.setCharacterEncoding("UTF-8");
-	String user_id = request.getParameter("sUserId");
+	String user_id = request.getParameter("user_id");
 	if(user_id==null|| user_id.equals("")){
 		//최초윈도우를 띄울때
 		user_id="";
@@ -55,7 +55,7 @@
 <script type="text/javascript">
 	// 아이디 중복체크
 	function idCheck() {
-		var userId=document.getElementById("sUserId").value;
+		var userId=document.getElementById("user_id").value;
 		if(userId==null|| userId==''){
 			alert('검색할아이디를 입력하시고 중복체크를 하세요.');
 			return;
@@ -69,7 +69,7 @@
 	function sendCheckValue() {
 		// 중복체크 결과인 idCheck 값을 전달한다.
 		// 회원가입 화면의 ID입력란에 값을 전달
-		opener.document.f.userId.value = window.document.getElementById('sUserId').value;
+		opener.document.f.userId.value = window.document.getElementById('user_id').value;
 		window.close();
 	}
 </script>
@@ -86,15 +86,15 @@
 		<br>
 		<div id="chk">
 			<form id="checkForm">
-				<input type="text" name="userId" id="user_id" value="<%=user_id%>"> <input
-					type="button" value="중복확인" onclick="idCheck()">
+				<input type="text" name="user_id" id="user_id" value="<%=user_id%>"> <input
+					type="button" style="font: inherit;" value="중복확인" onclick="idCheck()">
 			</form>
 			<div id="msg"><%=msg %></div>
 
 			<br> 
-			<input id="cancelBtn" type="button" value="취소" onclick="window.close();"> 
+			<input id="cancelBtn" style="font: inherit;" type="button" value="취소" onclick="window.close();"> 
 			<%if(!isDuplicate){ %>
-			<input id="useBtn" type="button" value="사용하기" onclick="sendCheckValue()">
+			<input id="useBtn" style="font: inherit;" type="button" value="사용하기" onclick="sendCheckValue()">
 			<%} %>
 		</div>
 	</div>

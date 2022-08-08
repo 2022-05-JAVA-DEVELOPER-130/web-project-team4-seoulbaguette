@@ -58,8 +58,9 @@ if (msg == null)
 								<td width=100 align=center bgcolor="E6ECDE" height="22">
 									아이디</td>
 								<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
-								<input type="text" style="width: 150px" name="user_id" value="<%=fuser.getUser_id()%>">&nbsp;&nbsp;<font
-									color="red"><%=msg%></font></td>
+								<input onclick="openIdCheck();" type="text" style="width: 150px" name="u_id" value="" readonly="readonly">&nbsp;&nbsp;
+											<input type="button" style="font: inherit;"  value="아이디중복검사" onclick="openIdCheck();">
+											<font color="red"><%=msg%></font>
 							</tr>
 							<tr>
 								<td width=100 align=center bgcolor="E6ECDE" height="22">비밀번호</td>
@@ -102,8 +103,8 @@ if (msg == null)
 					<table border=0 cellpadding=0 cellspacing=1>
 						<tr>
 							<td align=center>
-							<input type="button" value="회원 가입" onclick="userCreate()"> &nbsp; 
-							<input type="button" value="취소" onClick="userCreate_cancel()"></td>
+							<input type="button" style="font: inherit;" value="회원 가입" onclick="userCreate()"> &nbsp; 
+							<input type="button" style="font: inherit;" value="취소" onClick="userCreate_cancel()"></td>
 						</tr>
 					</table>
 
