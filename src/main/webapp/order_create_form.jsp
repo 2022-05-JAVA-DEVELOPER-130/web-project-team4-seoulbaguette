@@ -174,6 +174,7 @@ if(request.getAttribute("selectC")==null){
                               <td width=166 height=26 align=center bgcolor="ffffff" class=t1><%=user.getUser_email()%></td>
                               <td width=190 height=26 align=center bgcolor="ffffff" class=t1>
                                  <select name="add_select">
+                                  <option value="0">배송지 선택</option>
                                  <% for(Address address : userAddress) { %>
                                     
                                  <option value="<%=address.getAdd_no()%>"><%=address.getAddress() %></option>

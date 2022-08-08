@@ -22,15 +22,15 @@
 	
 	int o_price=Integer.parseInt(request.getParameter("changeTot"));
 	int o_point=Integer.parseInt(request.getParameter("changePointTot"));
-	int total_price;
-	Coupon coupon = new Coupon();
-	if(coupon_select.equalsIgnoreCase("None")){
+	int total_price=o_price;
+	Coupon coupon = couponService.selectCoupon(new Coupon(Integer.parseInt(coupon_select), null, null, 0, null, 0));
+	/* if(coupon_select.equalsIgnoreCase("None")){
 		total_price = o_price;
 	}else{
 		coupon = couponService.selectCoupon(new Coupon(Integer.parseInt(coupon_select), null, null, 0, null, 0));
 		int discount = coupon.getC_discount();
 		total_price = (o_price*(100-discount))/100;
-	}
+	} */
 	
 	System.out.println(add_select);
 	
@@ -56,7 +56,7 @@
  }else if(buyType.equals("direct")){
 	orderService.createTest(sUserId, Integer.parseInt(p_noStr), Integer.parseInt(p_qtyStr),Integer.parseInt(add_select),total_price);
 	userService.updatePoint(p_User);
-	if(coupon_select.equalsIgnoreCase("None")){
+	if(coupon_select.equalsIgnoreCase("0")){
 	
 	}else{
 		couponService.useCoupon(coupon.getC_no());
