@@ -212,7 +212,7 @@ public class NoticeDao {
 				pstmt.setString(2, notice.getNotice_content());
 
 				int result = pstmt.executeUpdate();
-
+				con.close();
 				return result;
 
 		}

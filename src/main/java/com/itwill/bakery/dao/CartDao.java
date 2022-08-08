@@ -87,6 +87,7 @@ public class CartDao {
 		pstmt.setString(2, user_id);
 		pstmt.setInt(3, p_no);
 		int rowCount = pstmt.executeUpdate();
+		con.close();
 		return rowCount;
 	}
 	public int updateQty(String user_id,int cart_no,int cart_qty) throws Exception{
@@ -96,6 +97,7 @@ public class CartDao {
 		pstmt.setString(2, user_id);
 		pstmt.setInt(3, cart_no);
 		int rowCount = pstmt.executeUpdate();
+		con.close();
 		return rowCount;
 	}
 	//cart delete 1
