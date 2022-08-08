@@ -20,12 +20,12 @@
 </head>
 <body>
 <div style="width:250px ;margin:0 auto;padding: 10px">
-	<img src="http://pics.gmkt.kr/pc/ko/item/vip/image__header-mypage.svg" width="33px" height="33px"
+	<img src="image/image__header-mypage.svg" width="33px" height="33px"
 		alt="장바구니이미지">
 	<strong>로그인을 해주세요.</strong>
 	<div  style="margin-top: 15px;margin-left: auto;margin-right: auto;padding: 10px" >
 		<div  style="margin: 0 auto;padding: 0px 20px">
-			<button onclick="window.close();opener.location.href='product_list.jsp';">
+			<button onclick="window.close();opener.location.href='user_login_form.jsp';">
 				로그인 하기
 			</button>
 			<!-- 
@@ -33,7 +33,7 @@
 				장바구니로
 			</button> 
 			-->
-			<button onclick="window.close();opener.location.href='cart_view_select_update_qyt_all_check_delete_image.jsp';">
+			<button onclick="window.close();opener.location.href='user_write_form.jsp';">
 				회원가입
 			</button>
 		</div>
