@@ -30,6 +30,8 @@ if (notice == null) {
 	return;
 }
 
+String sUserId=(String)session.getAttribute("s_u_id");
+
 //List<Notice> noticeList = noticeService.findNoticeList(currPage);
 //String noStr = request.getParameter("notice_no");
 //Notice notice = noticeService.selectByNoticeNo(Integer.parseInt(noStr));
@@ -146,19 +148,18 @@ if (notice == null) {
 				<br>
 				<table width=590 border=0 cellpadding=0 cellspacing=0>
 					<tr>
-						<td align=center><input type="button" style="font: inherit;"
-							value="글쓰기" onClick="noticeCreate()"> &nbsp; <input
-							type="button" style="font: inherit;" value="수정"
-							onClick="noticeUpdate()"> &nbsp; <input type="button"
-							style="font: inherit;" value="삭제" onClick="noticeRemove()">
-							&nbsp; <input type="button" style="font: inherit;" value="리스트"
-							onClick="noticeList()"></td>
+					<%
+					if(sUserId.equals("admin")){
+					%>
+						<td align=left><input type="button" style="font: inherit;" value="글쓰기" onClick="noticeCreate()"> &nbsp; 
+						<input type="button" style="font: inherit;" value="수정" onClick="noticeUpdate()"> &nbsp; 
+						<input type="button" style="font: inherit;" value="삭제" onClick="noticeRemove()"> &nbsp; 
+					<% } %>
+						
+						<input type="button" style="font: inherit;" value="리스트" onClick="noticeList()"></td>
 					</tr>
 				</table>
-				</td>
-				</tr>
-				</table>
-			</div>
+			
 
 			<!-- ********************************************************** -->
 		</div>

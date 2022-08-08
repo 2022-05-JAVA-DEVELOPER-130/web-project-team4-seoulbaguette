@@ -17,6 +17,9 @@ if (pageno == null || pageno.equals("")) {
 	pageno = "1";
 }
 NoticeListPageMaker noticeListPage=new NoticeService().findNoticeList(Integer.parseInt(pageno));
+
+String sUserId=(String)session.getAttribute("s_u_id");
+
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -150,14 +153,18 @@ NoticeListPageMaker noticeListPage=new NoticeService().findNoticeList(Integer.pa
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
 									<td align="right">
+											
+									<%
+									if(sUserId.equals("admin")){			
+									 %>
 									<input type="button" style="font: inherit;" value="공지 쓰기" onclick="noticeCreate();" /></td>
+									<%} %>
 								</tr>
-							</table> <br /></td>
+							</table> <br />
 							
 							
 							
-					</tr>
-				</table>
+			
 						</div>
 		
 					<!-- include_content.jsp end-->
