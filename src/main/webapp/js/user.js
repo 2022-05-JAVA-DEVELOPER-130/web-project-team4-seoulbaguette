@@ -165,5 +165,5 @@ function userCreateForm(){
 }
 
 function openIdCheck(){
-	window.open('user_id_check_form.jsp','checkForm','width=500,height=300,resizable = no,scrollbar = no');
+	window.open('user_id_check_form.jsp','checkForm','width=500,height=200,resizable = no,scrollbar = no');
 }
