@@ -228,9 +228,9 @@ if(request.getAttribute("selectC")==null){
                            <tr>
                               <td width=640 colspan=4 height=26 bgcolor="ffffff" class=t1>
                                  <p align=right style="padding-top: 10px">
-                                    <font color=#FF0000>총 주문 금액 : <%= (tot_price-point) * dis%>원
+                                    <font color=#FF0000>총 주문 금액 : <%= Math.round((tot_price-point) * dis)%>원
                                     </font>
-                                    <input type="hidden" name="changeTot" value="<%=(tot_price-point) * dis%>">
+                                    <input type="hidden" name="changeTot" value="<%= Math.round((tot_price-point) * dis)%>">
                                     <input type="hidden" name="changePointTot" value="<%=point%>">
                                  </p>
                               </td>
