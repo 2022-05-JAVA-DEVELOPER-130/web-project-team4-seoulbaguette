@@ -44,7 +44,7 @@ public class QnADao {
 			pstmt.setString(3, qna.getQna_content());
 
 			int result = pstmt.executeUpdate();
-
+			con.close();
 			return result;
 
 	}
@@ -74,7 +74,7 @@ public class QnADao {
 			pstmt.setInt(6, temp.getDepth()+1);
 
 			rowCount = pstmt.executeUpdate();
-
+			con.close();
 			return rowCount;
 	}
 
@@ -118,7 +118,7 @@ public class QnADao {
 			} catch (Exception ex) {
 			}
 		}
-
+		
 		return qna;
 	}
 
