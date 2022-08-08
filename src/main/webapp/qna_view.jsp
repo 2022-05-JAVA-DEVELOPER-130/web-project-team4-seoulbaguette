@@ -76,14 +76,15 @@ QnAService.getInstance().updateReadCount(qna_no);
 										bgcolor="BBBBBB">
 										<tr>
 											<td width=100 align=center bgcolor="E2E2E2" height="22">작성자</td>
-											<td width=490 bgcolor="ffffff" style="padding-left: 10px"
-												align="left"><%=qna.getUser_id()%></td>
+											<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left"><%=qna.getUser_id()%>
+											<input value="<%=qna.getQna_title()%>"  type="text" style="width: 150" name="qna_title">
+											</td>
+										
 										</tr>
 
 										<tr>
 											<td width=100 align=center bgcolor="E2E2E2" height="22">제목</td>
-											<td width=490 bgcolor="ffffff" style="padding-left: 10px"
-												align="left"><%=qna.getQna_title()%></td>
+											<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left"><%=qna.getQna_title()%></td>
 										</tr>
 										<tr>
 											<td width=100 align=center bgcolor="E2E2E2" height="22">내용</td>

@@ -10,12 +10,12 @@ qna_no=Integer.valueOf(request.getParameter("qna_no"));
 } catch (Exception ex) {
 	
 }
-Integer groupno=null;
-try{
-groupno=Integer.valueOf(request.getParameter("groupno"));
-} catch (Exception ex) {
+//Integer groupno=null;
+//try{
+//groupno=Integer.valueOf(request.getParameter("groupno"));
+//} catch (Exception ex) {
 	
-}
+//}
 //번호없으면 list이동
 if(qna_no==null){
 	response.sendRedirect("qna_list.jsp");
@@ -85,15 +85,14 @@ if(count==0){
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp; <b>게시판 -
-											게시물 수정</b>
+									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp; <b>Q & A > 게시물 수정</b>
 									</td>
 								</tr>
 							</table> <br> <!-- modify Form  -->
-							<form name="f" method="post">
+							<form name="f" action="qna_modify_action.jsp" method="post">
 								<input type="hidden" name="pageno" value="<%=pageno%>" /> 
 								<input type="hidden" name="qna_no" value="<%=qna.getQna_no()%>" />
-								<input type="hidden" name="groupno" value="<%=qna.getGroupno()%>" />
+								<%-- <input type="hidden" name="groupno" value="<%=qna.getGroupno()%>" />--%>
 								
 								<table border="0" cellpadding="0" cellspacing="1" width="590"
 									bgcolor="BBBBBB">
