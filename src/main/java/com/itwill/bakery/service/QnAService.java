@@ -72,7 +72,7 @@ public class QnAService {
 		boolean rExist=qnaDao.countReply(tempQnA);
 		System.out.println("답글의 존재여부: "+rExist);
 		if(qnaDao.countReply(tempQnA)) {
-			throw new Exception("답글이 있는 게시물은 삭제안됨");
+			throw new Exception("답글이 있어 게시물 삭제에 실패하였습니다.");
 		}else {
 			return qnaDao.remove(tempQnA.getQna_no(),user_id);
 		}

@@ -1,4 +1,4 @@
-x<%@page import="com.itwill.bakery.vo.QnA"%>
+<%@page import="com.itwill.bakery.vo.QnA"%>
 <%@page import="com.itwill.bakery.service.QnAService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -32,15 +32,13 @@ x<%@page import="com.itwill.bakery.vo.QnA"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>QnA</title>
+<title>SEOULBAGUETTE</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/menu.css" type="text/css">
 <link rel=stylesheet href="css/shop.css" type="text/css">
-<style type="text/css" media="screen">
-</style>
 <script type="text/javascript" src="js/qna.js">
-
+	
 </script>
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
@@ -54,7 +52,7 @@ x<%@page import="com.itwill.bakery.vo.QnA"%>
 			<!-- include_common_top.jsp end-->
 		</div>
 		<!-- header end -->
-<!-- wrapper start -->
+		<!-- wrapper start -->
 		<div id="wrapper">
 			<!-- content start -->
 			<!-- include_content.jsp start-->
@@ -64,11 +62,12 @@ x<%@page import="com.itwill.bakery.vo.QnA"%>
 						<td><br />
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
-								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp; <b>게시판 -
-											게시물 답글</b>
-									</td>
-								</tr>
+								<caption
+									style="text-align: left; font-weight: bold; padding-bottom: 7px">
+									<span style="border-left: 4px solid #888888;"></span>&nbsp;&nbsp;
+									Q & A > 게시물 답글작성
+									</caption>
+								
 							</table> <br> <!-- write Form  -->
 							<form name="f" action="qna_reply_write_action.jsp" method="post">
 								<input type="hidden" name="pageno"  value="<%=pageno%>" />
@@ -78,21 +77,21 @@ x<%@page import="com.itwill.bakery.vo.QnA"%>
 								<table border="0" cellpadding="0" cellspacing="1" width="590"
 									bgcolor="BBBBBB">
 									<tr>
-										<td width=100 align=center bgcolor="E6ECDE" height="22">제목</td>
+										<td width=100 align=center bgcolor="E2E2E2" height="22">제목</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
 											<input value="[RE]<%=qna.getQna_title()%>"  type="text" style="width: 150"
 											name="qna_title">
 										</td>
 									</tr>
 									<tr>
-										<td width=100 align=center bgcolor="E6ECDE" height="22">작성자</td>
+										<td width=100 align=center bgcolor="E2E2E2" height="22">작성자</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
 											<input value="<%=sUser_id%>" readonly="readonly" type="text" style="width: 150"
 											name="user_id">
 										</td>
 									</tr>
 									<tr>
-										<td width=100 align=center bgcolor="E6ECDE" height="22">내용</td>
+										<td width=100 align=center bgcolor="E2E2E2" height="22">내용</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
 											<textarea name="qna_content" class="textarea" style="width: 350px" rows="14">>><%=qna.getQna_content().replace("\n",">>").trim()%></textarea>
 										</td>
@@ -111,19 +110,18 @@ x<%@page import="com.itwill.bakery.vo.QnA"%>
 							</table></td>
 					</tr>
 				</table>
-			</div>
-		<!-- include_content.jsp end-->
-			<!-- content end -->
-		</div>
+				</div>
 
-	
-		<!--wrapper end-->
-		<div id="footer">
-			<!-- include_common_bottom.jsp start-->
-			<jsp:include page="include_common_bottom.jsp" />
-			<!-- include_common_bottom.jsp end-->
+				<!-- include_content.jsp end-->
+				<!-- content end -->
+			</div>
+			<!--wrapper end-->
+			<div id="footer">
+				<!-- include_common_bottom.jsp start-->
+				<jsp:include page="include_common_bottom.jsp" />
+				<!-- include_common_bottom.jsp end-->
+			</div>
 		</div>
-	</div>
-	<!--container end-->
+		<!--container end-->
 </body>
 </html>
