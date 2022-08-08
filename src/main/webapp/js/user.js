@@ -3,7 +3,7 @@
  */
 
 function userCreate() {
-	if (document.f.user_id.value == "") {
+	if (document.f.u_id.value == "") {
 		alert("사용자 아이디를 입력하십시요.");
 		f.user_id.focus();
 		return false;
