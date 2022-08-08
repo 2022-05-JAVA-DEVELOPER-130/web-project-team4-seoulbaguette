@@ -39,7 +39,7 @@ if(session.getAttribute("s_u_id")!=null){
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공지사항</title>
+<title>SEOUL BAGUETTE</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/menu.css" type="text/css">
