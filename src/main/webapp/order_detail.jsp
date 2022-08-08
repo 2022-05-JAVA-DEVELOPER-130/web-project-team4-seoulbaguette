@@ -22,6 +22,9 @@ OrderReviewService orderReviewService = new OrderReviewService();
 int check = 1;
 int i = 0;
 String bName = "리뷰 보기";
+
+UserService userService=new UserService();
+String address=userService.selectAddressno(orders.getAdd_no()).getAddress();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -83,6 +86,22 @@ String bName = "리뷰 보기";
 							</tr>
 						</table>
 					</form> <br />
+					<table align="center" width="80%" border="0" cellpadding="0" cellspacing="1" bgcolor="BBBBBB">
+							<caption style="text-align: left;">배송지</caption>
+							<tr>
+								<td width=290 height=25 bgcolor="E6ECDE" align=center class=t1><font>주소</font></td>
+								
+							</tr>
+
+
+							<tr>
+								<td width=290 height=26 align=center bgcolor="ffffff" class=t1><%=address%></td>
+								
+									
+								</td>
+							</tr>
+						</table>
+						<br>
 					<table align=center width=80% border="0" cellpadding="0"
 						cellspacing="1" bgcolor="BBBBBB">
 						<caption style="text-align: left;">주문제품목록</caption>

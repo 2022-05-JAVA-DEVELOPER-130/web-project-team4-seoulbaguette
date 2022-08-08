@@ -240,9 +240,9 @@ if(request.getAttribute("add_select")==null){
                            <tr>
                               <td width=640 colspan=4 height=26 bgcolor="ffffff" class=t1>
                                  <p align=right style="padding-top: 10px">
-                                    <font color=#FF0000>총 주문 금액 : <%=new DecimalFormat("#,##0").format( Math.round((tot_price-point) * dis))%>원 &nbsp;&nbsp;
+                                    <font color=#FF0000>총 주문 금액 : <%=new DecimalFormat("#,##0").format( Math.round((tot_price) * dis)-point)%>원 &nbsp;&nbsp;
                                     </font>
-                                    <input type="hidden" name="changeTot" value="<%= Math.round((tot_price-point) * dis)%>">
+                                    <input type="hidden" name="changeTot" value="<%= Math.round((tot_price) * dis)-point%>">
                                     <input type="hidden" name="changePointTot" value="<%=point%>">
                                  </p>
                               </td>

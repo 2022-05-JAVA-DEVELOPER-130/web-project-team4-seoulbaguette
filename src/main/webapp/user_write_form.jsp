@@ -9,6 +9,10 @@ if (fuser == null) {
 String msg = (String) request.getAttribute("msg");
 if (msg == null)
 	msg = "";
+
+/* String id=(String) request.getAttribute("id");
+if(id==null)
+	id=""; */
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -58,7 +62,7 @@ if (msg == null)
 								<td width=100 align=center bgcolor="E6ECDE" height="22">
 									아이디</td>
 								<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
-								<input onclick="openIdCheck();" type="text" style="width: 150px" name="u_id" value="" readonly="readonly">&nbsp;&nbsp;
+								<input onclick="openIdCheck();" type="text" style="width: 150px" name="u_id"  value="" readonly="readonly">&nbsp;&nbsp;
 											<input type="button" style="font: inherit;"  value="아이디중복검사" onclick="openIdCheck();">
 											<font color="red"><%=msg%></font>
 							</tr>
