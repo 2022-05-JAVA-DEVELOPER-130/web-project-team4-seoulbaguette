@@ -46,6 +46,7 @@
 	}else if(buyType.equals("cart_select")){
 		
 		orderService.createTest(sUserId,cart_item_no_strArray,total_price,Integer.parseInt(add_select));	
+		userService.updatePoint(p_User);
 		if(coupon_select.equalsIgnoreCase("0")){
 			
 		}else{

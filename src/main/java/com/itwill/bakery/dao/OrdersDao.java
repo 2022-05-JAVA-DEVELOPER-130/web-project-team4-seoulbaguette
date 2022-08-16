@@ -140,7 +140,7 @@ public class OrdersDao {
 			}while(rs.next());
 		}
 		
-		
+		con.close();
 		return orders;
 	}
 	
@@ -187,6 +187,7 @@ public class OrdersDao {
 			orderList.add(order);
 			
 		}
+			con.close();
 			return orderList;
 
 	}
