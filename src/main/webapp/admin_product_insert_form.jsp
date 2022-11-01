@@ -93,7 +93,7 @@
 										</td>
 
 
-									</tr>
+									</tr> 
 									<!-- order item end -->
 								</table>
 
