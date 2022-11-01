@@ -7,7 +7,7 @@
 	pageEncoding="UTF-8"%>
 
 <%
-String saveDirectory = ""; //파일 업로드 절대 경로
+String saveDirectory = ""; //파일 업로드 절대 경로 
 
 String saveFolder = "/image";//파일 업로드 경로
 saveDirectory=application.getRealPath(saveFolder);

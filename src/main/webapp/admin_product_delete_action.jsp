@@ -7,7 +7,7 @@
     
     productService.delete(p_no);
     response.sendRedirect("product_list.jsp");
-    
+     
     %>
 <!DOCTYPE html>
 <html>

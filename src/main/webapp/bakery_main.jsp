@@ -6,11 +6,9 @@
     pageEncoding="UTF-8"%>
 <%
 String category_noStr="4";
-
 ProductService productService=new ProductService();
 List<Product> productList=new ArrayList<Product>();
 productList=productService.selectByCategory(Integer.parseInt(category_noStr));
-
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -72,13 +70,13 @@ productList=productService.selectByCategory(Integer.parseInt(category_noStr));
 									%>
 									<tr>
 									<%} %>
-										<td align="center" width="25%"  bgcolor="ffffff" style="padding-left:10px;padding-top: 10px; padding-right: 10px;padding-bottom: 10px;"><a
-											href="product_detail.jsp?p_no=<%=product.getP_no()%>"><img width="210px" height="210px"
-												src="image/<%=product.getP_image()%>" border="0"></a><br />
-											<br /> <b><%=product.getP_name()%></b><br> <font
-											color="#FF0000">
+										<td align="center" width="25%"  bgcolor="ffffff" style="padding-left:10px;padding-top: 10px; padding-right: 10px;padding-bottom: 10px;">
+										<a href="product_detail.jsp?p_no=<%=product.getP_no()%>">
+										<img width="210px" height="210px"src="image/<%=product.getP_image()%>" border="0"></a><br/>
+											<br/> <b><%=product.getP_name()%></b><br>
+									    <font color="#FF0000">
 										</font></td>
-									<%if(i%product_column_size==3){%>
+									 <%if(i%product_column_size==3){%>
 									</tr>
 									<%} %>	
 									

@@ -38,7 +38,7 @@ int count=qnaService.update(qna,sUser_id);
 
 String msg="";
 if(count==0){
-	msg="수정권한이 없습니다.";
+	msg="작성자 외 수정권한이 없습니다.";
 	out.println("<script>");
 	out.println("alert('"+msg+"');");
 	out.println("location.href='qna_list.jsp';");
@@ -84,10 +84,11 @@ if(count==0){
 						<td><br />
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
-								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp; <b>Q & A > 게시물 수정</b>
-									</td>
-								</tr>
+								<caption
+									style="text-align: left; font-weight: bold; padding-bottom: 7px">
+									<span style="border-left: 4px solid #888888;"></span>&nbsp;&nbsp;
+									Q & A > 게시물 수정
+									</caption>
 							</table> <br> <!-- modify Form  -->
 							<form name="f" action="qna_modify_action.jsp" method="post">
 								<input type="hidden" name="pageno" value="<%=pageno%>" /> 

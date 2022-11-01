@@ -14,7 +14,7 @@ if(p_no==null||p_no.equals("")){
 	return;
 }
 
-
+ 
 ProductService productService = new ProductService();
 Product product = productService.selectByNo(Integer.parseInt(p_no));
 %>

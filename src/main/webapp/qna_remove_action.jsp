@@ -16,31 +16,13 @@
 	}catch(Exception ex){
 	}
 	
-	//boolean result=true;
-	//String msg="";
-	 //if(user_id==sUser_id) {
-		
-	//		QnAService.getInstance().remove(qna_no, sUser_id);
-	//		result=true;
-	//		msg="게시물을 삭제하였습니다.";
-					
-	//}else {
-		
-	//	result=false;
-	//	msg="삭제 권한이 없습니다.";
-	
-	//}
-	
-
-
-	
 	QnAService qnaService = new QnAService();
 	int removeCount=qnaService.remove(qna_no, sUser_id);
 	String msg="";		
 	if(removeCount==0){
 		
 			
-			msg="삭제권한이 없습니다.";
+			msg="작성자 외에 삭제권한이 없습니다.";
 			out.println("<script>");
 			out.println("alert('"+msg+"');");
 			out.println("location.href='qna_list.jsp';");

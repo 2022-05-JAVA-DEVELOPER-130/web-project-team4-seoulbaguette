@@ -13,7 +13,7 @@
     Product product=new Product(p_no,p_name,p_price,null,p_desc,0,category_no);
     
     productService.update(product);
-    
+     
     response.sendRedirect("product_detail.jsp?p_no="+p_no);
     
     %>
